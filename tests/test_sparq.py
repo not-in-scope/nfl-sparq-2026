@@ -36,7 +36,8 @@ def test_compute_psparq_too_few_inputs():
 
 
 def test_estimate_ten_split():
-    assert abs(estimate_ten_split(4.40) - 4.40 * 0.626) < 0.001
+    # Real NFL ratio: ten_split ≈ forty × 0.346 (e.g., 4.55 → 1.57)
+    assert abs(estimate_ten_split(4.40) - 4.40 * 0.346) < 0.001
 
 
 def test_compute_z_score():

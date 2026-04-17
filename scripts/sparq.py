@@ -50,8 +50,12 @@ MIN_REAL_INPUTS = 5
 
 
 def estimate_ten_split(forty: float) -> float:
-    """Estimate 10-yard split from 40-yard dash time."""
-    return forty * 0.626
+    """Estimate 10-yard split from 40-yard dash time.
+
+    Empirical ratio from NFL combine data: ten_split ≈ forty × 0.346
+    (e.g., 4.55 forty → 1.57 ten_split).
+    """
+    return forty * 0.346
 
 
 def compute_psparq(
@@ -90,7 +94,10 @@ def compute_psparq(
         if cone       is None: cone       = med['cone']
         if ten_split  is None: ten_split  = med['ten_split']
 
-    # Use forty when available; fall back to ten_split as a speed proxy
+    # Always express speed as a forty-yard time so the coefficient scale is consistent.
+    # When only ten_split is available, estimate forty from it.
+    if forty is None and ten_split is not None:
+        forty = round(ten_split / 0.346, 3)
     speed = forty if forty is not None else ten_split
 
     if any(v is None for v in [weight, vertical, broad, bench, speed, shuttle, cone]):

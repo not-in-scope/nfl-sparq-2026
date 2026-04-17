@@ -33,12 +33,21 @@ def test_extract_returns_none():
     assert extract_metric_from_text("nothing useful here", 'forty') is None
 
 
-MOCK_HTML = """<html><body>
-<h3>Fernando Mendoza, QB, Indiana</h3>
-<p>Mendoza ran a 4.61 forty-yard dash with a 36-inch vertical. Short shuttle in 4.36.</p>
-<h3>Spencer Fano, OT, Alabama</h3>
-<p>Fano posted a 32-inch vertical and 10-foot-3 broad jump. Ran a 4.91 forty-yard dash.</p>
-</body></html>"""
+# Mock HTML reflects actual PFF page structure: each player is an <li> with a
+# <strong> tag in format "POS Name (PFF Predictive Big Board Rank: N)" and
+# nested <li> children for individual measurements.
+MOCK_HTML = """<html><body><ul>
+<li><strong>QB Fernando Mendoza (PFF Predictive Big Board Rank: 1)</strong><ul>
+  <li>40-yard dash: 4.61 seconds</li>
+  <li>Vertical jump: 36.0 inches</li>
+  <li>Short shuttle: 4.36 seconds</li>
+</ul></li>
+<li><strong>OT Spencer Fano (PFF Predictive Big Board Rank: 10)</strong><ul>
+  <li>Vertical jump: 32.0 inches</li>
+  <li>Broad jump: 10 feet, 3 inches</li>
+  <li>40-yard dash: 4.91 seconds</li>
+</ul></li>
+</ul></body></html>"""
 
 
 def test_parse_pff_keyed_by_name():
@@ -52,33 +61,33 @@ def test_parse_pff_keyed_by_name():
 def test_parse_pff_second_player():
     result = parse_pff_proday(MOCK_HTML)
     assert 'Spencer Fano' in result
-    assert result['Spencer Fano']['broad'] == 123.0
+    assert result['Spencer Fano']['broad'] == 123.0  # 10*12 + 3
 
 
 def test_extract_camelcase_name():
-    html = """<html><body>
-<h3>DeShawn Jones, DE, Georgia</h3>
-<p>Jones ran a 4.45 forty-yard dash.</p>
-</body></html>"""
+    html = """<html><body><ul>
+<li><strong>DE DeShawn Jones (PFF Predictive Big Board Rank: 50)</strong><ul>
+  <li>40-yard dash: 4.45 seconds</li>
+</ul></li></ul></body></html>"""
     result = parse_pff_proday(html)
     assert 'DeShawn Jones' in result
     assert result['DeShawn Jones']['forty'] == 4.45
 
 
 def test_extract_initial_dot_name():
-    html = """<html><body>
-<h3>D.J. Turner, CB, Michigan</h3>
-<p>Turner posted a 38-inch vertical.</p>
-</body></html>"""
+    html = """<html><body><ul>
+<li><strong>CB D.J. Turner (PFF Predictive Big Board Rank: 75)</strong><ul>
+  <li>Vertical jump: 38.0 inches</li>
+</ul></li></ul></body></html>"""
     result = parse_pff_proday(html)
     assert 'D.J. Turner' in result
 
 
 def test_extract_apostrophe_name():
-    html = """<html><body>
-<h3>Ja'Tavion Sanders, TE, Texas</h3>
-<p>Sanders ran a 4.52 forty-yard dash.</p>
-</body></html>"""
+    html = """<html><body><ul>
+<li><strong>TE Ja'Tavion Sanders (PFF Predictive Big Board Rank: 80)</strong><ul>
+  <li>40-yard dash: 4.52 seconds</li>
+</ul></li></ul></body></html>"""
     result = parse_pff_proday(html)
     assert "Ja'Tavion Sanders" in result
 

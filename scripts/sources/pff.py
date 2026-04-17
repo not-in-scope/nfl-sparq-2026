@@ -6,15 +6,48 @@ from bs4 import BeautifulSoup
 URL = "https://www.pff.com/news/draft-2026-nfl-draft-pro-day-schedule-results-tracker"
 HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; research-bot/1.0)'}
 
+# Patterns applied to lowercased measurement text.
+# broad patterns produce two capture groups → converted to inches via group1*12 + group2.
 PATTERNS = {
-    'forty':     [r'(\d\.\d{2})\s*forty', r'forty[- ]yard dash[^0-9]*(\d\.\d{2})'],
-    'vertical':  [r'(\d{2}(?:\.\d)?)[- ]inch vertical', r'vertical[^0-9]{0,25}(\d{2}(?:\.\d)?)\s*(?:inch|in\.?)'],
-    'broad':     [r'(\d{1,2})-foot-(\d{1,2})\s*broad', r'broad jump[^0-9]*(\d{1,2})-foot-(\d{1,2})'],
-    'bench':     [r'(\d{1,2})\s*reps?\s*(?:on the\s*)?bench', r'bench press[^0-9]*(\d{1,2})\s*reps?'],
-    'cone':      [r'three[- ]cone[^0-9]{0,25}(\d\.\d{2})', r'3[- ]cone[^0-9]{0,25}(\d\.\d{2})', r'(\d\.\d{2})\s*(?:three|3)[- ]cone'],
-    'shuttle':   [r'short shuttle[^0-9]{0,25}(\d\.\d{2})', r'(\d\.\d{2})\s*short shuttle'],
-    'ten_split': [r'10[- ]yard split[^0-9]{0,25}(\d\.\d{2})', r'(\d\.\d{2})\s*10[- ]yard split'],
+    'forty':     [
+        r'40[- ]yard dash:\s*(\d\.\d{2})',           # "40-yard dash: 4.48 seconds"
+        r'(\d\.\d{2})\s*forty',
+        r'forty[- ]yard dash[^0-9]*(\d\.\d{2})',
+    ],
+    'vertical':  [
+        r'vertical jump:\s*(\d{2}(?:\.\d)?)\s*inches?',  # "Vertical jump: 33.5 inches"
+        r'(\d{2}(?:\.\d)?)[- ]inch vertical',
+        r'vertical[^0-9]{0,25}(\d{2}(?:\.\d)?)\s*(?:inch|in\.?)',
+    ],
+    'broad':     [
+        r'broad jump:\s*(\d+)\s*feet,?\s*(\d+)\s*inches?',  # "Broad jump: 9 feet, 7 inches"
+        r'(\d{1,2})-foot-(\d{1,2})\s*broad',
+        r'broad jump[^0-9]*(\d{1,2})-foot-(\d{1,2})',
+    ],
+    'bench':     [
+        r'bench:\s*(\d{1,2})\s*reps?',              # "Bench: 26 reps"
+        r'(\d{1,2})\s*reps?\s*(?:on the\s*)?bench',
+        r'bench press[^0-9]*(\d{1,2})\s*reps?',
+    ],
+    'cone':      [
+        r'three[- ]cone[^0-9]{0,25}(\d\.\d{2})',
+        r'3[- ]cone[^0-9]{0,25}(\d\.\d{2})',
+        r'(\d\.\d{2})\s*(?:three|3)[- ]cone',
+    ],
+    'shuttle':   [
+        r'short shuttle[^0-9]{0,25}(\d\.\d{2})',
+        r'(\d\.\d{2})\s*short shuttle',
+    ],
+    'ten_split': [
+        r'10[- ]yard split[^0-9]{0,25}(\d\.\d{2})',
+        r'(\d\.\d{2})\s*10[- ]yard split',
+    ],
 }
+
+# Regex to extract player name from "<POS> Name (PFF Predictive Big Board Rank: N)"
+_NAME_RE = re.compile(
+    r'^[A-Z]+\s+([A-Z][a-zA-Z\'\.\-]*(?:\s+[A-Z][a-zA-Z\'\-\.]+)+)\s*\('
+)
 
 
 def extract_metric_from_text(text: str, metric: str) -> Optional[float]:
@@ -29,26 +62,35 @@ def extract_metric_from_text(text: str, metric: str) -> Optional[float]:
 
 
 def parse_pff_proday(html: str) -> dict:
-    """Parse PFF pro day HTML; return dict keyed by player name."""
+    """Parse PFF pro day HTML; return dict keyed by player name.
+
+    Page structure: each player appears as an <li> containing a <strong> tag
+    with the format "POS Name (PFF Predictive Big Board Rank: N)". Individual
+    measurements are in nested <li> children.
+    """
     soup = BeautifulSoup(html, 'lxml')
     result = {}
-    current_name = None
 
-    for tag in soup.find_all(['h2', 'h3', 'h4', 'p', 'li']):
-        text = tag.get_text(separator=' ', strip=True)
-        if tag.name in ('h2', 'h3', 'h4'):
-            m = re.match(r"^([A-Z][a-zA-Z'\.\-]*(?:\s[A-Z][a-zA-Z'\-\.]+)+),\s*\w+", text)
-            if m:
-                current_name = m.group(1).strip()
-                result[current_name] = {}
+    for li in soup.find_all('li'):
+        strong = li.find('strong', recursive=False) or li.find('strong')
+        if not strong:
+            continue
+        strong_text = strong.get_text(strip=True)
+        m = _NAME_RE.match(strong_text)
+        if not m:
+            continue
 
-        if current_name and tag.name in ('p', 'li'):
+        name = m.group(1).strip()
+        result[name] = {}
+
+        for child_li in li.find_all('li'):
+            text = child_li.get_text(strip=True)
             for metric in PATTERNS:
-                if metric not in result[current_name]:
+                if metric not in result[name]:
                     val = extract_metric_from_text(text, metric)
                     if val is not None:
-                        result[current_name][metric] = val
-                        result[current_name][f'{metric}_source'] = 'pro_day'
+                        result[name][metric] = val
+                        result[name][f'{metric}_source'] = 'pro_day'
 
     return result
 
