@@ -70,8 +70,9 @@ def compute_psparq(
     before imputation. Missing values imputed from positional medians when pos
     is provided.
     """
-    real_count = sum(1 for v in [weight, vertical, broad, bench, forty, ten_split, shuttle, cone]
-                     if v is not None)
+    speed_provided = forty is not None or ten_split is not None
+    non_speed = [weight, vertical, broad, bench, shuttle, cone]
+    real_count = sum(1 for v in non_speed if v is not None) + (1 if speed_provided else 0)
     if real_count < MIN_REAL_INPUTS:
         return None
 

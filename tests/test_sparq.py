@@ -26,7 +26,7 @@ def test_compute_psparq_missing_bench():
 
 
 def test_compute_psparq_too_few_inputs():
-    # Only 3 real inputs — below MIN_REAL_INPUTS threshold
+    # Only 2 real inputs (weight + forty) — below MIN_REAL_INPUTS threshold
     result = compute_psparq(
         weight=210, vertical=None, broad=None,
         bench=None, forty=4.55, ten_split=None,
@@ -53,3 +53,33 @@ def test_compute_nfl_percentile_at_mean():
 def test_compute_nfl_percentile_above_mean():
     pct = compute_nfl_percentile(z_score=1.0)
     assert 80 < pct < 90
+
+
+def test_compute_psparq_exactly_min_inputs():
+    # Exactly 5 real inputs (weight + forty + vertical + broad + bench) — should compute
+    result = compute_psparq(
+        weight=210, vertical=36.0, broad=120,
+        bench=21, forty=4.55, ten_split=None,
+        shuttle=None, cone=None, pos='RB'
+    )
+    assert result is not None
+
+
+def test_compute_psparq_below_min_inputs():
+    # Only 4 real inputs — should return None
+    result = compute_psparq(
+        weight=210, vertical=36.0, broad=120,
+        bench=None, forty=4.55, ten_split=None,
+        shuttle=None, cone=None, pos='RB'
+    )
+    assert result is None
+
+
+def test_compute_psparq_ten_split_only_speed():
+    # No forty provided — ten_split used as speed fallback
+    result = compute_psparq(
+        weight=210, vertical=36.0, broad=120,
+        bench=21, forty=None, ten_split=1.55,
+        shuttle=4.10, cone=7.10, pos='RB'
+    )
+    assert result is not None
