@@ -1,0 +1,38 @@
+{"updated":"2026-04-16","count":3,"prospects":[
+  {"rank":1,"name":"Spencer Fano","pos":"OL","school":"Alabama",
+   "draft_round":1,"draft_pick":11,"round_source":"mock",
+   "sparq":134.2,"sparq_source":"real","nfl_pct":87.3,"z_score":1.12,
+   "metrics":{
+     "weight":{"value":311,"source":"combine"},
+     "forty":{"value":4.91,"source":"combine"},
+     "ten_split":{"value":1.68,"source":"combine"},
+     "vertical":{"value":32,"source":"combine"},
+     "broad":{"value":111,"source":"combine"},
+     "bench":{"value":30,"source":"combine"},
+     "cone":{"value":7.34,"source":"combine"},
+     "shuttle":{"value":4.67,"source":"combine"}}},
+  {"rank":2,"name":"Skyler Bell","pos":"WR","school":"UConn",
+   "draft_round":3,"draft_pick":65,"round_source":"mock",
+   "sparq":118.7,"sparq_source":"estimated","nfl_pct":58.4,"z_score":0.19,
+   "metrics":{
+     "weight":{"value":192,"source":"combine"},
+     "forty":{"value":4.40,"source":"combine"},
+     "ten_split":{"value":1.53,"source":"estimated"},
+     "vertical":{"value":41,"source":"combine"},
+     "broad":{"value":133,"source":"combine"},
+     "bench":{"value":null,"source":null},
+     "cone":{"value":6.65,"source":"pro_day"},
+     "shuttle":{"value":4.11,"source":"combine"}}},
+  {"rank":3,"name":"Fernando Mendoza","pos":"QB","school":"Indiana",
+   "draft_round":1,"draft_pick":1,"round_source":"mock",
+   "sparq":null,"sparq_source":null,"nfl_pct":null,"z_score":null,
+   "metrics":{
+     "weight":{"value":236,"source":"combine"},
+     "forty":{"value":null,"source":null},
+     "ten_split":{"value":null,"source":null},
+     "vertical":{"value":null,"source":null},
+     "broad":{"value":null,"source":null},
+     "bench":{"value":null,"source":null},
+     "cone":{"value":null,"source":null},
+     "shuttle":{"value":null,"source":null}}}
+]}

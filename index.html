@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 NFL Draft — SPARQ Rankings</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f1117; color: #e8eaf0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; }
+
+    header { padding: 24px 32px 12px; border-bottom: 1px solid #1e2130; }
+    header h1 { font-size: 22px; font-weight: 700; }
+    header p { color: #7a7f94; font-size: 12px; margin-top: 4px; }
+
+    .banner { background: #1c1a0a; border-bottom: 1px solid #3a3510; color: #c8b84a; font-size: 12px; padding: 8px 32px; }
+
+    .filters { padding: 16px 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; border-bottom: 1px solid #1e2130; }
+    .filter-group { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+    .filter-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; white-space: nowrap; }
+
+    .pill { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 11px; padding: 4px 10px; transition: all 0.1s; }
+    .pill:hover { background: #1e2235; color: #e8eaf0; }
+    .pill.active { background: #1e3a5f; border-color: #2e5a8f; color: #5ba3f5; }
+
+    .filter-group input { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #e8eaf0; font-size: 12px; outline: none; padding: 5px 10px; width: 160px; }
+    .filter-group input:focus { border-color: #2e5a8f; }
+
+    .table-wrap { padding: 0 32px 32px; overflow-x: auto; }
+
+    table#sparq-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    #sparq-table thead th { background: #141720; border-bottom: 2px solid #1e2130; color: #7a7f94; font-size: 11px; font-weight: 600; letter-spacing: 0.4px; padding: 10px 8px; text-align: left; text-transform: uppercase; white-space: nowrap; }
+    #sparq-table tbody tr { border-bottom: 1px solid #161820; }
+    #sparq-table tbody tr:hover { background: #14172080; }
+    #sparq-table td { padding: 8px; font-size: 13px; white-space: nowrap; }
+
+    .td-rank { color: #7a7f94; font-size: 12px; width: 36px; }
+    .player-name { font-weight: 600; }
+    .player-school { color: #7a7f94; font-size: 11px; margin-top: 1px; }
+    .pos-badge { background: #1a1d2a; border-radius: 3px; color: #8899bb; font-size: 10px; font-weight: 700; padding: 2px 5px; }
+    .round-mock { color: #7a7f94; font-size: 10px; }
+
+    .sparq-row { display: flex; align-items: center; gap: 8px; }
+    .sparq-val { font-size: 14px; font-weight: 700; min-width: 46px; font-family: 'SF Mono', 'Fira Code', monospace; }
+    .sparq-bar-bg { background: #1a1d2a; border-radius: 2px; flex: 1; height: 6px; max-width: 80px; overflow: hidden; }
+    .sparq-bar-fill { border-radius: 2px; height: 100%; transition: width 0.3s; }
+
+    .sparq-green  { color: #4ade80; } .bar-green  { background: #4ade80; }
+    .sparq-yellow { color: #facc15; } .bar-yellow { background: #facc15; }
+    .sparq-red    { color: #f87171; } .bar-red    { background: #f87171; }
+    .sparq-none   { color: #4a4e60; }
+
+    .nfl-pct { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+    .nfl-z   { color: #7a7f94; font-size: 11px; margin-top: 1px; }
+    .metric-val { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
+    .metric-null { color: #3a3e50; }
+    sup.src-badge { color: #4a4e60; font-size: 9px; }
+    sup.src-badge.p { color: #5ba3f5; }
+    sup.src-badge.tilde { color: #c8a24a; }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button { background: #1a1d2a !important; border: 1px solid #2a2e40 !important; border-radius: 3px !important; color: #b0b4c8 !important; font-size: 12px; }
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current { background: #1e3a5f !important; border-color: #2e5a8f !important; color: #5ba3f5 !important; }
+    .dataTables_wrapper .dataTables_info { color: #7a7f94; font-size: 12px; padding: 8px 32px; }
+    .dataTables_wrapper .dataTables_paginate { padding: 8px 32px; }
+    .dataTables_length, .dataTables_filter { display: none; }
+
+    .legend { padding: 12px 32px; color: #4a4e60; font-size: 11px; border-top: 1px solid #161820; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>2026 NFL Draft — SPARQ Rankings</h1>
+  <p id="subtitle">Loading...</p>
+</header>
+
+<div class="banner" id="mock-banner">
+  ⚠ Round projections are based on consensus mock draft data and will be updated with actual picks after April 25, 2026.
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <span class="filter-label">Position</span>
+    <button class="pill active" data-filter="pos" data-value="all">All</button>
+    <button class="pill" data-filter="pos" data-value="QB">QB</button>
+    <button class="pill" data-filter="pos" data-value="RB">RB</button>
+    <button class="pill" data-filter="pos" data-value="WR">WR</button>
+    <button class="pill" data-filter="pos" data-value="TE">TE</button>
+    <button class="pill" data-filter="pos" data-value="OL">OL</button>
+    <button class="pill" data-filter="pos" data-value="DL">DL</button>
+    <button class="pill" data-filter="pos" data-value="EDGE">EDGE</button>
+    <button class="pill" data-filter="pos" data-value="LB">LB</button>
+    <button class="pill" data-filter="pos" data-value="CB">CB</button>
+    <button class="pill" data-filter="pos" data-value="S">S</button>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Round</span>
+    <button class="pill active" data-filter="round" data-value="all">All</button>
+    <button class="pill" data-filter="round" data-value="1">R1</button>
+    <button class="pill" data-filter="round" data-value="2">R2</button>
+    <button class="pill" data-filter="round" data-value="3-4">R3–4</button>
+    <button class="pill" data-filter="round" data-value="5-7">R5–7</button>
+    <button class="pill" data-filter="round" data-value="undrafted">Undrafted</button>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Data</span>
+    <button class="pill active" data-filter="data" data-value="all">All</button>
+    <button class="pill" data-filter="data" data-value="real">Real SPARQ</button>
+    <button class="pill" data-filter="data" data-value="estimated">Estimated</button>
+    <button class="pill" data-filter="data" data-value="none">No SPARQ</button>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">School</span>
+    <input type="text" id="school-filter" placeholder="Filter school...">
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Player</span>
+    <input type="text" id="player-search" placeholder="Search player...">
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table id="sparq-table">
+    <thead>
+      <tr>
+        <th>#</th><th>Player</th><th>Pos</th><th>Round</th>
+        <th>SPARQ</th><th>NFL% / Z</th>
+        <th>Wt</th><th>40yd</th><th>10s</th>
+        <th>Vert</th><th>Broad</th><th>Bench</th>
+        <th>3-Cone</th><th>Shuttle</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<div class="legend">
+  C = combine &nbsp;
+  <sup class="src-badge p" style="position:static">P</sup> = pro day &nbsp;
+  <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;
+  (mock) = projected round
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script>
+(function () {
+  let allProspects = [];
+  let dt;
+  const activeFilters = { pos: 'all', round: 'all', data: 'all' };
+  let schoolFilter = '';
+
+  function srcBadge(source) {
+    if (source === 'pro_day')   return '<sup class="src-badge p">P</sup>';
+    if (source === 'estimated') return '<sup class="src-badge tilde">~</sup>';
+    return '';
+  }
+
+  function fmtMetric(m, dec) {
+    if (!m || m.value === null || m.value === undefined)
+      return '<span class="metric-val metric-null">—</span>';
+    return `<span class="metric-val">${Number(m.value).toFixed(dec)}${srcBadge(m.source)}</span>`;
+  }
+
+  function sparqColorClass(s) {
+    if (s === null) return 'sparq-none';
+    return s > 120 ? 'sparq-green' : s >= 95 ? 'sparq-yellow' : 'sparq-red';
+  }
+
+  function barColorClass(s) {
+    return s > 120 ? 'bar-green' : s >= 95 ? 'bar-yellow' : 'bar-red';
+  }
+
+  function renderSparq(p, maxSparq) {
+    if (p.sparq === null || p.sparq === undefined)
+      return '<div class="sparq-row"><span class="sparq-val sparq-none">—</span></div>';
+    const pct = Math.min(100, (p.sparq / maxSparq) * 100).toFixed(1);
+    return `<div class="sparq-row">
+      <span class="sparq-val ${sparqColorClass(p.sparq)}">${p.sparq.toFixed(1)}</span>
+      <div class="sparq-bar-bg">
+        <div class="sparq-bar-fill ${barColorClass(p.sparq)}" style="width:${pct}%"></div>
+      </div>
+    </div>`;
+  }
+
+  function roundLabel(p) {
+    if (!p.draft_round) return '<span style="color:#3a3e50">—</span>';
+    const mock = p.round_source === 'mock' ? ' <span class="round-mock">(mock)</span>' : '';
+    return `R${p.draft_round}${mock}`;
+  }
+
+  function renderRow(p, maxSparq) {
+    const m = p.metrics;
+    return `<tr data-pos="${p.pos}" data-round="${p.draft_round || 'none'}"
+                data-sparq-src="${p.sparq_source || 'none'}" data-school="${p.school}">
+      <td class="td-rank">${p.rank}</td>
+      <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
+      <td><span class="pos-badge">${p.pos}</span></td>
+      <td>${roundLabel(p)}</td>
+      <td>${renderSparq(p, maxSparq)}</td>
+      <td>
+        <div class="nfl-pct">${p.nfl_pct !== null && p.nfl_pct !== undefined ? p.nfl_pct.toFixed(1) + '%' : '—'}</div>
+        <div class="nfl-z">${p.z_score !== null && p.z_score !== undefined ? (p.z_score >= 0 ? '+' : '') + p.z_score.toFixed(2) : ''}</div>
+      </td>
+      <td>${fmtMetric(m.weight, 0)}</td>
+      <td>${fmtMetric(m.forty, 2)}</td>
+      <td>${fmtMetric(m.ten_split, 2)}</td>
+      <td>${fmtMetric(m.vertical, 1)}</td>
+      <td>${fmtMetric(m.broad, 0)}</td>
+      <td>${fmtMetric(m.bench, 0)}</td>
+      <td>${fmtMetric(m.cone, 2)}</td>
+      <td>${fmtMetric(m.shuttle, 2)}</td>
+    </tr>`;
+  }
+
+  function recomputeBars() {
+    const rows = Array.from(document.querySelectorAll('#table-body tr'))
+      .filter(r => r.style.display !== 'none');
+    const names = new Set(rows.map(r => r.querySelector('.player-name').textContent));
+    const visible = allProspects.filter(p => names.has(p.name));
+    const maxSparq = Math.max(...visible.map(p => p.sparq || 0), 1);
+    rows.forEach(row => {
+      const name = row.querySelector('.player-name').textContent;
+      const p = allProspects.find(x => x.name === name);
+      if (!p || !p.sparq) return;
+      const fill = row.querySelector('.sparq-bar-fill');
+      if (fill) fill.style.width = Math.min(100, (p.sparq / maxSparq) * 100).toFixed(1) + '%';
+    });
+  }
+
+  function applyFilters() {
+    document.querySelectorAll('#table-body tr').forEach(row => {
+      const pos    = row.dataset.pos;
+      const round  = row.dataset.round;
+      const src    = row.dataset.sparqSrc;
+      const school = row.dataset.school.toLowerCase();
+      const f      = activeFilters;
+
+      let show = true;
+      if (f.pos !== 'all' && pos !== f.pos) show = false;
+      if (f.round !== 'all') {
+        const r = parseInt(round);
+        if (f.round === 'undrafted' && round !== 'none') show = false;
+        else if (f.round === '1'   && r !== 1)            show = false;
+        else if (f.round === '2'   && r !== 2)            show = false;
+        else if (f.round === '3-4' && (r < 3 || r > 4))  show = false;
+        else if (f.round === '5-7' && (r < 5 || r > 7))  show = false;
+      }
+      if (f.data !== 'all') {
+        if (f.data === 'real'      && src !== 'real')      show = false;
+        if (f.data === 'estimated' && src !== 'estimated') show = false;
+        if (f.data === 'none'      && src !== 'none')      show = false;
+      }
+      if (schoolFilter && !school.includes(schoolFilter)) show = false;
+
+      row.style.display = show ? '' : 'none';
+    });
+    recomputeBars();
+  }
+
+  fetch('data/prospects.json')
+    .then(r => r.json())
+    .then(data => {
+      allProspects = data.prospects;
+      const maxSparq = Math.max(...allProspects.map(p => p.sparq || 0), 1);
+      document.getElementById('table-body').innerHTML =
+        allProspects.map(p => renderRow(p, maxSparq)).join('');
+
+      const hasMock = allProspects.some(p => p.round_source === 'mock');
+      document.getElementById('subtitle').textContent =
+        `${data.count} prospects · Updated ${data.updated}${hasMock ? ' · mock round data' : ''}`;
+      if (!hasMock) document.getElementById('mock-banner').style.display = 'none';
+
+      dt = $('#sparq-table').DataTable({
+        paging: true, pageLength: 50,
+        searching: false, ordering: false, info: true, dom: 'tip',
+      });
+
+      document.querySelectorAll('.pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          const type = pill.dataset.filter;
+          document.querySelectorAll(`.pill[data-filter="${type}"]`)
+            .forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          activeFilters[type] = pill.dataset.value;
+          applyFilters();
+        });
+      });
+
+      document.getElementById('school-filter').addEventListener('input', e => {
+        schoolFilter = e.target.value.toLowerCase().trim();
+        applyFilters();
+      });
+
+      document.getElementById('player-search').addEventListener('input', e => {
+        dt.search(e.target.value).draw();
+      });
+    })
+    .catch(err => {
+      document.getElementById('subtitle').textContent = 'Error loading data.';
+      console.error(err);
+    });
+}());
+</script>
+</body>
+</html>
