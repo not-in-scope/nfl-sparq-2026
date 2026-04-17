@@ -102,11 +102,11 @@ def merge_mockdraftable(player: dict, md_data: dict) -> dict:
 def enrich_players(players: list[dict], rate_limit: float = 1.0) -> list[dict]:
     """Fetch MockDraftable data for players with any missing metrics."""
     for player in players:
-        has_gaps = any(v['value'] is None for v in player['metrics'].values())
+        has_gaps = any(v.get('value') is None for v in player['metrics'].values())
         if not has_gaps:
             continue
         md_data = fetch_player_data(player['name'])
         if md_data:
             merge_mockdraftable(player, md_data)
-        time.sleep(rate_limit)
+            time.sleep(rate_limit)
     return players
