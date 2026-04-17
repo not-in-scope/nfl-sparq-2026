@@ -31,12 +31,15 @@
     header p#subtitle { color: #7a7f94; font-size: 12px; margin-top: 5px; }
 
     /* Year bar */
-    .year-bar { display: flex; align-items: center; gap: 8px; padding: 10px 32px; border-bottom: 1px solid #1e2130; }
-    .year-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .year-pill { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 12px; font-weight: 600; padding: 4px 12px; transition: all 0.1s; }
-    .year-pill:hover:not([data-available="false"]) { background: #1e2235; color: #e8eaf0; }
-    .year-pill.active { background: #1e3a5f; border-color: #2e5a8f; color: #5ba3f5; }
-    .year-pill[data-available="false"] { opacity: 0.35; cursor: not-allowed; }
+    .year-bar { display: flex; align-items: center; gap: 8px; padding: 10px 32px; border-bottom: 1px solid #1e2130; flex-wrap: wrap; }
+    .year-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+    .year-checkboxes { display: flex; gap: 4px; flex-wrap: wrap; }
+    .year-cb { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 12px; font-weight: 600; padding: 4px 12px; transition: all 0.1s; user-select: none; }
+    .year-cb input[type="checkbox"] { display: none; }
+    .year-cb:hover:not(.year-disabled) { background: #1e2235; color: #e8eaf0; }
+    .year-cb.year-checked { background: #1e3a5f; border-color: #2e5a8f; color: #5ba3f5; }
+    .year-cb.year-disabled { opacity: 0.35; cursor: not-allowed; }
+    .td-year { color: #7a7f94; font-size: 11px; font-variant-numeric: tabular-nums; }
 
     /* Banner */
     .banner { background: #1c1a0a; border-bottom: 1px solid #3a3510; color: #c8b84a; font-size: 12px; padding: 8px 32px; }
@@ -67,14 +70,15 @@
     .pick-val { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
     .pick-none { color: #3a3e50; }
 
-    /* SPARQ bar (no number — just visual indicator) */
-    .sparq-bar-wrap { display: flex; align-items: center; gap: 6px; min-width: 90px; }
-    .sparq-bar-bg { background: #1a1d2a; border-radius: 2px; flex: 1; height: 8px; overflow: hidden; }
-    .sparq-bar-fill { border-radius: 2px; height: 100%; transition: width 0.3s; }
-    .bar-green  { background: #4ade80; }
-    .bar-yellow { background: #facc15; }
-    .bar-red    { background: #f87171; }
-    .sparq-score-dim { color: #4a4e60; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap; }
+    /* σ bar (inside the sigma column — fills = NFL percentile) */
+    .sigma-bar-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .sigma-bar-bg { background: #1a1d2a; border-radius: 2px; flex: 1; max-width: 100px; height: 5px; overflow: hidden; }
+    .sigma-bar-fill { border-radius: 2px; height: 100%; transition: width 0.3s; }
+    .bar-elite  { background: #4ade80; }
+    .bar-above  { background: #5ba3f5; }
+    .bar-avg    { background: #facc15; }
+    .bar-below  { background: #f87171; }
+    .sparq-score-dim { color: #4a4e60; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; }
 
     /* σ / Z-score column — Option B: value + tier label */
     .sigma-val { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 14px; font-weight: 700; }
@@ -121,10 +125,9 @@
 
 <div class="year-bar">
   <span class="year-label">Year</span>
-  <button class="year-pill active" data-year="2026" data-available="true">2026</button>
-  <button class="year-pill" data-year="2025" data-available="false" title="Historical data coming soon">2025</button>
-  <button class="year-pill" data-year="2024" data-available="false" title="Historical data coming soon">2024</button>
-  <button class="year-pill" data-year="2023" data-available="false" title="Historical data coming soon">2023</button>
+  <div class="year-checkboxes" id="year-checkboxes">
+    <!-- rendered by JS -->
+  </div>
 </div>
 
 <div class="banner" id="mock-banner">
@@ -186,12 +189,12 @@
     <thead>
       <tr>
         <th>#</th>
+        <th>Year</th>
         <th>Player</th>
         <th>Pos</th>
-        <th>Round</th>
+        <th>Mock Round</th>
         <th>Pick</th>
         <th>Team</th>
-        <th>Athleticism</th>
         <th>σ / NFL%</th>
         <th>Wt</th><th>40yd</th><th>10s</th>
         <th>Vert</th><th>Broad</th><th>Bench</th>
@@ -219,9 +222,55 @@
 
   let allProspects = [];
   let dt;
-  let currentMaxSparq = 1;
   const activeFilters = { pos: 'all', round: 'all', data: 'all' };
   let schoolFilter = '', teamFilter = '';
+
+  // Years with available data; others show disabled.
+  const AVAILABLE_YEARS = new Set(['2026']);
+  const ALL_YEARS = Array.from({ length: 12 }, (_, i) => String(2026 - i)); // 2026→2015
+  const selectedYears = new Set(['2026']);
+
+  // Build year checkbox bar
+  const ycEl = document.getElementById('year-checkboxes');
+  ALL_YEARS.forEach(yr => {
+    const avail = AVAILABLE_YEARS.has(yr);
+    const label = document.createElement('label');
+    label.className = 'year-cb' + (avail && selectedYears.has(yr) ? ' year-checked' : '') + (!avail ? ' year-disabled' : '');
+    label.dataset.year = yr;
+    label.innerHTML = `<input type="checkbox" value="${yr}"${avail && selectedYears.has(yr) ? ' checked' : ''}${!avail ? ' disabled' : ''}> ${yr}`;
+    if (avail) {
+      label.addEventListener('click', () => {
+        if (selectedYears.has(yr)) {
+          if (selectedYears.size === 1) return; // keep at least one
+          selectedYears.delete(yr);
+          label.classList.remove('year-checked');
+          label.querySelector('input').checked = false;
+        } else {
+          selectedYears.add(yr);
+          label.classList.add('year-checked');
+          label.querySelector('input').checked = true;
+        }
+        reloadData();
+      });
+    }
+    ycEl.appendChild(label);
+  });
+
+  function reloadData() {
+    const loads = [...selectedYears].map(yr =>
+      fetch(`data/prospects_${yr}.json`).then(r => r.json()).then(d =>
+        d.prospects.map(p => ({ ...p, year: yr }))
+      ).catch(() => [])
+    );
+    Promise.all(loads).then(groups => {
+      allProspects = groups.flat();
+      allProspects.sort((a, b) => (a.z_score === null) - (b.z_score === null) || (b.z_score || 0) - (a.z_score || 0));
+      document.getElementById('table-body').innerHTML = allProspects.map(p => renderRow(p)).join('');
+      if (dt) dt.destroy();
+      dt = initDT();
+      wireFilters();
+    });
+  }
 
   // Overall pick → within-round pick offset
   const ROUND_STARTS = { 1: 0, 2: 32, 3: 64, 4: 96, 5: 128, 6: 192, 7: 224 };
@@ -240,8 +289,11 @@
     return `<span class="metric-val">${Number(m.value).toFixed(dec)}${srcBadge(m.source)}</span>`;
   }
 
-  function barColorClass(s) {
-    return s > 120 ? 'bar-green' : s >= 95 ? 'bar-yellow' : 'bar-red';
+  function sigmaBarClass(cls) {
+    if (cls === 'sigma-elite') return 'bar-elite';
+    if (cls === 'sigma-above') return 'bar-above';
+    if (cls === 'sigma-avg')   return 'bar-avg';
+    return 'bar-below';
   }
 
   function sigmaTierInfo(z) {
@@ -254,29 +306,25 @@
 
   // ── Renderers ─────────────────────────────────────────────────────────────
 
-  // SPARQ column: bar only (no number — number lives in σ column as dim secondary)
-  function renderSparqBar(p, barPct) {
-    if (p.sparq === null || p.sparq === undefined)
-      return '<div class="sparq-bar-wrap"><span style="color:#3a3e50;font-size:11px">—</span></div>';
-    return `<div class="sparq-bar-wrap">
-      <div class="sparq-bar-bg">
-        <div class="sparq-bar-fill ${barColorClass(p.sparq)}" style="width:${barPct}%"></div>
-      </div>
-      <span class="sparq-score-dim">${p.sparq.toFixed(1)}</span>
-    </div>`;
-  }
-
-  // σ column: primary metric — z-score + tier + NFL% secondary
+  // σ column: σ value + tier + bar (fills = NFL percentile) + small SPARQ
   function renderSigma(p) {
     if (p.z_score === null || p.z_score === undefined)
       return '<div class="sigma-none"><span class="sigma-val">—</span></div>';
     const sign = p.z_score >= 0 ? '+' : '';
     const { cls, tier } = sigmaTierInfo(p.z_score);
-    const nflLine = p.nfl_pct !== null && p.nfl_pct !== undefined
-      ? `<div class="sigma-sub">NFL ${p.nfl_pct.toFixed(1)}%</div>` : '';
+    const barPct  = p.nfl_pct !== null ? p.nfl_pct.toFixed(1) : 0;
+    const barCls  = sigmaBarClass(cls);
+    const nflLine = p.nfl_pct !== null
+      ? `<div class="sigma-bar-row">
+           <div class="sigma-bar-bg"><div class="sigma-bar-fill ${barCls}" style="width:${barPct}%"></div></div>
+           <span class="sigma-sub">${p.nfl_pct.toFixed(1)}%</span>
+         </div>` : '';
+    const sparqLine = p.sparq !== null
+      ? `<span class="sparq-score-dim">SPARQ ${p.sparq.toFixed(1)}</span>` : '';
     return `<div class="${cls}">
       <span class="sigma-val">${sign}${p.z_score.toFixed(2)}σ</span><span class="sigma-tier">${tier}</span>
       ${nflLine}
+      ${sparqLine}
     </div>`;
   }
 
@@ -302,20 +350,20 @@
   }
 
   function renderRow(p) {
-    const m   = p.metrics;
-    const pct = p.sparq ? Math.min(100, (p.sparq / currentMaxSparq) * 100).toFixed(1) : 0;
+    const m = p.metrics;
     return `<tr data-pos="${p.pos}"
+               data-year="${p.year || ''}"
                data-round="${p.draft_round || 'none'}"
                data-sparq-src="${p.sparq_source || 'none'}"
                data-school="${(p.school || '').toLowerCase()}"
                data-team="${(p.team  || '').toLowerCase()}">
       <td class="td-rank">${p.rank}</td>
+      <td class="td-year">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
       <td>${renderRound(p)}</td>
       <td>${renderPick(p)}</td>
       <td>${renderTeam(p)}</td>
-      <td>${renderSparqBar(p, pct)}</td>
       <td>${renderSigma(p)}</td>
       <td>${fmtMetric(m.weight, 0)}</td>
       <td>${fmtMetric(m.forty, 2)}</td>
@@ -328,35 +376,11 @@
     </tr>`;
   }
 
-  // ── Bar rescaling ──────────────────────────────────────────────────────────
-
-  function updateBarsForCurrentPage() {
-    if (!dt) return;
-    dt.rows({ page: 'current', search: 'applied' }).nodes().to$().each(function () {
-      const name = $(this).find('.player-name').text();
-      const p    = allProspects.find(x => x.name === name);
-      if (!p || !p.sparq) return;
-      const fill = this.querySelector('.sparq-bar-fill');
-      if (fill) fill.style.width = Math.min(100, (p.sparq / currentMaxSparq) * 100).toFixed(1) + '%';
-    });
-  }
-
-  function recomputeMaxAndBars() {
-    if (!dt) return;
-    const nodes = dt.rows({ search: 'applied' }).nodes().to$();
-    currentMaxSparq = 1;
-    nodes.each(function () {
-      const name = $(this).find('.player-name').text();
-      const p    = allProspects.find(x => x.name === name);
-      if (p && p.sparq && p.sparq > currentMaxSparq) currentMaxSparq = p.sparq;
-    });
-    updateBarsForCurrentPage();
-  }
-
   // ── DataTables custom row filter ──────────────────────────────────────────
-  // Registered before DataTable init so it applies to every draw.
+  // Registered once globally; applies to every DataTable draw.
 
-  $.fn.dataTable.ext.search.push(function (settings, _rowData, _rowIdx, rowNode) {
+  $.fn.dataTable.ext.search.push(function (settings, _rowData, rowIdx) {
+    const rowNode = settings.aoData[rowIdx] && settings.aoData[rowIdx].nTr;
     if (!rowNode) return true;
     const pos    = rowNode.getAttribute('data-pos')       || '';
     const round  = rowNode.getAttribute('data-round')     || 'none';
@@ -388,13 +412,54 @@
     return true;
   });
 
-  // ── Init ──────────────────────────────────────────────────────────────────
+  // ── DataTable init ────────────────────────────────────────────────────────
 
-  fetch('data/prospects.json')
+  function initDT() {
+    return $('#sparq-table').DataTable({
+      paging:     true,
+      pageLength: 100,
+      lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
+      searching:  true,
+      ordering:   false,
+      info:       true,
+      dom:        'ltip',
+    });
+  }
+
+  function wireFilters() {
+    document.querySelectorAll('.pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const type = pill.dataset.filter;
+        document.querySelectorAll(`.pill[data-filter="${type}"]`)
+          .forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeFilters[type] = pill.dataset.value;
+        dt.draw();
+      });
+    });
+
+    document.getElementById('team-filter').addEventListener('input', e => {
+      teamFilter = e.target.value.toLowerCase().trim();
+      dt.draw();
+    });
+
+    document.getElementById('school-filter').addEventListener('input', e => {
+      schoolFilter = e.target.value.toLowerCase().trim();
+      dt.draw();
+    });
+
+    document.getElementById('player-search').addEventListener('input', e => {
+      dt.search(e.target.value).draw();
+    });
+  }
+
+  // ── Bootstrap ─────────────────────────────────────────────────────────────
+  // Initial load: fetch 2026 data (the only available year on first visit).
+
+  fetch('data/prospects_2026.json')
     .then(r => r.json())
     .then(data => {
-      allProspects = data.prospects;
-      currentMaxSparq = Math.max(...allProspects.map(p => p.sparq || 0), 1);
+      allProspects = data.prospects.map(p => ({ ...p, year: '2026' }));
 
       document.getElementById('table-body').innerHTML =
         allProspects.map(p => renderRow(p)).join('');
@@ -404,57 +469,8 @@
         `${data.count} prospects · Updated ${data.updated}${hasMock ? ' · mock round data' : ''}`;
       if (!hasMock) document.getElementById('mock-banner').style.display = 'none';
 
-      dt = $('#sparq-table').DataTable({
-        paging:    true,
-        pageLength: 100,
-        lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
-        searching: true,   // built-in search used for player-name search box
-        ordering:  false,
-        info:      true,
-        dom:       'ltip',  // length + table + info + pagination
-      });
-
-      // Rescale bars when page changes
-      $('#sparq-table').on('draw.dt', function () {
-        recomputeMaxAndBars();
-      });
-
-      // Pill filters
-      document.querySelectorAll('.pill').forEach(pill => {
-        pill.addEventListener('click', () => {
-          const type = pill.dataset.filter;
-          document.querySelectorAll(`.pill[data-filter="${type}"]`)
-            .forEach(p => p.classList.remove('active'));
-          pill.classList.add('active');
-          activeFilters[type] = pill.dataset.value;
-          dt.draw();
-        });
-      });
-
-      // Year pills (only 2026 available)
-      document.querySelectorAll('.year-pill').forEach(pill => {
-        pill.addEventListener('click', () => {
-          if (pill.dataset.available === 'false') return;
-          document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
-          pill.classList.add('active');
-          // Future: reload dt with data/prospects_YYYY.json
-        });
-      });
-
-      document.getElementById('team-filter').addEventListener('input', e => {
-        teamFilter = e.target.value.toLowerCase().trim();
-        dt.draw();
-      });
-
-      document.getElementById('school-filter').addEventListener('input', e => {
-        schoolFilter = e.target.value.toLowerCase().trim();
-        dt.draw();
-      });
-
-      // Player name search uses DataTables' built-in search
-      document.getElementById('player-search').addEventListener('input', e => {
-        dt.search(e.target.value).draw();
-      });
+      dt = initDT();
+      wireFilters();
     })
     .catch(err => {
       document.getElementById('subtitle').textContent = 'Error loading data.';

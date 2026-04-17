@@ -19,8 +19,12 @@ from sources.bigboardlab import fetch_combine_data
 from sources.mockdraftable import enrich_players
 from sources.pff import fetch_pff_proday
 from sources.mockdraft import fetch_big_board
+from sources.espn_weight import fetch_weight
 
-OUTPUT_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'prospects.json')
+DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
+OUTPUT_PATH = os.path.join(DATA_DIR, 'prospects.json')           # legacy alias
+YEAR = 2026
+YEAR_PATH = os.path.join(DATA_DIR, f'prospects_{YEAR}.json')    # canonical
 
 
 def _count_real(player: dict) -> int:
@@ -39,14 +43,36 @@ def _sparq_source_label(player: dict) -> str | None:
 
 
 def apply_estimation(players: list[dict]) -> list[dict]:
-    """Estimate 10-split from forty when missing; mark source as 'estimated'."""
+    """Estimate missing inputs; mark source as 'estimated'."""
     for player in players:
         m = player['metrics']
+        # Estimate 10-split from forty when missing
         if m['ten_split'].get('value') is None and m['forty'].get('value') is not None:
             m['ten_split'] = {
                 'value': round(estimate_ten_split(m['forty']['value']), 3),
                 'source': 'estimated',
             }
+    return players
+
+
+def fetch_missing_weights(players: list[dict]) -> list[dict]:
+    """Look up weight from ESPN college roster for players missing it with 4+ real metrics."""
+    missing = [
+        p for p in players
+        if p['metrics']['weight']['value'] is None
+        and sum(1 for k, v in p['metrics'].items()
+                if k != 'weight' and v.get('source') in ('combine', 'pro_day')) >= 4
+    ]
+    if not missing:
+        return players
+    print(f"  Fetching ESPN weights for {len(missing)} players with missing weight...")
+    for player in missing:
+        wt = fetch_weight(player['name'])
+        if wt is not None:
+            player['metrics']['weight'] = {'value': wt, 'source': 'college_roster'}
+            print(f"    {player['name']}: {wt} lbs")
+        else:
+            print(f"    {player['name']}: not found")
     return players
 
 
@@ -102,7 +128,9 @@ def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
 
 
 def rank_players(players: list[dict]) -> list[dict]:
-    players.sort(key=lambda p: (p['sparq'] is None, -(p['sparq'] or 0)))
+    # Rank by position-relative z_score (σ) so Styles +2.34σ > Burks +1.23σ.
+    # Players without SPARQ sort to the bottom.
+    players.sort(key=lambda p: (p['z_score'] is None, -(p['z_score'] or 0)))
     for i, player in enumerate(players, 1):
         player['rank'] = i
     return players
@@ -124,6 +152,9 @@ def scrape() -> list[dict]:
     print("Fetching consensus big board for mock round data...")
     board = fetch_big_board()
     players = apply_mock_rounds(players, board)
+
+    print("Pass 4: Fetching missing weights from ESPN college rosters...")
+    players = fetch_missing_weights(players)
 
     print("Applying estimation for missing inputs...")
     players = apply_estimation(players)
@@ -148,12 +179,12 @@ def main():
         return
 
     players = scrape()
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    with open(OUTPUT_PATH, 'w') as f:
-        json.dump({'updated': date.today().isoformat(),
-                   'count': len(players),
-                   'prospects': players}, f, indent=2)
-    print(f"Written: {OUTPUT_PATH}")
+    os.makedirs(DATA_DIR, exist_ok=True)
+    payload = {'updated': date.today().isoformat(), 'count': len(players), 'prospects': players}
+    for path in (YEAR_PATH, OUTPUT_PATH):
+        with open(path, 'w') as f:
+            json.dump(payload, f, indent=2)
+        print(f"Written: {path}")
 
 
 if __name__ == '__main__':
