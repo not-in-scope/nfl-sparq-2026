@@ -53,3 +53,37 @@ def test_parse_pff_second_player():
     result = parse_pff_proday(MOCK_HTML)
     assert 'Spencer Fano' in result
     assert result['Spencer Fano']['broad'] == 123.0
+
+
+def test_extract_camelcase_name():
+    html = """<html><body>
+<h3>DeShawn Jones, DE, Georgia</h3>
+<p>Jones ran a 4.45 forty-yard dash.</p>
+</body></html>"""
+    result = parse_pff_proday(html)
+    assert 'DeShawn Jones' in result
+    assert result['DeShawn Jones']['forty'] == 4.45
+
+
+def test_extract_initial_dot_name():
+    html = """<html><body>
+<h3>D.J. Turner, CB, Michigan</h3>
+<p>Turner posted a 38-inch vertical.</p>
+</body></html>"""
+    result = parse_pff_proday(html)
+    assert 'D.J. Turner' in result
+
+
+def test_extract_apostrophe_name():
+    html = """<html><body>
+<h3>Ja'Tavion Sanders, TE, Texas</h3>
+<p>Sanders ran a 4.52 forty-yard dash.</p>
+</body></html>"""
+    result = parse_pff_proday(html)
+    assert "Ja'Tavion Sanders" in result
+
+
+def test_extract_source_fields_present():
+    result = parse_pff_proday(MOCK_HTML)
+    assert result['Fernando Mendoza'].get('forty_source') == 'pro_day'
+    assert result['Fernando Mendoza'].get('vertical_source') == 'pro_day'

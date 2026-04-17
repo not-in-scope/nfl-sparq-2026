@@ -8,12 +8,12 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; research-bot/1.0)'}
 
 PATTERNS = {
     'forty':     [r'(\d\.\d{2})\s*forty', r'forty[- ]yard dash[^0-9]*(\d\.\d{2})'],
-    'vertical':  [r'(\d{2}(?:\.\d)?)[- ]inch vertical', r'vertical[^0-9]*(\d{2}(?:\.\d)?)'],
+    'vertical':  [r'(\d{2}(?:\.\d)?)[- ]inch vertical', r'vertical[^0-9]{0,25}(\d{2}(?:\.\d)?)\s*(?:inch|in\.?)'],
     'broad':     [r'(\d{1,2})-foot-(\d{1,2})\s*broad', r'broad jump[^0-9]*(\d{1,2})-foot-(\d{1,2})'],
     'bench':     [r'(\d{1,2})\s*reps?\s*(?:on the\s*)?bench', r'bench press[^0-9]*(\d{1,2})\s*reps?'],
-    'cone':      [r'three[- ]cone[^0-9]*(\d\.\d{2})', r'3[- ]cone[^0-9]*(\d\.\d{2})'],
-    'shuttle':   [r'short shuttle[^0-9]*(\d\.\d{2})', r'(\d\.\d{2})\s*short shuttle'],
-    'ten_split': [r'10[- ]yard split[^0-9]*(\d\.\d{2})', r'(\d\.\d{2})\s*10[- ]yard split'],
+    'cone':      [r'three[- ]cone[^0-9]{0,25}(\d\.\d{2})', r'3[- ]cone[^0-9]{0,25}(\d\.\d{2})', r'(\d\.\d{2})\s*(?:three|3)[- ]cone'],
+    'shuttle':   [r'short shuttle[^0-9]{0,25}(\d\.\d{2})', r'(\d\.\d{2})\s*short shuttle'],
+    'ten_split': [r'10[- ]yard split[^0-9]{0,25}(\d\.\d{2})', r'(\d\.\d{2})\s*10[- ]yard split'],
 }
 
 
@@ -37,7 +37,7 @@ def parse_pff_proday(html: str) -> dict:
     for tag in soup.find_all(['h2', 'h3', 'h4', 'p', 'li']):
         text = tag.get_text(separator=' ', strip=True)
         if tag.name in ('h2', 'h3', 'h4'):
-            m = re.match(r'^([A-Z][a-z]+ [A-Z][a-zA-Z\s\-\']+),\s*\w+', text)
+            m = re.match(r"^([A-Z][a-zA-Z'\.\-]*(?:\s[A-Z][a-zA-Z'\-\.]+)+),\s*\w+", text)
             if m:
                 current_name = m.group(1).strip()
                 result[current_name] = {}
