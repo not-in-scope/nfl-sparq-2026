@@ -92,6 +92,7 @@ def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
             if field not in pff:
                 continue
             existing = player['metrics'].get(field, {})
+            # MockDraftable (Pass 2) takes precedence over PFF (Pass 3) for pro_day values
             if existing.get('source') in ('combine', 'pro_day'):
                 continue
             if existing.get('value') is None:

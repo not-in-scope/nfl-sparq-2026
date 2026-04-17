@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 URL = "https://www.profootballnetwork.com/nfl-draft-hq/industry-consensus-big-board"
 HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; research-bot/1.0)'}
 
+# Must remain in ascending rank order — assign_mock_rounds breaks on first match
 ROUND_RANGES = [
     (1,   32,  1),
     (33,  64,  2),
@@ -19,12 +20,13 @@ def assign_mock_rounds(board: dict) -> dict:
     for name, data in board.items():
         rank = data.get('rank')
         data['draft_round'] = None
-        data['draft_pick'] = rank
+        data['draft_pick'] = None
         if rank is None:
             continue
         for lo, hi, rnd in ROUND_RANGES:
             if lo <= rank <= hi:
                 data['draft_round'] = rnd
+                data['draft_pick'] = rank
                 break
     return board
 

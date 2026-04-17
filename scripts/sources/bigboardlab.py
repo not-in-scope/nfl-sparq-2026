@@ -38,6 +38,9 @@ def parse_combine_data(html: str) -> list[dict]:
 
 
 def fetch_combine_data() -> list[dict]:
-    resp = requests.get(URL, headers=HEADERS, timeout=30)
-    resp.raise_for_status()
+    try:
+        resp = requests.get(URL, headers=HEADERS, timeout=30)
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        raise RuntimeError(f"Failed to fetch BigBoardLab combine data: {e}") from e
     return parse_combine_data(resp.text)
