@@ -3,66 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 NFL Draft — SPARQ Rankings</title>
+  <title>NFL Draft SPARQ Rankings</title>
+
+  <!-- Google Analytics — create a GA4 property at analytics.google.com,
+       then replace G-XXXXXXXXXX with your Measurement ID and uncomment -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #0f1117; color: #e8eaf0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; }
 
-    header { padding: 24px 32px 12px; border-bottom: 1px solid #1e2130; }
+    /* ── Header ── */
+    header { padding: 20px 32px 14px; border-bottom: 1px solid #1e2130; }
+    .header-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     header h1 { font-size: 22px; font-weight: 700; }
-    header p { color: #7a7f94; font-size: 12px; margin-top: 4px; }
+    .header-links a { color: #5ba3f5; font-size: 12px; text-decoration: none; }
+    .header-links a:hover { text-decoration: underline; }
+    header p#subtitle { color: #7a7f94; font-size: 12px; margin-top: 5px; }
 
+    /* Year bar */
+    .year-bar { display: flex; align-items: center; gap: 8px; padding: 10px 32px; border-bottom: 1px solid #1e2130; }
+    .year-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .year-pill { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 12px; font-weight: 600; padding: 4px 12px; transition: all 0.1s; }
+    .year-pill:hover:not([data-available="false"]) { background: #1e2235; color: #e8eaf0; }
+    .year-pill.active { background: #1e3a5f; border-color: #2e5a8f; color: #5ba3f5; }
+    .year-pill[data-available="false"] { opacity: 0.35; cursor: not-allowed; }
+
+    /* Banner */
     .banner { background: #1c1a0a; border-bottom: 1px solid #3a3510; color: #c8b84a; font-size: 12px; padding: 8px 32px; }
 
-    .filters { padding: 16px 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; border-bottom: 1px solid #1e2130; }
+    /* ── Filters ── */
+    .filters { padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; border-bottom: 1px solid #1e2130; }
     .filter-group { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
     .filter-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; white-space: nowrap; }
-
     .pill { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 11px; padding: 4px 10px; transition: all 0.1s; }
     .pill:hover { background: #1e2235; color: #e8eaf0; }
     .pill.active { background: #1e3a5f; border-color: #2e5a8f; color: #5ba3f5; }
-
-    .filter-group input { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #e8eaf0; font-size: 12px; outline: none; padding: 5px 10px; width: 160px; }
+    .filter-group input { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #e8eaf0; font-size: 12px; outline: none; padding: 5px 10px; width: 150px; }
     .filter-group input:focus { border-color: #2e5a8f; }
 
+    /* ── Table ── */
     .table-wrap { padding: 0 32px 32px; overflow-x: auto; }
-
     table#sparq-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
     #sparq-table thead th { background: #141720; border-bottom: 2px solid #1e2130; color: #7a7f94; font-size: 11px; font-weight: 600; letter-spacing: 0.4px; padding: 10px 8px; text-align: left; text-transform: uppercase; white-space: nowrap; }
     #sparq-table tbody tr { border-bottom: 1px solid #161820; }
     #sparq-table tbody tr:hover { background: #14172080; }
-    #sparq-table td { padding: 8px; font-size: 13px; white-space: nowrap; }
+    #sparq-table td { padding: 8px; font-size: 13px; white-space: nowrap; vertical-align: top; }
 
     .td-rank { color: #7a7f94; font-size: 12px; width: 36px; }
     .player-name { font-weight: 600; }
     .player-school { color: #7a7f94; font-size: 11px; margin-top: 1px; }
     .pos-badge { background: #1a1d2a; border-radius: 3px; color: #8899bb; font-size: 10px; font-weight: 700; padding: 2px 5px; }
     .round-mock { color: #7a7f94; font-size: 10px; }
+    .pick-val { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
+    .pick-none { color: #3a3e50; }
 
-    .sparq-row { display: flex; align-items: center; gap: 8px; }
-    .sparq-val { font-size: 14px; font-weight: 700; min-width: 46px; font-family: 'SF Mono', 'Fira Code', monospace; }
-    .sparq-bar-bg { background: #1a1d2a; border-radius: 2px; flex: 1; height: 6px; max-width: 80px; overflow: hidden; }
+    /* SPARQ bar (no number — just visual indicator) */
+    .sparq-bar-wrap { display: flex; align-items: center; gap: 6px; min-width: 90px; }
+    .sparq-bar-bg { background: #1a1d2a; border-radius: 2px; flex: 1; height: 8px; overflow: hidden; }
     .sparq-bar-fill { border-radius: 2px; height: 100%; transition: width 0.3s; }
+    .bar-green  { background: #4ade80; }
+    .bar-yellow { background: #facc15; }
+    .bar-red    { background: #f87171; }
+    .sparq-score-dim { color: #4a4e60; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap; }
 
-    .sparq-green  { color: #4ade80; } .bar-green  { background: #4ade80; }
-    .sparq-yellow { color: #facc15; } .bar-yellow { background: #facc15; }
-    .sparq-red    { color: #f87171; } .bar-red    { background: #f87171; }
-    .sparq-none   { color: #4a4e60; }
+    /* σ / Z-score column — Option B: value + tier label */
+    .sigma-val { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 14px; font-weight: 700; }
+    .sigma-tier { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; margin-left: 5px; vertical-align: middle; }
+    .sigma-sub { color: #7a7f94; font-size: 11px; margin-top: 2px; }
+    .sigma-elite .sigma-val, .sigma-elite .sigma-tier { color: #4ade80; }
+    .sigma-above .sigma-val, .sigma-above .sigma-tier { color: #5ba3f5; }
+    .sigma-avg   .sigma-val, .sigma-avg   .sigma-tier { color: #facc15; }
+    .sigma-below .sigma-val, .sigma-below .sigma-tier { color: #7a7f94; }
+    .sigma-none  .sigma-val { color: #4a4e60; }
 
-    .nfl-pct { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
-    .nfl-z   { color: #7a7f94; font-size: 11px; margin-top: 1px; }
+    /* Metrics */
     .metric-val { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
     .metric-null { color: #3a3e50; }
     sup.src-badge { color: #4a4e60; font-size: 9px; }
-    sup.src-badge.p { color: #5ba3f5; }
+    sup.src-badge.p     { color: #5ba3f5; }
     sup.src-badge.tilde { color: #c8a24a; }
 
+    /* DataTables overrides */
     .dataTables_wrapper .dataTables_paginate .paginate_button { background: #1a1d2a !important; border: 1px solid #2a2e40 !important; border-radius: 3px !important; color: #b0b4c8 !important; font-size: 12px; }
     .dataTables_wrapper .dataTables_paginate .paginate_button.current { background: #1e3a5f !important; border-color: #2e5a8f !important; color: #5ba3f5 !important; }
     .dataTables_wrapper .dataTables_info { color: #7a7f94; font-size: 12px; padding: 8px 32px; }
     .dataTables_wrapper .dataTables_paginate { padding: 8px 32px; }
-    .dataTables_length, .dataTables_filter { display: none; }
+    .dataTables_wrapper .dataTables_length { padding: 8px 32px; color: #7a7f94; font-size: 12px; }
+    .dataTables_wrapper .dataTables_length select { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #e8eaf0; padding: 3px 6px; font-size: 12px; }
+    .dataTables_filter { display: none; }  /* we use our own player search */
 
     .legend { padding: 12px 32px; color: #4a4e60; font-size: 11px; border-top: 1px solid #161820; }
   </style>
@@ -70,12 +108,27 @@
 <body>
 
 <header>
-  <h1>2026 NFL Draft — SPARQ Rankings</h1>
+  <div class="header-top">
+    <h1>NFL Draft — SPARQ Rankings</h1>
+    <div class="header-links">
+      <a href="https://github.com/stephen-yoshida/nfl-sparq-2026" target="_blank" rel="noopener">
+        ⑆ Methodology &amp; Source (GitHub)
+      </a>
+    </div>
+  </div>
   <p id="subtitle">Loading...</p>
 </header>
 
+<div class="year-bar">
+  <span class="year-label">Year</span>
+  <button class="year-pill active" data-year="2026" data-available="true">2026</button>
+  <button class="year-pill" data-year="2025" data-available="false" title="Historical data coming soon">2025</button>
+  <button class="year-pill" data-year="2024" data-available="false" title="Historical data coming soon">2024</button>
+  <button class="year-pill" data-year="2023" data-available="false" title="Historical data coming soon">2023</button>
+</div>
+
 <div class="banner" id="mock-banner">
-  ⚠ Round projections are based on consensus mock draft data and will be updated with actual picks after April 25, 2026.
+  ⚠ Round projections are based on consensus mock draft data and will be updated with actual picks after the draft (April 24–25, 2026).
 </div>
 
 <div class="filters">
@@ -101,15 +154,20 @@
     <button class="pill" data-filter="round" data-value="2">R2</button>
     <button class="pill" data-filter="round" data-value="3-4">R3–4</button>
     <button class="pill" data-filter="round" data-value="5-7">R5–7</button>
-    <button class="pill" data-filter="round" data-value="undrafted">Undrafted</button>
+    <button class="pill" data-filter="round" data-value="undrafted">UDFA</button>
   </div>
 
   <div class="filter-group">
     <span class="filter-label">Data</span>
     <button class="pill active" data-filter="data" data-value="all">All</button>
-    <button class="pill" data-filter="data" data-value="real">Real SPARQ</button>
-    <button class="pill" data-filter="data" data-value="estimated">Estimated</button>
+    <button class="pill" data-filter="data" data-value="real">All Measured</button>
+    <button class="pill" data-filter="data" data-value="estimated">Some Estimated</button>
     <button class="pill" data-filter="data" data-value="none">No SPARQ</button>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Team</span>
+    <input type="text" id="team-filter" placeholder="Filter team...">
   </div>
 
   <div class="filter-group">
@@ -127,8 +185,14 @@
   <table id="sparq-table">
     <thead>
       <tr>
-        <th>#</th><th>Player</th><th>Pos</th><th>Round</th>
-        <th>SPARQ</th><th>NFL% / Z</th>
+        <th>#</th>
+        <th>Player</th>
+        <th>Pos</th>
+        <th>Round</th>
+        <th>Pick</th>
+        <th>Team</th>
+        <th>Athleticism</th>
+        <th>σ / NFL%</th>
         <th>Wt</th><th>40yd</th><th>10s</th>
         <th>Vert</th><th>Broad</th><th>Bench</th>
         <th>3-Cone</th><th>Shuttle</th>
@@ -139,20 +203,30 @@
 </div>
 
 <div class="legend">
-  C = combine &nbsp;
-  <sup class="src-badge p" style="position:static">P</sup> = pro day &nbsp;
-  <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;
-  (mock) = projected round
+  C = combine &nbsp;·&nbsp;
+  <sup class="src-badge p" style="position:static">P</sup> = pro day &nbsp;·&nbsp;
+  <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;·&nbsp;
+  (mock) = projected round/pick &nbsp;·&nbsp;
+  σ = std deviations vs historical NFL positional average &nbsp;·&nbsp;
+  "All Measured" = all 8 inputs from combine/pro day
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 <script>
 (function () {
+  'use strict';
+
   let allProspects = [];
   let dt;
+  let currentMaxSparq = 1;
   const activeFilters = { pos: 'all', round: 'all', data: 'all' };
-  let schoolFilter = '';
+  let schoolFilter = '', teamFilter = '';
+
+  // Overall pick → within-round pick offset
+  const ROUND_STARTS = { 1: 0, 2: 32, 3: 64, 4: 96, 5: 128, 6: 192, 7: 224 };
+
+  // ── Helpers ──────────────────────────────────────────────────────────────
 
   function srcBadge(source) {
     if (source === 'pro_day')   return '<sup class="src-badge p">P</sup>';
@@ -166,46 +240,83 @@
     return `<span class="metric-val">${Number(m.value).toFixed(dec)}${srcBadge(m.source)}</span>`;
   }
 
-  function sparqColorClass(s) {
-    if (s === null) return 'sparq-none';
-    return s > 120 ? 'sparq-green' : s >= 95 ? 'sparq-yellow' : 'sparq-red';
-  }
-
   function barColorClass(s) {
     return s > 120 ? 'bar-green' : s >= 95 ? 'bar-yellow' : 'bar-red';
   }
 
-  function renderSparq(p, maxSparq) {
+  function sigmaTierInfo(z) {
+    if (z === null || z === undefined) return { cls: 'sigma-none', tier: '' };
+    if (z >= 2.0)  return { cls: 'sigma-elite', tier: 'ELITE' };
+    if (z >= 1.0)  return { cls: 'sigma-above', tier: 'ABOVE AVG' };
+    if (z >= 0.0)  return { cls: 'sigma-avg',   tier: 'AVERAGE' };
+    return               { cls: 'sigma-below',  tier: 'BELOW AVG' };
+  }
+
+  // ── Renderers ─────────────────────────────────────────────────────────────
+
+  // SPARQ column: bar only (no number — number lives in σ column as dim secondary)
+  function renderSparqBar(p, barPct) {
     if (p.sparq === null || p.sparq === undefined)
-      return '<div class="sparq-row"><span class="sparq-val sparq-none">—</span></div>';
-    const pct = Math.min(100, (p.sparq / maxSparq) * 100).toFixed(1);
-    return `<div class="sparq-row">
-      <span class="sparq-val ${sparqColorClass(p.sparq)}">${p.sparq.toFixed(1)}</span>
+      return '<div class="sparq-bar-wrap"><span style="color:#3a3e50;font-size:11px">—</span></div>';
+    return `<div class="sparq-bar-wrap">
       <div class="sparq-bar-bg">
-        <div class="sparq-bar-fill ${barColorClass(p.sparq)}" style="width:${pct}%"></div>
+        <div class="sparq-bar-fill ${barColorClass(p.sparq)}" style="width:${barPct}%"></div>
       </div>
+      <span class="sparq-score-dim">${p.sparq.toFixed(1)}</span>
     </div>`;
   }
 
-  function roundLabel(p) {
+  // σ column: primary metric — z-score + tier + NFL% secondary
+  function renderSigma(p) {
+    if (p.z_score === null || p.z_score === undefined)
+      return '<div class="sigma-none"><span class="sigma-val">—</span></div>';
+    const sign = p.z_score >= 0 ? '+' : '';
+    const { cls, tier } = sigmaTierInfo(p.z_score);
+    const nflLine = p.nfl_pct !== null && p.nfl_pct !== undefined
+      ? `<div class="sigma-sub">NFL ${p.nfl_pct.toFixed(1)}%</div>` : '';
+    return `<div class="${cls}">
+      <span class="sigma-val">${sign}${p.z_score.toFixed(2)}σ</span><span class="sigma-tier">${tier}</span>
+      ${nflLine}
+    </div>`;
+  }
+
+  function renderRound(p) {
     if (!p.draft_round) return '<span style="color:#3a3e50">—</span>';
     const mock = p.round_source === 'mock' ? ' <span class="round-mock">(mock)</span>' : '';
     return `R${p.draft_round}${mock}`;
   }
 
-  function renderRow(p, maxSparq) {
-    const m = p.metrics;
-    return `<tr data-pos="${p.pos}" data-round="${p.draft_round || 'none'}"
-                data-sparq-src="${p.sparq_source || 'none'}" data-school="${p.school}">
+  function renderPick(p) {
+    if (!p.draft_round || !p.draft_pick)
+      return '<span class="pick-val pick-none">—</span>';
+    const start  = ROUND_STARTS[p.draft_round] || 0;
+    const within = p.draft_pick - start;
+    const mock   = p.round_source === 'mock'
+      ? '<sup class="src-badge tilde">~</sup>' : '';
+    return `<span class="pick-val">${p.draft_round}.${within}${mock}</span>`;
+  }
+
+  function renderTeam(p) {
+    if (!p.team) return '<span style="color:#3a3e50">—</span>';
+    return `<strong style="font-size:12px">${p.team}</strong>`;
+  }
+
+  function renderRow(p) {
+    const m   = p.metrics;
+    const pct = p.sparq ? Math.min(100, (p.sparq / currentMaxSparq) * 100).toFixed(1) : 0;
+    return `<tr data-pos="${p.pos}"
+               data-round="${p.draft_round || 'none'}"
+               data-sparq-src="${p.sparq_source || 'none'}"
+               data-school="${(p.school || '').toLowerCase()}"
+               data-team="${(p.team  || '').toLowerCase()}">
       <td class="td-rank">${p.rank}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
-      <td>${roundLabel(p)}</td>
-      <td>${renderSparq(p, maxSparq)}</td>
-      <td>
-        <div class="nfl-pct">${p.nfl_pct !== null && p.nfl_pct !== undefined ? p.nfl_pct.toFixed(1) + '%' : '—'}</div>
-        <div class="nfl-z">${p.z_score !== null && p.z_score !== undefined ? (p.z_score >= 0 ? '+' : '') + p.z_score.toFixed(2) : ''}</div>
-      </td>
+      <td>${renderRound(p)}</td>
+      <td>${renderPick(p)}</td>
+      <td>${renderTeam(p)}</td>
+      <td>${renderSparqBar(p, pct)}</td>
+      <td>${renderSigma(p)}</td>
       <td>${fmtMetric(m.weight, 0)}</td>
       <td>${fmtMetric(m.forty, 2)}</td>
       <td>${fmtMetric(m.ten_split, 2)}</td>
@@ -217,58 +328,76 @@
     </tr>`;
   }
 
-  function recomputeBars() {
-    const rows = Array.from(document.querySelectorAll('#table-body tr'))
-      .filter(r => r.style.display !== 'none');
-    const names = new Set(rows.map(r => r.querySelector('.player-name').textContent));
-    const visible = allProspects.filter(p => names.has(p.name));
-    const maxSparq = Math.max(...visible.map(p => p.sparq || 0), 1);
-    rows.forEach(row => {
-      const name = row.querySelector('.player-name').textContent;
-      const p = allProspects.find(x => x.name === name);
+  // ── Bar rescaling ──────────────────────────────────────────────────────────
+
+  function updateBarsForCurrentPage() {
+    if (!dt) return;
+    dt.rows({ page: 'current', search: 'applied' }).nodes().to$().each(function () {
+      const name = $(this).find('.player-name').text();
+      const p    = allProspects.find(x => x.name === name);
       if (!p || !p.sparq) return;
-      const fill = row.querySelector('.sparq-bar-fill');
-      if (fill) fill.style.width = Math.min(100, (p.sparq / maxSparq) * 100).toFixed(1) + '%';
+      const fill = this.querySelector('.sparq-bar-fill');
+      if (fill) fill.style.width = Math.min(100, (p.sparq / currentMaxSparq) * 100).toFixed(1) + '%';
     });
   }
 
-  function applyFilters() {
-    document.querySelectorAll('#table-body tr').forEach(row => {
-      const pos    = row.dataset.pos;
-      const round  = row.dataset.round;
-      const src    = row.dataset.sparqSrc;
-      const school = row.dataset.school.toLowerCase();
-      const f      = activeFilters;
-
-      let show = true;
-      if (f.pos !== 'all' && pos !== f.pos) show = false;
-      if (f.round !== 'all') {
-        const r = parseInt(round);
-        if (f.round === 'undrafted' && round !== 'none') show = false;
-        else if (f.round === '1'   && r !== 1)            show = false;
-        else if (f.round === '2'   && r !== 2)            show = false;
-        else if (f.round === '3-4' && (r < 3 || r > 4))  show = false;
-        else if (f.round === '5-7' && (r < 5 || r > 7))  show = false;
-      }
-      if (f.data !== 'all') {
-        if (f.data === 'real'      && src !== 'real')      show = false;
-        if (f.data === 'estimated' && src !== 'estimated') show = false;
-        if (f.data === 'none'      && src !== 'none')      show = false;
-      }
-      if (schoolFilter && !school.includes(schoolFilter)) show = false;
-
-      row.style.display = show ? '' : 'none';
+  function recomputeMaxAndBars() {
+    if (!dt) return;
+    const nodes = dt.rows({ search: 'applied' }).nodes().to$();
+    currentMaxSparq = 1;
+    nodes.each(function () {
+      const name = $(this).find('.player-name').text();
+      const p    = allProspects.find(x => x.name === name);
+      if (p && p.sparq && p.sparq > currentMaxSparq) currentMaxSparq = p.sparq;
     });
-    recomputeBars();
+    updateBarsForCurrentPage();
   }
+
+  // ── DataTables custom row filter ──────────────────────────────────────────
+  // Registered before DataTable init so it applies to every draw.
+
+  $.fn.dataTable.ext.search.push(function (settings, _rowData, _rowIdx, rowNode) {
+    if (!rowNode) return true;
+    const pos    = rowNode.getAttribute('data-pos')       || '';
+    const round  = rowNode.getAttribute('data-round')     || 'none';
+    const src    = rowNode.getAttribute('data-sparq-src') || 'none';
+    const school = rowNode.getAttribute('data-school')    || '';
+    const team   = rowNode.getAttribute('data-team')      || '';
+    const f      = activeFilters;
+
+    if (f.pos !== 'all' && pos !== f.pos) return false;
+
+    if (f.round !== 'all') {
+      const r = parseInt(round);
+      if      (f.round === 'undrafted' && round !== 'none') return false;
+      else if (f.round === '1'   && r !== 1)                return false;
+      else if (f.round === '2'   && r !== 2)                return false;
+      else if (f.round === '3-4' && (r < 3 || r > 4))      return false;
+      else if (f.round === '5-7' && (r < 5 || r > 7))      return false;
+    }
+
+    if (f.data !== 'all') {
+      if (f.data === 'real'      && src !== 'real')      return false;
+      if (f.data === 'estimated' && src !== 'estimated') return false;
+      if (f.data === 'none'      && src !== 'none')      return false;
+    }
+
+    if (schoolFilter && !school.includes(schoolFilter)) return false;
+    if (teamFilter   && !team.includes(teamFilter))     return false;
+
+    return true;
+  });
+
+  // ── Init ──────────────────────────────────────────────────────────────────
 
   fetch('data/prospects.json')
     .then(r => r.json())
     .then(data => {
       allProspects = data.prospects;
-      const maxSparq = Math.max(...allProspects.map(p => p.sparq || 0), 1);
+      currentMaxSparq = Math.max(...allProspects.map(p => p.sparq || 0), 1);
+
       document.getElementById('table-body').innerHTML =
-        allProspects.map(p => renderRow(p, maxSparq)).join('');
+        allProspects.map(p => renderRow(p)).join('');
 
       const hasMock = allProspects.some(p => p.round_source === 'mock');
       document.getElementById('subtitle').textContent =
@@ -276,10 +405,21 @@
       if (!hasMock) document.getElementById('mock-banner').style.display = 'none';
 
       dt = $('#sparq-table').DataTable({
-        paging: true, pageLength: 50,
-        searching: false, ordering: false, info: true, dom: 'tip',
+        paging:    true,
+        pageLength: 100,
+        lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
+        searching: true,   // built-in search used for player-name search box
+        ordering:  false,
+        info:      true,
+        dom:       'ltip',  // length + table + info + pagination
       });
 
+      // Rescale bars when page changes
+      $('#sparq-table').on('draw.dt', function () {
+        recomputeMaxAndBars();
+      });
+
+      // Pill filters
       document.querySelectorAll('.pill').forEach(pill => {
         pill.addEventListener('click', () => {
           const type = pill.dataset.filter;
@@ -287,15 +427,31 @@
             .forEach(p => p.classList.remove('active'));
           pill.classList.add('active');
           activeFilters[type] = pill.dataset.value;
-          applyFilters();
+          dt.draw();
         });
+      });
+
+      // Year pills (only 2026 available)
+      document.querySelectorAll('.year-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          if (pill.dataset.available === 'false') return;
+          document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          // Future: reload dt with data/prospects_YYYY.json
+        });
+      });
+
+      document.getElementById('team-filter').addEventListener('input', e => {
+        teamFilter = e.target.value.toLowerCase().trim();
+        dt.draw();
       });
 
       document.getElementById('school-filter').addEventListener('input', e => {
         schoolFilter = e.target.value.toLowerCase().trim();
-        applyFilters();
+        dt.draw();
       });
 
+      // Player name search uses DataTables' built-in search
       document.getElementById('player-search').addEventListener('input', e => {
         dt.search(e.target.value).draw();
       });

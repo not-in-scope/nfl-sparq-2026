@@ -82,6 +82,7 @@ def apply_mock_rounds(players: list[dict], board: dict) -> list[dict]:
         player['draft_round'] = entry.get('draft_round')
         player['draft_pick'] = entry.get('draft_pick')
         player['round_source'] = 'mock' if entry.get('draft_round') is not None else None
+        player.setdefault('team', None)   # filled in post-draft by --add-draft-results
     return players
 
 
