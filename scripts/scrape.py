@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""
+NFL SPARQ 2026 data pipeline.
+
+Usage:
+  python scripts/scrape.py                       # Full scrape, writes data/prospects.json
+  python scripts/scrape.py --add-draft-results   # Post-draft: update from ESPN
+"""
+import json
+import argparse
+import sys
+import os
+from datetime import date
+
+sys.path.insert(0, os.path.dirname(__file__))
+
+from sparq import compute_psparq, compute_z_score, compute_nfl_percentile, estimate_ten_split
+from sources.bigboardlab import fetch_combine_data
+from sources.mockdraftable import enrich_players
+from sources.pff import fetch_pff_proday
+from sources.mockdraft import fetch_big_board
+
+OUTPUT_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'prospects.json')
+
+
+def _count_real(player: dict) -> int:
+    return sum(1 for v in player['metrics'].values()
+               if v.get('source') in ('combine', 'pro_day'))
+
+
+def _count_estimated(player: dict) -> int:
+    return sum(1 for v in player['metrics'].values() if v.get('source') == 'estimated')
+
+
+def _sparq_source_label(player: dict) -> str | None:
+    if _count_real(player) == 0:
+        return None
+    return 'real' if _count_estimated(player) == 0 else 'estimated'
+
+
+def apply_estimation(players: list[dict]) -> list[dict]:
+    """Estimate 10-split from forty when missing; mark source as 'estimated'."""
+    for player in players:
+        m = player['metrics']
+        if m['ten_split'].get('value') is None and m['forty'].get('value') is not None:
+            m['ten_split'] = {
+                'value': round(estimate_ten_split(m['forty']['value']), 3),
+                'source': 'estimated',
+            }
+    return players
+
+
+def compute_sparq_scores(players: list[dict]) -> list[dict]:
+    for player in players:
+        m = player['metrics']
+        sparq = compute_psparq(
+            weight=m['weight'].get('value'),
+            vertical=m['vertical'].get('value'),
+            broad=m['broad'].get('value'),
+            bench=m['bench'].get('value'),
+            forty=m['forty'].get('value'),
+            ten_split=m['ten_split'].get('value'),
+            shuttle=m['shuttle'].get('value'),
+            cone=m['cone'].get('value'),
+            pos=player.get('pos'),
+        )
+        player['sparq'] = sparq
+        player['sparq_source'] = _sparq_source_label(player) if sparq else None
+        if sparq:
+            z = compute_z_score(sparq, player.get('pos', ''))
+            player['z_score'] = z
+            player['nfl_pct'] = compute_nfl_percentile(z)
+        else:
+            player['z_score'] = None
+            player['nfl_pct'] = None
+    return players
+
+
+def apply_mock_rounds(players: list[dict], board: dict) -> list[dict]:
+    for player in players:
+        entry = board.get(player['name'], {})
+        player['draft_round'] = entry.get('draft_round')
+        player['draft_pick'] = entry.get('draft_pick')
+        player['round_source'] = 'mock' if entry.get('draft_round') is not None else None
+    return players
+
+
+def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
+    for player in players:
+        pff = pff_data.get(player['name'], {})
+        for field in ('forty', 'ten_split', 'vertical', 'broad', 'bench', 'cone', 'shuttle'):
+            if field not in pff:
+                continue
+            existing = player['metrics'].get(field, {})
+            if existing.get('source') in ('combine', 'pro_day'):
+                continue
+            if existing.get('value') is None:
+                player['metrics'][field] = {'value': pff[field], 'source': 'pro_day'}
+    return players
+
+
+def rank_players(players: list[dict]) -> list[dict]:
+    players.sort(key=lambda p: (p['sparq'] is None, -(p['sparq'] or 0)))
+    for i, player in enumerate(players, 1):
+        player['rank'] = i
+    return players
+
+
+def scrape() -> list[dict]:
+    print("Pass 1: Fetching BigBoardLab combine data...")
+    players = fetch_combine_data()
+    print(f"  {len(players)} players loaded.")
+
+    print("Pass 2: Enriching from MockDraftable (pro day + 10-split)...")
+    players = enrich_players(players, rate_limit=1.0)
+
+    print("Pass 3: Fetching PFF pro day tracker...")
+    pff_data = fetch_pff_proday()
+    players = merge_pff(players, pff_data)
+    print(f"  PFF matched {len(pff_data)} players.")
+
+    print("Fetching consensus big board for mock round data...")
+    board = fetch_big_board()
+    players = apply_mock_rounds(players, board)
+
+    print("Applying estimation for missing inputs...")
+    players = apply_estimation(players)
+
+    print("Computing pSPARQ scores...")
+    players = compute_sparq_scores(players)
+    players = rank_players(players)
+
+    scored = sum(1 for p in players if p['sparq'] is not None)
+    print(f"  SPARQ computed for {scored}/{len(players)} players.")
+    return players
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--add-draft-results', action='store_true',
+                        help='Post-draft: update round/pick from ESPN (run after April 25)')
+    args = parser.parse_args()
+
+    if args.add_draft_results:
+        print("Post-draft update: run after April 25, 2026. Not yet implemented.")
+        return
+
+    players = scrape()
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, 'w') as f:
+        json.dump({'updated': date.today().isoformat(),
+                   'count': len(players),
+                   'prospects': players}, f, indent=2)
+    print(f"Written: {OUTPUT_PATH}")
+
+
+if __name__ == '__main__':
+    main()
