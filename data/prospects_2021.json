@@ -4,7 +4,7 @@
   "prospects": [
     {
       "name": "Spencer Brown",
-      "pos": "OT",
+      "pos": "RB",
       "school": "Alabama-Birmingham",
       "height": 70.38,
       "metrics": {
@@ -41,14 +41,14 @@
           "source": "estimated"
         }
       },
-      "draft_round": 3,
-      "draft_pick": 30,
-      "round_source": "actual",
-      "team": "BUF",
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
       "sparq": 150.14,
       "sparq_source": "estimated",
-      "z_score": 6.41,
-      "nfl_pct": 100.0,
+      "z_score": 3.26,
+      "nfl_pct": 99.9,
       "rank": 1
     },
     {
@@ -8726,7 +8726,7 @@
     },
     {
       "name": "Michael Carter",
-      "pos": "RB",
+      "pos": "FS",
       "school": "Duke",
       "height": 69.63,
       "metrics": {
@@ -8763,10 +8763,10 @@
           "source": "estimated"
         }
       },
-      "draft_round": 4,
-      "draft_pick": 2,
-      "round_source": "actual",
-      "team": "NYJ",
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
       "sparq": 111.18,
       "sparq_source": "estimated",
       "z_score": 0.02,

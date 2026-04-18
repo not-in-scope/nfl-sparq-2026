@@ -11,8 +11,10 @@ import re
 import requests
 from typing import Optional
 
-_TEAM_CACHE: dict = {}   # team_id → abbreviation
-_TEAM_ID_RE = re.compile(r'/teams/(\d+)')
+_TEAM_CACHE: dict = {}      # team_id → abbreviation
+_COLLEGE_CACHE: dict = {}   # college_id → name
+_TEAM_ID_RE    = re.compile(r'/teams/(\d+)')
+_COLLEGE_ID_RE = re.compile(r'/colleges/(\d+)')
 
 _BASE = (
     "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl"
@@ -32,6 +34,23 @@ ROUND_RANGES = [
 ]
 
 _PICK_REF_RE = re.compile(r'/rounds/(\d+)/picks/(\d+)')
+
+
+def _fetch_college_name(college_ref: str) -> Optional[str]:
+    """Fetch college name from an ESPN college $ref URL, with caching."""
+    m = _COLLEGE_ID_RE.search(college_ref)
+    if not m:
+        return None
+    cid = m.group(1)
+    if cid in _COLLEGE_CACHE:
+        return _COLLEGE_CACHE[cid]
+    try:
+        r = requests.get(college_ref.split('?')[0], headers=_HEADERS, timeout=10)
+        name = r.json().get('name')
+        _COLLEGE_CACHE[cid] = name
+        return name
+    except Exception:
+        return None
 
 
 def _fetch_team_abbrev(team_ref: str) -> Optional[str]:
@@ -83,11 +102,14 @@ def _fetch_refs(year: int, limit: int = 100) -> list[str]:
 
 
 def fetch_espn_draft_board(year: int = 2026) -> dict:
-    """Return dict keyed by player fullName.
+    """Return dict keyed by player fullName → entry (or list of entries for name collisions).
 
-    Each value: {draft_round, draft_pick, espn_pos, height, round_source}
+    Each entry: {draft_round, draft_pick, espn_pos, height, round_source, team, espn_college}
       round_source = 'actual' (historical) | 'mock' (upcoming) | None (undrafted/unranked)
     height is in decimal inches (e.g. 76.875), or None.
+
+    When ESPN has multiple players with the same fullName (e.g. two Byron Youngs in 2023),
+    the value is a list of entries; apply_espn_data uses espn_college to pick the right one.
     """
     is_historical = year < 2026
 
@@ -109,6 +131,9 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
 
         pos = (athlete.get("position") or {}).get("abbreviation", "") or ""
         height = athlete.get("height")   # decimal inches from ESPN, e.g. 76.875
+
+        college_ref = (athlete.get("college") or {}).get("$ref", "")
+        espn_college = _fetch_college_name(college_ref) if college_ref else None
 
         if is_historical:
             pick_ref_url = (athlete.get("pick") or {}).get("$ref", "")
@@ -140,13 +165,23 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
             round_source = 'mock' if rnd is not None else None
             team_abbrev = None
 
-        result[name] = {
+        entry = {
             "draft_round":  rnd,
             "draft_pick":   pick,
             "espn_pos":     pos,
             "height":       height,
             "round_source": round_source,
             "team":         team_abbrev,
+            "espn_college": espn_college,
         }
+        if name in result:
+            # Name collision — convert to list so apply_espn_data can pick by college
+            existing = result[name]
+            if isinstance(existing, list):
+                existing.append(entry)
+            else:
+                result[name] = [existing, entry]
+        else:
+            result[name] = entry
 
     return result

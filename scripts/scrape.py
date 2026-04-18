@@ -12,6 +12,7 @@ import argparse
 import sys
 import os
 from datetime import date
+from typing import Optional
 
 sys.path.insert(0, os.path.dirname(__file__))
 
@@ -136,15 +137,66 @@ def _norm_name(name: str) -> str:
     return n
 
 
+def _school_matches(player_school: str, espn_college: Optional[str]) -> bool:
+    """True if player's school is plausibly the same as ESPN's college name."""
+    if not player_school or not espn_college:
+        return False
+    return player_school.lower().strip() == espn_college.lower().strip()
+
+
 def apply_espn_data(players: list[dict], board: dict) -> list[dict]:
-    """Apply ESPN draft board data: round/pick, height, and fine-grained position."""
+    """Apply ESPN draft board data: round/pick, height, and fine-grained position.
+
+    When two combine players share a name, uses ESPN's college to assign draft
+    data only to the player whose school matches (disambiguation).
+    """
     # Build a normalized name → entry lookup for fuzzy fallback
     norm_board = {_norm_name(k): v for k, v in board.items()}
 
+    # Detect duplicate names in combine data — they need school-based disambiguation
+    name_counts: dict = {}
+    for p in players:
+        key = _norm_name(p['name'])
+        name_counts[key] = name_counts.get(key, 0) + 1
+    duplicate_norm_names = {k for k, c in name_counts.items() if c > 1}
+
+    # Track which (round, pick) slots have been assigned to prevent double-assigns
+    assigned_picks: set = set()
+
     for player in players:
-        entry = board.get(player['name']) or norm_board.get(_norm_name(player['name']), {})
+        norm = _norm_name(player['name'])
+        raw_entry = board.get(player['name']) or norm_board.get(norm)
+
+        # Resolve list entries (ESPN has multiple players with same name, e.g. two Byron Youngs)
+        if isinstance(raw_entry, list):
+            player_school = player.get('school', '')
+            # Pick the entry whose espn_college matches this player's school
+            match = next(
+                (e for e in raw_entry if _school_matches(player_school, e.get('espn_college'))),
+                None
+            )
+            entry = match or {}
+        else:
+            entry = raw_entry or {}
+
+        # When multiple combine players share a name (but ESPN only has one),
+        # require school match to avoid assigning the pick to the wrong player
+        if norm in duplicate_norm_names and entry and not isinstance(raw_entry, list):
+            espn_college = entry.get('espn_college')
+            player_school = player.get('school', '')
+            if espn_college and not _school_matches(player_school, espn_college):
+                entry = {}   # wrong player — don't apply draft data
+
+        # Also guard against double-assigning the same pick to a second player
         rnd  = entry.get('draft_round')
         pick = entry.get('draft_pick')
+        pick_key = (rnd, pick)
+        if rnd is not None and pick_key in assigned_picks:
+            entry = {}
+            rnd, pick = None, None
+        elif rnd is not None:
+            assigned_picks.add(pick_key)
+
         player['draft_round']  = rnd
         player['draft_pick']   = pick
         player['round_source'] = entry.get('round_source')

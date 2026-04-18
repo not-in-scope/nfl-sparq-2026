@@ -3,55 +3,6 @@
   "count": 306,
   "prospects": [
     {
-      "name": "Byron Young",
-      "pos": "DT",
-      "school": "Tennessee",
-      "height": 74.38,
-      "metrics": {
-        "weight": {
-          "value": 250.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.4,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 38.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 132.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 22.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": null,
-          "source": null
-        },
-        "ten_split": {
-          "value": 1.522,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 3,
-      "draft_pick": 7,
-      "round_source": "actual",
-      "team": "LV",
-      "sparq": 119.02,
-      "sparq_source": "estimated",
-      "z_score": 2.67,
-      "nfl_pct": 99.6,
-      "rank": 1
-    },
-    {
       "name": "Anthony Richardson",
       "pos": "QB",
       "school": "Florida",
@@ -98,7 +49,7 @@
       "sparq_source": "estimated",
       "z_score": 2.32,
       "nfl_pct": 99.0,
-      "rank": 2
+      "rank": 1
     },
     {
       "name": "Blake Freeland",
@@ -147,7 +98,7 @@
       "sparq_source": "estimated",
       "z_score": 2.28,
       "nfl_pct": 98.9,
-      "rank": 3
+      "rank": 2
     },
     {
       "name": "Zack Kuntz",
@@ -196,7 +147,7 @@
       "sparq_source": "estimated",
       "z_score": 2.15,
       "nfl_pct": 98.4,
-      "rank": 4
+      "rank": 3
     },
     {
       "name": "Adetomiwa Adebawore",
@@ -245,7 +196,7 @@
       "sparq_source": "estimated",
       "z_score": 2.14,
       "nfl_pct": 98.4,
-      "rank": 5
+      "rank": 4
     },
     {
       "name": "Nolan Smith",
@@ -294,7 +245,7 @@
       "sparq_source": "estimated",
       "z_score": 2.08,
       "nfl_pct": 98.1,
-      "rank": 6
+      "rank": 5
     },
     {
       "name": "Trenton Simpson",
@@ -343,7 +294,7 @@
       "sparq_source": "estimated",
       "z_score": 2.05,
       "nfl_pct": 98.0,
-      "rank": 7
+      "rank": 6
     },
     {
       "name": "Jalen Redmond",
@@ -392,7 +343,7 @@
       "sparq_source": "estimated",
       "z_score": 1.82,
       "nfl_pct": 96.6,
-      "rank": 8
+      "rank": 7
     },
     {
       "name": "Andrew Vorhees",
@@ -441,6 +392,55 @@
       "sparq_source": "real",
       "z_score": 1.82,
       "nfl_pct": 96.6,
+      "rank": 8
+    },
+    {
+      "name": "Byron Young",
+      "pos": "EDGE",
+      "school": "Tennessee",
+      "height": 74.38,
+      "metrics": {
+        "weight": {
+          "value": 250.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.4,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 38.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 132.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 22.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": null,
+          "source": null
+        },
+        "ten_split": {
+          "value": 1.522,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 3,
+      "draft_pick": 14,
+      "round_source": "actual",
+      "team": "LAR",
+      "sparq": 125.35,
+      "sparq_source": "estimated",
+      "z_score": 1.78,
+      "nfl_pct": 96.2,
       "rank": 9
     },
     {
