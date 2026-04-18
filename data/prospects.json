@@ -41,6 +41,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 1,
       "draft_pick": 11,
       "round_source": "mock",
@@ -90,6 +91,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 5,
       "draft_pick": 152,
       "round_source": "mock",
@@ -139,6 +141,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 2,
       "draft_pick": 36,
       "round_source": "mock",
@@ -188,6 +191,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 1,
       "draft_pick": 7,
       "round_source": "mock",
@@ -237,6 +241,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.5,
       "draft_round": 1,
       "draft_pick": 19,
       "round_source": "mock",
@@ -286,6 +291,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -335,6 +341,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -384,6 +391,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.375,
       "draft_round": 7,
       "draft_pick": 248,
       "round_source": "mock",
@@ -433,6 +441,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 5,
       "draft_pick": 153,
       "round_source": "mock",
@@ -482,6 +491,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -531,6 +541,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 3,
       "draft_pick": 96,
       "round_source": "mock",
@@ -580,6 +591,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.5,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -629,6 +641,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 5,
       "draft_pick": 147,
       "round_source": "mock",
@@ -678,6 +691,7 @@
           "source": "estimated"
         }
       },
+      "height": 79.375,
       "draft_round": 1,
       "draft_pick": 14,
       "round_source": "mock",
@@ -727,6 +741,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 2,
       "draft_pick": 54,
       "round_source": "mock",
@@ -776,6 +791,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 5,
       "draft_pick": 149,
       "round_source": "mock",
@@ -825,6 +841,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 7,
       "draft_pick": 245,
       "round_source": "mock",
@@ -874,6 +891,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.875,
       "draft_round": 4,
       "draft_pick": 122,
       "round_source": "mock",
@@ -923,6 +941,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 3,
       "draft_pick": 83,
       "round_source": "mock",
@@ -972,6 +991,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 4,
       "draft_pick": 99,
       "round_source": "mock",
@@ -1021,6 +1041,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 6,
       "draft_pick": 201,
       "round_source": "mock",
@@ -1070,6 +1091,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.375,
       "draft_round": 2,
       "draft_pick": 46,
       "round_source": "mock",
@@ -1119,6 +1141,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 5,
       "draft_pick": 180,
       "round_source": "mock",
@@ -1168,6 +1191,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -1217,6 +1241,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 3,
       "draft_pick": 89,
       "round_source": "mock",
@@ -1266,6 +1291,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 3,
       "draft_pick": 68,
       "round_source": "mock",
@@ -1315,6 +1341,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.125,
       "draft_round": 1,
       "draft_pick": 20,
       "round_source": "mock",
@@ -1364,6 +1391,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 6,
       "draft_pick": 213,
       "round_source": "mock",
@@ -1413,6 +1441,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.625,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -1462,6 +1491,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 5,
       "draft_pick": 166,
       "round_source": "mock",
@@ -1511,6 +1541,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -1560,6 +1591,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.75,
       "draft_round": 6,
       "draft_pick": 215,
       "round_source": "mock",
@@ -1609,6 +1641,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.875,
       "draft_round": 2,
       "draft_pick": 41,
       "round_source": "mock",
@@ -1658,6 +1691,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 5,
       "draft_pick": 156,
       "round_source": "mock",
@@ -1707,6 +1741,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 131,
       "round_source": "mock",
@@ -1756,6 +1791,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.5,
       "draft_round": 2,
       "draft_pick": 55,
       "round_source": "mock",
@@ -1805,6 +1841,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 5,
       "draft_pick": 182,
       "round_source": "mock",
@@ -1854,6 +1891,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.25,
       "draft_round": 1,
       "draft_pick": 28,
       "round_source": "mock",
@@ -1903,6 +1941,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 6,
       "draft_pick": 205,
       "round_source": "mock",
@@ -1952,6 +1991,7 @@
           "source": "estimated"
         }
       },
+      "height": 69.75,
       "draft_round": 3,
       "draft_pick": 81,
       "round_source": "mock",
@@ -2001,6 +2041,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 5,
       "draft_pick": 150,
       "round_source": "mock",
@@ -2050,6 +2091,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 7,
       "draft_pick": 242,
       "round_source": "mock",
@@ -2099,6 +2141,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.75,
       "draft_round": 2,
       "draft_pick": 52,
       "round_source": "mock",
@@ -2148,6 +2191,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 2,
       "draft_pick": 58,
       "round_source": "mock",
@@ -2197,6 +2241,7 @@
           "source": null
         }
       },
+      "height": 76.625,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -2246,6 +2291,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 2,
       "draft_pick": 35,
       "round_source": "mock",
@@ -2295,6 +2341,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": 7,
       "draft_pick": 236,
       "round_source": "mock",
@@ -2344,6 +2391,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 5,
       "draft_pick": 181,
       "round_source": "mock",
@@ -2393,6 +2441,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.125,
       "draft_round": 4,
       "draft_pick": 97,
       "round_source": "mock",
@@ -2442,6 +2491,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.625,
       "draft_round": 4,
       "draft_pick": 117,
       "round_source": "mock",
@@ -2491,6 +2541,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.625,
       "draft_round": 3,
       "draft_pick": 93,
       "round_source": "mock",
@@ -2540,6 +2591,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -2589,6 +2641,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.5,
       "draft_round": 4,
       "draft_pick": 106,
       "round_source": "mock",
@@ -2638,6 +2691,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 6,
       "draft_pick": 220,
       "round_source": "mock",
@@ -2687,6 +2741,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 5,
       "draft_pick": 134,
       "round_source": "mock",
@@ -2736,6 +2791,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.25,
       "draft_round": 2,
       "draft_pick": 34,
       "round_source": "mock",
@@ -2785,6 +2841,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.5,
       "draft_round": 6,
       "draft_pick": 211,
       "round_source": "mock",
@@ -2834,6 +2891,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.25,
       "draft_round": 2,
       "draft_pick": 47,
       "round_source": "mock",
@@ -2883,6 +2941,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 7,
       "draft_pick": 234,
       "round_source": "mock",
@@ -2932,6 +2991,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 7,
       "draft_pick": 249,
       "round_source": "mock",
@@ -2981,6 +3041,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 4,
       "draft_pick": 123,
       "round_source": "mock",
@@ -3030,6 +3091,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.625,
       "draft_round": 1,
       "draft_pick": 3,
       "round_source": "mock",
@@ -3079,6 +3141,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -3128,6 +3191,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 4,
       "draft_pick": 100,
       "round_source": "mock",
@@ -3177,6 +3241,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 7,
       "draft_pick": 225,
       "round_source": "mock",
@@ -3226,6 +3291,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 4,
       "draft_pick": 107,
       "round_source": "mock",
@@ -3275,6 +3341,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": 6,
       "draft_pick": 199,
       "round_source": "mock",
@@ -3324,6 +3391,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.625,
       "draft_round": 5,
       "draft_pick": 155,
       "round_source": "mock",
@@ -3373,6 +3441,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.25,
       "draft_round": 2,
       "draft_pick": 33,
       "round_source": "mock",
@@ -3422,6 +3491,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -3471,6 +3541,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -3520,6 +3591,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 6,
       "draft_pick": 216,
       "round_source": "mock",
@@ -3569,6 +3641,7 @@
           "source": "pro_day"
         }
       },
+      "height": 74.5,
       "draft_round": 1,
       "draft_pick": 27,
       "round_source": "mock",
@@ -3618,6 +3691,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 145,
       "round_source": "mock",
@@ -3667,6 +3741,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.625,
       "draft_round": 1,
       "draft_pick": 17,
       "round_source": "mock",
@@ -3716,6 +3791,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 6,
       "draft_pick": 204,
       "round_source": "mock",
@@ -3765,6 +3841,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 5,
       "draft_pick": 135,
       "round_source": "mock",
@@ -3814,6 +3891,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -3863,6 +3941,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 5,
       "draft_pick": 176,
       "round_source": "mock",
@@ -3912,6 +3991,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 4,
       "draft_pick": 118,
       "round_source": "mock",
@@ -3961,6 +4041,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4010,6 +4091,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4059,6 +4141,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4108,6 +4191,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 2,
       "draft_pick": 51,
       "round_source": "mock",
@@ -4157,6 +4241,7 @@
           "source": "estimated"
         }
       },
+      "height": 79.0,
       "draft_round": 4,
       "draft_pick": 120,
       "round_source": "mock",
@@ -4206,6 +4291,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4255,6 +4341,7 @@
           "source": null
         }
       },
+      "height": 74.5,
       "draft_round": 5,
       "draft_pick": 160,
       "round_source": "mock",
@@ -4304,6 +4391,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 5,
       "draft_pick": 173,
       "round_source": "mock",
@@ -4353,6 +4441,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 7,
       "draft_pick": 239,
       "round_source": "mock",
@@ -4402,6 +4491,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4451,6 +4541,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 3,
       "draft_pick": 85,
       "round_source": "mock",
@@ -4500,6 +4591,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4549,6 +4641,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 7,
       "draft_pick": 231,
       "round_source": "mock",
@@ -4598,6 +4691,7 @@
           "source": "estimated"
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4647,6 +4741,7 @@
           "source": "pro_day"
         }
       },
+      "height": 77.5,
       "draft_round": 1,
       "draft_pick": 5,
       "round_source": "mock",
@@ -4696,6 +4791,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 6,
       "draft_pick": 208,
       "round_source": "mock",
@@ -4745,6 +4841,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 3,
       "draft_pick": 79,
       "round_source": "mock",
@@ -4794,6 +4891,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -4843,6 +4941,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.625,
       "draft_round": 3,
       "draft_pick": 69,
       "round_source": "mock",
@@ -4892,6 +4991,7 @@
           "source": "estimated"
         }
       },
+      "height": 68.625,
       "draft_round": 2,
       "draft_pick": 40,
       "round_source": "mock",
@@ -4941,6 +5041,7 @@
           "source": "pro_day"
         }
       },
+      "height": 75.0,
       "draft_round": 7,
       "draft_pick": 235,
       "round_source": "mock",
@@ -4990,6 +5091,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.625,
       "draft_round": 3,
       "draft_pick": 72,
       "round_source": "mock",
@@ -5039,6 +5141,7 @@
           "source": "estimated"
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -5088,6 +5191,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.25,
       "draft_round": 4,
       "draft_pick": 124,
       "round_source": "mock",
@@ -5137,6 +5241,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 3,
       "draft_pick": 95,
       "round_source": "mock",
@@ -5186,6 +5291,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 4,
       "draft_pick": 116,
       "round_source": "mock",
@@ -5235,6 +5341,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -5284,6 +5391,7 @@
           "source": "estimated"
         }
       },
+      "height": 79.0,
       "draft_round": 6,
       "draft_pick": 217,
       "round_source": "mock",
@@ -5333,6 +5441,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.5,
       "draft_round": 4,
       "draft_pick": 105,
       "round_source": "mock",
@@ -5382,6 +5491,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 2,
       "draft_pick": 39,
       "round_source": "mock",
@@ -5431,6 +5541,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.25,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -5480,6 +5591,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.5,
       "draft_round": 2,
       "draft_pick": 53,
       "round_source": "mock",
@@ -5529,6 +5641,7 @@
           "source": "pro_day"
         }
       },
+      "height": 72.0,
       "draft_round": 2,
       "draft_pick": 38,
       "round_source": "mock",
@@ -5578,6 +5691,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.625,
       "draft_round": 1,
       "draft_pick": 31,
       "round_source": "mock",
@@ -5627,6 +5741,7 @@
           "source": null
         }
       },
+      "height": 78.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -5676,6 +5791,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.875,
       "draft_round": 6,
       "draft_pick": 224,
       "round_source": "mock",
@@ -5725,6 +5841,7 @@
           "source": "estimated"
         }
       },
+      "height": 69.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -5774,6 +5891,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 7,
       "draft_pick": 254,
       "round_source": "mock",
@@ -5823,6 +5941,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -5872,6 +5991,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 5,
       "draft_pick": 154,
       "round_source": "mock",
@@ -5921,6 +6041,7 @@
           "source": "estimated"
         }
       },
+      "height": 69.5,
       "draft_round": 4,
       "draft_pick": 128,
       "round_source": "mock",
@@ -5970,6 +6091,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -6019,6 +6141,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": 2,
       "draft_pick": 50,
       "round_source": "mock",
@@ -6068,6 +6191,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.25,
       "draft_round": 4,
       "draft_pick": 98,
       "round_source": "mock",
@@ -6117,6 +6241,7 @@
           "source": null
         }
       },
+      "height": 70.0,
       "draft_round": 5,
       "draft_pick": 136,
       "round_source": "mock",
@@ -6166,6 +6291,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 6,
       "draft_pick": 194,
       "round_source": "mock",
@@ -6215,6 +6341,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.5,
       "draft_round": 1,
       "draft_pick": 30,
       "round_source": "mock",
@@ -6264,6 +6391,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": 5,
       "draft_pick": 132,
       "round_source": "mock",
@@ -6313,6 +6441,7 @@
           "source": null
         }
       },
+      "height": 80.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -6362,6 +6491,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 6,
       "draft_pick": 222,
       "round_source": "mock",
@@ -6411,6 +6541,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -6460,6 +6591,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.75,
       "draft_round": 1,
       "draft_pick": 16,
       "round_source": "mock",
@@ -6509,6 +6641,7 @@
           "source": "estimated"
         }
       },
+      "height": 69.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -6558,6 +6691,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 6,
       "draft_pick": 193,
       "round_source": "mock",
@@ -6607,6 +6741,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 3,
       "draft_pick": 65,
       "round_source": "mock",
@@ -6656,6 +6791,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -6705,6 +6841,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.875,
       "draft_round": 1,
       "draft_pick": 25,
       "round_source": "mock",
@@ -6754,6 +6891,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 7,
       "draft_pick": 255,
       "round_source": "mock",
@@ -6803,6 +6941,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 4,
       "draft_pick": 102,
       "round_source": "mock",
@@ -6852,6 +6991,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.5,
       "draft_round": 3,
       "draft_pick": 88,
       "round_source": "mock",
@@ -6901,6 +7041,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.125,
       "draft_round": 5,
       "draft_pick": 171,
       "round_source": "mock",
@@ -6950,6 +7091,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.25,
       "draft_round": 4,
       "draft_pick": 112,
       "round_source": "mock",
@@ -6999,6 +7141,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.375,
       "draft_round": 5,
       "draft_pick": 158,
       "round_source": "mock",
@@ -7048,6 +7191,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 4,
       "draft_pick": 109,
       "round_source": "mock",
@@ -7097,6 +7241,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -7146,6 +7291,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -7195,6 +7341,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.375,
       "draft_round": 3,
       "draft_pick": 71,
       "round_source": "mock",
@@ -7244,6 +7391,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -7293,6 +7441,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.5,
       "draft_round": 1,
       "draft_pick": 21,
       "round_source": "mock",
@@ -7342,6 +7491,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 5,
       "draft_pick": 141,
       "round_source": "mock",
@@ -7391,6 +7541,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 5,
       "draft_pick": 169,
       "round_source": "mock",
@@ -7440,6 +7591,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 3,
       "draft_pick": 90,
       "round_source": "mock",
@@ -7489,6 +7641,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -7538,6 +7691,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.875,
       "draft_round": 4,
       "draft_pick": 115,
       "round_source": "mock",
@@ -7587,6 +7741,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.875,
       "draft_round": 5,
       "draft_pick": 170,
       "round_source": "mock",
@@ -7636,6 +7791,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.5,
       "draft_round": 5,
       "draft_pick": 159,
       "round_source": "mock",
@@ -7685,6 +7841,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": 6,
       "draft_pick": 196,
       "round_source": "mock",
@@ -7734,6 +7891,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.625,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -7783,6 +7941,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.625,
       "draft_round": 5,
       "draft_pick": 184,
       "round_source": "mock",
@@ -7832,6 +7991,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.125,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -7881,6 +8041,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 7,
       "draft_pick": 240,
       "round_source": "mock",
@@ -7930,6 +8091,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 3,
       "draft_pick": 70,
       "round_source": "mock",
@@ -7979,6 +8141,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.125,
       "draft_round": 3,
       "draft_pick": 76,
       "round_source": "mock",
@@ -8028,6 +8191,7 @@
           "source": null
         }
       },
+      "height": 70.75,
       "draft_round": 1,
       "draft_pick": 22,
       "round_source": "mock",
@@ -8077,6 +8241,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 6,
       "draft_pick": 203,
       "round_source": "mock",
@@ -8126,6 +8291,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.875,
       "draft_round": 5,
       "draft_pick": 183,
       "round_source": "mock",
@@ -8175,6 +8341,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -8224,6 +8391,7 @@
           "source": "estimated"
         }
       },
+      "height": 79.0,
       "draft_round": 6,
       "draft_pick": 218,
       "round_source": "mock",
@@ -8273,6 +8441,7 @@
           "source": "estimated"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -8322,6 +8491,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 5,
       "draft_pick": 189,
       "round_source": "mock",
@@ -8371,6 +8541,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 7,
       "draft_pick": 238,
       "round_source": "mock",
@@ -8420,6 +8591,7 @@
           "source": "estimated"
         }
       },
+      "height": 80.75,
       "draft_round": 5,
       "draft_pick": 185,
       "round_source": "mock",
@@ -8469,6 +8641,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -8518,6 +8691,7 @@
           "source": "pro_day"
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -8567,6 +8741,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.5,
       "draft_round": 4,
       "draft_pick": 111,
       "round_source": "mock",
@@ -8616,6 +8791,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -8665,6 +8841,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 188,
       "round_source": "mock",
@@ -8714,6 +8891,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.5,
       "draft_round": 2,
       "draft_pick": 57,
       "round_source": "mock",
@@ -8763,6 +8941,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 6,
       "draft_pick": 206,
       "round_source": "mock",
@@ -8812,6 +8991,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 7,
       "draft_pick": 251,
       "round_source": "mock",
@@ -8861,6 +9041,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -8910,6 +9091,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 5,
       "draft_pick": 138,
       "round_source": "mock",
@@ -8959,6 +9141,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9008,6 +9191,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.5,
       "draft_round": 7,
       "draft_pick": 256,
       "round_source": "mock",
@@ -9057,6 +9241,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9106,6 +9291,7 @@
           "source": null
         }
       },
+      "height": 75.625,
       "draft_round": 1,
       "draft_pick": 23,
       "round_source": "mock",
@@ -9155,6 +9341,7 @@
           "source": "estimated"
         }
       },
+      "height": 79.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9204,6 +9391,7 @@
           "source": "estimated"
         }
       },
+      "height": 66.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9253,6 +9441,7 @@
           "source": "pro_day"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9302,6 +9491,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 3,
       "draft_pick": 82,
       "round_source": "mock",
@@ -9351,6 +9541,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.125,
       "draft_round": 3,
       "draft_pick": 91,
       "round_source": "mock",
@@ -9400,6 +9591,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9449,6 +9641,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 7,
       "draft_pick": 229,
       "round_source": "mock",
@@ -9498,6 +9691,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.5,
       "draft_round": 2,
       "draft_pick": 59,
       "round_source": "mock",
@@ -9547,6 +9741,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9596,6 +9791,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -9645,6 +9841,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": 5,
       "draft_pick": 187,
       "round_source": "mock",
@@ -9694,6 +9891,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 4,
       "draft_pick": 125,
       "round_source": "mock",
@@ -9743,6 +9941,7 @@
           "source": "pro_day"
         }
       },
+      "height": 73.25,
       "draft_round": 5,
       "draft_pick": 142,
       "round_source": "mock",
@@ -9792,6 +9991,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.5,
       "draft_round": 5,
       "draft_pick": 191,
       "round_source": "mock",
@@ -9841,6 +10041,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 5,
       "draft_pick": 165,
       "round_source": "mock",
@@ -9890,6 +10091,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 6,
       "draft_pick": 212,
       "round_source": "mock",
@@ -9939,6 +10141,7 @@
           "source": "estimated"
         }
       },
+      "height": 79.0,
       "draft_round": 3,
       "draft_pick": 86,
       "round_source": "mock",
@@ -9988,6 +10191,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.5,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10037,6 +10241,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10086,6 +10291,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.5,
       "draft_round": 5,
       "draft_pick": 172,
       "round_source": "mock",
@@ -10135,6 +10341,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": 5,
       "draft_pick": 143,
       "round_source": "mock",
@@ -10184,6 +10391,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10233,6 +10441,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10282,6 +10491,7 @@
           "source": "estimated"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10331,6 +10541,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10380,6 +10591,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.25,
       "draft_round": 2,
       "draft_pick": 43,
       "round_source": "mock",
@@ -10429,6 +10641,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 5,
       "draft_pick": 163,
       "round_source": "mock",
@@ -10478,6 +10691,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 6,
       "draft_pick": 210,
       "round_source": "mock",
@@ -10527,6 +10741,7 @@
           "source": "estimated"
         }
       },
+      "height": 69.0,
       "draft_round": 7,
       "draft_pick": 252,
       "round_source": "mock",
@@ -10576,6 +10791,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10625,6 +10841,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10674,6 +10891,7 @@
           "source": "pro_day"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10723,6 +10941,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 5,
       "draft_pick": 190,
       "round_source": "mock",
@@ -10772,6 +10991,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 3,
       "draft_pick": 80,
       "round_source": "mock",
@@ -10821,6 +11041,7 @@
           "source": "estimated"
         }
       },
+      "height": 69.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10870,6 +11091,7 @@
           "source": null
         }
       },
+      "height": 76.5,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10919,6 +11141,7 @@
           "source": "estimated"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -10968,6 +11191,7 @@
           "source": "pro_day"
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11017,6 +11241,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11066,6 +11291,7 @@
           "source": "estimated"
         }
       },
+      "height": 80.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11115,6 +11341,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11164,6 +11391,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.5,
       "draft_round": 3,
       "draft_pick": 67,
       "round_source": "mock",
@@ -11213,6 +11441,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": 7,
       "draft_pick": 237,
       "round_source": "mock",
@@ -11262,6 +11491,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 6,
       "draft_pick": 207,
       "round_source": "mock",
@@ -11311,6 +11541,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 7,
       "draft_pick": 253,
       "round_source": "mock",
@@ -11360,6 +11591,7 @@
           "source": "pro_day"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11409,6 +11641,7 @@
           "source": "pro_day"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11458,6 +11691,7 @@
           "source": "estimated"
         }
       },
+      "height": 68.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11507,6 +11741,7 @@
           "source": null
         }
       },
+      "height": 76.75,
       "draft_round": 1,
       "draft_pick": 2,
       "round_source": "mock",
@@ -11556,6 +11791,7 @@
           "source": null
         }
       },
+      "height": 73.125,
       "draft_round": 2,
       "draft_pick": 37,
       "round_source": "mock",
@@ -11605,6 +11841,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": 3,
       "draft_pick": 87,
       "round_source": "mock",
@@ -11654,6 +11891,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 129,
       "round_source": "mock",
@@ -11703,6 +11941,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 4,
       "draft_pick": 113,
       "round_source": "mock",
@@ -11752,6 +11991,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11801,6 +12041,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.0,
       "draft_round": 7,
       "draft_pick": 232,
       "round_source": "mock",
@@ -11850,6 +12091,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11899,6 +12141,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": 6,
       "draft_pick": 219,
       "round_source": "mock",
@@ -11948,6 +12191,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -11997,6 +12241,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12046,6 +12291,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": 7,
       "draft_pick": 243,
       "round_source": "mock",
@@ -12095,6 +12341,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 1,
       "draft_pick": 4,
       "round_source": "mock",
@@ -12144,6 +12391,7 @@
           "source": null
         }
       },
+      "height": 68.0,
       "draft_round": 5,
       "draft_pick": 175,
       "round_source": "mock",
@@ -12193,6 +12441,7 @@
           "source": null
         }
       },
+      "height": 71.0,
       "draft_round": 5,
       "draft_pick": 146,
       "round_source": "mock",
@@ -12242,6 +12491,7 @@
           "source": null
         }
       },
+      "height": 72.0,
       "draft_round": 4,
       "draft_pick": 121,
       "round_source": "mock",
@@ -12291,6 +12541,7 @@
           "source": null
         }
       },
+      "height": 72.0,
       "draft_round": 5,
       "draft_pick": 178,
       "round_source": "mock",
@@ -12340,6 +12591,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 5,
       "draft_pick": 133,
       "round_source": "mock",
@@ -12389,6 +12641,7 @@
           "source": null
         }
       },
+      "height": 68.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12438,6 +12691,7 @@
           "source": null
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12487,6 +12741,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12536,6 +12791,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12585,6 +12841,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12634,6 +12891,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12683,6 +12941,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -12732,6 +12991,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.25,
       "draft_round": 1,
       "draft_pick": 13,
       "round_source": "mock",
@@ -12781,6 +13041,7 @@
           "source": null
         }
       },
+      "height": 74.125,
       "draft_round": 1,
       "draft_pick": 12,
       "round_source": "mock",
@@ -12830,6 +13091,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.125,
       "draft_round": 1,
       "draft_pick": 10,
       "round_source": "mock",
@@ -12879,6 +13141,7 @@
           "source": null
         }
       },
+      "height": 71.625,
       "draft_round": 1,
       "draft_pick": 32,
       "round_source": "mock",
@@ -12928,6 +13191,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 1,
       "draft_pick": 24,
       "round_source": "mock",
@@ -12977,6 +13241,7 @@
           "source": null
         }
       },
+      "height": 73.875,
       "draft_round": 3,
       "draft_pick": 77,
       "round_source": "mock",
@@ -13026,6 +13291,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.0,
       "draft_round": 2,
       "draft_pick": 42,
       "round_source": "mock",
@@ -13075,6 +13341,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.5,
       "draft_round": 3,
       "draft_pick": 73,
       "round_source": "mock",
@@ -13124,6 +13391,7 @@
           "source": null
         }
       },
+      "height": 73.5,
       "draft_round": 5,
       "draft_pick": 167,
       "round_source": "mock",
@@ -13173,6 +13441,7 @@
           "source": "estimated"
         }
       },
+      "height": 69.0,
       "draft_round": 5,
       "draft_pick": 144,
       "round_source": "mock",
@@ -13222,6 +13491,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13271,6 +13541,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13320,6 +13591,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13369,6 +13641,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13418,6 +13691,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.0,
       "draft_round": 6,
       "draft_pick": 200,
       "round_source": "mock",
@@ -13467,6 +13741,7 @@
           "source": null
         }
       },
+      "height": 70.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13516,6 +13791,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.75,
       "draft_round": 5,
       "draft_pick": 177,
       "round_source": "mock",
@@ -13565,6 +13841,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13614,6 +13891,7 @@
           "source": null
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13663,6 +13941,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13712,6 +13991,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13761,6 +14041,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13810,6 +14091,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13859,6 +14141,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 6,
       "draft_pick": 209,
       "round_source": "mock",
@@ -13908,6 +14191,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -13957,6 +14241,7 @@
           "source": "estimated"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -14006,6 +14291,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 2,
       "draft_pick": 64,
       "round_source": "mock",
@@ -14055,6 +14341,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 5,
       "draft_pick": 148,
       "round_source": "mock",
@@ -14104,6 +14391,7 @@
           "source": null
         }
       },
+      "height": 75.625,
       "draft_round": 3,
       "draft_pick": 92,
       "round_source": "mock",
@@ -14153,6 +14441,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 4,
       "draft_pick": 110,
       "round_source": "mock",
@@ -14202,6 +14491,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 130,
       "round_source": "mock",
@@ -14251,6 +14541,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 6,
       "draft_pick": 198,
       "round_source": "mock",
@@ -14300,6 +14591,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -14349,6 +14641,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -14398,6 +14691,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -14447,6 +14741,7 @@
           "source": null
         }
       },
+      "height": 76.25,
       "draft_round": 1,
       "draft_pick": 15,
       "round_source": "mock",
@@ -14496,6 +14791,7 @@
           "source": null
         }
       },
+      "height": 80.0,
       "draft_round": 3,
       "draft_pick": 84,
       "round_source": "mock",
@@ -14545,6 +14841,7 @@
           "source": null
         }
       },
+      "height": 75.5,
       "draft_round": 4,
       "draft_pick": 104,
       "round_source": "mock",
@@ -14594,6 +14891,7 @@
           "source": null
         }
       },
+      "height": 80.0,
       "draft_round": 5,
       "draft_pick": 168,
       "round_source": "mock",
@@ -14643,6 +14941,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 5,
       "draft_pick": 139,
       "round_source": "mock",
@@ -14692,6 +14991,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 192,
       "round_source": "mock",
@@ -14741,6 +15041,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 140,
       "round_source": "mock",
@@ -14790,6 +15091,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 5,
       "draft_pick": 157,
       "round_source": "mock",
@@ -14839,6 +15141,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 4,
       "draft_pick": 126,
       "round_source": "mock",
@@ -14888,6 +15191,7 @@
           "source": "estimated"
         }
       },
+      "height": 81.0,
       "draft_round": 5,
       "draft_pick": 186,
       "round_source": "mock",
@@ -14937,6 +15241,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 6,
       "draft_pick": 221,
       "round_source": "mock",
@@ -14986,6 +15291,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 137,
       "round_source": "mock",
@@ -15035,6 +15341,7 @@
           "source": "pro_day"
         }
       },
+      "height": 78.0,
       "draft_round": 4,
       "draft_pick": 114,
       "round_source": "mock",
@@ -15084,6 +15391,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15133,6 +15441,7 @@
           "source": null
         }
       },
+      "height": 78.0,
       "draft_round": 5,
       "draft_pick": 161,
       "round_source": "mock",
@@ -15182,6 +15491,7 @@
           "source": null
         }
       },
+      "height": 78.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15231,6 +15541,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15280,6 +15591,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15329,6 +15641,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15378,6 +15691,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15427,6 +15741,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15476,6 +15791,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15525,6 +15841,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15574,6 +15891,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15623,6 +15941,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15672,6 +15991,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15721,6 +16041,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15770,6 +16091,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15819,6 +16141,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15868,6 +16191,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15917,6 +16241,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -15966,6 +16291,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16015,6 +16341,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16064,6 +16391,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16113,6 +16441,7 @@
           "source": null
         }
       },
+      "height": 79.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16162,6 +16491,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16211,6 +16541,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16260,6 +16591,7 @@
           "source": "estimated"
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16309,6 +16641,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16358,6 +16691,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -16407,6 +16741,7 @@
           "source": null
         }
       },
+      "height": 74.25,
       "draft_round": 1,
       "draft_pick": 9,
       "round_source": "mock",
@@ -16456,6 +16791,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": 1,
       "draft_pick": 18,
       "round_source": "mock",
@@ -16505,6 +16841,7 @@
           "source": null
         }
       },
+      "height": 74.125,
       "draft_round": 1,
       "draft_pick": 26,
       "round_source": "mock",
@@ -16554,6 +16891,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": 1,
       "draft_pick": 29,
       "round_source": "mock",
@@ -16603,6 +16941,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.25,
       "draft_round": 2,
       "draft_pick": 61,
       "round_source": "mock",
@@ -16652,6 +16991,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.75,
       "draft_round": 2,
       "draft_pick": 49,
       "round_source": "mock",
@@ -16701,6 +17041,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 4,
       "draft_pick": 101,
       "round_source": "mock",
@@ -16750,6 +17091,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 2,
       "draft_pick": 60,
       "round_source": "mock",
@@ -16799,6 +17141,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": 3,
       "draft_pick": 94,
       "round_source": "mock",
@@ -16848,6 +17191,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 2,
       "draft_pick": 44,
       "round_source": "mock",
@@ -16897,6 +17241,7 @@
           "source": null
         }
       },
+      "height": 77.625,
       "draft_round": 4,
       "draft_pick": 108,
       "round_source": "mock",
@@ -16946,6 +17291,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": 3,
       "draft_pick": 78,
       "round_source": "mock",
@@ -16995,6 +17341,7 @@
           "source": null
         }
       },
+      "height": 72.625,
       "draft_round": 6,
       "draft_pick": 214,
       "round_source": "mock",
@@ -17044,6 +17391,7 @@
           "source": null
         }
       },
+      "height": 77.5,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17093,6 +17441,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": 3,
       "draft_pick": 74,
       "round_source": "mock",
@@ -17142,6 +17491,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17191,6 +17541,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17240,6 +17591,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": 5,
       "draft_pick": 164,
       "round_source": "mock",
@@ -17289,6 +17641,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": 7,
       "draft_pick": 241,
       "round_source": "mock",
@@ -17338,6 +17691,7 @@
           "source": null
         }
       },
+      "height": 80.0,
       "draft_round": 2,
       "draft_pick": 63,
       "round_source": "mock",
@@ -17387,6 +17741,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 7,
       "draft_pick": 247,
       "round_source": "mock",
@@ -17436,6 +17791,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": 5,
       "draft_pick": 179,
       "round_source": "mock",
@@ -17485,6 +17841,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17534,6 +17891,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17583,6 +17941,7 @@
           "source": "estimated"
         }
       },
+      "height": 78.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17632,6 +17991,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17681,6 +18041,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17730,6 +18091,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 7,
       "draft_pick": 246,
       "round_source": "mock",
@@ -17779,6 +18141,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17828,6 +18191,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17877,6 +18241,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17926,6 +18291,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -17975,6 +18341,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18024,6 +18391,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18073,6 +18441,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18122,6 +18491,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18171,6 +18541,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18220,6 +18591,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.5,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18269,6 +18641,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18318,6 +18691,7 @@
           "source": null
         }
       },
+      "height": 78.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18367,6 +18741,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18416,6 +18791,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18465,6 +18841,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18514,6 +18891,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18563,6 +18941,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18612,6 +18991,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18661,6 +19041,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18710,6 +19091,7 @@
           "source": "estimated"
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18759,6 +19141,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18808,6 +19191,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18857,6 +19241,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18906,6 +19291,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -18955,6 +19341,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.0,
       "draft_round": 6,
       "draft_pick": 202,
       "round_source": "mock",
@@ -19004,6 +19391,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19053,6 +19441,7 @@
           "source": "estimated"
         }
       },
+      "height": 76.125,
       "draft_round": 1,
       "draft_pick": 1,
       "round_source": "mock",
@@ -19102,6 +19491,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.75,
       "draft_round": 2,
       "draft_pick": 45,
       "round_source": "mock",
@@ -19151,6 +19541,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": 2,
       "draft_pick": 62,
       "round_source": "mock",
@@ -19200,6 +19591,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": 4,
       "draft_pick": 103,
       "round_source": "mock",
@@ -19249,6 +19641,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": 6,
       "draft_pick": 195,
       "round_source": "mock",
@@ -19298,6 +19691,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 5,
       "draft_pick": 151,
       "round_source": "mock",
@@ -19347,6 +19741,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": 6,
       "draft_pick": 197,
       "round_source": "mock",
@@ -19396,6 +19791,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": 6,
       "draft_pick": 223,
       "round_source": "mock",
@@ -19445,6 +19841,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19494,6 +19891,7 @@
           "source": "pro_day"
         }
       },
+      "height": 74.0,
       "draft_round": 7,
       "draft_pick": 230,
       "round_source": "mock",
@@ -19543,6 +19941,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19592,6 +19991,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19641,6 +20041,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19690,6 +20091,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19739,6 +20141,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19788,6 +20191,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -19837,6 +20241,7 @@
           "source": null
         }
       },
+      "height": 71.625,
       "draft_round": 1,
       "draft_pick": 6,
       "round_source": "mock",
@@ -19886,6 +20291,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": 1,
       "draft_pick": 8,
       "round_source": "mock",
@@ -19935,6 +20341,7 @@
           "source": "estimated"
         }
       },
+      "height": 70.0,
       "draft_round": 3,
       "draft_pick": 75,
       "round_source": "mock",
@@ -19984,6 +20391,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.25,
       "draft_round": 2,
       "draft_pick": 48,
       "round_source": "mock",
@@ -20033,6 +20441,7 @@
           "source": "estimated"
         }
       },
+      "height": 68.625,
       "draft_round": 3,
       "draft_pick": 66,
       "round_source": "mock",
@@ -20082,6 +20491,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.625,
       "draft_round": 2,
       "draft_pick": 56,
       "round_source": "mock",
@@ -20131,6 +20541,7 @@
           "source": "estimated"
         }
       },
+      "height": 75.25,
       "draft_round": 4,
       "draft_pick": 119,
       "round_source": "mock",
@@ -20180,6 +20591,7 @@
           "source": "estimated"
         }
       },
+      "height": 71.875,
       "draft_round": 5,
       "draft_pick": 174,
       "round_source": "mock",
@@ -20229,6 +20641,7 @@
           "source": null
         }
       },
+      "height": 71.0,
       "draft_round": 7,
       "draft_pick": 244,
       "round_source": "mock",
@@ -20278,6 +20691,7 @@
           "source": "estimated"
         }
       },
+      "height": 73.0,
       "draft_round": 5,
       "draft_pick": 162,
       "round_source": "mock",
@@ -20327,6 +20741,7 @@
           "source": null
         }
       },
+      "height": 70.5,
       "draft_round": 4,
       "draft_pick": 127,
       "round_source": "mock",
@@ -20376,6 +20791,7 @@
           "source": null
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20425,6 +20841,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": 7,
       "draft_pick": 227,
       "round_source": "mock",
@@ -20474,6 +20891,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": 7,
       "draft_pick": 228,
       "round_source": "mock",
@@ -20523,6 +20941,7 @@
           "source": null
         }
       },
+      "height": 72.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20572,6 +20991,7 @@
           "source": "estimated"
         }
       },
+      "height": 74.5,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20621,6 +21041,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20670,6 +21091,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20719,6 +21141,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20768,6 +21191,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20817,6 +21241,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20866,6 +21291,7 @@
           "source": null
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20915,6 +21341,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -20964,6 +21391,7 @@
           "source": null
         }
       },
+      "height": 71.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21013,6 +21441,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21062,6 +21491,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21111,6 +21541,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21160,6 +21591,7 @@
           "source": null
         }
       },
+      "height": 72.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21209,6 +21641,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21258,6 +21691,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21307,6 +21741,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21356,6 +21791,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21405,6 +21841,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21454,6 +21891,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21503,6 +21941,7 @@
           "source": null
         }
       },
+      "height": 72.0,
       "draft_round": 7,
       "draft_pick": 233,
       "round_source": "mock",
@@ -21552,6 +21991,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21601,6 +22041,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21650,6 +22091,7 @@
           "source": "estimated"
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21699,6 +22141,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21748,6 +22191,7 @@
           "source": null
         }
       },
+      "height": 69.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21797,6 +22241,7 @@
           "source": "estimated"
         }
       },
+      "height": 72.5,
       "draft_round": 7,
       "draft_pick": 226,
       "round_source": "mock",
@@ -21846,6 +22291,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21895,6 +22341,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21944,6 +22391,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -21993,6 +22441,7 @@
           "source": null
         }
       },
+      "height": 77.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22042,6 +22491,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22091,6 +22541,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22140,6 +22591,7 @@
           "source": null
         }
       },
+      "height": null,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22189,6 +22641,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22238,6 +22691,7 @@
           "source": null
         }
       },
+      "height": 76.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22287,6 +22741,7 @@
           "source": null
         }
       },
+      "height": 74.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22336,6 +22791,7 @@
           "source": null
         }
       },
+      "height": 75.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22385,6 +22841,7 @@
           "source": null
         }
       },
+      "height": 0.0,
       "draft_round": null,
       "draft_pick": null,
       "round_source": null,
@@ -22434,6 +22891,7 @@
           "source": null
         }
       },
+      "height": 73.0,
       "draft_round": 7,
       "draft_pick": 250,
       "round_source": "mock",
