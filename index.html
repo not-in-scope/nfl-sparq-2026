@@ -323,6 +323,15 @@
     return `<span class="metric-val">${Number(m.value).toFixed(dec)}${srcBadge(m.source)}</span>`;
   }
 
+  function fmtBroad(m) {
+    if (!m || m.value === null || m.value === undefined)
+      return '<span class="metric-val metric-null">—</span>';
+    const total = Math.round(m.value);
+    const feet = Math.floor(total / 12);
+    const inches = total % 12;
+    return `<span class="metric-val">${feet}'${inches}"${srcBadge(m.source)}</span>`;
+  }
+
   function sigmaBarClass(cls) {
     if (cls === 'sigma-elite') return 'bar-elite';
     if (cls === 'sigma-above') return 'bar-above';
@@ -408,7 +417,7 @@
       <td data-order="${m.forty?.value ?? 99}">${fmtMetric(m.forty, 2)}</td>
       <td data-order="${m.ten_split?.value ?? 99}">${fmtMetric(m.ten_split, 2)}</td>
       <td data-order="${m.vertical?.value ?? -1}">${fmtMetric(m.vertical, 1)}</td>
-      <td data-order="${m.broad?.value ?? -1}">${fmtMetric(m.broad, 0)}</td>
+      <td data-order="${m.broad?.value ?? -1}">${fmtBroad(m.broad)}</td>
       <td data-order="${m.bench?.value ?? -1}">${fmtMetric(m.bench, 0)}</td>
       <td data-order="${m.cone?.value ?? 99}">${fmtMetric(m.cone, 2)}</td>
       <td data-order="${m.shuttle?.value ?? 99}">${fmtMetric(m.shuttle, 2)}</td>
