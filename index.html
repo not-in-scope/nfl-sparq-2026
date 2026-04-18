@@ -251,16 +251,18 @@
     label.dataset.year = yr;
     label.innerHTML = `<input type="checkbox" value="${yr}"${avail && selectedYears.has(yr) ? ' checked' : ''}${!avail ? ' disabled' : ''}> ${yr}`;
     if (avail) {
-      label.addEventListener('click', () => {
-        if (selectedYears.has(yr)) {
-          if (selectedYears.size === 1) return; // keep at least one
-          selectedYears.delete(yr);
-          label.classList.remove('year-checked');
-          label.querySelector('input').checked = false;
-        } else {
+      const cb = label.querySelector('input');
+      cb.addEventListener('change', () => {
+        if (!cb.checked && selectedYears.size === 1) {
+          cb.checked = true; // keep at least one year selected
+          return;
+        }
+        if (cb.checked) {
           selectedYears.add(yr);
           label.classList.add('year-checked');
-          label.querySelector('input').checked = true;
+        } else {
+          selectedYears.delete(yr);
+          label.classList.remove('year-checked');
         }
         reloadData();
       });
