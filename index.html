@@ -30,8 +30,13 @@
     .header-links a { color: #5ba3f5; font-size: 12px; text-decoration: none; }
     .header-links a:hover { text-decoration: underline; }
     header p#subtitle { color: #7a7f94; font-size: 12px; margin-top: 5px; }
-    .zscore-explainer { background: #111420; border-left: 3px solid #2a2e40; color: #7a7f94; font-size: 12px; line-height: 1.6; margin: 0; padding: 10px 32px; }
-    .zscore-explainer strong { color: #b0b4c8; }
+    .zscore-explainer { background: #0d1020; border-top: 1px solid #1e2130; border-bottom: 1px solid #1e2130; color: #8a90a8; font-size: 13px; line-height: 1.7; padding: 14px 32px; }
+    .zscore-explainer strong { color: #c8cde0; }
+    .zscore-explainer .zscore-hl { display: inline-block; background: #141828; border: 1px solid #2a2e40; border-radius: 3px; font-family: 'SF Mono','Fira Code',monospace; font-size: 12px; padding: 1px 7px; margin: 0 2px; }
+    .zscore-explainer .hl-elite  { color: #4ade80; border-color: #2a4a2a; }
+    .zscore-explainer .hl-above  { color: #5ba3f5; border-color: #1e3a5f; }
+    .zscore-explainer .hl-avg    { color: #facc15; border-color: #3a3010; }
+    .zscore-explainer .hl-below  { color: #f87171; border-color: #4a2020; }
 
     /* Year bar */
     .year-bar { display: flex; align-items: center; gap: 8px; padding: 10px 32px; border-bottom: 1px solid #1e2130; flex-wrap: wrap; }
@@ -144,6 +149,16 @@
   </div>
 </div>
 
+<div class="zscore-explainer">
+  <strong>What is σ?</strong> &nbsp;
+  Each player's σ (sigma) score measures how athletically freakish they are <em>relative to every NFL draftee at their position since 1999</em> — not just this class.
+  <span class="zscore-hl hl-elite">+2σ ELITE</span> means top ~2% of all-time.
+  <span class="zscore-hl hl-above">+1σ ABOVE AVG</span> is legitimately impressive.
+  <span class="zscore-hl hl-avg">0σ AVERAGE</span> is the historical norm.
+  <span class="zscore-hl hl-below">−1σ BELOW AVG</span> and lower — not a freak.
+  It's position-adjusted: a +2σ OT and a +2σ WR are equally rare for their position.
+</div>
+
 <div class="banner" id="mock-banner">
   ⚠ Round projections are based on consensus mock draft data and will be updated with actual picks after the draft (April 24–25, 2026).
 </div>
@@ -158,9 +173,8 @@
     <button class="pill" data-filter="pos" data-value="TE">TE</button>
     <button class="pill" data-filter="pos" data-value="OT">OT</button>
     <button class="pill" data-filter="pos" data-value="OG,C,OL">OG/C</button>
-    <button class="pill" data-filter="pos" data-value="EDGE">EDGE</button>
+    <button class="pill" data-filter="pos" data-value="EDGE,DL">EDGE</button>
     <button class="pill" data-filter="pos" data-value="DT">DT</button>
-    <button class="pill" data-filter="pos" data-value="DE,DL">DE</button>
     <button class="pill" data-filter="pos" data-value="LB">LB</button>
     <button class="pill" data-filter="pos" data-value="CB">CB</button>
     <button class="pill" data-filter="pos" data-value="S,FS,SS,DB">S/DB</button>
@@ -228,13 +242,6 @@
   σ = std deviations vs historical NFL positional average &nbsp;·&nbsp;
   "All Measured" = all 8 inputs from combine/pro day
 </div>
-<div class="zscore-explainer">
-  <strong>What is σ (sigma)?</strong> &nbsp;
-  The σ column ranks each player against every NFL draftee at their position since 1999 — not just this class.
-  A score of <strong>+2.0σ</strong> means the player is more athletic than ~98% of all historical NFL players at that position.
-  <strong>0σ</strong> is dead average. Negative means below the historical norm.
-  It's position-adjusted: a +1.5σ offensive tackle and a +1.5σ wide receiver are equally rare freaks for their position.
-</div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
@@ -291,6 +298,9 @@
       allProspects.sort((a, b) => (a.z_score === null) - (b.z_score === null) || (b.z_score || 0) - (a.z_score || 0));
       if (dt) dt.destroy();  // destroy BEFORE replacing tbody (avoids DOM restoration overwriting new rows)
       document.getElementById('table-body').innerHTML = allProspects.map(p => renderRow(p)).join('');
+      const years = [...selectedYears].sort().join(', ');
+      document.getElementById('subtitle').textContent =
+        `${allProspects.length} prospects · ${years}`;
       dt = initDT();
       wireFilters();
     });
@@ -357,8 +367,9 @@
   function renderHeight(h) {
     if (h === null || h === undefined)
       return '<span class="metric-val metric-null">—</span>';
-    const feet = Math.floor(h / 12);
-    const inches = Math.round(h % 12 * 10) / 10;
+    const total = Math.round(h);   // round to nearest inch
+    const feet = Math.floor(total / 12);
+    const inches = total % 12;
     return `<span class="metric-val">${feet}'${inches}"</span>`;
   }
 

@@ -88,8 +88,12 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
             pick_ref = (athlete.get("pick") or {}).get("$ref", "")
             m = _PICK_REF_RE.search(pick_ref)
             if m:
-                rnd  = int(m.group(1))
-                pick = int(m.group(2))
+                rnd         = int(m.group(1))
+                within_pick = int(m.group(2))
+                # ESPN stores within-round pick in the URL (1–32 per round).
+                # Convert to overall pick so renderRound()'s ROUND_STARTS math works.
+                round_start = {1: 0, 2: 32, 3: 64, 4: 96, 5: 128, 6: 192, 7: 224}
+                pick        = round_start.get(rnd, 0) + within_pick
                 round_source = 'actual'
             else:
                 rnd, pick, round_source = None, None, None

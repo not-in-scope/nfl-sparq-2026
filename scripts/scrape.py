@@ -103,14 +103,15 @@ def compute_sparq_scores(players: list[dict]) -> list[dict]:
 
 # Normalize non-standard position abbreviations to NFL standard
 _POS_NORMALIZE = {
-    'T':   'OT',   # ESPN: tackle
-    'G':   'OG',   # ESPN: guard
-    'DI':  'DT',   # ESPN: defensive interior
+    'T':   'OT',    # ESPN: tackle
+    'G':   'OG',    # ESPN: guard
+    'DI':  'DT',    # ESPN: defensive interior
     'OLB': 'LB',
     'ILB': 'LB',
     'MLB': 'LB',
     'NT':  'DT',
     'SAF': 'S',
+    'DE':  'EDGE',  # modern terminology; use EDGE stats for all edge rushers
 }
 
 
@@ -118,10 +119,30 @@ def _normalize_pos(pos: str) -> str:
     return _POS_NORMALIZE.get(pos, pos)
 
 
+import re as _re
+
+
+def _norm_name(name: str) -> str:
+    """Normalize player name for fuzzy matching.
+
+    Strips name suffixes (Jr./Sr./II/III), removes periods (A.J. → AJ),
+    and lowercases. Allows matching across data sources with different
+    formatting conventions.
+    """
+    n = name.lower()
+    n = _re.sub(r'\b(jr\.?|sr\.?|ii|iii|iv)\b', '', n)
+    n = _re.sub(r'\.', '', n)
+    n = _re.sub(r'\s+', ' ', n).strip()
+    return n
+
+
 def apply_espn_data(players: list[dict], board: dict) -> list[dict]:
     """Apply ESPN draft board data: round/pick, height, and fine-grained position."""
+    # Build a normalized name → entry lookup for fuzzy fallback
+    norm_board = {_norm_name(k): v for k, v in board.items()}
+
     for player in players:
-        entry = board.get(player['name'], {})
+        entry = board.get(player['name']) or norm_board.get(_norm_name(player['name']), {})
         rnd  = entry.get('draft_round')
         pick = entry.get('draft_pick')
         player['draft_round']  = rnd
@@ -134,10 +155,16 @@ def apply_espn_data(players: list[dict], board: dict) -> list[dict]:
         if player.get('height') is None and espn_height is not None:
             player['height'] = espn_height
 
-        # Use ESPN fine-grained position if player still has a coarse BBL group
         espn_pos = entry.get('espn_pos', '')
-        if espn_pos and player.get('pos') in ('OL', 'DL', 'DB'):
-            player['pos'] = _normalize_pos(espn_pos)
+        if espn_pos:
+            is_actual = entry.get('round_source') == 'actual'
+            if is_actual:
+                # For historical data, ESPN's position is authoritative —
+                # nflcombineresults.com can have wrong positions (e.g. Jacob Phillips as OT)
+                player['pos'] = _normalize_pos(espn_pos)
+            elif player.get('pos') in ('OL', 'DL', 'DB'):
+                # For 2026 projected: only override coarse BBL position groups
+                player['pos'] = _normalize_pos(espn_pos)
 
     return players
 

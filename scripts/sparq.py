@@ -31,8 +31,7 @@ POSITIONAL_STATS = {
     'C':    {'mean': 90.0,  'std': 9.5},
     'OL':   {'mean': 89.0,  'std': 10.0},   # coarse fallback
     # Defensive line (fine-grained)
-    'EDGE': {'mean': 106.0, 'std': 12.0},
-    'DE':   {'mean': 101.0, 'std': 11.5},
+    'EDGE': {'mean': 104.0, 'std': 12.0},  # merged DE+EDGE historical average
     'DT':   {'mean': 91.0,  'std': 10.5},
     'DL':   {'mean': 96.0,  'std': 11.5},   # coarse fallback
     # Linebackers
@@ -58,8 +57,7 @@ POSITIONAL_MEDIANS = {
     'C':    {'bench': 27, 'cone': 7.50, 'shuttle': 4.55, 'vertical': 29.0, 'broad': 104, 'ten_split': 1.71},
     'OL':   {'bench': 27, 'cone': 7.60, 'shuttle': 4.65, 'vertical': 28.0, 'broad': 103, 'ten_split': 1.72},
     # Defensive line
-    'EDGE': {'bench': 22, 'cone': 7.20, 'shuttle': 4.35, 'vertical': 34.0, 'broad': 118, 'ten_split': 1.58},
-    'DE':   {'bench': 22, 'cone': 7.25, 'shuttle': 4.40, 'vertical': 33.0, 'broad': 115, 'ten_split': 1.62},
+    'EDGE': {'bench': 22, 'cone': 7.22, 'shuttle': 4.37, 'vertical': 33.5, 'broad': 116, 'ten_split': 1.60},
     'DT':   {'bench': 28, 'cone': 7.60, 'shuttle': 4.65, 'vertical': 30.0, 'broad': 108, 'ten_split': 1.68},
     'DL':   {'bench': 26, 'cone': 7.40, 'shuttle': 4.50, 'vertical': 32.0, 'broad': 112, 'ten_split': 1.65},
     # Linebackers
