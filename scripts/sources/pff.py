@@ -49,6 +49,9 @@ _NAME_RE = re.compile(
     r'^[A-Z]+\s+([A-Z][a-zA-Z\'\.\-]*(?:\s+[A-Z][a-zA-Z\'\-\.]+)+)\s*\('
 )
 
+# Regex to extract the leading position abbreviation (1–4 uppercase letters)
+_POS_RE = re.compile(r'^([A-Z]{1,4})\s+[A-Z]')
+
 
 def extract_metric_from_text(text: str, metric: str) -> Optional[float]:
     text_lower = text.lower()
@@ -81,7 +84,8 @@ def parse_pff_proday(html: str) -> dict:
             continue
 
         name = m.group(1).strip()
-        result[name] = {}
+        pos_m = _POS_RE.match(strong_text)
+        result[name] = {'pff_pos': pos_m.group(1) if pos_m else None}
 
         for child_li in li.find_all('li'):
             text = child_li.get_text(strip=True)

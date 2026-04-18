@@ -78,6 +78,7 @@
     .bar-above  { background: #5ba3f5; }
     .bar-avg    { background: #facc15; }
     .bar-below  { background: #f87171; }
+    .bar-poor   { background: #9f1239; }
     .sparq-score-dim { color: #4a4e60; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; }
 
     /* σ / Z-score column — Option B: value + tier label */
@@ -87,7 +88,8 @@
     .sigma-elite .sigma-val, .sigma-elite .sigma-tier { color: #4ade80; }
     .sigma-above .sigma-val, .sigma-above .sigma-tier { color: #5ba3f5; }
     .sigma-avg   .sigma-val, .sigma-avg   .sigma-tier { color: #facc15; }
-    .sigma-below .sigma-val, .sigma-below .sigma-tier { color: #7a7f94; }
+    .sigma-below .sigma-val, .sigma-below .sigma-tier { color: #f87171; }
+    .sigma-poor  .sigma-val, .sigma-poor  .sigma-tier { color: #9f1239; }
     .sigma-none  .sigma-val { color: #4a4e60; }
 
     /* Metrics */
@@ -96,6 +98,14 @@
     sup.src-badge { color: #4a4e60; font-size: 9px; }
     sup.src-badge.p     { color: #5ba3f5; }
     sup.src-badge.tilde { color: #c8a24a; }
+
+    /* Sortable column headers */
+    #sparq-table thead th.sorting,
+    #sparq-table thead th.sorting_asc,
+    #sparq-table thead th.sorting_desc { cursor: pointer; }
+    #sparq-table thead th.sorting:hover { color: #b0b4c8; }
+    #sparq-table thead th.sorting_asc::after  { content: ' ▲'; color: #5ba3f5; font-size: 9px; }
+    #sparq-table thead th.sorting_desc::after { content: ' ▼'; color: #5ba3f5; font-size: 9px; }
 
     /* DataTables overrides */
     .dataTables_wrapper .dataTables_paginate .paginate_button { background: #1a1d2a !important; border: 1px solid #2a2e40 !important; border-radius: 3px !important; color: #b0b4c8 !important; font-size: 12px; }
@@ -142,21 +152,24 @@
     <button class="pill" data-filter="pos" data-value="RB">RB</button>
     <button class="pill" data-filter="pos" data-value="WR">WR</button>
     <button class="pill" data-filter="pos" data-value="TE">TE</button>
-    <button class="pill" data-filter="pos" data-value="OL">OL</button>
-    <button class="pill" data-filter="pos" data-value="DL">DL</button>
+    <button class="pill" data-filter="pos" data-value="OT">OT</button>
+    <button class="pill" data-filter="pos" data-value="OG,C,OL">OG/C</button>
     <button class="pill" data-filter="pos" data-value="EDGE">EDGE</button>
+    <button class="pill" data-filter="pos" data-value="DT">DT</button>
+    <button class="pill" data-filter="pos" data-value="DE,DL">DE</button>
     <button class="pill" data-filter="pos" data-value="LB">LB</button>
     <button class="pill" data-filter="pos" data-value="CB">CB</button>
-    <button class="pill" data-filter="pos" data-value="S">S</button>
+    <button class="pill" data-filter="pos" data-value="S,FS,SS,DB">S/DB</button>
+    <button class="pill" data-filter="pos" data-value="K/P">K/P</button>
   </div>
 
   <div class="filter-group">
     <span class="filter-label">Round</span>
     <button class="pill active" data-filter="round" data-value="all">All</button>
-    <button class="pill" data-filter="round" data-value="1">R1</button>
-    <button class="pill" data-filter="round" data-value="2">R2</button>
-    <button class="pill" data-filter="round" data-value="3-4">R3–4</button>
-    <button class="pill" data-filter="round" data-value="5-7">R5–7</button>
+    <button class="pill" data-filter="round" data-value="1">Proj. R1</button>
+    <button class="pill" data-filter="round" data-value="2">Proj. R2</button>
+    <button class="pill" data-filter="round" data-value="3-4">Proj. R3–4</button>
+    <button class="pill" data-filter="round" data-value="5-7">Proj. R5–7</button>
     <button class="pill" data-filter="round" data-value="undrafted">UDFA</button>
   </div>
 
@@ -192,7 +205,7 @@
         <th>Year</th>
         <th>Player</th>
         <th>Pos</th>
-        <th>Mock Round</th>
+        <th>Proj. Round</th>
         <th>Pick</th>
         <th>Team</th>
         <th>σ / NFL%</th>
@@ -293,15 +306,17 @@
     if (cls === 'sigma-elite') return 'bar-elite';
     if (cls === 'sigma-above') return 'bar-above';
     if (cls === 'sigma-avg')   return 'bar-avg';
-    return 'bar-below';
+    if (cls === 'sigma-below') return 'bar-below';
+    return 'bar-poor';
   }
 
   function sigmaTierInfo(z) {
-    if (z === null || z === undefined) return { cls: 'sigma-none', tier: '' };
+    if (z === null || z === undefined) return { cls: 'sigma-none',  tier: '' };
     if (z >= 2.0)  return { cls: 'sigma-elite', tier: 'ELITE' };
     if (z >= 1.0)  return { cls: 'sigma-above', tier: 'ABOVE AVG' };
     if (z >= 0.0)  return { cls: 'sigma-avg',   tier: 'AVERAGE' };
-    return               { cls: 'sigma-below',  tier: 'BELOW AVG' };
+    if (z >= -2.0) return { cls: 'sigma-below',  tier: 'BELOW AVG' };
+    return               { cls: 'sigma-poor',   tier: 'POOR' };
   }
 
   // ── Renderers ─────────────────────────────────────────────────────────────
@@ -361,18 +376,18 @@
       <td class="td-year">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
-      <td>${renderRound(p)}</td>
-      <td>${renderPick(p)}</td>
+      <td data-order="${p.draft_round ?? 99}">${renderRound(p)}</td>
+      <td data-order="${p.draft_pick ?? 9999}">${renderPick(p)}</td>
       <td>${renderTeam(p)}</td>
-      <td>${renderSigma(p)}</td>
-      <td>${fmtMetric(m.weight, 0)}</td>
-      <td>${fmtMetric(m.forty, 2)}</td>
-      <td>${fmtMetric(m.ten_split, 2)}</td>
-      <td>${fmtMetric(m.vertical, 1)}</td>
-      <td>${fmtMetric(m.broad, 0)}</td>
-      <td>${fmtMetric(m.bench, 0)}</td>
-      <td>${fmtMetric(m.cone, 2)}</td>
-      <td>${fmtMetric(m.shuttle, 2)}</td>
+      <td data-order="${p.z_score ?? -99}">${renderSigma(p)}</td>
+      <td data-order="${m.weight?.value ?? -1}">${fmtMetric(m.weight, 0)}</td>
+      <td data-order="${m.forty?.value ?? 99}">${fmtMetric(m.forty, 2)}</td>
+      <td data-order="${m.ten_split?.value ?? 99}">${fmtMetric(m.ten_split, 2)}</td>
+      <td data-order="${m.vertical?.value ?? -1}">${fmtMetric(m.vertical, 1)}</td>
+      <td data-order="${m.broad?.value ?? -1}">${fmtMetric(m.broad, 0)}</td>
+      <td data-order="${m.bench?.value ?? -1}">${fmtMetric(m.bench, 0)}</td>
+      <td data-order="${m.cone?.value ?? 99}">${fmtMetric(m.cone, 2)}</td>
+      <td data-order="${m.shuttle?.value ?? 99}">${fmtMetric(m.shuttle, 2)}</td>
     </tr>`;
   }
 
@@ -389,7 +404,7 @@
     const team   = rowNode.getAttribute('data-team')      || '';
     const f      = activeFilters;
 
-    if (f.pos !== 'all' && pos !== f.pos) return false;
+    if (f.pos !== 'all' && !f.pos.split(',').includes(pos)) return false;
 
     if (f.round !== 'all') {
       const r = parseInt(round);
@@ -420,9 +435,14 @@
       pageLength: 100,
       lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
       searching:  true,
-      ordering:   false,
+      ordering:   true,
+      order:      [[7, 'desc']],   // default: sort by σ descending (column index 7)
       info:       true,
       dom:        'ltip',
+      columnDefs: [
+        { orderable: false, targets: [2] },  // Player name col (school subtext skews sort)
+        { type: 'num', targets: '_all' },
+      ],
     });
   }
 

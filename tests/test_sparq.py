@@ -57,19 +57,19 @@ def test_compute_nfl_percentile_above_mean():
 
 
 def test_compute_psparq_exactly_min_inputs():
-    # Exactly 5 real inputs (weight + forty + vertical + broad + bench) — should compute
+    # Exactly 4 real inputs (weight + forty + vertical + broad) — should compute (MIN_REAL_INPUTS = 4)
     result = compute_psparq(
         weight=210, vertical=36.0, broad=120,
-        bench=21, forty=4.55, ten_split=None,
+        bench=None, forty=4.55, ten_split=None,
         shuttle=None, cone=None, pos='RB'
     )
     assert result is not None
 
 
 def test_compute_psparq_below_min_inputs():
-    # Only 4 real inputs — should return None
+    # Only 3 real inputs — should return None (MIN_REAL_INPUTS = 4)
     result = compute_psparq(
-        weight=210, vertical=36.0, broad=120,
+        weight=210, vertical=36.0, broad=None,
         bench=None, forty=4.55, ten_split=None,
         shuttle=None, cone=None, pos='RB'
     )

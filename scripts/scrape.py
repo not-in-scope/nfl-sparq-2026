@@ -18,7 +18,7 @@ from sparq import compute_psparq, compute_z_score, compute_nfl_percentile, estim
 from sources.bigboardlab import fetch_combine_data
 from sources.mockdraftable import enrich_players
 from sources.pff import fetch_pff_proday
-from sources.mockdraft import fetch_big_board
+from sources.espn_draft import fetch_espn_draft_board
 from sources.espn_weight import fetch_weight
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
@@ -56,12 +56,12 @@ def apply_estimation(players: list[dict]) -> list[dict]:
 
 
 def fetch_missing_weights(players: list[dict]) -> list[dict]:
-    """Look up weight from ESPN college roster for players missing it with 4+ real metrics."""
+    """Look up weight from ESPN college roster for players missing it with 3+ real metrics."""
     missing = [
         p for p in players
         if p['metrics']['weight']['value'] is None
         and sum(1 for k, v in p['metrics'].items()
-                if k != 'weight' and v.get('source') in ('combine', 'pro_day')) >= 4
+                if k != 'weight' and v.get('source') in ('combine', 'pro_day')) >= 3
     ]
     if not missing:
         return players
@@ -102,19 +102,50 @@ def compute_sparq_scores(players: list[dict]) -> list[dict]:
     return players
 
 
+# Normalize non-standard position abbreviations to NFL standard
+_POS_NORMALIZE = {
+    'T':   'OT',   # ESPN: tackle
+    'G':   'OG',   # ESPN: guard
+    'DI':  'DT',   # ESPN: defensive interior
+    'OLB': 'LB',
+    'ILB': 'LB',
+    'MLB': 'LB',
+    'NT':  'DT',
+    'SAF': 'S',
+}
+
+
+def _normalize_pos(pos: str) -> str:
+    return _POS_NORMALIZE.get(pos, pos)
+
+
 def apply_mock_rounds(players: list[dict], board: dict) -> list[dict]:
+    """Apply ESPN draft board round/pick data. Also override pos from ESPN when
+    BigBoardLab left a coarse group and PFF didn't match this player."""
     for player in players:
         entry = board.get(player['name'], {})
-        player['draft_round'] = entry.get('draft_round')
-        player['draft_pick'] = entry.get('draft_pick')
-        player['round_source'] = 'mock' if entry.get('draft_round') is not None else None
+        rnd  = entry.get('draft_round')
+        pick = entry.get('draft_pick')
+        player['draft_round'] = rnd
+        player['draft_pick']  = pick
+        player['round_source'] = 'mock' if rnd is not None else None
         player.setdefault('team', None)   # filled in post-draft by --add-draft-results
+        # Use ESPN fine-grained position if player still has a coarse BBL group
+        espn_pos = entry.get('espn_pos', '')
+        if espn_pos and player.get('pos') in ('OL', 'DL', 'DB'):
+            player['pos'] = _normalize_pos(espn_pos)
     return players
 
 
 def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
     for player in players:
         pff = pff_data.get(player['name'], {})
+        if not pff:
+            continue
+        # Override coarse BigBoardLab position groups with PFF's fine-grained labels
+        pff_pos = pff.get('pff_pos')
+        if pff_pos and player.get('pos') in ('OL', 'DL', 'DB'):
+            player['pos'] = _normalize_pos(pff_pos)
         for field in ('forty', 'ten_split', 'vertical', 'broad', 'bench', 'cone', 'shuttle'):
             if field not in pff:
                 continue
@@ -149,9 +180,11 @@ def scrape() -> list[dict]:
     players = merge_pff(players, pff_data)
     print(f"  PFF matched {len(pff_data)} players.")
 
-    print("Fetching consensus big board for mock round data...")
-    board = fetch_big_board()
+    print("Fetching ESPN draft board for mock round data...")
+    board = fetch_espn_draft_board()
     players = apply_mock_rounds(players, board)
+    with_round = sum(1 for p in players if p['draft_round'] is not None)
+    print(f"  {with_round} players with mock round data.")
 
     print("Pass 4: Fetching missing weights from ESPN college rosters...")
     players = fetch_missing_weights(players)

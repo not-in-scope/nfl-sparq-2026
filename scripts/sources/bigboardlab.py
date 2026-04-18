@@ -39,6 +39,7 @@ def parse_combine_data(html: str) -> list[dict]:
             'name':   p.get('name', '').strip(),
             'pos':    p.get('pos',  '').strip().upper(),
             'school': p.get('school', '').strip(),
+            'bbl_rank': p.get('rank'),   # BigBoardLab consensus rank (used for mock round)
             'metrics': {
                 'weight':    _metric(p.get('weight'),   'combine'),
                 'forty':     _metric(p.get('forty'),    'combine'),

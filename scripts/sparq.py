@@ -20,33 +20,59 @@ COEFFS = {
 # Historical NFL positional means and standard deviations
 # Approximated from 3sigmaathlete methodology, 1999–2023 combine data
 POSITIONAL_STATS = {
+    # Skill positions
     'QB':   {'mean': 95.0,  'std': 14.5},
     'RB':   {'mean': 111.0, 'std': 12.0},
     'WR':   {'mean': 116.0, 'std': 14.0},
     'TE':   {'mean': 104.0, 'std': 11.5},
-    'OL':   {'mean': 89.0,  'std': 10.0},
-    'DL':   {'mean': 96.0,  'std': 11.5},
+    # Offensive line (fine-grained)
+    'OT':   {'mean': 86.0,  'std': 10.0},
+    'OG':   {'mean': 91.0,  'std': 9.5},
+    'C':    {'mean': 90.0,  'std': 9.5},
+    'OL':   {'mean': 89.0,  'std': 10.0},   # coarse fallback
+    # Defensive line (fine-grained)
     'EDGE': {'mean': 106.0, 'std': 12.0},
+    'DE':   {'mean': 101.0, 'std': 11.5},
+    'DT':   {'mean': 91.0,  'std': 10.5},
+    'DL':   {'mean': 96.0,  'std': 11.5},   # coarse fallback
+    # Linebackers
     'LB':   {'mean': 106.0, 'std': 11.5},
+    # Defensive backs (fine-grained)
     'CB':   {'mean': 116.0, 'std': 13.5},
+    'FS':   {'mean': 111.0, 'std': 12.0},
+    'SS':   {'mean': 109.0, 'std': 12.0},
     'S':    {'mean': 110.0, 'std': 12.5},
+    'DB':   {'mean': 112.0, 'std': 13.0},   # coarse fallback
 }
 
 # Fallback positional medians for imputing missing drills
 POSITIONAL_MEDIANS = {
+    # Skill positions
     'QB':   {'bench': 22, 'cone': 7.10, 'shuttle': 4.30, 'vertical': 33.0, 'broad': 114, 'ten_split': 1.60},
     'RB':   {'bench': 21, 'cone': 7.00, 'shuttle': 4.15, 'vertical': 36.0, 'broad': 122, 'ten_split': 1.53},
     'WR':   {'bench': 12, 'cone': 6.80, 'shuttle': 4.10, 'vertical': 37.0, 'broad': 125, 'ten_split': 1.52},
     'TE':   {'bench': 22, 'cone': 7.05, 'shuttle': 4.25, 'vertical': 35.0, 'broad': 120, 'ten_split': 1.55},
+    # Offensive line
+    'OT':   {'bench': 25, 'cone': 7.75, 'shuttle': 4.75, 'vertical': 27.0, 'broad': 100, 'ten_split': 1.74},
+    'OG':   {'bench': 28, 'cone': 7.55, 'shuttle': 4.60, 'vertical': 29.0, 'broad': 105, 'ten_split': 1.70},
+    'C':    {'bench': 27, 'cone': 7.50, 'shuttle': 4.55, 'vertical': 29.0, 'broad': 104, 'ten_split': 1.71},
     'OL':   {'bench': 27, 'cone': 7.60, 'shuttle': 4.65, 'vertical': 28.0, 'broad': 103, 'ten_split': 1.72},
-    'DL':   {'bench': 26, 'cone': 7.40, 'shuttle': 4.50, 'vertical': 32.0, 'broad': 112, 'ten_split': 1.65},
+    # Defensive line
     'EDGE': {'bench': 22, 'cone': 7.20, 'shuttle': 4.35, 'vertical': 34.0, 'broad': 118, 'ten_split': 1.58},
+    'DE':   {'bench': 22, 'cone': 7.25, 'shuttle': 4.40, 'vertical': 33.0, 'broad': 115, 'ten_split': 1.62},
+    'DT':   {'bench': 28, 'cone': 7.60, 'shuttle': 4.65, 'vertical': 30.0, 'broad': 108, 'ten_split': 1.68},
+    'DL':   {'bench': 26, 'cone': 7.40, 'shuttle': 4.50, 'vertical': 32.0, 'broad': 112, 'ten_split': 1.65},
+    # Linebackers
     'LB':   {'bench': 22, 'cone': 7.15, 'shuttle': 4.30, 'vertical': 35.0, 'broad': 119, 'ten_split': 1.57},
+    # Defensive backs
     'CB':   {'bench': 14, 'cone': 6.75, 'shuttle': 4.05, 'vertical': 37.5, 'broad': 126, 'ten_split': 1.51},
+    'FS':   {'bench': 15, 'cone': 6.85, 'shuttle': 4.12, 'vertical': 37.0, 'broad': 122, 'ten_split': 1.52},
+    'SS':   {'bench': 18, 'cone': 6.95, 'shuttle': 4.18, 'vertical': 36.0, 'broad': 120, 'ten_split': 1.54},
     'S':    {'bench': 16, 'cone': 6.90, 'shuttle': 4.15, 'vertical': 36.5, 'broad': 122, 'ten_split': 1.53},
+    'DB':   {'bench': 16, 'cone': 6.90, 'shuttle': 4.15, 'vertical': 36.5, 'broad': 122, 'ten_split': 1.53},
 }
 
-MIN_REAL_INPUTS = 5
+MIN_REAL_INPUTS = 4
 
 
 def estimate_ten_split(forty: float) -> float:
