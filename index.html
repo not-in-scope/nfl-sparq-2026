@@ -255,7 +255,7 @@
   let schoolFilter = '', teamFilter = '';
 
   // Years with available data; others show disabled.
-  const AVAILABLE_YEARS = new Set(['2020', '2026']);
+  const AVAILABLE_YEARS = new Set(['2020', '2021', '2022', '2023', '2024', '2025', '2026']);
   const ALL_YEARS = Array.from({ length: 12 }, (_, i) => String(2026 - i)); // 2026→2015
   const selectedYears = new Set(['2026']);
 
@@ -384,8 +384,7 @@
 
   function renderRound(p) {
     if (!p.draft_round) return '<span style="color:#3a3e50">—</span>';
-    const start  = ROUND_STARTS[p.draft_round] || 0;
-    const within = p.draft_pick ? p.draft_pick - start : '?';
+    const within = p.draft_pick || '?';
     const badge  = p.round_source === 'mock'
       ? ' <span class="round-proj-badge">PROJ</span>'
       : '';

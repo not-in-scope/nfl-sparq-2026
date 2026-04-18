@@ -148,7 +148,12 @@ def apply_espn_data(players: list[dict], board: dict) -> list[dict]:
         player['draft_round']  = rnd
         player['draft_pick']   = pick
         player['round_source'] = entry.get('round_source')
-        player.setdefault('team', None)
+        # Use ESPN team for historical (actual picks); preserve any existing team for 2026
+        espn_team = entry.get('team')
+        if espn_team:
+            player['team'] = espn_team
+        else:
+            player.setdefault('team', None)
 
         # Height from ESPN if not already set
         espn_height = entry.get('height')

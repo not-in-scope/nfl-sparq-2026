@@ -3,12 +3,16 @@
 For 2026 (upcoming draft): uses ESPN's 'overall' rank as projected pick order.
 For historical years: parses the 'pick.$ref' URL on each athlete record, which
   encodes the actual round/pick (e.g. .../rounds/1/picks/2).
+  Also fetches each pick's JSON to get the drafting NFL team abbreviation.
 
 Also returns ESPN's height (inches) and position abbreviation for each athlete.
 """
 import re
 import requests
 from typing import Optional
+
+_TEAM_CACHE: dict = {}   # team_id → abbreviation
+_TEAM_ID_RE = re.compile(r'/teams/(\d+)')
 
 _BASE = (
     "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl"
@@ -30,10 +34,32 @@ ROUND_RANGES = [
 _PICK_REF_RE = re.compile(r'/rounds/(\d+)/picks/(\d+)')
 
 
+def _fetch_team_abbrev(team_ref: str) -> Optional[str]:
+    """Fetch NFL team abbreviation from an ESPN team $ref URL, with caching."""
+    m = _TEAM_ID_RE.search(team_ref)
+    if not m:
+        return None
+    team_id = m.group(1)
+    if team_id in _TEAM_CACHE:
+        return _TEAM_CACHE[team_id]
+    try:
+        r = requests.get(team_ref.split('?')[0], headers=_HEADERS, timeout=10)
+        abbrev = r.json().get('abbreviation')
+        _TEAM_CACHE[team_id] = abbrev
+        return abbrev
+    except Exception:
+        return None
+
+
+_ROUND_STARTS = {1: 0, 2: 32, 3: 64, 4: 96, 5: 128, 6: 192, 7: 224}
+
+
 def _round_from_rank(rank: int):
+    """Return (round, within_round_pick) from an ESPN overall rank (2026 projected)."""
     for lo, hi, rnd in ROUND_RANGES:
         if lo <= rank <= hi:
-            return rnd, rank
+            within = rank - _ROUND_STARTS[rnd]
+            return rnd, within
     return None, None
 
 
@@ -85,16 +111,23 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
         height = athlete.get("height")   # decimal inches from ESPN, e.g. 76.875
 
         if is_historical:
-            pick_ref = (athlete.get("pick") or {}).get("$ref", "")
-            m = _PICK_REF_RE.search(pick_ref)
+            pick_ref_url = (athlete.get("pick") or {}).get("$ref", "")
+            m = _PICK_REF_RE.search(pick_ref_url)
+            team_abbrev = None
             if m:
-                rnd         = int(m.group(1))
-                within_pick = int(m.group(2))
-                # ESPN stores within-round pick in the URL (1–32 per round).
-                # Convert to overall pick so renderRound()'s ROUND_STARTS math works.
-                round_start = {1: 0, 2: 32, 3: 64, 4: 96, 5: 128, 6: 192, 7: 224}
-                pick        = round_start.get(rnd, 0) + within_pick
+                rnd  = int(m.group(1))
+                pick = int(m.group(2))   # within-round pick from ESPN URL (accurate for any round size)
                 round_source = 'actual'
+                # Fetch pick JSON to get the drafting NFL team
+                try:
+                    pick_data = requests.get(
+                        pick_ref_url.split('?')[0], headers=_HEADERS, timeout=10
+                    ).json()
+                    team_ref = (pick_data.get("team") or {}).get("$ref", "")
+                    if team_ref:
+                        team_abbrev = _fetch_team_abbrev(team_ref)
+                except Exception:
+                    pass
             else:
                 rnd, pick, round_source = None, None, None
         else:
@@ -105,6 +138,7 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
             )
             rnd, pick = _round_from_rank(overall) if overall is not None else (None, None)
             round_source = 'mock' if rnd is not None else None
+            team_abbrev = None
 
         result[name] = {
             "draft_round":  rnd,
@@ -112,6 +146,7 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
             "espn_pos":     pos,
             "height":       height,
             "round_source": round_source,
+            "team":         team_abbrev,
         }
 
     return result
