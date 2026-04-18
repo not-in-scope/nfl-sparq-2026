@@ -26,9 +26,12 @@
     header { padding: 20px 32px 14px; border-bottom: 1px solid #1e2130; }
     .header-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     header h1 { font-size: 22px; font-weight: 700; }
+    .header-tagline { color: #4a4e60; font-size: 12px; font-style: italic; margin-top: 2px; }
     .header-links a { color: #5ba3f5; font-size: 12px; text-decoration: none; }
     .header-links a:hover { text-decoration: underline; }
     header p#subtitle { color: #7a7f94; font-size: 12px; margin-top: 5px; }
+    .zscore-explainer { background: #111420; border-left: 3px solid #2a2e40; color: #7a7f94; font-size: 12px; line-height: 1.6; margin: 0; padding: 10px 32px; }
+    .zscore-explainer strong { color: #b0b4c8; }
 
     /* Year bar */
     .year-bar { display: flex; align-items: center; gap: 8px; padding: 10px 32px; border-bottom: 1px solid #1e2130; flex-wrap: wrap; }
@@ -124,6 +127,7 @@
 <header>
   <div class="header-top">
     <h1>NFL Draft — SPARQ Rankings</h1>
+    <p class="header-tagline">OnlyAthletes — because talent is overrated</p>
     <div class="header-links">
       <a href="https://github.com/stephen-yoshida/nfl-sparq-2026" target="_blank" rel="noopener">
         ⑆ Methodology &amp; Source (GitHub)
@@ -222,6 +226,13 @@
   <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;·&nbsp;
   σ = std deviations vs historical NFL positional average &nbsp;·&nbsp;
   "All Measured" = all 8 inputs from combine/pro day
+</div>
+<div class="zscore-explainer">
+  <strong>What is σ (sigma)?</strong> &nbsp;
+  The σ column ranks each player against every NFL draftee at their position since 1999 — not just this class.
+  A score of <strong>+2.0σ</strong> means the player is more athletic than ~98% of all historical NFL players at that position.
+  <strong>0σ</strong> is dead average. Negative means below the historical norm.
+  It's position-adjusted: a +1.5σ offensive tackle and a +1.5σ wide receiver are equally rare freaks for their position.
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
