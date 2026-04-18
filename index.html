@@ -255,8 +255,8 @@
   let schoolFilter = '', teamFilter = '';
 
   // Years with available data; others show disabled.
-  const AVAILABLE_YEARS = new Set(['2020', '2021', '2022', '2023', '2024', '2025', '2026']);
-  const ALL_YEARS = Array.from({ length: 12 }, (_, i) => String(2026 - i)); // 2026→2015
+  const AVAILABLE_YEARS = new Set(['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']);
+  const ALL_YEARS = Array.from({ length: 17 }, (_, i) => String(2026 - i)); // 2026→2010
   const selectedYears = new Set(['2026']);
 
   // Build year checkbox bar
