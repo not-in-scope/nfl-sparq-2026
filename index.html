@@ -205,10 +205,9 @@
         <th>Year</th>
         <th>Player</th>
         <th>Pos</th>
-        <th>Round</th>
         <th>Team</th>
         <th>σ / NFL%</th>
-        <th>Wt</th><th>40yd</th><th>10s</th>
+        <th>Ht</th><th>Wt</th><th>40yd</th><th>10s</th>
         <th>Vert</th><th>Broad</th><th>Bench</th>
         <th>3-Cone</th><th>Shuttle</th>
       </tr>
@@ -221,7 +220,6 @@
   C = combine &nbsp;·&nbsp;
   <sup class="src-badge p" style="position:static">P</sup> = pro day &nbsp;·&nbsp;
   <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;·&nbsp;
-  <span class="round-proj-badge" style="position:static">PROJ</span> = projected round/pick &nbsp;·&nbsp;
   σ = std deviations vs historical NFL positional average &nbsp;·&nbsp;
   "All Measured" = all 8 inputs from combine/pro day
 </div>
@@ -238,7 +236,7 @@
   let schoolFilter = '', teamFilter = '';
 
   // Years with available data; others show disabled.
-  const AVAILABLE_YEARS = new Set(['2026']);
+  const AVAILABLE_YEARS = new Set(['2020', '2026']);
   const ALL_YEARS = Array.from({ length: 12 }, (_, i) => String(2026 - i)); // 2026→2015
   const selectedYears = new Set(['2026']);
 
@@ -344,15 +342,12 @@
     </div>`;
   }
 
-  function renderRound(p) {
-    if (!p.draft_round) return '<span style="color:#3a3e50">—</span>';
-    const start  = ROUND_STARTS[p.draft_round] || 0;
-    const within = p.draft_pick ? p.draft_pick - start : '?';
-    const isMock = p.round_source === 'mock';
-    const badge  = isMock
-      ? '<span class="round-proj-badge">PROJ</span>'
-      : '';
-    return `<span class="pick-val">R${p.draft_round}.${within}</span> ${badge}`;
+  function renderHeight(h) {
+    if (h === null || h === undefined)
+      return '<span class="metric-val metric-null">—</span>';
+    const feet = Math.floor(h / 12);
+    const inches = Math.round(h % 12 * 10) / 10;
+    return `<span class="metric-val">${feet}'${inches}"</span>`;
   }
 
   function renderTeam(p) {
@@ -372,9 +367,9 @@
       <td class="td-year">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
-      <td data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
       <td>${renderTeam(p)}</td>
       <td data-order="${p.z_score ?? -99}">${renderSigma(p)}</td>
+      <td data-order="${p.height ?? -1}">${renderHeight(p.height)}</td>
       <td data-order="${m.weight?.value ?? -1}">${fmtMetric(m.weight, 0)}</td>
       <td data-order="${m.forty?.value ?? 99}">${fmtMetric(m.forty, 2)}</td>
       <td data-order="${m.ten_split?.value ?? 99}">${fmtMetric(m.ten_split, 2)}</td>
@@ -431,7 +426,7 @@
       lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
       searching:  true,
       ordering:   true,
-      order:      [[6, 'desc']],   // default: sort by σ descending (column index 6)
+      order:      [[5, 'desc']],   // default: sort by σ descending (column index 5)
       info:       true,
       dom:        'ltip',
       columnDefs: [

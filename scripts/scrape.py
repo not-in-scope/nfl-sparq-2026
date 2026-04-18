@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-NFL SPARQ 2026 data pipeline.
+NFL SPARQ data pipeline.
 
 Usage:
-  python scripts/scrape.py                       # Full scrape, writes data/prospects.json
-  python scripts/scrape.py --add-draft-results   # Post-draft: update from ESPN
+  python scripts/scrape.py                       # 2026 scrape, writes data/prospects_2026.json
+  python scripts/scrape.py --year 2020           # Historical year
+  python scripts/scrape.py --add-draft-results   # Post-draft: update from ESPN (2026 only)
 """
 import json
 import argparse
@@ -16,15 +17,14 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from sparq import compute_psparq, compute_z_score, compute_nfl_percentile, estimate_ten_split
 from sources.bigboardlab import fetch_combine_data
+from sources.nflcombine import fetch_combine_data_historical
 from sources.mockdraftable import enrich_players
 from sources.pff import fetch_pff_proday
 from sources.espn_draft import fetch_espn_draft_board
 from sources.espn_weight import fetch_weight
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
-OUTPUT_PATH = os.path.join(DATA_DIR, 'prospects.json')           # legacy alias
-YEAR = 2026
-YEAR_PATH = os.path.join(DATA_DIR, f'prospects_{YEAR}.json')    # canonical
+OUTPUT_PATH = os.path.join(DATA_DIR, 'prospects.json')   # legacy alias (2026)
 
 
 def _count_real(player: dict) -> int:
@@ -46,7 +46,6 @@ def apply_estimation(players: list[dict]) -> list[dict]:
     """Estimate missing inputs; mark source as 'estimated'."""
     for player in players:
         m = player['metrics']
-        # Estimate 10-split from forty when missing
         if m['ten_split'].get('value') is None and m['forty'].get('value') is not None:
             m['ten_split'] = {
                 'value': round(estimate_ten_split(m['forty']['value']), 3),
@@ -119,22 +118,33 @@ def _normalize_pos(pos: str) -> str:
     return _POS_NORMALIZE.get(pos, pos)
 
 
-def apply_mock_rounds(players: list[dict], board: dict) -> list[dict]:
-    """Apply ESPN draft board round/pick data. Also override pos from ESPN when
-    BigBoardLab left a coarse group and PFF didn't match this player."""
+def apply_espn_data(players: list[dict], board: dict) -> list[dict]:
+    """Apply ESPN draft board data: round/pick, height, and fine-grained position."""
     for player in players:
         entry = board.get(player['name'], {})
         rnd  = entry.get('draft_round')
         pick = entry.get('draft_pick')
-        player['draft_round'] = rnd
-        player['draft_pick']  = pick
-        player['round_source'] = 'mock' if rnd is not None else None
-        player.setdefault('team', None)   # filled in post-draft by --add-draft-results
+        player['draft_round']  = rnd
+        player['draft_pick']   = pick
+        player['round_source'] = entry.get('round_source')
+        player.setdefault('team', None)
+
+        # Height from ESPN if not already set
+        espn_height = entry.get('height')
+        if player.get('height') is None and espn_height is not None:
+            player['height'] = espn_height
+
         # Use ESPN fine-grained position if player still has a coarse BBL group
         espn_pos = entry.get('espn_pos', '')
         if espn_pos and player.get('pos') in ('OL', 'DL', 'DB'):
             player['pos'] = _normalize_pos(espn_pos)
+
     return players
+
+
+# Keep old name as alias for backward-compat with tests
+def apply_mock_rounds(players: list[dict], board: dict) -> list[dict]:
+    return apply_espn_data(players, board)
 
 
 def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
@@ -142,7 +152,6 @@ def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
         pff = pff_data.get(player['name'], {})
         if not pff:
             continue
-        # Override coarse BigBoardLab position groups with PFF's fine-grained labels
         pff_pos = pff.get('pff_pos')
         if pff_pos and player.get('pos') in ('OL', 'DL', 'DB'):
             player['pos'] = _normalize_pos(pff_pos)
@@ -150,7 +159,6 @@ def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
             if field not in pff:
                 continue
             existing = player['metrics'].get(field, {})
-            # MockDraftable (Pass 2) takes precedence over PFF (Pass 3) for pro_day values
             if existing.get('source') in ('combine', 'pro_day'):
                 continue
             if existing.get('value') is None:
@@ -159,17 +167,23 @@ def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
 
 
 def rank_players(players: list[dict]) -> list[dict]:
-    # Rank by position-relative z_score (σ) so Styles +2.34σ > Burks +1.23σ.
-    # Players without SPARQ sort to the bottom.
     players.sort(key=lambda p: (p['z_score'] is None, -(p['z_score'] or 0)))
     for i, player in enumerate(players, 1):
         player['rank'] = i
     return players
 
 
-def scrape() -> list[dict]:
+def _ensure_height(player: dict) -> dict:
+    """Ensure player has a 'height' key (None if unknown)."""
+    player.setdefault('height', None)
+    return player
+
+
+def scrape_2026() -> list[dict]:
     print("Pass 1: Fetching BigBoardLab combine data...")
     players = fetch_combine_data()
+    for p in players:
+        p.setdefault('height', None)
     print(f"  {len(players)} players loaded.")
 
     print("Pass 2: Enriching from MockDraftable (pro day + 10-split)...")
@@ -180,9 +194,9 @@ def scrape() -> list[dict]:
     players = merge_pff(players, pff_data)
     print(f"  PFF matched {len(pff_data)} players.")
 
-    print("Fetching ESPN draft board for mock round data...")
-    board = fetch_espn_draft_board()
-    players = apply_mock_rounds(players, board)
+    print("Fetching ESPN draft board for mock round data + height...")
+    board = fetch_espn_draft_board(year=2026)
+    players = apply_espn_data(players, board)
     with_round = sum(1 for p in players if p['draft_round'] is not None)
     print(f"  {with_round} players with mock round data.")
 
@@ -201,8 +215,38 @@ def scrape() -> list[dict]:
     return players
 
 
+def scrape_historical(year: int) -> list[dict]:
+    print(f"Pass 1: Fetching combine data from nflcombineresults.com ({year})...")
+    players = fetch_combine_data_historical(year)
+    for p in players:
+        p['pos'] = _normalize_pos(p['pos'])
+    print(f"  {len(players)} players loaded.")
+
+    print("Pass 2: Enriching from MockDraftable (pro day + 10-split)...")
+    players = enrich_players(players, rate_limit=1.0)
+
+    print(f"Fetching ESPN {year} draft board for actual picks + height...")
+    board = fetch_espn_draft_board(year=year)
+    players = apply_espn_data(players, board)
+    with_round = sum(1 for p in players if p['draft_round'] is not None)
+    print(f"  {with_round} players with actual draft round data.")
+
+    print("Applying estimation for missing inputs...")
+    players = apply_estimation(players)
+
+    print("Computing pSPARQ scores...")
+    players = compute_sparq_scores(players)
+    players = rank_players(players)
+
+    scored = sum(1 for p in players if p['sparq'] is not None)
+    print(f"  SPARQ computed for {scored}/{len(players)} players.")
+    return players
+
+
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--year', type=int, default=2026,
+                        help='Draft class year (default: 2026)')
     parser.add_argument('--add-draft-results', action='store_true',
                         help='Post-draft: update round/pick from ESPN (run after April 25)')
     args = parser.parse_args()
@@ -211,10 +255,21 @@ def main():
         print("Post-draft update: run after April 25, 2026. Not yet implemented.")
         return
 
-    players = scrape()
+    year = args.year
+    if year == 2026:
+        players = scrape_2026()
+    else:
+        players = scrape_historical(year)
+
     os.makedirs(DATA_DIR, exist_ok=True)
+    year_path = os.path.join(DATA_DIR, f'prospects_{year}.json')
     payload = {'updated': date.today().isoformat(), 'count': len(players), 'prospects': players}
-    for path in (YEAR_PATH, OUTPUT_PATH):
+
+    paths = [year_path]
+    if year == 2026:
+        paths.append(OUTPUT_PATH)   # legacy alias
+
+    for path in paths:
         with open(path, 'w') as f:
             json.dump(payload, f, indent=2)
         print(f"Written: {path}")
