@@ -66,9 +66,9 @@
     .player-name { font-weight: 600; }
     .player-school { color: #7a7f94; font-size: 11px; margin-top: 1px; }
     .pos-badge { background: #1a1d2a; border-radius: 3px; color: #8899bb; font-size: 10px; font-weight: 700; padding: 2px 5px; }
-    .round-mock { color: #7a7f94; font-size: 10px; }
     .pick-val { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
     .pick-none { color: #3a3e50; }
+    .round-proj-badge { background: #1c2a1c; border: 1px solid #2a3e2a; border-radius: 3px; color: #4a7a4a; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; padding: 1px 4px; vertical-align: middle; }
 
     /* σ bar (inside the sigma column — fills = NFL percentile) */
     .sigma-bar-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
@@ -205,8 +205,7 @@
         <th>Year</th>
         <th>Player</th>
         <th>Pos</th>
-        <th>Proj. Round</th>
-        <th>Pick</th>
+        <th>Round</th>
         <th>Team</th>
         <th>σ / NFL%</th>
         <th>Wt</th><th>40yd</th><th>10s</th>
@@ -222,7 +221,7 @@
   C = combine &nbsp;·&nbsp;
   <sup class="src-badge p" style="position:static">P</sup> = pro day &nbsp;·&nbsp;
   <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;·&nbsp;
-  (mock) = projected round/pick &nbsp;·&nbsp;
+  <span class="round-proj-badge" style="position:static">PROJ</span> = projected round/pick &nbsp;·&nbsp;
   σ = std deviations vs historical NFL positional average &nbsp;·&nbsp;
   "All Measured" = all 8 inputs from combine/pro day
 </div>
@@ -345,18 +344,13 @@
 
   function renderRound(p) {
     if (!p.draft_round) return '<span style="color:#3a3e50">—</span>';
-    const mock = p.round_source === 'mock' ? ' <span class="round-mock">(mock)</span>' : '';
-    return `R${p.draft_round}${mock}`;
-  }
-
-  function renderPick(p) {
-    if (!p.draft_round || !p.draft_pick)
-      return '<span class="pick-val pick-none">—</span>';
     const start  = ROUND_STARTS[p.draft_round] || 0;
-    const within = p.draft_pick - start;
-    const mock   = p.round_source === 'mock'
-      ? '<sup class="src-badge tilde">~</sup>' : '';
-    return `<span class="pick-val">${p.draft_round}.${within}${mock}</span>`;
+    const within = p.draft_pick ? p.draft_pick - start : '?';
+    const isMock = p.round_source === 'mock';
+    const badge  = isMock
+      ? '<span class="round-proj-badge">PROJ</span>'
+      : '';
+    return `<span class="pick-val">R${p.draft_round}.${within}</span> ${badge}`;
   }
 
   function renderTeam(p) {
@@ -376,8 +370,7 @@
       <td class="td-year">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
-      <td data-order="${p.draft_round ?? 99}">${renderRound(p)}</td>
-      <td data-order="${p.draft_pick ?? 9999}">${renderPick(p)}</td>
+      <td data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
       <td>${renderTeam(p)}</td>
       <td data-order="${p.z_score ?? -99}">${renderSigma(p)}</td>
       <td data-order="${m.weight?.value ?? -1}">${fmtMetric(m.weight, 0)}</td>
@@ -436,7 +429,7 @@
       lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
       searching:  true,
       ordering:   true,
-      order:      [[7, 'desc']],   // default: sort by σ descending (column index 7)
+      order:      [[6, 'desc']],   // default: sort by σ descending (column index 6)
       info:       true,
       dom:        'ltip',
       columnDefs: [
