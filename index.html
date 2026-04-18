@@ -170,10 +170,9 @@
   <div class="filter-group">
     <span class="filter-label">Round</span>
     <button class="pill active" data-filter="round" data-value="all">All</button>
-    <button class="pill" data-filter="round" data-value="1">R1</button>
-    <button class="pill" data-filter="round" data-value="2">R2</button>
-    <button class="pill" data-filter="round" data-value="3-4">R3–4</button>
-    <button class="pill" data-filter="round" data-value="5-7">R5–7</button>
+    <button class="pill" data-filter="round" data-value="1">Day 1 (R1)</button>
+    <button class="pill" data-filter="round" data-value="2-3">Day 2 (R2–3)</button>
+    <button class="pill" data-filter="round" data-value="4-7">Day 3 (R4–7)</button>
     <button class="pill" data-filter="round" data-value="undrafted">UDFA</button>
   </div>
 
@@ -209,6 +208,7 @@
         <th>Year</th>
         <th>Player</th>
         <th>Pos</th>
+        <th>Round</th>
         <th>Team</th>
         <th>σ / NFL%</th>
         <th>Ht</th><th>Wt</th><th>40yd</th><th>10s</th>
@@ -224,6 +224,7 @@
   C = combine &nbsp;·&nbsp;
   <sup class="src-badge p" style="position:static">P</sup> = pro day &nbsp;·&nbsp;
   <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;·&nbsp;
+  <span class="round-proj-badge" style="position:static">PROJ</span> = projected round (pre-draft) &nbsp;·&nbsp;
   σ = std deviations vs historical NFL positional average &nbsp;·&nbsp;
   "All Measured" = all 8 inputs from combine/pro day
 </div>
@@ -288,8 +289,8 @@
     Promise.all(loads).then(groups => {
       allProspects = groups.flat();
       allProspects.sort((a, b) => (a.z_score === null) - (b.z_score === null) || (b.z_score || 0) - (a.z_score || 0));
+      if (dt) dt.destroy();  // destroy BEFORE replacing tbody (avoids DOM restoration overwriting new rows)
       document.getElementById('table-body').innerHTML = allProspects.map(p => renderRow(p)).join('');
-      if (dt) dt.destroy();
       dt = initDT();
       wireFilters();
     });
@@ -361,6 +362,16 @@
     return `<span class="metric-val">${feet}'${inches}"</span>`;
   }
 
+  function renderRound(p) {
+    if (!p.draft_round) return '<span style="color:#3a3e50">—</span>';
+    const start  = ROUND_STARTS[p.draft_round] || 0;
+    const within = p.draft_pick ? p.draft_pick - start : '?';
+    const badge  = p.round_source === 'mock'
+      ? ' <span class="round-proj-badge">PROJ</span>'
+      : '';
+    return `<span class="pick-val">R${p.draft_round}.${within}</span>${badge}`;
+  }
+
   function renderTeam(p) {
     if (!p.team) return '<span style="color:#3a3e50">—</span>';
     return `<strong style="font-size:12px">${p.team}</strong>`;
@@ -378,6 +389,7 @@
       <td class="td-year">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
+      <td data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
       <td>${renderTeam(p)}</td>
       <td data-order="${p.z_score ?? -99}">${renderSigma(p)}</td>
       <td data-order="${p.height ?? -1}">${renderHeight(p.height)}</td>
@@ -411,9 +423,8 @@
       const r = parseInt(round);
       if      (f.round === 'undrafted' && round !== 'none') return false;
       else if (f.round === '1'   && r !== 1)                return false;
-      else if (f.round === '2'   && r !== 2)                return false;
-      else if (f.round === '3-4' && (r < 3 || r > 4))      return false;
-      else if (f.round === '5-7' && (r < 5 || r > 7))      return false;
+      else if (f.round === '2-3' && (r < 2 || r > 3))      return false;
+      else if (f.round === '4-7' && (r < 4 || r > 7))      return false;
     }
 
     if (f.data !== 'all') {
@@ -437,7 +448,7 @@
       lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
       searching:  true,
       ordering:   true,
-      order:      [[5, 'desc']],   // default: sort by σ descending (column index 5)
+      order:      [[6, 'desc']],   // default: sort by σ descending (column index 6)
       info:       true,
       dom:        'ltip',
       columnDefs: [
