@@ -40,14 +40,14 @@
 
     .td-year { color: #7a7f94; font-size: 11px; font-variant-numeric: tabular-nums; }
 
-    /* Select dropdowns (year multiselect + team single-select) */
+    /* Select dropdowns (team single-select) */
     .filter-group select {
       background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px;
       color: #e8eaf0; font-size: 12px; outline: none; padding: 5px 8px;
     }
     .filter-group select:focus { border-color: #2e5a8f; }
-    select#year-select { min-width: 90px; min-height: 80px; max-height: 160px; }
     select#team-select { min-width: 120px; }
+    #year-pills { flex-wrap: wrap; max-width: 600px; }
 
     /* Banner */
     .banner { background: #1c1a0a; border-bottom: 1px solid #3a3510; color: #c8b84a; font-size: 12px; padding: 8px 32px; }
@@ -158,11 +158,9 @@
 </div>
 
 <div class="filters">
-  <div class="filter-group">
+  <div class="filter-group" id="year-pills">
     <span class="filter-label">Year</span>
-    <select id="year-select" multiple title="Select year(s)">
-      <!-- populated by JS -->
-    </select>
+    <!-- populated by JS -->
   </div>
 
   <div class="filter-group">
@@ -261,28 +259,31 @@
   const AVAILABLE_YEARS = new Set(['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']);
   const ALL_YEARS = Array.from({ length: 17 }, (_, i) => String(2026 - i)); // 2026→2010
 
-  // Build year multiselect
-  const yearSelect = document.getElementById('year-select');
+  // Build year toggle pills (multi-select — click to toggle, any combo allowed)
+  const selectedYears = new Set(['2026']);
+  const yearPillsEl = document.getElementById('year-pills');
   ALL_YEARS.forEach(yr => {
     if (!AVAILABLE_YEARS.has(yr)) return;
-    const opt = document.createElement('option');
-    opt.value = yr;
-    opt.textContent = yr;
-    if (yr === '2026') opt.selected = true;
-    yearSelect.appendChild(opt);
-  });
-  yearSelect.addEventListener('change', () => {
-    const selected = Array.from(yearSelect.selectedOptions).map(o => o.value);
-    if (selected.length === 0) {
-      // Keep previous selection if user deselects everything
-      Array.from(yearSelect.options).forEach(o => { if (o.value === '2026') o.selected = true; });
-      return;
-    }
-    reloadData();
+    const btn = document.createElement('button');
+    btn.className = 'pill year-pill' + (yr === '2026' ? ' active' : '');
+    btn.textContent = yr;
+    btn.dataset.year = yr;
+    btn.addEventListener('click', () => {
+      if (selectedYears.has(yr) && selectedYears.size === 1) return; // keep at least one
+      if (selectedYears.has(yr)) {
+        selectedYears.delete(yr);
+        btn.classList.remove('active');
+      } else {
+        selectedYears.add(yr);
+        btn.classList.add('active');
+      }
+      reloadData();
+    });
+    yearPillsEl.appendChild(btn);
   });
 
   function getSelectedYears() {
-    return Array.from(yearSelect.selectedOptions).map(o => o.value);
+    return [...selectedYears];
   }
 
   function reloadData() {
