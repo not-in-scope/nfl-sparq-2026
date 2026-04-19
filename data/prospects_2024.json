@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-17",
+  "updated": "2026-04-18",
   "count": 315,
   "prospects": [
     {
@@ -7549,6 +7549,55 @@
       "rank": 154
     },
     {
+      "name": "Terrion Arnold",
+      "pos": "CB",
+      "school": "Alabama",
+      "height": 71.75,
+      "metrics": {
+        "weight": {
+          "value": 189.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.5,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 37.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 129.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": null,
+          "source": null
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": null,
+          "source": null
+        },
+        "ten_split": {
+          "value": 1.557,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 1,
+      "draft_pick": 24,
+      "round_source": "actual",
+      "team": "DET",
+      "sparq": 117.53,
+      "sparq_source": "estimated",
+      "z_score": 0.11,
+      "nfl_pct": 54.4,
+      "rank": 155
+    },
+    {
       "name": "Myles Cole",
       "pos": "EDGE",
       "school": "Texas Tech",
@@ -7595,7 +7644,7 @@
       "sparq_source": "estimated",
       "z_score": 0.1,
       "nfl_pct": 54.0,
-      "rank": 155
+      "rank": 156
     },
     {
       "name": "Trajan Jeffcoat",
@@ -7644,7 +7693,7 @@
       "sparq_source": "estimated",
       "z_score": 0.1,
       "nfl_pct": 54.0,
-      "rank": 156
+      "rank": 157
     },
     {
       "name": "Cooper Beebe",
@@ -7693,7 +7742,7 @@
       "sparq_source": "estimated",
       "z_score": 0.09,
       "nfl_pct": 53.6,
-      "rank": 157
+      "rank": 158
     },
     {
       "name": "Sam Hartman",
@@ -7742,7 +7791,7 @@
       "sparq_source": "estimated",
       "z_score": 0.09,
       "nfl_pct": 53.6,
-      "rank": 158
+      "rank": 159
     },
     {
       "name": "Kendall Milton",
@@ -7791,7 +7840,7 @@
       "sparq_source": "estimated",
       "z_score": 0.08,
       "nfl_pct": 53.2,
-      "rank": 159
+      "rank": 160
     },
     {
       "name": "Tyler Davis",
@@ -7840,7 +7889,7 @@
       "sparq_source": "estimated",
       "z_score": 0.06,
       "nfl_pct": 52.4,
-      "rank": 160
+      "rank": 161
     },
     {
       "name": "Roman Wilson",
@@ -7889,7 +7938,7 @@
       "sparq_source": "estimated",
       "z_score": 0.05,
       "nfl_pct": 52.0,
-      "rank": 161
+      "rank": 162
     },
     {
       "name": "Luke McCaffrey",
@@ -7938,7 +7987,7 @@
       "sparq_source": "estimated",
       "z_score": 0.02,
       "nfl_pct": 50.8,
-      "rank": 162
+      "rank": 163
     },
     {
       "name": "JaLynn Polk",
@@ -7987,7 +8036,7 @@
       "sparq_source": "estimated",
       "z_score": 0.02,
       "nfl_pct": 50.8,
-      "rank": 163
+      "rank": 164
     },
     {
       "name": "Marcellas Dial",
@@ -8036,7 +8085,7 @@
       "sparq_source": "estimated",
       "z_score": -0.0,
       "nfl_pct": 50.0,
-      "rank": 164
+      "rank": 165
     },
     {
       "name": "Michael Wiley",
@@ -8085,7 +8134,7 @@
       "sparq_source": "estimated",
       "z_score": 0.0,
       "nfl_pct": 50.0,
-      "rank": 165
+      "rank": 166
     },
     {
       "name": "Austin Booker",
@@ -8134,7 +8183,7 @@
       "sparq_source": "estimated",
       "z_score": -0.01,
       "nfl_pct": 49.6,
-      "rank": 166
+      "rank": 167
     },
     {
       "name": "Renardo Green",
@@ -8183,7 +8232,7 @@
       "sparq_source": "estimated",
       "z_score": -0.01,
       "nfl_pct": 49.6,
-      "rank": 167
+      "rank": 168
     },
     {
       "name": "Marist Liufau",
@@ -8232,7 +8281,7 @@
       "sparq_source": "estimated",
       "z_score": -0.01,
       "nfl_pct": 49.6,
-      "rank": 168
+      "rank": 169
     },
     {
       "name": "Dillon Johnson",
@@ -8281,7 +8330,7 @@
       "sparq_source": "estimated",
       "z_score": -0.02,
       "nfl_pct": 49.2,
-      "rank": 169
+      "rank": 170
     },
     {
       "name": "Blake Fisher",
@@ -8330,7 +8379,7 @@
       "sparq_source": "estimated",
       "z_score": -0.03,
       "nfl_pct": 48.8,
-      "rank": 170
+      "rank": 171
     },
     {
       "name": "Khyree Jackson",
@@ -8379,7 +8428,7 @@
       "sparq_source": "estimated",
       "z_score": -0.03,
       "nfl_pct": 48.8,
-      "rank": 171
+      "rank": 172
     },
     {
       "name": "Cornelius Johnson",
@@ -8428,7 +8477,7 @@
       "sparq_source": "estimated",
       "z_score": -0.03,
       "nfl_pct": 48.8,
-      "rank": 172
+      "rank": 173
     },
     {
       "name": "Tarheeb Still",
@@ -8477,7 +8526,7 @@
       "sparq_source": "estimated",
       "z_score": -0.03,
       "nfl_pct": 48.8,
-      "rank": 173
+      "rank": 174
     },
     {
       "name": "Isaiah Williams",
@@ -8526,7 +8575,7 @@
       "sparq_source": "estimated",
       "z_score": -0.03,
       "nfl_pct": 48.8,
-      "rank": 174
+      "rank": 175
     },
     {
       "name": "Daijahn Anthony",
@@ -8575,7 +8624,7 @@
       "sparq_source": "estimated",
       "z_score": -0.06,
       "nfl_pct": 47.6,
-      "rank": 175
+      "rank": 176
     },
     {
       "name": "Troy Franklin",
@@ -8624,7 +8673,7 @@
       "sparq_source": "estimated",
       "z_score": -0.06,
       "nfl_pct": 47.6,
-      "rank": 176
+      "rank": 177
     },
     {
       "name": "Keon Coleman",
@@ -8673,7 +8722,7 @@
       "sparq_source": "estimated",
       "z_score": -0.07,
       "nfl_pct": 47.2,
-      "rank": 177
+      "rank": 178
     },
     {
       "name": "Khalid Duke",
@@ -8722,7 +8771,7 @@
       "sparq_source": "estimated",
       "z_score": -0.07,
       "nfl_pct": 47.2,
-      "rank": 178
+      "rank": 179
     },
     {
       "name": "Trevor Keegan",
@@ -8771,7 +8820,7 @@
       "sparq_source": "estimated",
       "z_score": -0.07,
       "nfl_pct": 47.2,
-      "rank": 179
+      "rank": 180
     },
     {
       "name": "Steele Chambers",
@@ -8820,7 +8869,7 @@
       "sparq_source": "estimated",
       "z_score": -0.08,
       "nfl_pct": 46.8,
-      "rank": 180
+      "rank": 181
     },
     {
       "name": "Braiden McGregor",
@@ -8869,7 +8918,7 @@
       "sparq_source": "estimated",
       "z_score": -0.08,
       "nfl_pct": 46.8,
-      "rank": 181
+      "rank": 182
     },
     {
       "name": "TVondre Sweat",
@@ -8918,7 +8967,7 @@
       "sparq_source": "estimated",
       "z_score": -0.11,
       "nfl_pct": 45.6,
-      "rank": 182
+      "rank": 183
     },
     {
       "name": "Cam Hart",
@@ -8967,7 +9016,7 @@
       "sparq_source": "estimated",
       "z_score": -0.12,
       "nfl_pct": 45.2,
-      "rank": 183
+      "rank": 184
     },
     {
       "name": "Fabien Lovett",
@@ -9016,7 +9065,7 @@
       "sparq_source": "estimated",
       "z_score": -0.13,
       "nfl_pct": 44.8,
-      "rank": 184
+      "rank": 185
     },
     {
       "name": "Jalen McMillan",
@@ -9065,7 +9114,7 @@
       "sparq_source": "estimated",
       "z_score": -0.13,
       "nfl_pct": 44.8,
-      "rank": 185
+      "rank": 186
     },
     {
       "name": "Easton Gibbs",
@@ -9114,7 +9163,7 @@
       "sparq_source": "estimated",
       "z_score": -0.14,
       "nfl_pct": 44.4,
-      "rank": 186
+      "rank": 187
     },
     {
       "name": "Javon Baker",
@@ -9163,7 +9212,7 @@
       "sparq_source": "estimated",
       "z_score": -0.15,
       "nfl_pct": 44.0,
-      "rank": 187
+      "rank": 188
     },
     {
       "name": "Kamari Lassiter",
@@ -9212,7 +9261,7 @@
       "sparq_source": "estimated",
       "z_score": -0.15,
       "nfl_pct": 44.0,
-      "rank": 188
+      "rank": 189
     },
     {
       "name": "Layden Robinson",
@@ -9261,7 +9310,7 @@
       "sparq_source": "estimated",
       "z_score": -0.16,
       "nfl_pct": 43.6,
-      "rank": 189
+      "rank": 190
     },
     {
       "name": "Zach Frazier",
@@ -9310,7 +9359,7 @@
       "sparq_source": "estimated",
       "z_score": -0.17,
       "nfl_pct": 43.3,
-      "rank": 190
+      "rank": 191
     },
     {
       "name": "Kool-Aid McKinstry",
@@ -9359,7 +9408,7 @@
       "sparq_source": "estimated",
       "z_score": -0.18,
       "nfl_pct": 42.9,
-      "rank": 191
+      "rank": 192
     },
     {
       "name": "T.J. Tampa",
@@ -9408,7 +9457,7 @@
       "sparq_source": "estimated",
       "z_score": -0.18,
       "nfl_pct": 42.9,
-      "rank": 192
+      "rank": 193
     },
     {
       "name": "Myles Harden",
@@ -9457,7 +9506,7 @@
       "sparq_source": "estimated",
       "z_score": -0.19,
       "nfl_pct": 42.5,
-      "rank": 193
+      "rank": 194
     },
     {
       "name": "Michael Barrett",
@@ -9506,7 +9555,7 @@
       "sparq_source": "estimated",
       "z_score": -0.22,
       "nfl_pct": 41.3,
-      "rank": 194
+      "rank": 195
     },
     {
       "name": "Gottlieb Ayedze",
@@ -9555,7 +9604,7 @@
       "sparq_source": "estimated",
       "z_score": -0.23,
       "nfl_pct": 40.9,
-      "rank": 195
+      "rank": 196
     },
     {
       "name": "Kalen King",
@@ -9604,7 +9653,7 @@
       "sparq_source": "estimated",
       "z_score": -0.25,
       "nfl_pct": 40.1,
-      "rank": 196
+      "rank": 197
     },
     {
       "name": "Andre Sam",
@@ -9653,7 +9702,7 @@
       "sparq_source": "estimated",
       "z_score": -0.26,
       "nfl_pct": 39.7,
-      "rank": 197
+      "rank": 198
     },
     {
       "name": "Kamren Kinchens",
@@ -9702,7 +9751,7 @@
       "sparq_source": "estimated",
       "z_score": -0.28,
       "nfl_pct": 39.0,
-      "rank": 198
+      "rank": 199
     },
     {
       "name": "Prince Pines",
@@ -9751,7 +9800,7 @@
       "sparq_source": "estimated",
       "z_score": -0.29,
       "nfl_pct": 38.6,
-      "rank": 199
+      "rank": 200
     },
     {
       "name": "Trey Knox",
@@ -9800,7 +9849,7 @@
       "sparq_source": "estimated",
       "z_score": -0.3,
       "nfl_pct": 38.2,
-      "rank": 200
+      "rank": 201
     },
     {
       "name": "Ennis Rakestraw",
@@ -9849,7 +9898,7 @@
       "sparq_source": "estimated",
       "z_score": -0.3,
       "nfl_pct": 38.2,
-      "rank": 201
+      "rank": 202
     },
     {
       "name": "Javon Foster",
@@ -9898,7 +9947,7 @@
       "sparq_source": "estimated",
       "z_score": -0.33,
       "nfl_pct": 37.1,
-      "rank": 202
+      "rank": 203
     },
     {
       "name": "Nehemiah Pritchett",
@@ -9947,7 +9996,7 @@
       "sparq_source": "estimated",
       "z_score": -0.33,
       "nfl_pct": 37.1,
-      "rank": 203
+      "rank": 204
     },
     {
       "name": "Matt Goncalves",
@@ -9996,7 +10045,7 @@
       "sparq_source": "estimated",
       "z_score": -0.34,
       "nfl_pct": 36.7,
-      "rank": 204
+      "rank": 205
     },
     {
       "name": "Patrick McMorris",
@@ -10045,7 +10094,7 @@
       "sparq_source": "real",
       "z_score": -0.34,
       "nfl_pct": 36.7,
-      "rank": 205
+      "rank": 206
     },
     {
       "name": "Nathan Thomas",
@@ -10094,7 +10143,7 @@
       "sparq_source": "estimated",
       "z_score": -0.35,
       "nfl_pct": 36.3,
-      "rank": 206
+      "rank": 207
     },
     {
       "name": "Brady Latham",
@@ -10143,7 +10192,7 @@
       "sparq_source": "estimated",
       "z_score": -0.36,
       "nfl_pct": 35.9,
-      "rank": 207
+      "rank": 208
     },
     {
       "name": "Brevyn Spann-Ford",
@@ -10192,7 +10241,7 @@
       "sparq_source": "estimated",
       "z_score": -0.36,
       "nfl_pct": 35.9,
-      "rank": 208
+      "rank": 209
     },
     {
       "name": "James Williams",
@@ -10241,7 +10290,7 @@
       "sparq_source": "estimated",
       "z_score": -0.36,
       "nfl_pct": 35.9,
-      "rank": 209
+      "rank": 210
     },
     {
       "name": "D.J. James",
@@ -10290,7 +10339,7 @@
       "sparq_source": "estimated",
       "z_score": -0.39,
       "nfl_pct": 34.8,
-      "rank": 210
+      "rank": 211
     },
     {
       "name": "Jacob Cowing",
@@ -10339,7 +10388,7 @@
       "sparq_source": "estimated",
       "z_score": -0.4,
       "nfl_pct": 34.5,
-      "rank": 211
+      "rank": 212
     },
     {
       "name": "Brenden Rice",
@@ -10388,7 +10437,7 @@
       "sparq_source": "estimated",
       "z_score": -0.4,
       "nfl_pct": 34.5,
-      "rank": 212
+      "rank": 213
     },
     {
       "name": "Josh Proctor",
@@ -10437,7 +10486,7 @@
       "sparq_source": "estimated",
       "z_score": -0.41,
       "nfl_pct": 34.1,
-      "rank": 213
+      "rank": 214
     },
     {
       "name": "Calen Bullock",
@@ -10486,7 +10535,7 @@
       "sparq_source": "estimated",
       "z_score": -0.42,
       "nfl_pct": 33.7,
-      "rank": 214
+      "rank": 215
     },
     {
       "name": "M.J. Devonshire",
@@ -10535,7 +10584,7 @@
       "sparq_source": "estimated",
       "z_score": -0.42,
       "nfl_pct": 33.7,
-      "rank": 215
+      "rank": 216
     },
     {
       "name": "Decamerion Richardson",
@@ -10584,7 +10633,7 @@
       "sparq_source": "estimated",
       "z_score": -0.42,
       "nfl_pct": 33.7,
-      "rank": 216
+      "rank": 217
     },
     {
       "name": "Devaughn Vele",
@@ -10633,7 +10682,7 @@
       "sparq_source": "estimated",
       "z_score": -0.42,
       "nfl_pct": 33.7,
-      "rank": 217
+      "rank": 218
     },
     {
       "name": "Josh Newton",
@@ -10682,7 +10731,7 @@
       "sparq_source": "estimated",
       "z_score": -0.43,
       "nfl_pct": 33.4,
-      "rank": 218
+      "rank": 219
     },
     {
       "name": "Beau Brade",
@@ -10731,7 +10780,7 @@
       "sparq_source": "estimated",
       "z_score": -0.44,
       "nfl_pct": 33.0,
-      "rank": 219
+      "rank": 220
     },
     {
       "name": "Jaden Crumedy",
@@ -10780,7 +10829,7 @@
       "sparq_source": "estimated",
       "z_score": -0.44,
       "nfl_pct": 33.0,
-      "rank": 220
+      "rank": 221
     },
     {
       "name": "Sedrick Van Pran-Granger",
@@ -10829,7 +10878,7 @@
       "sparq_source": "estimated",
       "z_score": -0.44,
       "nfl_pct": 33.0,
-      "rank": 221
+      "rank": 222
     },
     {
       "name": "Delmar Glaze",
@@ -10878,7 +10927,7 @@
       "sparq_source": "estimated",
       "z_score": -0.45,
       "nfl_pct": 32.6,
-      "rank": 222
+      "rank": 223
     },
     {
       "name": "LaDarius Henderson",
@@ -10927,7 +10976,7 @@
       "sparq_source": "real",
       "z_score": -0.45,
       "nfl_pct": 32.6,
-      "rank": 223
+      "rank": 224
     },
     {
       "name": "Chau Smith-Wade",
@@ -10976,7 +11025,7 @@
       "sparq_source": "estimated",
       "z_score": -0.45,
       "nfl_pct": 32.6,
-      "rank": 224
+      "rank": 225
     },
     {
       "name": "Jawhar Jordan",
@@ -11025,7 +11074,7 @@
       "sparq_source": "estimated",
       "z_score": -0.46,
       "nfl_pct": 32.3,
-      "rank": 225
+      "rank": 226
     },
     {
       "name": "Xavier Weaver",
@@ -11074,7 +11123,7 @@
       "sparq_source": "estimated",
       "z_score": -0.46,
       "nfl_pct": 32.3,
-      "rank": 226
+      "rank": 227
     },
     {
       "name": "Emani Bailey",
@@ -11123,7 +11172,7 @@
       "sparq_source": "estimated",
       "z_score": -0.47,
       "nfl_pct": 31.9,
-      "rank": 227
+      "rank": 228
     },
     {
       "name": "Willie Drew",
@@ -11172,7 +11221,7 @@
       "sparq_source": "estimated",
       "z_score": -0.47,
       "nfl_pct": 31.9,
-      "rank": 228
+      "rank": 229
     },
     {
       "name": "Lideatrick Griffin",
@@ -11221,7 +11270,7 @@
       "sparq_source": "estimated",
       "z_score": -0.48,
       "nfl_pct": 31.6,
-      "rank": 229
+      "rank": 230
     },
     {
       "name": "JhaQuan Jackson",
@@ -11270,7 +11319,7 @@
       "sparq_source": "estimated",
       "z_score": -0.48,
       "nfl_pct": 31.6,
-      "rank": 230
+      "rank": 231
     },
     {
       "name": "Nelson Ceaser",
@@ -11319,7 +11368,7 @@
       "sparq_source": "estimated",
       "z_score": -0.49,
       "nfl_pct": 31.2,
-      "rank": 231
+      "rank": 232
     },
     {
       "name": "Christian Jones",
@@ -11368,7 +11417,7 @@
       "sparq_source": "estimated",
       "z_score": -0.52,
       "nfl_pct": 30.2,
-      "rank": 232
+      "rank": 233
     },
     {
       "name": "Demani Richardson",
@@ -11417,7 +11466,7 @@
       "sparq_source": "estimated",
       "z_score": -0.52,
       "nfl_pct": 30.2,
-      "rank": 233
+      "rank": 234
     },
     {
       "name": "Deantre Prince",
@@ -11466,7 +11515,7 @@
       "sparq_source": "estimated",
       "z_score": -0.54,
       "nfl_pct": 29.5,
-      "rank": 234
+      "rank": 235
     },
     {
       "name": "Nathaniel Watson",
@@ -11515,7 +11564,7 @@
       "sparq_source": "estimated",
       "z_score": -0.55,
       "nfl_pct": 29.1,
-      "rank": 235
+      "rank": 236
     },
     {
       "name": "Karsen Barnhart",
@@ -11564,7 +11613,7 @@
       "sparq_source": "estimated",
       "z_score": -0.56,
       "nfl_pct": 28.8,
-      "rank": 236
+      "rank": 237
     },
     {
       "name": "Tatum Bethune",
@@ -11613,7 +11662,7 @@
       "sparq_source": "estimated",
       "z_score": -0.59,
       "nfl_pct": 27.8,
-      "rank": 237
+      "rank": 238
     },
     {
       "name": "Jamari Thrash",
@@ -11662,7 +11711,7 @@
       "sparq_source": "estimated",
       "z_score": -0.59,
       "nfl_pct": 27.8,
-      "rank": 238
+      "rank": 239
     },
     {
       "name": "Christian Roland-Wallace",
@@ -11711,7 +11760,7 @@
       "sparq_source": "estimated",
       "z_score": -0.61,
       "nfl_pct": 27.1,
-      "rank": 239
+      "rank": 240
     },
     {
       "name": "Darius Robinson",
@@ -11760,7 +11809,7 @@
       "sparq_source": "estimated",
       "z_score": -0.65,
       "nfl_pct": 25.8,
-      "rank": 240
+      "rank": 241
     },
     {
       "name": "Caelen Carson",
@@ -11809,7 +11858,7 @@
       "sparq_source": "estimated",
       "z_score": -0.66,
       "nfl_pct": 25.5,
-      "rank": 241
+      "rank": 242
     },
     {
       "name": "Aaron Casey",
@@ -11858,7 +11907,7 @@
       "sparq_source": "estimated",
       "z_score": -0.66,
       "nfl_pct": 25.5,
-      "rank": 242
+      "rank": 243
     },
     {
       "name": "Tahj Washington",
@@ -11907,7 +11956,7 @@
       "sparq_source": "estimated",
       "z_score": -0.67,
       "nfl_pct": 25.1,
-      "rank": 243
+      "rank": 244
     },
     {
       "name": "Myles Murphy",
@@ -11956,7 +12005,7 @@
       "sparq_source": "estimated",
       "z_score": -0.7,
       "nfl_pct": 24.2,
-      "rank": 244
+      "rank": 245
     },
     {
       "name": "JaTavion Sanders",
@@ -12005,7 +12054,7 @@
       "sparq_source": "estimated",
       "z_score": -0.7,
       "nfl_pct": 24.2,
-      "rank": 245
+      "rank": 246
     },
     {
       "name": "Bucky Irving",
@@ -12054,7 +12103,7 @@
       "sparq_source": "estimated",
       "z_score": -0.71,
       "nfl_pct": 23.9,
-      "rank": 246
+      "rank": 247
     },
     {
       "name": "Isaiah Adams",
@@ -12103,7 +12152,7 @@
       "sparq_source": "estimated",
       "z_score": -0.72,
       "nfl_pct": 23.6,
-      "rank": 247
+      "rank": 248
     },
     {
       "name": "Keith Randolph",
@@ -12152,7 +12201,7 @@
       "sparq_source": "estimated",
       "z_score": -0.74,
       "nfl_pct": 23.0,
-      "rank": 248
+      "rank": 249
     },
     {
       "name": "Cody Schrader",
@@ -12201,7 +12250,7 @@
       "sparq_source": "estimated",
       "z_score": -0.74,
       "nfl_pct": 23.0,
-      "rank": 249
+      "rank": 250
     },
     {
       "name": "David Ugwoegbu",
@@ -12250,7 +12299,7 @@
       "sparq_source": "estimated",
       "z_score": -0.8,
       "nfl_pct": 21.2,
-      "rank": 250
+      "rank": 251
     },
     {
       "name": "Kamal Hadden",
@@ -12299,7 +12348,7 @@
       "sparq_source": "estimated",
       "z_score": -0.82,
       "nfl_pct": 20.6,
-      "rank": 251
+      "rank": 252
     },
     {
       "name": "Kris Abrams-Draine",
@@ -12348,7 +12397,7 @@
       "sparq_source": "estimated",
       "z_score": -0.84,
       "nfl_pct": 20.0,
-      "rank": 252
+      "rank": 253
     },
     {
       "name": "Jarvis Brownlee",
@@ -12397,7 +12446,7 @@
       "sparq_source": "estimated",
       "z_score": -0.85,
       "nfl_pct": 19.8,
-      "rank": 253
+      "rank": 254
     },
     {
       "name": "Zion Logue",
@@ -12446,7 +12495,7 @@
       "sparq_source": "estimated",
       "z_score": -0.95,
       "nfl_pct": 17.1,
-      "rank": 254
+      "rank": 255
     },
     {
       "name": "Trente Jones",
@@ -12495,7 +12544,7 @@
       "sparq_source": "estimated",
       "z_score": -0.96,
       "nfl_pct": 16.9,
-      "rank": 255
+      "rank": 256
     },
     {
       "name": "Dwight McGlothern",
@@ -12544,7 +12593,7 @@
       "sparq_source": "estimated",
       "z_score": -1.0,
       "nfl_pct": 15.9,
-      "rank": 256
+      "rank": 257
     },
     {
       "name": "Andrew Raym",
@@ -12593,7 +12642,7 @@
       "sparq_source": "estimated",
       "z_score": -1.0,
       "nfl_pct": 15.9,
-      "rank": 257
+      "rank": 258
     },
     {
       "name": "Maema Njongmeta",
@@ -12642,7 +12691,7 @@
       "sparq_source": "estimated",
       "z_score": -1.03,
       "nfl_pct": 15.2,
-      "rank": 258
+      "rank": 259
     },
     {
       "name": "Jontrey Hunter",
@@ -12691,7 +12740,7 @@
       "sparq_source": "estimated",
       "z_score": -1.07,
       "nfl_pct": 14.2,
-      "rank": 259
+      "rank": 260
     },
     {
       "name": "Solomon Byrd",
@@ -12740,7 +12789,7 @@
       "sparq_source": "estimated",
       "z_score": -1.08,
       "nfl_pct": 14.0,
-      "rank": 260
+      "rank": 261
     },
     {
       "name": "Josh Wallace",
@@ -12789,7 +12838,7 @@
       "sparq_source": "estimated",
       "z_score": -1.09,
       "nfl_pct": 13.8,
-      "rank": 261
+      "rank": 262
     },
     {
       "name": "Carlton Johnson",
@@ -12838,7 +12887,7 @@
       "sparq_source": "estimated",
       "z_score": -1.12,
       "nfl_pct": 13.1,
-      "rank": 262
+      "rank": 263
     },
     {
       "name": "Tyler Nubin",
@@ -12887,7 +12936,7 @@
       "sparq_source": "estimated",
       "z_score": -1.16,
       "nfl_pct": 12.3,
-      "rank": 263
+      "rank": 264
     },
     {
       "name": "KT Leveston",
@@ -12936,7 +12985,7 @@
       "sparq_source": "estimated",
       "z_score": -1.21,
       "nfl_pct": 11.3,
-      "rank": 264
+      "rank": 265
     },
     {
       "name": "Keaton Bills",
@@ -12985,7 +13034,7 @@
       "sparq_source": "estimated",
       "z_score": -1.22,
       "nfl_pct": 11.1,
-      "rank": 265
+      "rank": 266
     },
     {
       "name": "Daijun Edwards",
@@ -13034,7 +13083,7 @@
       "sparq_source": "estimated",
       "z_score": -1.22,
       "nfl_pct": 11.1,
-      "rank": 266
+      "rank": 267
     },
     {
       "name": "Matthew Jones",
@@ -13083,7 +13132,7 @@
       "sparq_source": "estimated",
       "z_score": -1.24,
       "nfl_pct": 10.7,
-      "rank": 267
+      "rank": 268
     },
     {
       "name": "Frank Gore",
@@ -13132,7 +13181,7 @@
       "sparq_source": "estimated",
       "z_score": -1.27,
       "nfl_pct": 10.2,
-      "rank": 268
+      "rank": 269
     },
     {
       "name": "Andrew Coker",
@@ -13181,7 +13230,7 @@
       "sparq_source": "estimated",
       "z_score": -1.29,
       "nfl_pct": 9.9,
-      "rank": 269
+      "rank": 270
     },
     {
       "name": "McKinnley Jackson",
@@ -13230,7 +13279,7 @@
       "sparq_source": "estimated",
       "z_score": -1.44,
       "nfl_pct": 7.5,
-      "rank": 270
+      "rank": 271
     },
     {
       "name": "Ryan Cooper",
@@ -13279,7 +13328,7 @@
       "sparq_source": "estimated",
       "z_score": -1.52,
       "nfl_pct": 6.4,
-      "rank": 271
+      "rank": 272
     },
     {
       "name": "Tayvion Robinson",
@@ -13328,7 +13377,7 @@
       "sparq_source": "estimated",
       "z_score": -1.55,
       "nfl_pct": 6.1,
-      "rank": 272
+      "rank": 273
     },
     {
       "name": "Marcus Rosemy-Jacksaint",
@@ -13377,7 +13426,7 @@
       "sparq_source": "estimated",
       "z_score": -1.63,
       "nfl_pct": 5.2,
-      "rank": 273
+      "rank": 274
     },
     {
       "name": "Ro Torrence",
@@ -13426,7 +13475,7 @@
       "sparq_source": "estimated",
       "z_score": -1.69,
       "nfl_pct": 4.6,
-      "rank": 274
+      "rank": 275
     },
     {
       "name": "Jeremy Flax",
@@ -13475,7 +13524,7 @@
       "sparq_source": "estimated",
       "z_score": -1.76,
       "nfl_pct": 3.9,
-      "rank": 275
+      "rank": 276
     },
     {
       "name": "Anim Dankwah",
@@ -13524,55 +13573,6 @@
       "sparq_source": "estimated",
       "z_score": -1.8,
       "nfl_pct": 3.6,
-      "rank": 276
-    },
-    {
-      "name": "Terrion Arnold",
-      "pos": "CB",
-      "school": "Alabama",
-      "height": 71.75,
-      "metrics": {
-        "weight": {
-          "value": 189.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.5,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 37.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 129.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": null,
-          "source": null
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 6.69,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.557,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 1,
-      "draft_pick": 24,
-      "round_source": "actual",
-      "team": "DET",
-      "sparq": 89.8,
-      "sparq_source": "estimated",
-      "z_score": -1.94,
-      "nfl_pct": 2.6,
       "rank": 277
     },
     {
