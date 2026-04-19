@@ -25,12 +25,17 @@
     /* ── Header ── */
     header { padding: 20px 32px 14px; border-bottom: 1px solid #1e2130; }
     .header-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 767px) {
+      header { padding: 14px 12px 10px; }
+      header h1 { font-size: 18px; }
+    }
     header h1 { font-size: 22px; font-weight: 700; }
     .header-tagline { color: #4a4e60; font-size: 12px; font-style: italic; margin-top: 2px; }
     .header-links a { color: #5ba3f5; font-size: 12px; text-decoration: none; }
     .header-links a:hover { text-decoration: underline; }
     header p#subtitle { color: #7a7f94; font-size: 12px; margin-top: 5px; }
     .zscore-explainer { background: #0d1020; border-top: 1px solid #1e2130; border-bottom: 1px solid #1e2130; color: #8a90a8; font-size: 13px; line-height: 1.7; padding: 14px 32px; }
+    @media (max-width: 767px) { .zscore-explainer { padding: 10px 12px; font-size: 12px; } }
     .zscore-explainer strong { color: #c8cde0; }
     .zscore-explainer .zscore-hl { display: inline-block; background: #141828; border: 1px solid #2a2e40; border-radius: 3px; font-family: 'SF Mono','Fira Code',monospace; font-size: 12px; padding: 1px 7px; margin: 0 2px; }
     .zscore-explainer .hl-elite  { color: #4ade80; border-color: #2a4a2a; }
@@ -54,6 +59,7 @@
 
     /* ── Filters ── */
     .filters { padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; border-bottom: 1px solid #1e2130; }
+    @media (max-width: 767px) { .filters { padding: 10px 12px; gap: 8px; } }
     .filter-group { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
     .filter-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; white-space: nowrap; }
     .pill { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 11px; padding: 4px 10px; transition: all 0.1s; }
@@ -63,12 +69,33 @@
     .filter-group input:focus { border-color: #2e5a8f; }
 
     /* ── Table ── */
-    .table-wrap { padding: 0 32px 32px; overflow-x: auto; }
+    .table-wrap { padding: 0 16px 32px; overflow-x: auto; }
     table#sparq-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
     #sparq-table thead th { background: #141720; border-bottom: 2px solid #1e2130; color: #7a7f94; font-size: 11px; font-weight: 600; letter-spacing: 0.4px; padding: 10px 8px; text-align: left; text-transform: uppercase; white-space: nowrap; }
     #sparq-table tbody tr { border-bottom: 1px solid #161820; }
     #sparq-table tbody tr:hover { background: #14172080; }
     #sparq-table td { padding: 8px; font-size: 13px; white-space: nowrap; vertical-align: top; }
+
+    /* Responsive column visibility — hide progressively as viewport narrows */
+    /* col-hide-sm:  hidden below 768px  (Year, Ht, Wt, 10s, Vert, Bench, Cone, Shuttle) */
+    /* col-hide-md:  hidden below 1024px (Round, Team, Broad) */
+    @media (max-width: 1023px) {
+      .col-hide-md { display: none; }
+    }
+    @media (max-width: 767px) {
+      .col-hide-sm { display: none; }
+      .table-wrap { padding: 0 8px 24px; }
+      header { padding: 14px 12px 10px; }
+      .filters { padding: 10px 12px; }
+      .zscore-explainer { padding: 10px 12px; }
+      .legend { padding: 10px 12px; }
+      .dataTables_wrapper .dataTables_info,
+      .dataTables_wrapper .dataTables_paginate,
+      .dataTables_wrapper .dataTables_length { padding: 6px 12px; }
+      #sparq-table td { padding: 6px 5px; font-size: 12px; }
+      #sparq-table thead th { padding: 8px 5px; }
+      .sigma-bar-bg { max-width: 60px; }
+    }
 
     .td-rank { color: #7a7f94; font-size: 12px; width: 36px; }
     .player-name { font-weight: 600; }
@@ -220,15 +247,21 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Year</th>
+        <th class="col-hide-sm">Year</th>
         <th>Player</th>
         <th>Pos</th>
-        <th>Round</th>
-        <th>Team</th>
+        <th class="col-hide-md">Round</th>
+        <th class="col-hide-md">Team</th>
         <th>σ / NFL%</th>
-        <th>Ht</th><th>Wt</th><th>40yd</th><th>10s</th>
-        <th>Vert</th><th>Broad</th><th>Bench</th>
-        <th>3-Cone</th><th>Shuttle</th>
+        <th class="col-hide-sm">Ht</th>
+        <th class="col-hide-sm">Wt</th>
+        <th>40yd</th>
+        <th class="col-hide-sm">10s</th>
+        <th class="col-hide-sm">Vert</th>
+        <th class="col-hide-md">Broad</th>
+        <th class="col-hide-sm">Bench</th>
+        <th class="col-hide-sm">3-Cone</th>
+        <th class="col-hide-sm">Shuttle</th>
       </tr>
     </thead>
     <tbody id="table-body"></tbody>
@@ -421,21 +454,21 @@
                data-school="${(p.school || '').toLowerCase()}"
                data-team="${(p.team  || '').toLowerCase()}">
       <td class="td-rank">${p.rank}</td>
-      <td class="td-year">${p.year || ''}</td>
+      <td class="td-year col-hide-sm">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
-      <td data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
-      <td>${renderTeam(p)}</td>
+      <td class="col-hide-md" data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
+      <td class="col-hide-md">${renderTeam(p)}</td>
       <td data-order="${p.z_score ?? -99}">${renderSigma(p)}</td>
-      <td data-order="${p.height ?? -1}">${renderHeight(p.height)}</td>
-      <td data-order="${m.weight?.value ?? -1}">${fmtMetric(m.weight, 0)}</td>
+      <td class="col-hide-sm" data-order="${p.height ?? -1}">${renderHeight(p.height)}</td>
+      <td class="col-hide-sm" data-order="${m.weight?.value ?? -1}">${fmtMetric(m.weight, 0)}</td>
       <td data-order="${m.forty?.value ?? 99}">${fmtMetric(m.forty, 2)}</td>
-      <td data-order="${m.ten_split?.value ?? 99}">${fmtMetric(m.ten_split, 2)}</td>
-      <td data-order="${m.vertical?.value ?? -1}">${fmtMetric(m.vertical, 1)}</td>
-      <td data-order="${m.broad?.value ?? -1}">${fmtBroad(m.broad)}</td>
-      <td data-order="${m.bench?.value ?? -1}">${fmtMetric(m.bench, 0)}</td>
-      <td data-order="${m.cone?.value ?? 99}">${fmtMetric(m.cone, 2)}</td>
-      <td data-order="${m.shuttle?.value ?? 99}">${fmtMetric(m.shuttle, 2)}</td>
+      <td class="col-hide-sm" data-order="${m.ten_split?.value ?? 99}">${fmtMetric(m.ten_split, 2)}</td>
+      <td class="col-hide-sm" data-order="${m.vertical?.value ?? -1}">${fmtMetric(m.vertical, 1)}</td>
+      <td class="col-hide-md" data-order="${m.broad?.value ?? -1}">${fmtBroad(m.broad)}</td>
+      <td class="col-hide-sm" data-order="${m.bench?.value ?? -1}">${fmtMetric(m.bench, 0)}</td>
+      <td class="col-hide-sm" data-order="${m.cone?.value ?? 99}">${fmtMetric(m.cone, 2)}</td>
+      <td class="col-hide-sm" data-order="${m.shuttle?.value ?? 99}">${fmtMetric(m.shuttle, 2)}</td>
     </tr>`;
   }
 
