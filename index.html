@@ -38,16 +38,16 @@
     .zscore-explainer .hl-avg    { color: #facc15; border-color: #3a3010; }
     .zscore-explainer .hl-below  { color: #f87171; border-color: #4a2020; }
 
-    /* Year bar */
-    .year-bar { display: flex; align-items: center; gap: 8px; padding: 10px 32px; border-bottom: 1px solid #1e2130; flex-wrap: wrap; }
-    .year-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-    .year-checkboxes { display: flex; gap: 4px; flex-wrap: wrap; }
-    .year-cb { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 12px; font-weight: 600; padding: 4px 12px; transition: all 0.1s; user-select: none; }
-    .year-cb input[type="checkbox"] { display: none; }
-    .year-cb:hover:not(.year-disabled) { background: #1e2235; color: #e8eaf0; }
-    .year-cb.year-checked { background: #1e3a5f; border-color: #2e5a8f; color: #5ba3f5; }
-    .year-cb.year-disabled { opacity: 0.35; cursor: not-allowed; }
     .td-year { color: #7a7f94; font-size: 11px; font-variant-numeric: tabular-nums; }
+
+    /* Select dropdowns (year multiselect + team single-select) */
+    .filter-group select {
+      background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px;
+      color: #e8eaf0; font-size: 12px; outline: none; padding: 5px 8px;
+    }
+    .filter-group select:focus { border-color: #2e5a8f; }
+    select#year-select { min-width: 90px; min-height: 80px; max-height: 160px; }
+    select#team-select { min-width: 120px; }
 
     /* Banner */
     .banner { background: #1c1a0a; border-bottom: 1px solid #3a3510; color: #c8b84a; font-size: 12px; padding: 8px 32px; }
@@ -142,12 +142,6 @@
   <p id="subtitle">Loading...</p>
 </header>
 
-<div class="year-bar">
-  <span class="year-label">Year</span>
-  <div class="year-checkboxes" id="year-checkboxes">
-    <!-- rendered by JS -->
-  </div>
-</div>
 
 <div class="zscore-explainer">
   <strong>What is σ?</strong> &nbsp;
@@ -164,6 +158,13 @@
 </div>
 
 <div class="filters">
+  <div class="filter-group">
+    <span class="filter-label">Year</span>
+    <select id="year-select" multiple title="Select year(s)">
+      <!-- populated by JS -->
+    </select>
+  </div>
+
   <div class="filter-group">
     <span class="filter-label">Position</span>
     <button class="pill active" data-filter="pos" data-value="all">All</button>
@@ -200,7 +201,9 @@
 
   <div class="filter-group">
     <span class="filter-label">Team</span>
-    <input type="text" id="team-filter" placeholder="Filter team...">
+    <select id="team-select">
+      <option value="">All teams</option>
+    </select>
   </div>
 
   <div class="filter-group">
@@ -254,41 +257,37 @@
   const activeFilters = { pos: 'all', round: 'all', data: 'all' };
   let schoolFilter = '', teamFilter = '';
 
-  // Years with available data; others show disabled.
+  // Years with available data
   const AVAILABLE_YEARS = new Set(['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']);
   const ALL_YEARS = Array.from({ length: 17 }, (_, i) => String(2026 - i)); // 2026→2010
-  const selectedYears = new Set(['2026']);
 
-  // Build year checkbox bar
-  const ycEl = document.getElementById('year-checkboxes');
+  // Build year multiselect
+  const yearSelect = document.getElementById('year-select');
   ALL_YEARS.forEach(yr => {
-    const avail = AVAILABLE_YEARS.has(yr);
-    const label = document.createElement('label');
-    label.className = 'year-cb' + (avail && selectedYears.has(yr) ? ' year-checked' : '') + (!avail ? ' year-disabled' : '');
-    label.dataset.year = yr;
-    label.innerHTML = `<input type="checkbox" value="${yr}"${avail && selectedYears.has(yr) ? ' checked' : ''}${!avail ? ' disabled' : ''}> ${yr}`;
-    if (avail) {
-      const cb = label.querySelector('input');
-      cb.addEventListener('change', () => {
-        if (!cb.checked && selectedYears.size === 1) {
-          cb.checked = true; // keep at least one year selected
-          return;
-        }
-        if (cb.checked) {
-          selectedYears.add(yr);
-          label.classList.add('year-checked');
-        } else {
-          selectedYears.delete(yr);
-          label.classList.remove('year-checked');
-        }
-        reloadData();
-      });
+    if (!AVAILABLE_YEARS.has(yr)) return;
+    const opt = document.createElement('option');
+    opt.value = yr;
+    opt.textContent = yr;
+    if (yr === '2026') opt.selected = true;
+    yearSelect.appendChild(opt);
+  });
+  yearSelect.addEventListener('change', () => {
+    const selected = Array.from(yearSelect.selectedOptions).map(o => o.value);
+    if (selected.length === 0) {
+      // Keep previous selection if user deselects everything
+      Array.from(yearSelect.options).forEach(o => { if (o.value === '2026') o.selected = true; });
+      return;
     }
-    ycEl.appendChild(label);
+    reloadData();
   });
 
+  function getSelectedYears() {
+    return Array.from(yearSelect.selectedOptions).map(o => o.value);
+  }
+
   function reloadData() {
-    const loads = [...selectedYears].map(yr =>
+    const years = getSelectedYears();
+    const loads = years.map(yr =>
       fetch(`data/prospects_${yr}.json`).then(r => r.json()).then(d =>
         d.prospects.map(p => ({ ...p, year: yr }))
       ).catch(() => [])
@@ -298,12 +297,28 @@
       allProspects.sort((a, b) => (a.z_score === null) - (b.z_score === null) || (b.z_score || 0) - (a.z_score || 0));
       if (dt) dt.destroy();  // destroy BEFORE replacing tbody (avoids DOM restoration overwriting new rows)
       document.getElementById('table-body').innerHTML = allProspects.map(p => renderRow(p)).join('');
-      const years = [...selectedYears].sort().join(', ');
       document.getElementById('subtitle').textContent =
-        `${allProspects.length} prospects · ${years}`;
+        `${allProspects.length} prospects · ${years.sort().join(', ')}`;
+      rebuildTeamSelect();
       dt = initDT();
       wireFilters();
     });
+  }
+
+  function rebuildTeamSelect() {
+    const sel = document.getElementById('team-select');
+    const prev = sel.value;
+    // Collect unique non-null teams sorted alphabetically
+    const teams = [...new Set(allProspects.map(p => p.team).filter(Boolean))].sort();
+    sel.innerHTML = '<option value="">All teams</option>';
+    teams.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = t;
+      if (t === prev) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    teamFilter = sel.value;
   }
 
   // Overall pick → within-round pick offset
@@ -453,7 +468,7 @@
     }
 
     if (schoolFilter && !school.includes(schoolFilter)) return false;
-    if (teamFilter   && !team.includes(teamFilter))     return false;
+    if (teamFilter   && team !== teamFilter)             return false;
 
     return true;
   });
@@ -489,8 +504,8 @@
       });
     });
 
-    document.getElementById('team-filter').addEventListener('input', e => {
-      teamFilter = e.target.value.toLowerCase().trim();
+    document.getElementById('team-select').addEventListener('change', e => {
+      teamFilter = e.target.value;
       dt.draw();
     });
 
@@ -505,23 +520,13 @@
   }
 
   // ── Bootstrap ─────────────────────────────────────────────────────────────
-  // Initial load: fetch 2026 data (the only available year on first visit).
+  // Initial load via reloadData() using default year selection (2026).
 
-  fetch('data/prospects_2026.json')
-    .then(r => r.json())
-    .then(data => {
-      allProspects = data.prospects.map(p => ({ ...p, year: '2026' }));
-
-      document.getElementById('table-body').innerHTML =
-        allProspects.map(p => renderRow(p)).join('');
-
-      const hasMock = allProspects.some(p => p.round_source === 'mock');
-      document.getElementById('subtitle').textContent =
-        `${data.count} prospects · Updated ${data.updated}${hasMock ? ' · mock round data' : ''}`;
+  reloadData();
+  fetch('data/prospects_2026.json').then(r => r.json()).then(data => {
+      const hasMock = allProspects.some(p => p.round_source === 'mock') ||
+                      (data.prospects || []).some(p => p.round_source === 'mock');
       if (!hasMock) document.getElementById('mock-banner').style.display = 'none';
-
-      dt = initDT();
-      wireFilters();
     })
     .catch(err => {
       document.getElementById('subtitle').textContent = 'Error loading data.';

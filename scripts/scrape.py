@@ -43,6 +43,31 @@ def _sparq_source_label(player: dict) -> str | None:
     return 'real' if _count_estimated(player) == 0 else 'estimated'
 
 
+# Physical bounds for combine metrics — values outside these are data entry errors
+_METRIC_BOUNDS = {
+    'bench':     (1,    51),    # all-time record: 51 (Justin Ernest, 1999)
+    'forty':     (4.20, 6.00),
+    'ten_split': (1.30, 2.20),
+    'vertical':  (15,   50),
+    'broad':     (80,  160),    # inches; 8-10 foot values are a site error
+    'shuttle':   (3.70, 5.50),
+    'cone':      (6.00, 9.00),
+    'weight':    (140,  390),   # Daniel Faalele was 384 lbs
+}
+
+
+def sanitize_metrics(players: list[dict]) -> list[dict]:
+    """Null out metric values that are physically impossible (data entry errors)."""
+    for player in players:
+        m = player['metrics']
+        for field, (lo, hi) in _METRIC_BOUNDS.items():
+            entry = m.get(field, {})
+            v = entry.get('value')
+            if v is not None and (v < lo or v > hi):
+                m[field] = {'value': None, 'source': None}
+    return players
+
+
 def apply_estimation(players: list[dict]) -> list[dict]:
     """Estimate missing inputs; mark source as 'estimated'."""
     for player in players:
@@ -287,6 +312,9 @@ def scrape_2026() -> list[dict]:
     print("Pass 4: Fetching missing weights from ESPN college rosters...")
     players = fetch_missing_weights(players)
 
+    print("Sanitizing out-of-range metric values...")
+    players = sanitize_metrics(players)
+
     print("Applying estimation for missing inputs...")
     players = apply_estimation(players)
 
@@ -314,6 +342,9 @@ def scrape_historical(year: int) -> list[dict]:
     players = apply_espn_data(players, board)
     with_round = sum(1 for p in players if p['draft_round'] is not None)
     print(f"  {with_round} players with actual draft round data.")
+
+    print("Sanitizing out-of-range metric values...")
+    players = sanitize_metrics(players)
 
     print("Applying estimation for missing inputs...")
     players = apply_estimation(players)
