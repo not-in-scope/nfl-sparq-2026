@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-17",
+  "updated": "2026-04-18",
   "count": 375,
   "prospects": [
     {
@@ -17036,8 +17036,8 @@
           "source": null
         },
         "shuttle": {
-          "value": 5.56,
-          "source": "combine"
+          "value": null,
+          "source": null
         },
         "ten_split": {
           "value": 2.076,
@@ -17048,9 +17048,9 @@
       "draft_pick": null,
       "round_source": null,
       "team": null,
-      "sparq": 48.74,
+      "sparq": 58.82,
       "sparq_source": "estimated",
-      "z_score": -4.45,
+      "z_score": -3.39,
       "nfl_pct": 0.0,
       "rank": 348
     },
