@@ -151,7 +151,7 @@
     },
     {
       "name": "Kevin Pierre-Louis",
-      "pos": "LB",
+      "pos": "EDGE",
       "school": "Boston College",
       "height": 72.5,
       "metrics": {
@@ -192,10 +192,10 @@
       "draft_pick": 32,
       "round_source": "actual",
       "team": "SEA",
-      "sparq": 130.44,
+      "sparq": 129.82,
       "sparq_source": "estimated",
-      "z_score": 2.13,
-      "nfl_pct": 98.3,
+      "z_score": 2.15,
+      "nfl_pct": 98.4,
       "rank": 4
     },
     {
@@ -249,7 +249,7 @@
     },
     {
       "name": "Ryan Shazier",
-      "pos": "LB",
+      "pos": "EDGE",
       "school": "Ohio State",
       "height": 73.13,
       "metrics": {
@@ -290,10 +290,10 @@
       "draft_pick": 15,
       "round_source": "actual",
       "team": "PIT",
-      "sparq": 128.67,
+      "sparq": 128.04,
       "sparq_source": "estimated",
-      "z_score": 1.97,
-      "nfl_pct": 97.6,
+      "z_score": 2.0,
+      "nfl_pct": 97.7,
       "rank": 6
     },
     {
@@ -494,7 +494,7 @@
     },
     {
       "name": "Khalil Mack",
-      "pos": "LB",
+      "pos": "EDGE",
       "school": "Buffalo",
       "height": 74.63,
       "metrics": {
@@ -535,10 +535,10 @@
       "draft_pick": 5,
       "round_source": "actual",
       "team": "OAK",
-      "sparq": 124.03,
+      "sparq": 123.4,
       "sparq_source": "estimated",
-      "z_score": 1.57,
-      "nfl_pct": 94.2,
+      "z_score": 1.62,
+      "nfl_pct": 94.7,
       "rank": 11
     },
     {
@@ -787,6 +787,55 @@
       "rank": 16
     },
     {
+      "name": "Marquis Flowers",
+      "pos": "EDGE",
+      "school": "Arizona",
+      "height": 74.63,
+      "metrics": {
+        "weight": {
+          "value": 231.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.51,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 37.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 116.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 24.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.06,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.32,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.56,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 6,
+      "draft_pick": 36,
+      "round_source": "actual",
+      "team": "CIN",
+      "sparq": 121.6,
+      "sparq_source": "estimated",
+      "z_score": 1.47,
+      "nfl_pct": 92.9,
+      "rank": 17
+    },
+    {
       "name": "Brock Coyle",
       "pos": "LB",
       "school": "Montana",
@@ -833,7 +882,56 @@
       "sparq_source": "estimated",
       "z_score": 1.46,
       "nfl_pct": 92.8,
-      "rank": 17
+      "rank": 18
+    },
+    {
+      "name": "Brandon Watts",
+      "pos": "EDGE",
+      "school": "Georgia Tech",
+      "height": 73.75,
+      "metrics": {
+        "weight": {
+          "value": 225.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.41,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 37.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 122.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 16.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 6.89,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.21,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.526,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 7,
+      "draft_pick": 8,
+      "round_source": "actual",
+      "team": "MIN",
+      "sparq": 121.16,
+      "sparq_source": "estimated",
+      "z_score": 1.43,
+      "nfl_pct": 92.4,
+      "rank": 19
     },
     {
       "name": "Eric Pinkins",
@@ -882,56 +980,105 @@
       "sparq_source": "estimated",
       "z_score": 1.41,
       "nfl_pct": 92.1,
-      "rank": 18
+      "rank": 20
     },
     {
-      "name": "Marquis Flowers",
-      "pos": "LB",
-      "school": "Arizona",
-      "height": 74.63,
+      "name": "Prince Shembo",
+      "pos": "EDGE",
+      "school": "Notre Dame",
+      "height": 73.38,
       "metrics": {
         "weight": {
-          "value": 231.0,
+          "value": 253.0,
           "source": "combine"
         },
         "forty": {
-          "value": 4.51,
+          "value": 4.71,
           "source": "combine"
         },
         "vertical": {
-          "value": 37.5,
+          "value": 38.5,
           "source": "combine"
         },
         "broad": {
-          "value": 116.0,
+          "value": 122.0,
           "source": "combine"
         },
         "bench": {
-          "value": 24.0,
+          "value": 26.0,
           "source": "combine"
         },
         "cone": {
-          "value": 7.06,
-          "source": "combine"
+          "value": null,
+          "source": null
         },
         "shuttle": {
-          "value": 4.32,
+          "value": 4.31,
           "source": "combine"
         },
         "ten_split": {
-          "value": 1.56,
+          "value": 1.63,
           "source": "estimated"
         }
       },
-      "draft_round": 6,
-      "draft_pick": 36,
+      "draft_round": 4,
+      "draft_pick": 39,
       "round_source": "actual",
-      "team": "CIN",
-      "sparq": 121.6,
+      "team": "ATL",
+      "sparq": 120.3,
       "sparq_source": "estimated",
       "z_score": 1.36,
       "nfl_pct": 91.3,
-      "rank": 19
+      "rank": 21
+    },
+    {
+      "name": "Khairi Fortt",
+      "pos": "EDGE",
+      "school": "California",
+      "height": 74.25,
+      "metrics": {
+        "weight": {
+          "value": 248.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.7,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 36.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 120.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 30.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.12,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.35,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.626,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 4,
+      "draft_pick": 26,
+      "round_source": "actual",
+      "team": "NO",
+      "sparq": 120.22,
+      "sparq_source": "estimated",
+      "z_score": 1.35,
+      "nfl_pct": 91.1,
+      "rank": 22
     },
     {
       "name": "Jadeveon Clowney",
@@ -980,56 +1127,7 @@
       "sparq_source": "estimated",
       "z_score": 1.33,
       "nfl_pct": 90.8,
-      "rank": 20
-    },
-    {
-      "name": "Brandon Watts",
-      "pos": "LB",
-      "school": "Georgia Tech",
-      "height": 73.75,
-      "metrics": {
-        "weight": {
-          "value": 225.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.41,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 37.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 122.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 16.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 6.89,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.21,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.526,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 7,
-      "draft_pick": 8,
-      "round_source": "actual",
-      "team": "MIN",
-      "sparq": 121.16,
-      "sparq_source": "estimated",
-      "z_score": 1.32,
-      "nfl_pct": 90.7,
-      "rank": 21
+      "rank": 23
     },
     {
       "name": "Kevin Pamphile",
@@ -1078,7 +1176,7 @@
       "sparq_source": "estimated",
       "z_score": 1.31,
       "nfl_pct": 90.5,
-      "rank": 22
+      "rank": 24
     },
     {
       "name": "James Gayle",
@@ -1127,32 +1225,32 @@
       "sparq_source": "estimated",
       "z_score": 1.3,
       "nfl_pct": 90.3,
-      "rank": 23
+      "rank": 25
     },
     {
-      "name": "Prince Shembo",
-      "pos": "LB",
-      "school": "Notre Dame",
-      "height": 73.38,
+      "name": "Howard Jones",
+      "pos": "EDGE",
+      "school": "Shepherd (WV)",
+      "height": 74.5,
       "metrics": {
         "weight": {
-          "value": 253.0,
+          "value": 235.0,
           "source": "combine"
         },
         "forty": {
-          "value": 4.71,
+          "value": 4.6,
           "source": "combine"
         },
         "vertical": {
-          "value": 38.5,
+          "value": 40.5,
           "source": "combine"
         },
         "broad": {
-          "value": 122.0,
+          "value": 123.0,
           "source": "combine"
         },
         "bench": {
-          "value": 26.0,
+          "value": 21.0,
           "source": "combine"
         },
         "cone": {
@@ -1160,23 +1258,23 @@
           "source": null
         },
         "shuttle": {
-          "value": 4.31,
+          "value": 4.41,
           "source": "combine"
         },
         "ten_split": {
-          "value": 1.63,
+          "value": 1.592,
           "source": "estimated"
         }
       },
-      "draft_round": 4,
-      "draft_pick": 39,
-      "round_source": "actual",
-      "team": "ATL",
-      "sparq": 120.93,
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 119.62,
       "sparq_source": "estimated",
       "z_score": 1.3,
       "nfl_pct": 90.3,
-      "rank": 24
+      "rank": 26
     },
     {
       "name": "Joel Bitonio",
@@ -1225,7 +1323,7 @@
       "sparq_source": "estimated",
       "z_score": 1.27,
       "nfl_pct": 89.8,
-      "rank": 25
+      "rank": 27
     },
     {
       "name": "Dee Ford",
@@ -1274,24 +1372,24 @@
       "sparq_source": "estimated",
       "z_score": 1.26,
       "nfl_pct": 89.6,
-      "rank": 26
+      "rank": 28
     },
     {
-      "name": "Khairi Fortt",
-      "pos": "LB",
-      "school": "California",
-      "height": 74.25,
+      "name": "Jordan Tripp",
+      "pos": "EDGE",
+      "school": "Montana",
+      "height": 74.75,
       "metrics": {
         "weight": {
-          "value": 248.0,
+          "value": 234.0,
           "source": "combine"
         },
         "forty": {
-          "value": 4.7,
+          "value": 4.67,
           "source": "combine"
         },
         "vertical": {
-          "value": 36.0,
+          "value": 37.5,
           "source": "combine"
         },
         "broad": {
@@ -1299,56 +1397,7 @@
           "source": "combine"
         },
         "bench": {
-          "value": 30.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.12,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.35,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.626,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 4,
-      "draft_pick": 26,
-      "round_source": "actual",
-      "team": "NO",
-      "sparq": 120.22,
-      "sparq_source": "estimated",
-      "z_score": 1.24,
-      "nfl_pct": 89.3,
-      "rank": 27
-    },
-    {
-      "name": "Howard Jones",
-      "pos": "LB",
-      "school": "Shepherd (WV)",
-      "height": 74.5,
-      "metrics": {
-        "weight": {
-          "value": 235.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.6,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 40.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 123.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 21.0,
+          "value": 22.0,
           "source": "combine"
         },
         "cone": {
@@ -1356,11 +1405,11 @@
           "source": null
         },
         "shuttle": {
-          "value": 4.41,
+          "value": 3.96,
           "source": "combine"
         },
         "ten_split": {
-          "value": 1.592,
+          "value": 1.616,
           "source": "estimated"
         }
       },
@@ -1368,11 +1417,11 @@
       "draft_pick": null,
       "round_source": null,
       "team": null,
-      "sparq": 120.25,
+      "sparq": 118.93,
       "sparq_source": "estimated",
       "z_score": 1.24,
       "nfl_pct": 89.3,
-      "rank": 28
+      "rank": 29
     },
     {
       "name": "Glenn Carson",
@@ -1421,7 +1470,7 @@
       "sparq_source": "estimated",
       "z_score": 1.22,
       "nfl_pct": 88.9,
-      "rank": 29
+      "rank": 30
     },
     {
       "name": "Demetrius Rhaney",
@@ -1470,7 +1519,7 @@
       "sparq_source": "estimated",
       "z_score": 1.21,
       "nfl_pct": 88.7,
-      "rank": 30
+      "rank": 31
     },
     {
       "name": "Dri Archer",
@@ -1519,55 +1568,6 @@
       "sparq_source": "estimated",
       "z_score": 1.19,
       "nfl_pct": 88.3,
-      "rank": 31
-    },
-    {
-      "name": "Jordan Tripp",
-      "pos": "LB",
-      "school": "Montana",
-      "height": 74.75,
-      "metrics": {
-        "weight": {
-          "value": 234.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.67,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 37.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 120.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 22.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 3.96,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.616,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 119.55,
-      "sparq_source": "estimated",
-      "z_score": 1.18,
-      "nfl_pct": 88.1,
       "rank": 32
     },
     {
@@ -1718,6 +1718,55 @@
       "rank": 35
     },
     {
+      "name": "Carl Bradford",
+      "pos": "EDGE",
+      "school": "Arizona State",
+      "height": 72.75,
+      "metrics": {
+        "weight": {
+          "value": 250.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.76,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 37.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 122.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 23.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.03,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.3,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.647,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 4,
+      "draft_pick": 21,
+      "round_source": "actual",
+      "team": "GB",
+      "sparq": 116.96,
+      "sparq_source": "estimated",
+      "z_score": 1.08,
+      "nfl_pct": 86.0,
+      "rank": 36
+    },
+    {
       "name": "Derek Carr",
       "pos": "QB",
       "school": "Frenso State (CA)",
@@ -1764,7 +1813,7 @@
       "sparq_source": "estimated",
       "z_score": 1.05,
       "nfl_pct": 85.3,
-      "rank": 36
+      "rank": 37
     },
     {
       "name": "A.C. Leonard",
@@ -1813,7 +1862,7 @@
       "sparq_source": "estimated",
       "z_score": 1.05,
       "nfl_pct": 85.3,
-      "rank": 37
+      "rank": 38
     },
     {
       "name": "Josh Harris",
@@ -1862,7 +1911,7 @@
       "sparq_source": "estimated",
       "z_score": 1.04,
       "nfl_pct": 85.1,
-      "rank": 38
+      "rank": 39
     },
     {
       "name": "Jace Amaro",
@@ -1911,7 +1960,7 @@
       "sparq_source": "estimated",
       "z_score": 1.03,
       "nfl_pct": 84.8,
-      "rank": 39
+      "rank": 40
     },
     {
       "name": "Andre Williams",
@@ -1960,7 +2009,7 @@
       "sparq_source": "estimated",
       "z_score": 1.03,
       "nfl_pct": 84.8,
-      "rank": 40
+      "rank": 41
     },
     {
       "name": "Connor Shaw",
@@ -2009,55 +2058,6 @@
       "sparq_source": "estimated",
       "z_score": 0.96,
       "nfl_pct": 83.1,
-      "rank": 41
-    },
-    {
-      "name": "Carl Bradford",
-      "pos": "LB",
-      "school": "Arizona State",
-      "height": 72.75,
-      "metrics": {
-        "weight": {
-          "value": 250.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.76,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 37.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 122.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 23.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.03,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.3,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.647,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 4,
-      "draft_pick": 21,
-      "round_source": "actual",
-      "team": "GB",
-      "sparq": 116.96,
-      "sparq_source": "estimated",
-      "z_score": 0.95,
-      "nfl_pct": 82.9,
       "rank": 42
     },
     {
@@ -2404,6 +2404,55 @@
       "rank": 49
     },
     {
+      "name": "Adrian Hubbard",
+      "pos": "EDGE",
+      "school": "Alabama",
+      "height": 78.0,
+      "metrics": {
+        "weight": {
+          "value": 257.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.69,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 38.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 116.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": null,
+          "source": null
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.58,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.623,
+          "source": "estimated"
+        }
+      },
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 114.49,
+      "sparq_source": "estimated",
+      "z_score": 0.87,
+      "nfl_pct": 80.8,
+      "rank": 50
+    },
+    {
       "name": "Jake Matthews",
       "pos": "OT",
       "school": "Texas A&M",
@@ -2450,7 +2499,7 @@
       "sparq_source": "estimated",
       "z_score": 0.86,
       "nfl_pct": 80.5,
-      "rank": 50
+      "rank": 51
     },
     {
       "name": "Jackson Jeffcoat",
@@ -2499,7 +2548,7 @@
       "sparq_source": "estimated",
       "z_score": 0.85,
       "nfl_pct": 80.2,
-      "rank": 51
+      "rank": 52
     },
     {
       "name": "Jason Verrett",
@@ -2548,7 +2597,7 @@
       "sparq_source": "estimated",
       "z_score": 0.84,
       "nfl_pct": 80.0,
-      "rank": 52
+      "rank": 53
     },
     {
       "name": "Brock Vereen",
@@ -2597,7 +2646,56 @@
       "sparq_source": "estimated",
       "z_score": 0.83,
       "nfl_pct": 79.7,
-      "rank": 53
+      "rank": 54
+    },
+    {
+      "name": "Jeremiah Attaochu",
+      "pos": "EDGE",
+      "school": "Georgia Tech",
+      "height": 75.25,
+      "metrics": {
+        "weight": {
+          "value": 252.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.57,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 37.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 111.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": null,
+          "source": null
+        },
+        "cone": {
+          "value": 7.28,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.68,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.581,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 2,
+      "draft_pick": 18,
+      "round_source": "actual",
+      "team": "SD",
+      "sparq": 113.77,
+      "sparq_source": "estimated",
+      "z_score": 0.81,
+      "nfl_pct": 79.1,
+      "rank": 55
     },
     {
       "name": "Ben Gardner",
@@ -2646,56 +2744,7 @@
       "sparq_source": "estimated",
       "z_score": 0.8,
       "nfl_pct": 78.8,
-      "rank": 54
-    },
-    {
-      "name": "Adrian Hubbard",
-      "pos": "LB",
-      "school": "Alabama",
-      "height": 78.0,
-      "metrics": {
-        "weight": {
-          "value": 257.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.69,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 38.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 116.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": null,
-          "source": null
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.58,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.623,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 115.12,
-      "sparq_source": "estimated",
-      "z_score": 0.79,
-      "nfl_pct": 78.5,
-      "rank": 55
+      "rank": 56
     },
     {
       "name": "Cody Latimer",
@@ -2744,7 +2793,7 @@
       "sparq_source": "estimated",
       "z_score": 0.79,
       "nfl_pct": 78.5,
-      "rank": 56
+      "rank": 57
     },
     {
       "name": "Jeff Janis",
@@ -2793,7 +2842,56 @@
       "sparq_source": "estimated",
       "z_score": 0.77,
       "nfl_pct": 77.9,
-      "rank": 57
+      "rank": 58
+    },
+    {
+      "name": "Lamin Barrow",
+      "pos": "EDGE",
+      "school": "Louisiana State",
+      "height": 73.38,
+      "metrics": {
+        "weight": {
+          "value": 237.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.64,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 35.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 123.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 22.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.35,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.605,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 5,
+      "draft_pick": 16,
+      "round_source": "actual",
+      "team": "DEN",
+      "sparq": 113.07,
+      "sparq_source": "estimated",
+      "z_score": 0.76,
+      "nfl_pct": 77.6,
+      "rank": 59
     },
     {
       "name": "Yawin Smallwood",
@@ -2842,7 +2940,7 @@
       "sparq_source": "real",
       "z_score": 0.75,
       "nfl_pct": 77.3,
-      "rank": 58
+      "rank": 60
     },
     {
       "name": "Larry Webster",
@@ -2891,7 +2989,7 @@
       "sparq_source": "estimated",
       "z_score": 0.75,
       "nfl_pct": 77.3,
-      "rank": 59
+      "rank": 61
     },
     {
       "name": "Marcus Smith",
@@ -2940,56 +3038,7 @@
       "sparq_source": "estimated",
       "z_score": 0.7,
       "nfl_pct": 75.8,
-      "rank": 60
-    },
-    {
-      "name": "Jeremiah Attaochu",
-      "pos": "LB",
-      "school": "Georgia Tech",
-      "height": 75.25,
-      "metrics": {
-        "weight": {
-          "value": 252.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.57,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 37.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 111.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": null,
-          "source": null
-        },
-        "cone": {
-          "value": 7.28,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.68,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.581,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 2,
-      "draft_pick": 18,
-      "round_source": "actual",
-      "team": "SD",
-      "sparq": 113.77,
-      "sparq_source": "estimated",
-      "z_score": 0.68,
-      "nfl_pct": 75.2,
-      "rank": 61
+      "rank": 62
     },
     {
       "name": "Lonnie Ballentine",
@@ -3038,7 +3087,7 @@
       "sparq_source": "estimated",
       "z_score": 0.68,
       "nfl_pct": 75.2,
-      "rank": 62
+      "rank": 63
     },
     {
       "name": "Deone Bucannon",
@@ -3087,7 +3136,7 @@
       "sparq_source": "estimated",
       "z_score": 0.68,
       "nfl_pct": 75.2,
-      "rank": 63
+      "rank": 64
     },
     {
       "name": "Jimmy Staten",
@@ -3136,55 +3185,6 @@
       "sparq_source": "real",
       "z_score": 0.68,
       "nfl_pct": 75.2,
-      "rank": 64
-    },
-    {
-      "name": "Lamin Barrow",
-      "pos": "LB",
-      "school": "Louisiana State",
-      "height": 73.38,
-      "metrics": {
-        "weight": {
-          "value": 237.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.64,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 35.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 123.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 22.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.35,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.605,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 5,
-      "draft_pick": 16,
-      "round_source": "actual",
-      "team": "DEN",
-      "sparq": 113.69,
-      "sparq_source": "estimated",
-      "z_score": 0.67,
-      "nfl_pct": 74.9,
       "rank": 65
     },
     {
@@ -3531,6 +3531,104 @@
       "rank": 72
     },
     {
+      "name": "Ronald Powell",
+      "pos": "EDGE",
+      "school": "Florida",
+      "height": 75.13,
+      "metrics": {
+        "weight": {
+          "value": 237.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.65,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 35.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 113.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 21.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": null,
+          "source": null
+        },
+        "ten_split": {
+          "value": 1.609,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 5,
+      "draft_pick": 29,
+      "round_source": "actual",
+      "team": "NO",
+      "sparq": 111.16,
+      "sparq_source": "estimated",
+      "z_score": 0.6,
+      "nfl_pct": 72.6,
+      "rank": 73
+    },
+    {
+      "name": "Marquis Spruill",
+      "pos": "EDGE",
+      "school": "Syracuse",
+      "height": 73.13,
+      "metrics": {
+        "weight": {
+          "value": 231.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.53,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 34.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 117.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 21.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.33,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.46,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.567,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 5,
+      "draft_pick": 28,
+      "round_source": "actual",
+      "team": "ATL",
+      "sparq": 111.2,
+      "sparq_source": "estimated",
+      "z_score": 0.6,
+      "nfl_pct": 72.6,
+      "rank": 74
+    },
+    {
       "name": "George Atkinson",
       "pos": "RB",
       "school": "Notre Dame",
@@ -3577,7 +3675,7 @@
       "sparq_source": "estimated",
       "z_score": 0.59,
       "nfl_pct": 72.2,
-      "rank": 73
+      "rank": 75
     },
     {
       "name": "Mo Alexander",
@@ -3623,104 +3721,6 @@
       "round_source": null,
       "team": null,
       "sparq": 115.89,
-      "sparq_source": "estimated",
-      "z_score": 0.57,
-      "nfl_pct": 71.6,
-      "rank": 74
-    },
-    {
-      "name": "Boseko Lokombo",
-      "pos": "LB",
-      "school": "Oregon",
-      "height": 74.13,
-      "metrics": {
-        "weight": {
-          "value": 225.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.66,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": null,
-          "source": null
-        },
-        "broad": {
-          "value": 122.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": null,
-          "source": null
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.3,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.612,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 112.58,
-      "sparq_source": "estimated",
-      "z_score": 0.57,
-      "nfl_pct": 71.6,
-      "rank": 75
-    },
-    {
-      "name": "Ronald Powell",
-      "pos": "LB",
-      "school": "Florida",
-      "height": 75.13,
-      "metrics": {
-        "weight": {
-          "value": 237.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.65,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 35.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 113.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 21.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": null,
-          "source": null
-        },
-        "ten_split": {
-          "value": 1.609,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 5,
-      "draft_pick": 29,
-      "round_source": "actual",
-      "team": "NO",
-      "sparq": 112.52,
       "sparq_source": "estimated",
       "z_score": 0.57,
       "nfl_pct": 71.6,
@@ -4070,6 +4070,55 @@
       "rank": 83
     },
     {
+      "name": "Boseko Lokombo",
+      "pos": "EDGE",
+      "school": "Oregon",
+      "height": 74.13,
+      "metrics": {
+        "weight": {
+          "value": 225.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.66,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": null,
+          "source": null
+        },
+        "broad": {
+          "value": 122.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": null,
+          "source": null
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.3,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.612,
+          "source": "estimated"
+        }
+      },
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 110.04,
+      "sparq_source": "estimated",
+      "z_score": 0.5,
+      "nfl_pct": 69.1,
+      "rank": 84
+    },
+    {
       "name": "Will Smith",
       "pos": "LB",
       "school": "Texas Tech",
@@ -4116,7 +4165,7 @@
       "sparq_source": "estimated",
       "z_score": 0.5,
       "nfl_pct": 69.1,
-      "rank": 84
+      "rank": 85
     },
     {
       "name": "Bruce Ellington",
@@ -4165,7 +4214,7 @@
       "sparq_source": "estimated",
       "z_score": 0.49,
       "nfl_pct": 68.8,
-      "rank": 85
+      "rank": 86
     },
     {
       "name": "Teddy Bridgewater",
@@ -4214,7 +4263,7 @@
       "sparq_source": "estimated",
       "z_score": 0.48,
       "nfl_pct": 68.4,
-      "rank": 86
+      "rank": 87
     },
     {
       "name": "Max Bullough",
@@ -4263,7 +4312,7 @@
       "sparq_source": "estimated",
       "z_score": 0.48,
       "nfl_pct": 68.4,
-      "rank": 87
+      "rank": 88
     },
     {
       "name": "Jordan Lynch",
@@ -4312,7 +4361,7 @@
       "sparq_source": "estimated",
       "z_score": 0.48,
       "nfl_pct": 68.4,
-      "rank": 88
+      "rank": 89
     },
     {
       "name": "Donte Moncrief",
@@ -4361,7 +4410,7 @@
       "sparq_source": "estimated",
       "z_score": 0.47,
       "nfl_pct": 68.1,
-      "rank": 89
+      "rank": 90
     },
     {
       "name": "Rajion Neal",
@@ -4410,7 +4459,7 @@
       "sparq_source": "estimated",
       "z_score": 0.46,
       "nfl_pct": 67.7,
-      "rank": 90
+      "rank": 91
     },
     {
       "name": "Rashaad Reynolds",
@@ -4459,7 +4508,7 @@
       "sparq_source": "estimated",
       "z_score": 0.46,
       "nfl_pct": 67.7,
-      "rank": 91
+      "rank": 92
     },
     {
       "name": "Travis Carrie",
@@ -4508,7 +4557,7 @@
       "sparq_source": "estimated",
       "z_score": 0.45,
       "nfl_pct": 67.4,
-      "rank": 92
+      "rank": 93
     },
     {
       "name": "Henry Josey",
@@ -4554,55 +4603,6 @@
       "round_source": null,
       "team": null,
       "sparq": 116.4,
-      "sparq_source": "estimated",
-      "z_score": 0.45,
-      "nfl_pct": 67.4,
-      "rank": 93
-    },
-    {
-      "name": "Marquis Spruill",
-      "pos": "LB",
-      "school": "Syracuse",
-      "height": 73.13,
-      "metrics": {
-        "weight": {
-          "value": 231.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.53,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 34.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 117.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 21.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.33,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.46,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.567,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 5,
-      "draft_pick": 28,
-      "round_source": "actual",
-      "team": "ATL",
-      "sparq": 111.2,
       "sparq_source": "estimated",
       "z_score": 0.45,
       "nfl_pct": 67.4,
@@ -4707,6 +4707,104 @@
       "rank": 96
     },
     {
+      "name": "Trevor Reilly",
+      "pos": "EDGE",
+      "school": "Utah",
+      "height": 76.75,
+      "metrics": {
+        "weight": {
+          "value": 245.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.67,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 30.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 117.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 26.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": null,
+          "source": null
+        },
+        "ten_split": {
+          "value": 1.616,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 7,
+      "draft_pick": 18,
+      "round_source": "actual",
+      "team": "NYJ",
+      "sparq": 109.2,
+      "sparq_source": "estimated",
+      "z_score": 0.43,
+      "nfl_pct": 66.6,
+      "rank": 97
+    },
+    {
+      "name": "Anthony Barr",
+      "pos": "EDGE",
+      "school": "UCLA",
+      "height": 76.88,
+      "metrics": {
+        "weight": {
+          "value": 255.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.66,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 34.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 117.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 15.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.19,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.612,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 1,
+      "draft_pick": 9,
+      "round_source": "actual",
+      "team": "MIN",
+      "sparq": 108.91,
+      "sparq_source": "estimated",
+      "z_score": 0.41,
+      "nfl_pct": 65.9,
+      "rank": 98
+    },
+    {
       "name": "Chris Borland",
       "pos": "LB",
       "school": "Wisconsin",
@@ -4753,56 +4851,7 @@
       "sparq_source": "estimated",
       "z_score": 0.4,
       "nfl_pct": 65.5,
-      "rank": 97
-    },
-    {
-      "name": "Trevor Reilly",
-      "pos": "LB",
-      "school": "Utah",
-      "height": 76.75,
-      "metrics": {
-        "weight": {
-          "value": 245.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.67,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 30.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 117.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 26.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": null,
-          "source": null
-        },
-        "ten_split": {
-          "value": 1.616,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 7,
-      "draft_pick": 18,
-      "round_source": "actual",
-      "team": "NYJ",
-      "sparq": 110.56,
-      "sparq_source": "estimated",
-      "z_score": 0.4,
-      "nfl_pct": 65.5,
-      "rank": 98
+      "rank": 99
     },
     {
       "name": "Jemea Thomas",
@@ -4851,7 +4900,7 @@
       "sparq_source": "estimated",
       "z_score": 0.4,
       "nfl_pct": 65.5,
-      "rank": 99
+      "rank": 100
     },
     {
       "name": "Damien Williams",
@@ -4900,7 +4949,7 @@
       "sparq_source": "estimated",
       "z_score": 0.4,
       "nfl_pct": 65.5,
-      "rank": 100
+      "rank": 101
     },
     {
       "name": "Tajh Boyd",
@@ -4949,7 +4998,7 @@
       "sparq_source": "estimated",
       "z_score": 0.39,
       "nfl_pct": 65.2,
-      "rank": 101
+      "rank": 102
     },
     {
       "name": "Zack Martin",
@@ -4998,7 +5047,7 @@
       "sparq_source": "estimated",
       "z_score": 0.39,
       "nfl_pct": 65.2,
-      "rank": 102
+      "rank": 103
     },
     {
       "name": "Troy Niklas",
@@ -5047,7 +5096,7 @@
       "sparq_source": "estimated",
       "z_score": 0.39,
       "nfl_pct": 65.2,
-      "rank": 103
+      "rank": 104
     },
     {
       "name": "Maurice Alexander",
@@ -5096,7 +5145,7 @@
       "sparq_source": "estimated",
       "z_score": 0.38,
       "nfl_pct": 64.8,
-      "rank": 104
+      "rank": 105
     },
     {
       "name": "Wesley Johnson",
@@ -5145,7 +5194,7 @@
       "sparq_source": "estimated",
       "z_score": 0.38,
       "nfl_pct": 64.8,
-      "rank": 105
+      "rank": 106
     },
     {
       "name": "Jay Bromley",
@@ -5194,7 +5243,105 @@
       "sparq_source": "estimated",
       "z_score": 0.37,
       "nfl_pct": 64.4,
-      "rank": 106
+      "rank": 107
+    },
+    {
+      "name": "Derrell Johnson",
+      "pos": "EDGE",
+      "school": "East Carolina (NC)",
+      "height": 73.5,
+      "metrics": {
+        "weight": {
+          "value": 257.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.61,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 32.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 114.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 23.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.27,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.64,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.595,
+          "source": "estimated"
+        }
+      },
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 108.38,
+      "sparq_source": "estimated",
+      "z_score": 0.36,
+      "nfl_pct": 64.1,
+      "rank": 108
+    },
+    {
+      "name": "Corey Nelson",
+      "pos": "EDGE",
+      "school": "Oklahoma",
+      "height": 72.38,
+      "metrics": {
+        "weight": {
+          "value": 231.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.6,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 33.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 117.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 23.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.37,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.48,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.592,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 7,
+      "draft_pick": 27,
+      "round_source": "actual",
+      "team": "DEN",
+      "sparq": 108.36,
+      "sparq_source": "estimated",
+      "z_score": 0.36,
+      "nfl_pct": 64.1,
+      "rank": 109
     },
     {
       "name": "Jordan Matthews",
@@ -5243,7 +5390,7 @@
       "sparq_source": "estimated",
       "z_score": 0.35,
       "nfl_pct": 63.7,
-      "rank": 107
+      "rank": 110
     },
     {
       "name": "Arthur Lynch",
@@ -5292,7 +5439,7 @@
       "sparq_source": "estimated",
       "z_score": 0.34,
       "nfl_pct": 63.3,
-      "rank": 108
+      "rank": 111
     },
     {
       "name": "Tyler Gaffney",
@@ -5341,7 +5488,7 @@
       "sparq_source": "estimated",
       "z_score": 0.33,
       "nfl_pct": 62.9,
-      "rank": 109
+      "rank": 112
     },
     {
       "name": "Zach Kerr",
@@ -5390,7 +5537,7 @@
       "sparq_source": "estimated",
       "z_score": 0.33,
       "nfl_pct": 62.9,
-      "rank": 110
+      "rank": 113
     },
     {
       "name": "Zach Moore",
@@ -5439,7 +5586,7 @@
       "sparq_source": "estimated",
       "z_score": 0.33,
       "nfl_pct": 62.9,
-      "rank": 111
+      "rank": 114
     },
     {
       "name": "Jay Prosch",
@@ -5488,7 +5635,7 @@
       "sparq_source": "estimated",
       "z_score": 0.33,
       "nfl_pct": 62.9,
-      "rank": 112
+      "rank": 115
     },
     {
       "name": "Isaiah Crowell",
@@ -5537,56 +5684,7 @@
       "sparq_source": "estimated",
       "z_score": 0.32,
       "nfl_pct": 62.6,
-      "rank": 113
-    },
-    {
-      "name": "Anthony Barr",
-      "pos": "LB",
-      "school": "UCLA",
-      "height": 76.88,
-      "metrics": {
-        "weight": {
-          "value": 255.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.66,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 34.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 117.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 15.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.19,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.612,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 1,
-      "draft_pick": 9,
-      "round_source": "actual",
-      "team": "MIN",
-      "sparq": 109.53,
-      "sparq_source": "estimated",
-      "z_score": 0.31,
-      "nfl_pct": 62.2,
-      "rank": 114
+      "rank": 116
     },
     {
       "name": "Allen Robinson",
@@ -5635,7 +5733,56 @@
       "sparq_source": "estimated",
       "z_score": 0.31,
       "nfl_pct": 62.2,
-      "rank": 115
+      "rank": 117
+    },
+    {
+      "name": "Kyle Van Noy",
+      "pos": "EDGE",
+      "school": "Brigham Young",
+      "height": 75.13,
+      "metrics": {
+        "weight": {
+          "value": 243.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.71,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 32.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 111.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 21.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.2,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.63,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 2,
+      "draft_pick": 8,
+      "round_source": "actual",
+      "team": "DET",
+      "sparq": 107.72,
+      "sparq_source": "estimated",
+      "z_score": 0.31,
+      "nfl_pct": 62.2,
+      "rank": 118
     },
     {
       "name": "Kenny Ladler",
@@ -5684,7 +5831,56 @@
       "sparq_source": "estimated",
       "z_score": 0.3,
       "nfl_pct": 61.8,
-      "rank": 116
+      "rank": 119
+    },
+    {
+      "name": "Trent Murphy",
+      "pos": "EDGE",
+      "school": "Stanford",
+      "height": 77.38,
+      "metrics": {
+        "weight": {
+          "value": 250.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.86,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 35.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 116.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 19.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.2,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.682,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 2,
+      "draft_pick": 15,
+      "round_source": "actual",
+      "team": "WSH",
+      "sparq": 107.25,
+      "sparq_source": "estimated",
+      "z_score": 0.27,
+      "nfl_pct": 60.6,
+      "rank": 120
     },
     {
       "name": "Damian Copeland",
@@ -5733,7 +5929,7 @@
       "sparq_source": "estimated",
       "z_score": 0.24,
       "nfl_pct": 59.5,
-      "rank": 117
+      "rank": 121
     },
     {
       "name": "Stanley Jean-Baptiste",
@@ -5782,7 +5978,7 @@
       "sparq_source": "estimated",
       "z_score": 0.24,
       "nfl_pct": 59.5,
-      "rank": 118
+      "rank": 122
     },
     {
       "name": "Chris Davis",
@@ -5831,7 +6027,56 @@
       "sparq_source": "estimated",
       "z_score": 0.23,
       "nfl_pct": 59.1,
-      "rank": 119
+      "rank": 123
+    },
+    {
+      "name": "Demarcus Lawrence",
+      "pos": "EDGE",
+      "school": "Boise State",
+      "height": 74.88,
+      "metrics": {
+        "weight": {
+          "value": 251.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.8,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 34.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 112.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 20.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.31,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.661,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 2,
+      "draft_pick": 2,
+      "round_source": "actual",
+      "team": "DAL",
+      "sparq": 106.74,
+      "sparq_source": "estimated",
+      "z_score": 0.23,
+      "nfl_pct": 59.1,
+      "rank": 124
     },
     {
       "name": "Billy Turner",
@@ -5880,69 +6125,20 @@
       "sparq_source": "estimated",
       "z_score": 0.23,
       "nfl_pct": 59.1,
-      "rank": 120
+      "rank": 125
     },
     {
-      "name": "Derrell Johnson",
-      "pos": "LB",
-      "school": "East Carolina (NC)",
-      "height": 73.5,
+      "name": "Jordan Zumwalt",
+      "pos": "EDGE",
+      "school": "UCLA",
+      "height": 76.0,
       "metrics": {
         "weight": {
-          "value": 257.0,
+          "value": 235.0,
           "source": "combine"
         },
         "forty": {
-          "value": 4.61,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 32.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 114.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 23.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.27,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.64,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.595,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 108.38,
-      "sparq_source": "estimated",
-      "z_score": 0.21,
-      "nfl_pct": 58.3,
-      "rank": 121
-    },
-    {
-      "name": "Corey Nelson",
-      "pos": "LB",
-      "school": "Oklahoma",
-      "height": 72.38,
-      "metrics": {
-        "weight": {
-          "value": 231.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.6,
+          "value": 4.76,
           "source": "combine"
         },
         "vertical": {
@@ -5950,35 +6146,35 @@
           "source": "combine"
         },
         "broad": {
-          "value": 117.0,
+          "value": 115.0,
           "source": "combine"
         },
         "bench": {
-          "value": 23.0,
-          "source": "combine"
+          "value": null,
+          "source": null
         },
         "cone": {
-          "value": 7.37,
+          "value": 7.26,
           "source": "combine"
         },
         "shuttle": {
-          "value": 4.48,
+          "value": 4.25,
           "source": "combine"
         },
         "ten_split": {
-          "value": 1.592,
+          "value": 1.647,
           "source": "estimated"
         }
       },
-      "draft_round": 7,
-      "draft_pick": 27,
+      "draft_round": 6,
+      "draft_pick": 16,
       "round_source": "actual",
-      "team": "DEN",
-      "sparq": 108.36,
+      "team": "PIT",
+      "sparq": 106.78,
       "sparq_source": "estimated",
-      "z_score": 0.21,
-      "nfl_pct": 58.3,
-      "rank": 122
+      "z_score": 0.23,
+      "nfl_pct": 59.1,
+      "rank": 126
     },
     {
       "name": "Scott Crichton",
@@ -6027,7 +6223,7 @@
       "sparq_source": "estimated",
       "z_score": 0.2,
       "nfl_pct": 57.9,
-      "rank": 123
+      "rank": 127
     },
     {
       "name": "Matt Feiler",
@@ -6076,7 +6272,7 @@
       "sparq_source": "estimated",
       "z_score": 0.2,
       "nfl_pct": 57.9,
-      "rank": 124
+      "rank": 128
     },
     {
       "name": "Jimmy Garoppolo",
@@ -6125,7 +6321,7 @@
       "sparq_source": "estimated",
       "z_score": 0.2,
       "nfl_pct": 57.9,
-      "rank": 125
+      "rank": 129
     },
     {
       "name": "Tyler Larsen",
@@ -6174,32 +6370,32 @@
       "sparq_source": "estimated",
       "z_score": 0.2,
       "nfl_pct": 57.9,
-      "rank": 126
+      "rank": 130
     },
     {
-      "name": "Kyle Van Noy",
-      "pos": "LB",
-      "school": "Brigham Young",
-      "height": 75.13,
+      "name": "Kasim Edebali",
+      "pos": "EDGE",
+      "school": "Boston College",
+      "height": 74.0,
       "metrics": {
         "weight": {
-          "value": 243.0,
+          "value": 253.0,
           "source": "combine"
         },
         "forty": {
-          "value": 4.71,
+          "value": 4.79,
           "source": "combine"
         },
         "vertical": {
-          "value": 32.5,
+          "value": 34.5,
           "source": "combine"
         },
         "broad": {
-          "value": 111.0,
+          "value": 114.0,
           "source": "combine"
         },
         "bench": {
-          "value": 21.0,
+          "value": 19.0,
           "source": "combine"
         },
         "cone": {
@@ -6207,23 +6403,23 @@
           "source": null
         },
         "shuttle": {
-          "value": 4.2,
+          "value": 4.35,
           "source": "combine"
         },
         "ten_split": {
-          "value": 1.63,
+          "value": 1.657,
           "source": "estimated"
         }
       },
-      "draft_round": 2,
-      "draft_pick": 8,
-      "round_source": "actual",
-      "team": "DET",
-      "sparq": 108.35,
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 106.25,
       "sparq_source": "estimated",
-      "z_score": 0.2,
-      "nfl_pct": 57.9,
-      "rank": 127
+      "z_score": 0.19,
+      "nfl_pct": 57.5,
+      "rank": 131
     },
     {
       "name": "Bennie Fowler",
@@ -6272,7 +6468,7 @@
       "sparq_source": "estimated",
       "z_score": 0.19,
       "nfl_pct": 57.5,
-      "rank": 128
+      "rank": 132
     },
     {
       "name": "Bennett Jackson",
@@ -6321,7 +6517,7 @@
       "sparq_source": "estimated",
       "z_score": 0.19,
       "nfl_pct": 57.5,
-      "rank": 129
+      "rank": 133
     },
     {
       "name": "Tevin Reese",
@@ -6370,7 +6566,7 @@
       "sparq_source": "estimated",
       "z_score": 0.19,
       "nfl_pct": 57.5,
-      "rank": 130
+      "rank": 134
     },
     {
       "name": "John Urschel",
@@ -6419,7 +6615,7 @@
       "sparq_source": "estimated",
       "z_score": 0.17,
       "nfl_pct": 56.7,
-      "rank": 131
+      "rank": 135
     },
     {
       "name": "Justin Gilbert",
@@ -6468,56 +6664,7 @@
       "sparq_source": "estimated",
       "z_score": 0.16,
       "nfl_pct": 56.4,
-      "rank": 132
-    },
-    {
-      "name": "Trent Murphy",
-      "pos": "LB",
-      "school": "Stanford",
-      "height": 77.38,
-      "metrics": {
-        "weight": {
-          "value": 250.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.86,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 35.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 116.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 19.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.2,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.682,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 2,
-      "draft_pick": 15,
-      "round_source": "actual",
-      "team": "WSH",
-      "sparq": 107.87,
-      "sparq_source": "estimated",
-      "z_score": 0.16,
-      "nfl_pct": 56.4,
-      "rank": 133
+      "rank": 136
     },
     {
       "name": "Silas Redd",
@@ -6566,7 +6713,7 @@
       "sparq_source": "estimated",
       "z_score": 0.16,
       "nfl_pct": 56.4,
-      "rank": 134
+      "rank": 137
     },
     {
       "name": "Carlos Hyde",
@@ -6615,7 +6762,7 @@
       "sparq_source": "estimated",
       "z_score": 0.15,
       "nfl_pct": 56.0,
-      "rank": 135
+      "rank": 138
     },
     {
       "name": "Charles Leno",
@@ -6664,7 +6811,56 @@
       "sparq_source": "estimated",
       "z_score": 0.15,
       "nfl_pct": 56.0,
-      "rank": 136
+      "rank": 139
+    },
+    {
+      "name": "Devon Kennard",
+      "pos": "EDGE",
+      "school": "Southern California",
+      "height": 75.0,
+      "metrics": {
+        "weight": {
+          "value": 249.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.7,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 30.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 112.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 23.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.32,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.626,
+          "source": "estimated"
+        }
+      },
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 105.67,
+      "sparq_source": "estimated",
+      "z_score": 0.14,
+      "nfl_pct": 55.6,
+      "rank": 140
     },
     {
       "name": "Jonathan Newsome",
@@ -6713,7 +6909,7 @@
       "sparq_source": "estimated",
       "z_score": 0.13,
       "nfl_pct": 55.2,
-      "rank": 137
+      "rank": 141
     },
     {
       "name": "Shaquille Richardson",
@@ -6762,56 +6958,7 @@
       "sparq_source": "estimated",
       "z_score": 0.13,
       "nfl_pct": 55.2,
-      "rank": 138
-    },
-    {
-      "name": "Demarcus Lawrence",
-      "pos": "LB",
-      "school": "Boise State",
-      "height": 74.88,
-      "metrics": {
-        "weight": {
-          "value": 251.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.8,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 34.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 112.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 20.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.31,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.661,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 2,
-      "draft_pick": 2,
-      "round_source": "actual",
-      "team": "DAL",
-      "sparq": 107.36,
-      "sparq_source": "estimated",
-      "z_score": 0.12,
-      "nfl_pct": 54.8,
-      "rank": 139
+      "rank": 142
     },
     {
       "name": "Preston Brown",
@@ -6860,7 +7007,7 @@
       "sparq_source": "estimated",
       "z_score": 0.11,
       "nfl_pct": 54.4,
-      "rank": 140
+      "rank": 143
     },
     {
       "name": "Isaiah Lewis",
@@ -6909,7 +7056,7 @@
       "sparq_source": "estimated",
       "z_score": 0.11,
       "nfl_pct": 54.4,
-      "rank": 141
+      "rank": 144
     },
     {
       "name": "Tim Cornett",
@@ -6958,7 +7105,7 @@
       "sparq_source": "estimated",
       "z_score": 0.1,
       "nfl_pct": 54.0,
-      "rank": 142
+      "rank": 145
     },
     {
       "name": "Phillip Gaines",
@@ -7007,7 +7154,7 @@
       "sparq_source": "estimated",
       "z_score": 0.1,
       "nfl_pct": 54.0,
-      "rank": 143
+      "rank": 146
     },
     {
       "name": "Dontae Johnson",
@@ -7056,7 +7203,7 @@
       "sparq_source": "estimated",
       "z_score": 0.1,
       "nfl_pct": 54.0,
-      "rank": 144
+      "rank": 147
     },
     {
       "name": "Garrett Gilbert",
@@ -7105,7 +7252,7 @@
       "sparq_source": "estimated",
       "z_score": 0.09,
       "nfl_pct": 53.6,
-      "rank": 145
+      "rank": 148
     },
     {
       "name": "Keith McGill",
@@ -7154,7 +7301,7 @@
       "sparq_source": "estimated",
       "z_score": 0.09,
       "nfl_pct": 53.6,
-      "rank": 146
+      "rank": 149
     },
     {
       "name": "Davante Adams",
@@ -7203,56 +7350,7 @@
       "sparq_source": "estimated",
       "z_score": 0.08,
       "nfl_pct": 53.2,
-      "rank": 147
-    },
-    {
-      "name": "Kasim Edebali",
-      "pos": "LB",
-      "school": "Boston College",
-      "height": 74.0,
-      "metrics": {
-        "weight": {
-          "value": 253.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.79,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 34.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 114.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 19.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.35,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.657,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 106.87,
-      "sparq_source": "estimated",
-      "z_score": 0.08,
-      "nfl_pct": 53.2,
-      "rank": 148
+      "rank": 150
     },
     {
       "name": "Timmy Jernigan",
@@ -7301,7 +7399,7 @@
       "sparq_source": "estimated",
       "z_score": 0.08,
       "nfl_pct": 53.2,
-      "rank": 149
+      "rank": 151
     },
     {
       "name": "Tre Boston",
@@ -7350,24 +7448,24 @@
       "sparq_source": "estimated",
       "z_score": 0.07,
       "nfl_pct": 52.8,
-      "rank": 150
+      "rank": 152
     },
     {
-      "name": "Jordan Zumwalt",
-      "pos": "LB",
-      "school": "UCLA",
-      "height": 76.0,
+      "name": "Anthony Hitchens",
+      "pos": "EDGE",
+      "school": "Iowa",
+      "height": 72.38,
       "metrics": {
         "weight": {
-          "value": 235.0,
+          "value": 240.0,
           "source": "combine"
         },
         "forty": {
-          "value": 4.76,
+          "value": 4.74,
           "source": "combine"
         },
         "vertical": {
-          "value": 33.0,
+          "value": 31.5,
           "source": "combine"
         },
         "broad": {
@@ -7375,31 +7473,31 @@
           "source": "combine"
         },
         "bench": {
+          "value": 23.0,
+          "source": "combine"
+        },
+        "cone": {
           "value": null,
           "source": null
         },
-        "cone": {
-          "value": 7.26,
-          "source": "combine"
-        },
         "shuttle": {
-          "value": 4.25,
+          "value": 4.45,
           "source": "combine"
         },
         "ten_split": {
-          "value": 1.647,
+          "value": 1.64,
           "source": "estimated"
         }
       },
-      "draft_round": 6,
-      "draft_pick": 16,
+      "draft_round": 4,
+      "draft_pick": 19,
       "round_source": "actual",
-      "team": "PIT",
-      "sparq": 106.78,
+      "team": "DAL",
+      "sparq": 104.82,
       "sparq_source": "estimated",
       "z_score": 0.07,
       "nfl_pct": 52.8,
-      "rank": 151
+      "rank": 153
     },
     {
       "name": "Andrew Jackson",
@@ -7448,7 +7546,7 @@
       "sparq_source": "estimated",
       "z_score": 0.06,
       "nfl_pct": 52.4,
-      "rank": 152
+      "rank": 154
     },
     {
       "name": "Will Clarke",
@@ -7497,7 +7595,7 @@
       "sparq_source": "estimated",
       "z_score": 0.05,
       "nfl_pct": 52.0,
-      "rank": 153
+      "rank": 155
     },
     {
       "name": "James Morris",
@@ -7546,7 +7644,56 @@
       "sparq_source": "estimated",
       "z_score": 0.05,
       "nfl_pct": 52.0,
-      "rank": 154
+      "rank": 156
+    },
+    {
+      "name": "Tyler Starr",
+      "pos": "EDGE",
+      "school": "South Dakota",
+      "height": 76.13,
+      "metrics": {
+        "weight": {
+          "value": 250.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.95,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 32.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 115.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 24.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": null,
+          "source": null
+        },
+        "shuttle": {
+          "value": 4.15,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.713,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 7,
+      "draft_pick": 40,
+      "round_source": "actual",
+      "team": "ATL",
+      "sparq": 104.57,
+      "sparq_source": "estimated",
+      "z_score": 0.05,
+      "nfl_pct": 52.0,
+      "rank": 157
     },
     {
       "name": "Odell Beckham",
@@ -7595,7 +7742,7 @@
       "sparq_source": "estimated",
       "z_score": 0.04,
       "nfl_pct": 51.6,
-      "rank": 155
+      "rank": 158
     },
     {
       "name": "Kyle Fuller",
@@ -7644,7 +7791,7 @@
       "sparq_source": "estimated",
       "z_score": 0.04,
       "nfl_pct": 51.6,
-      "rank": 156
+      "rank": 159
     },
     {
       "name": "Jeremy Gallon",
@@ -7693,7 +7840,7 @@
       "sparq_source": "estimated",
       "z_score": 0.04,
       "nfl_pct": 51.6,
-      "rank": 157
+      "rank": 160
     },
     {
       "name": "Marcel Jensen",
@@ -7742,7 +7889,7 @@
       "sparq_source": "estimated",
       "z_score": 0.04,
       "nfl_pct": 51.6,
-      "rank": 158
+      "rank": 161
     },
     {
       "name": "C.J. Mosley",
@@ -7791,7 +7938,7 @@
       "sparq_source": "estimated",
       "z_score": 0.04,
       "nfl_pct": 51.6,
-      "rank": 159
+      "rank": 162
     },
     {
       "name": "James White",
@@ -7840,7 +7987,7 @@
       "sparq_source": "estimated",
       "z_score": 0.04,
       "nfl_pct": 51.6,
-      "rank": 160
+      "rank": 163
     },
     {
       "name": "Kerry Hyder",
@@ -7889,56 +8036,7 @@
       "sparq_source": "estimated",
       "z_score": 0.03,
       "nfl_pct": 51.2,
-      "rank": 161
-    },
-    {
-      "name": "Devon Kennard",
-      "pos": "LB",
-      "school": "Southern California",
-      "height": 75.0,
-      "metrics": {
-        "weight": {
-          "value": 249.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.7,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 30.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 112.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 23.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.32,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.626,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 106.29,
-      "sparq_source": "estimated",
-      "z_score": 0.03,
-      "nfl_pct": 51.2,
-      "rank": 162
+      "rank": 164
     },
     {
       "name": "Eathyn Manumaleuna",
@@ -7987,7 +8085,56 @@
       "sparq_source": "estimated",
       "z_score": 0.02,
       "nfl_pct": 50.8,
-      "rank": 163
+      "rank": 165
+    },
+    {
+      "name": "Telvin Smith",
+      "pos": "EDGE",
+      "school": "Florida State",
+      "height": 75.0,
+      "metrics": {
+        "weight": {
+          "value": 218.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.52,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 31.5,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 117.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 16.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.04,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.57,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.564,
+          "source": "estimated"
+        }
+      },
+      "draft_round": 5,
+      "draft_pick": 4,
+      "round_source": "actual",
+      "team": "JAX",
+      "sparq": 104.2,
+      "sparq_source": "estimated",
+      "z_score": 0.02,
+      "nfl_pct": 50.8,
+      "rank": 166
     },
     {
       "name": "George Uko",
@@ -8036,7 +8183,7 @@
       "sparq_source": "estimated",
       "z_score": 0.02,
       "nfl_pct": 50.8,
-      "rank": 164
+      "rank": 167
     },
     {
       "name": "David Fluellen",
@@ -8085,7 +8232,7 @@
       "sparq_source": "estimated",
       "z_score": 0.01,
       "nfl_pct": 50.4,
-      "rank": 165
+      "rank": 168
     },
     {
       "name": "Robert Herron",
@@ -8134,7 +8281,7 @@
       "sparq_source": "estimated",
       "z_score": 0.01,
       "nfl_pct": 50.4,
-      "rank": 166
+      "rank": 169
     },
     {
       "name": "Storm Johnson",
@@ -8183,7 +8330,7 @@
       "sparq_source": "estimated",
       "z_score": 0.01,
       "nfl_pct": 50.4,
-      "rank": 167
+      "rank": 170
     },
     {
       "name": "Calvin Pryor",
@@ -8232,7 +8379,7 @@
       "sparq_source": "estimated",
       "z_score": 0.01,
       "nfl_pct": 50.4,
-      "rank": 168
+      "rank": 171
     },
     {
       "name": "Dustin Vaughan",
@@ -8281,7 +8428,7 @@
       "sparq_source": "estimated",
       "z_score": 0.01,
       "nfl_pct": 50.4,
-      "rank": 169
+      "rank": 172
     },
     {
       "name": "Kerry Wynn",
@@ -8330,7 +8477,7 @@
       "sparq_source": "estimated",
       "z_score": 0.01,
       "nfl_pct": 50.4,
-      "rank": 170
+      "rank": 173
     },
     {
       "name": "Matt Armstrong",
@@ -8379,7 +8526,7 @@
       "sparq_source": "estimated",
       "z_score": -0.01,
       "nfl_pct": 49.6,
-      "rank": 171
+      "rank": 174
     },
     {
       "name": "Dexter McDougle",
@@ -8428,7 +8575,7 @@
       "sparq_source": "estimated",
       "z_score": -0.01,
       "nfl_pct": 49.6,
-      "rank": 172
+      "rank": 175
     },
     {
       "name": "Lorenzo Taliaferro",
@@ -8477,7 +8624,7 @@
       "sparq_source": "estimated",
       "z_score": -0.01,
       "nfl_pct": 49.6,
-      "rank": 173
+      "rank": 176
     },
     {
       "name": "I.K. Enemkpali",
@@ -8526,7 +8673,7 @@
       "sparq_source": "estimated",
       "z_score": -0.02,
       "nfl_pct": 49.2,
-      "rank": 174
+      "rank": 177
     },
     {
       "name": "Ryan Groy",
@@ -8575,7 +8722,7 @@
       "sparq_source": "estimated",
       "z_score": -0.03,
       "nfl_pct": 48.8,
-      "rank": 175
+      "rank": 178
     },
     {
       "name": "Terrence Brooks",
@@ -8624,7 +8771,7 @@
       "sparq_source": "estimated",
       "z_score": -0.04,
       "nfl_pct": 48.4,
-      "rank": 176
+      "rank": 179
     },
     {
       "name": "Mike Evans",
@@ -8673,7 +8820,7 @@
       "sparq_source": "estimated",
       "z_score": -0.04,
       "nfl_pct": 48.4,
-      "rank": 177
+      "rank": 180
     },
     {
       "name": "Crockett Gillmore",
@@ -8722,56 +8869,7 @@
       "sparq_source": "estimated",
       "z_score": -0.05,
       "nfl_pct": 48.0,
-      "rank": 178
-    },
-    {
-      "name": "Anthony Hitchens",
-      "pos": "LB",
-      "school": "Iowa",
-      "height": 72.38,
-      "metrics": {
-        "weight": {
-          "value": 240.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.74,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 31.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 115.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 23.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.45,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.64,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 4,
-      "draft_pick": 19,
-      "round_source": "actual",
-      "team": "DAL",
-      "sparq": 105.44,
-      "sparq_source": "estimated",
-      "z_score": -0.05,
-      "nfl_pct": 48.0,
-      "rank": 179
+      "rank": 181
     },
     {
       "name": "Michael Schofield",
@@ -8820,7 +8918,7 @@
       "sparq_source": "estimated",
       "z_score": -0.05,
       "nfl_pct": 48.0,
-      "rank": 180
+      "rank": 182
     },
     {
       "name": "Devin Street",
@@ -8869,7 +8967,7 @@
       "sparq_source": "estimated",
       "z_score": -0.05,
       "nfl_pct": 48.0,
-      "rank": 181
+      "rank": 183
     },
     {
       "name": "Torrence Allen",
@@ -8918,7 +9016,7 @@
       "sparq_source": "estimated",
       "z_score": -0.06,
       "nfl_pct": 47.6,
-      "rank": 182
+      "rank": 184
     },
     {
       "name": "Caraun Reid",
@@ -8967,7 +9065,7 @@
       "sparq_source": "estimated",
       "z_score": -0.06,
       "nfl_pct": 47.6,
-      "rank": 183
+      "rank": 185
     },
     {
       "name": "Albert Wilson",
@@ -9016,56 +9114,7 @@
       "sparq_source": "estimated",
       "z_score": -0.06,
       "nfl_pct": 47.6,
-      "rank": 184
-    },
-    {
-      "name": "Tyler Starr",
-      "pos": "LB",
-      "school": "South Dakota",
-      "height": 76.13,
-      "metrics": {
-        "weight": {
-          "value": 250.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.95,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 32.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 115.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 24.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": null,
-          "source": null
-        },
-        "shuttle": {
-          "value": 4.15,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.713,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 7,
-      "draft_pick": 40,
-      "round_source": "actual",
-      "team": "ATL",
-      "sparq": 105.19,
-      "sparq_source": "estimated",
-      "z_score": -0.07,
-      "nfl_pct": 47.2,
-      "rank": 185
+      "rank": 186
     },
     {
       "name": "Jimmie Ward",
@@ -9114,7 +9163,7 @@
       "sparq_source": "estimated",
       "z_score": -0.07,
       "nfl_pct": 47.2,
-      "rank": 186
+      "rank": 187
     },
     {
       "name": "Christian Jones",
@@ -9163,7 +9212,7 @@
       "sparq_source": "estimated",
       "z_score": -0.08,
       "nfl_pct": 46.8,
-      "rank": 187
+      "rank": 188
     },
     {
       "name": "Sammy Watkins",
@@ -9212,7 +9261,7 @@
       "sparq_source": "estimated",
       "z_score": -0.08,
       "nfl_pct": 46.8,
-      "rank": 188
+      "rank": 189
     },
     {
       "name": "Jonotthan Harrison",
@@ -9261,7 +9310,7 @@
       "sparq_source": "estimated",
       "z_score": -0.09,
       "nfl_pct": 46.4,
-      "rank": 189
+      "rank": 190
     },
     {
       "name": "Bryn Renner",
@@ -9310,7 +9359,7 @@
       "sparq_source": "estimated",
       "z_score": -0.09,
       "nfl_pct": 46.4,
-      "rank": 190
+      "rank": 191
     },
     {
       "name": "Matt Hazel",
@@ -9359,7 +9408,7 @@
       "sparq_source": "estimated",
       "z_score": -0.1,
       "nfl_pct": 46.0,
-      "rank": 191
+      "rank": 192
     },
     {
       "name": "Kendall James",
@@ -9408,7 +9457,7 @@
       "sparq_source": "estimated",
       "z_score": -0.11,
       "nfl_pct": 45.6,
-      "rank": 192
+      "rank": 193
     },
     {
       "name": "Marqise Lee",
@@ -9457,7 +9506,7 @@
       "sparq_source": "estimated",
       "z_score": -0.11,
       "nfl_pct": 45.6,
-      "rank": 193
+      "rank": 194
     },
     {
       "name": "Shelby Harris",
@@ -9506,7 +9555,56 @@
       "sparq_source": "estimated",
       "z_score": -0.14,
       "nfl_pct": 44.4,
-      "rank": 194
+      "rank": 195
+    },
+    {
+      "name": "Christian Kirksey",
+      "pos": "EDGE",
+      "school": "Iowa",
+      "height": 73.75,
+      "metrics": {
+        "weight": {
+          "value": 233.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.72,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 32.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 122.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 16.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.11,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.42,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.633,
+          "source": "estimated"
+        }
+      },
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 102.31,
+      "sparq_source": "estimated",
+      "z_score": -0.14,
+      "nfl_pct": 44.4,
+      "rank": 196
     },
     {
       "name": "Marcus Lucas",
@@ -9555,7 +9653,7 @@
       "sparq_source": "estimated",
       "z_score": -0.14,
       "nfl_pct": 44.4,
-      "rank": 195
+      "rank": 197
     },
     {
       "name": "Paul Richardson",
@@ -9604,7 +9702,7 @@
       "sparq_source": "estimated",
       "z_score": -0.14,
       "nfl_pct": 44.4,
-      "rank": 196
+      "rank": 198
     },
     {
       "name": "Marqueston Huff",
@@ -9653,7 +9751,7 @@
       "sparq_source": "estimated",
       "z_score": -0.15,
       "nfl_pct": 44.0,
-      "rank": 197
+      "rank": 199
     },
     {
       "name": "Ted Bolser",
@@ -9702,7 +9800,7 @@
       "sparq_source": "estimated",
       "z_score": -0.16,
       "nfl_pct": 43.6,
-      "rank": 198
+      "rank": 200
     },
     {
       "name": "A.J. McCarron",
@@ -9751,7 +9849,7 @@
       "sparq_source": "estimated",
       "z_score": -0.16,
       "nfl_pct": 43.6,
-      "rank": 199
+      "rank": 201
     },
     {
       "name": "Antonio Richardson",
@@ -9800,56 +9898,7 @@
       "sparq_source": "estimated",
       "z_score": -0.16,
       "nfl_pct": 43.6,
-      "rank": 200
-    },
-    {
-      "name": "Telvin Smith",
-      "pos": "LB",
-      "school": "Florida State",
-      "height": 75.0,
-      "metrics": {
-        "weight": {
-          "value": 218.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.52,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 31.5,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 117.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 16.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.04,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.57,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.564,
-          "source": "estimated"
-        }
-      },
-      "draft_round": 5,
-      "draft_pick": 4,
-      "round_source": "actual",
-      "team": "JAX",
-      "sparq": 104.2,
-      "sparq_source": "estimated",
-      "z_score": -0.16,
-      "nfl_pct": 43.6,
-      "rank": 201
+      "rank": 202
     },
     {
       "name": "Gabe Ikard",
@@ -9898,7 +9947,7 @@
       "sparq_source": "estimated",
       "z_score": -0.17,
       "nfl_pct": 43.3,
-      "rank": 202
+      "rank": 203
     },
     {
       "name": "Brandon Dixon",
@@ -9947,7 +9996,7 @@
       "sparq_source": "estimated",
       "z_score": -0.18,
       "nfl_pct": 42.9,
-      "rank": 203
+      "rank": 204
     },
     {
       "name": "John Brown",
@@ -9996,7 +10045,7 @@
       "sparq_source": "estimated",
       "z_score": -0.21,
       "nfl_pct": 41.7,
-      "rank": 204
+      "rank": 205
     },
     {
       "name": "Keith Wenning",
@@ -10045,7 +10094,7 @@
       "sparq_source": "estimated",
       "z_score": -0.21,
       "nfl_pct": 41.7,
-      "rank": 205
+      "rank": 206
     },
     {
       "name": "Weston Richburg",
@@ -10094,7 +10143,7 @@
       "sparq_source": "estimated",
       "z_score": -0.22,
       "nfl_pct": 41.3,
-      "rank": 206
+      "rank": 207
     },
     {
       "name": "Tom Savage",
@@ -10143,7 +10192,7 @@
       "sparq_source": "estimated",
       "z_score": -0.22,
       "nfl_pct": 41.3,
-      "rank": 207
+      "rank": 208
     },
     {
       "name": "Brandon Coleman",
@@ -10192,7 +10241,7 @@
       "sparq_source": "estimated",
       "z_score": -0.24,
       "nfl_pct": 40.5,
-      "rank": 208
+      "rank": 209
     },
     {
       "name": "Seantrel Henderson",
@@ -10241,7 +10290,7 @@
       "sparq_source": "estimated",
       "z_score": -0.24,
       "nfl_pct": 40.5,
-      "rank": 209
+      "rank": 210
     },
     {
       "name": "Kony Ealy",
@@ -10290,7 +10339,7 @@
       "sparq_source": "estimated",
       "z_score": -0.25,
       "nfl_pct": 40.1,
-      "rank": 210
+      "rank": 211
     },
     {
       "name": "Andre Hal",
@@ -10339,7 +10388,7 @@
       "sparq_source": "estimated",
       "z_score": -0.27,
       "nfl_pct": 39.4,
-      "rank": 211
+      "rank": 212
     },
     {
       "name": "Josh Huff",
@@ -10388,7 +10437,7 @@
       "sparq_source": "estimated",
       "z_score": -0.27,
       "nfl_pct": 39.4,
-      "rank": 212
+      "rank": 213
     },
     {
       "name": "Trai Turner",
@@ -10437,7 +10486,7 @@
       "sparq_source": "estimated",
       "z_score": -0.28,
       "nfl_pct": 39.0,
-      "rank": 213
+      "rank": 214
     },
     {
       "name": "Antone Exum",
@@ -10486,7 +10535,7 @@
       "sparq_source": "estimated",
       "z_score": -0.3,
       "nfl_pct": 38.2,
-      "rank": 214
+      "rank": 215
     },
     {
       "name": "Gabe Jackson",
@@ -10535,7 +10584,7 @@
       "sparq_source": "estimated",
       "z_score": -0.3,
       "nfl_pct": 38.2,
-      "rank": 215
+      "rank": 216
     },
     {
       "name": "JaWuan James",
@@ -10584,7 +10633,7 @@
       "sparq_source": "estimated",
       "z_score": -0.3,
       "nfl_pct": 38.2,
-      "rank": 216
+      "rank": 217
     },
     {
       "name": "Lamarcus Joyner",
@@ -10633,7 +10682,7 @@
       "sparq_source": "estimated",
       "z_score": -0.3,
       "nfl_pct": 38.2,
-      "rank": 217
+      "rank": 218
     },
     {
       "name": "Carrington Byndom",
@@ -10682,7 +10731,7 @@
       "sparq_source": "estimated",
       "z_score": -0.32,
       "nfl_pct": 37.4,
-      "rank": 218
+      "rank": 219
     },
     {
       "name": "Ego Ferguson",
@@ -10728,55 +10777,6 @@
       "round_source": "actual",
       "team": "CHI",
       "sparq": 87.61,
-      "sparq_source": "estimated",
-      "z_score": -0.32,
-      "nfl_pct": 37.4,
-      "rank": 219
-    },
-    {
-      "name": "Christian Kirksey",
-      "pos": "LB",
-      "school": "Iowa",
-      "height": 73.75,
-      "metrics": {
-        "weight": {
-          "value": 233.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.72,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 32.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 122.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 16.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.11,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.42,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.633,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 102.31,
       "sparq_source": "estimated",
       "z_score": -0.32,
       "nfl_pct": 37.4,
@@ -11959,6 +11959,55 @@
       "rank": 244
     },
     {
+      "name": "Denicos Allen",
+      "pos": "EDGE",
+      "school": "Michigan State",
+      "height": 70.25,
+      "metrics": {
+        "weight": {
+          "value": 225.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 4.74,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 29.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 105.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 26.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.46,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.61,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.64,
+          "source": "estimated"
+        }
+      },
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 97.56,
+      "sparq_source": "estimated",
+      "z_score": -0.54,
+      "nfl_pct": 29.5,
+      "rank": 245
+    },
+    {
       "name": "Ken Bishop",
       "pos": "DT",
       "school": "Northern Illinois",
@@ -12005,7 +12054,7 @@
       "sparq_source": "estimated",
       "z_score": -0.54,
       "nfl_pct": 29.5,
-      "rank": 245
+      "rank": 246
     },
     {
       "name": "Luke Bowanko",
@@ -12054,7 +12103,7 @@
       "sparq_source": "estimated",
       "z_score": -0.56,
       "nfl_pct": 28.8,
-      "rank": 246
+      "rank": 247
     },
     {
       "name": "Jacob Pedersen",
@@ -12103,7 +12152,7 @@
       "sparq_source": "estimated",
       "z_score": -0.56,
       "nfl_pct": 28.8,
-      "rank": 247
+      "rank": 248
     },
     {
       "name": "Isaiah Burse",
@@ -12152,7 +12201,7 @@
       "sparq_source": "estimated",
       "z_score": -0.58,
       "nfl_pct": 28.1,
-      "rank": 248
+      "rank": 249
     },
     {
       "name": "KaDeem Carey",
@@ -12201,7 +12250,7 @@
       "sparq_source": "estimated",
       "z_score": -0.58,
       "nfl_pct": 28.1,
-      "rank": 249
+      "rank": 250
     },
     {
       "name": "Nic Jacobs",
@@ -12250,7 +12299,7 @@
       "sparq_source": "estimated",
       "z_score": -0.58,
       "nfl_pct": 28.1,
-      "rank": 250
+      "rank": 251
     },
     {
       "name": "Craig Loston",
@@ -12299,7 +12348,7 @@
       "sparq_source": "estimated",
       "z_score": -0.58,
       "nfl_pct": 28.1,
-      "rank": 251
+      "rank": 252
     },
     {
       "name": "D.J. Tialavea",
@@ -12348,7 +12397,7 @@
       "sparq_source": "estimated",
       "z_score": -0.59,
       "nfl_pct": 27.8,
-      "rank": 252
+      "rank": 253
     },
     {
       "name": "Nat Berhe",
@@ -12397,7 +12446,7 @@
       "sparq_source": "estimated",
       "z_score": -0.6,
       "nfl_pct": 27.4,
-      "rank": 253
+      "rank": 254
     },
     {
       "name": "Cassius Marsh",
@@ -12446,7 +12495,7 @@
       "sparq_source": "estimated",
       "z_score": -0.6,
       "nfl_pct": 27.4,
-      "rank": 254
+      "rank": 255
     },
     {
       "name": "Ricardo Allen",
@@ -12495,7 +12544,7 @@
       "sparq_source": "estimated",
       "z_score": -0.62,
       "nfl_pct": 26.8,
-      "rank": 255
+      "rank": 256
     },
     {
       "name": "Devonta Freeman",
@@ -12544,7 +12593,7 @@
       "sparq_source": "estimated",
       "z_score": -0.62,
       "nfl_pct": 26.8,
-      "rank": 256
+      "rank": 257
     },
     {
       "name": "Shayne Skov",
@@ -12593,7 +12642,7 @@
       "sparq_source": "estimated",
       "z_score": -0.62,
       "nfl_pct": 26.8,
-      "rank": 257
+      "rank": 258
     },
     {
       "name": "Ross Cockrell",
@@ -12642,7 +12691,7 @@
       "sparq_source": "estimated",
       "z_score": -0.63,
       "nfl_pct": 26.4,
-      "rank": 258
+      "rank": 259
     },
     {
       "name": "Jonathan Dowling",
@@ -12691,7 +12740,7 @@
       "sparq_source": "estimated",
       "z_score": -0.63,
       "nfl_pct": 26.4,
-      "rank": 259
+      "rank": 260
     },
     {
       "name": "Kenneth Acker",
@@ -12740,7 +12789,7 @@
       "sparq_source": "estimated",
       "z_score": -0.64,
       "nfl_pct": 26.1,
-      "rank": 260
+      "rank": 261
     },
     {
       "name": "Deion Belue",
@@ -12789,7 +12838,7 @@
       "sparq_source": "estimated",
       "z_score": -0.64,
       "nfl_pct": 26.1,
-      "rank": 261
+      "rank": 262
     },
     {
       "name": "T.J. Jones",
@@ -12838,7 +12887,7 @@
       "sparq_source": "estimated",
       "z_score": -0.64,
       "nfl_pct": 26.1,
-      "rank": 262
+      "rank": 263
     },
     {
       "name": "Ed Reynolds",
@@ -12887,7 +12936,7 @@
       "sparq_source": "estimated",
       "z_score": -0.64,
       "nfl_pct": 26.1,
-      "rank": 263
+      "rank": 264
     },
     {
       "name": "Mitchell Van Dyk",
@@ -12936,7 +12985,7 @@
       "sparq_source": "estimated",
       "z_score": -0.64,
       "nfl_pct": 26.1,
-      "rank": 264
+      "rank": 265
     },
     {
       "name": "Ryan White",
@@ -12985,7 +13034,7 @@
       "sparq_source": "estimated",
       "z_score": -0.65,
       "nfl_pct": 25.8,
-      "rank": 265
+      "rank": 266
     },
     {
       "name": "Richard Rodgers",
@@ -13034,7 +13083,7 @@
       "sparq_source": "estimated",
       "z_score": -0.66,
       "nfl_pct": 25.5,
-      "rank": 266
+      "rank": 267
     },
     {
       "name": "Walt Aikens",
@@ -13083,7 +13132,7 @@
       "sparq_source": "estimated",
       "z_score": -0.67,
       "nfl_pct": 25.1,
-      "rank": 267
+      "rank": 268
     },
     {
       "name": "Kelvin Benjamin",
@@ -13132,7 +13181,7 @@
       "sparq_source": "estimated",
       "z_score": -0.67,
       "nfl_pct": 25.1,
-      "rank": 268
+      "rank": 269
     },
     {
       "name": "Kadeem Edwards",
@@ -13181,7 +13230,7 @@
       "sparq_source": "estimated",
       "z_score": -0.67,
       "nfl_pct": 25.1,
-      "rank": 269
+      "rank": 270
     },
     {
       "name": "Jabari Price",
@@ -13230,7 +13279,7 @@
       "sparq_source": "estimated",
       "z_score": -0.68,
       "nfl_pct": 24.8,
-      "rank": 270
+      "rank": 271
     },
     {
       "name": "Victor Hampton",
@@ -13279,55 +13328,6 @@
       "sparq_source": "estimated",
       "z_score": -0.7,
       "nfl_pct": 24.2,
-      "rank": 271
-    },
-    {
-      "name": "Denicos Allen",
-      "pos": "LB",
-      "school": "Michigan State",
-      "height": 70.25,
-      "metrics": {
-        "weight": {
-          "value": 225.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 4.74,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 29.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 105.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 26.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.46,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.61,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.64,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 97.56,
-      "sparq_source": "estimated",
-      "z_score": -0.73,
-      "nfl_pct": 23.3,
       "rank": 272
     },
     {
@@ -15928,6 +15928,55 @@
       "rank": 325
     },
     {
+      "name": "Jonathan Brown",
+      "pos": "EDGE",
+      "school": "Illinois",
+      "height": 72.38,
+      "metrics": {
+        "weight": {
+          "value": 238.0,
+          "source": "combine"
+        },
+        "forty": {
+          "value": 5.03,
+          "source": "combine"
+        },
+        "vertical": {
+          "value": 31.0,
+          "source": "combine"
+        },
+        "broad": {
+          "value": 108.0,
+          "source": "combine"
+        },
+        "bench": {
+          "value": 16.0,
+          "source": "combine"
+        },
+        "cone": {
+          "value": 7.3,
+          "source": "combine"
+        },
+        "shuttle": {
+          "value": 4.56,
+          "source": "combine"
+        },
+        "ten_split": {
+          "value": 1.74,
+          "source": "estimated"
+        }
+      },
+      "draft_round": null,
+      "draft_pick": null,
+      "round_source": null,
+      "team": null,
+      "sparq": 88.15,
+      "sparq_source": "estimated",
+      "z_score": -1.32,
+      "nfl_pct": 9.3,
+      "rank": 326
+    },
+    {
       "name": "Conor Boffeli",
       "pos": "OG",
       "school": "Iowa",
@@ -15974,7 +16023,7 @@
       "sparq_source": "estimated",
       "z_score": -1.34,
       "nfl_pct": 9.0,
-      "rank": 326
+      "rank": 327
     },
     {
       "name": "Loucheiz Purifoy",
@@ -16023,7 +16072,7 @@
       "sparq_source": "estimated",
       "z_score": -1.34,
       "nfl_pct": 9.0,
-      "rank": 327
+      "rank": 328
     },
     {
       "name": "Anthony Johnson",
@@ -16072,7 +16121,7 @@
       "sparq_source": "estimated",
       "z_score": -1.38,
       "nfl_pct": 8.4,
-      "rank": 328
+      "rank": 329
     },
     {
       "name": "Xavier Grimble",
@@ -16121,7 +16170,7 @@
       "sparq_source": "estimated",
       "z_score": -1.41,
       "nfl_pct": 7.9,
-      "rank": 329
+      "rank": 330
     },
     {
       "name": "Jon Halapio",
@@ -16170,7 +16219,7 @@
       "sparq_source": "estimated",
       "z_score": -1.42,
       "nfl_pct": 7.8,
-      "rank": 330
+      "rank": 331
     },
     {
       "name": "Daniel McCullers",
@@ -16219,7 +16268,7 @@
       "sparq_source": "estimated",
       "z_score": -1.42,
       "nfl_pct": 7.8,
-      "rank": 331
+      "rank": 332
     },
     {
       "name": "Morgan Moses",
@@ -16268,7 +16317,7 @@
       "sparq_source": "estimated",
       "z_score": -1.42,
       "nfl_pct": 7.8,
-      "rank": 332
+      "rank": 333
     },
     {
       "name": "David Yankey",
@@ -16317,7 +16366,7 @@
       "sparq_source": "estimated",
       "z_score": -1.42,
       "nfl_pct": 7.8,
-      "rank": 333
+      "rank": 334
     },
     {
       "name": "Michael Sam",
@@ -16366,7 +16415,7 @@
       "sparq_source": "estimated",
       "z_score": -1.43,
       "nfl_pct": 7.6,
-      "rank": 334
+      "rank": 335
     },
     {
       "name": "Dakota Dozier",
@@ -16415,55 +16464,6 @@
       "sparq_source": "estimated",
       "z_score": -1.44,
       "nfl_pct": 7.5,
-      "rank": 335
-    },
-    {
-      "name": "Jonathan Brown",
-      "pos": "LB",
-      "school": "Illinois",
-      "height": 72.38,
-      "metrics": {
-        "weight": {
-          "value": 238.0,
-          "source": "combine"
-        },
-        "forty": {
-          "value": 5.03,
-          "source": "combine"
-        },
-        "vertical": {
-          "value": 31.0,
-          "source": "combine"
-        },
-        "broad": {
-          "value": 108.0,
-          "source": "combine"
-        },
-        "bench": {
-          "value": 16.0,
-          "source": "combine"
-        },
-        "cone": {
-          "value": 7.3,
-          "source": "combine"
-        },
-        "shuttle": {
-          "value": 4.56,
-          "source": "combine"
-        },
-        "ten_split": {
-          "value": 1.74,
-          "source": "estimated"
-        }
-      },
-      "draft_round": null,
-      "draft_pick": null,
-      "round_source": null,
-      "team": null,
-      "sparq": 88.15,
-      "sparq_source": "estimated",
-      "z_score": -1.55,
-      "nfl_pct": 6.1,
       "rank": 336
     },
     {
@@ -18482,8 +18482,8 @@
       "height": 75.13,
       "metrics": {
         "weight": {
-          "value": 269.0,
-          "source": "combine"
+          "value": null,
+          "source": null
         },
         "forty": {
           "value": null,

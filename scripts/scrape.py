@@ -56,6 +56,13 @@ _METRIC_BOUNDS = {
 }
 
 
+# Position-aware weight minimums — flags combine data entry errors like OG at 223 lbs (RG3 misattribution)
+_POS_WEIGHT_MIN = {
+    'OT': 265, 'OG': 265, 'C': 255, 'OL': 255,
+    'DT': 270,
+}
+
+
 def sanitize_metrics(players: list[dict]) -> list[dict]:
     """Null out metric values that are physically impossible (data entry errors)."""
     for player in players:
@@ -65,6 +72,12 @@ def sanitize_metrics(players: list[dict]) -> list[dict]:
             v = entry.get('value')
             if v is not None and (v < lo or v > hi):
                 m[field] = {'value': None, 'source': None}
+        # Position-aware weight check (catches e.g. OG at 223 lbs = wrong player's stats)
+        pos = player.get('pos', '')
+        wt = m.get('weight', {}).get('value')
+        pos_min = _POS_WEIGHT_MIN.get(pos)
+        if wt is not None and pos_min and wt < pos_min:
+            m['weight'] = {'value': None, 'source': None}
     return players
 
 
@@ -132,7 +145,7 @@ _POS_NORMALIZE = {
     'T':   'OT',    # ESPN: tackle
     'G':   'OG',    # ESPN: guard
     'DI':  'DT',    # ESPN: defensive interior
-    'OLB': 'LB',
+    'OLB': 'EDGE',  # ESPN used OLB for pass rushers pre-2017; maps to EDGE (Von Miller, Khalil Mack, etc.)
     'ILB': 'LB',
     'MLB': 'LB',
     'NT':  'DT',
