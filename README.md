@@ -1,7 +1,7 @@
 # 2026 NFL Draft SPARQ Rankings
 
 SPARQ athleticism scores for all ~458 2026 NFL Draft prospects. Live at:
-**https://not-in-scope.github.io/nfl-sparq-2026/**
+**https://not-in-scope.github.io/nfl-sparq/**
 
 ## Refresh data
 
