@@ -31,8 +31,6 @@
     }
     header h1 { font-size: 22px; font-weight: 700; }
     .header-tagline { color: #6a7090; font-size: 14px; font-style: italic; font-weight: 500; letter-spacing: 0.03em; margin-top: 4px; }
-    .header-links a { color: #5ba3f5; font-size: 12px; text-decoration: none; }
-    .header-links a:hover { text-decoration: underline; }
     header p#subtitle { color: #7a7f94; font-size: 12px; margin-top: 5px; }
     .zscore-explainer { background: #0d1020; border-top: 1px solid #1e2130; border-bottom: 1px solid #1e2130; color: #8a90a8; font-size: 13px; line-height: 1.7; padding: 14px 32px; }
     @media (max-width: 767px) { .zscore-explainer { padding: 10px 12px; font-size: 12px; } }
@@ -194,15 +192,13 @@
   <div class="header-top">
     <h1>NFL Draft — SPARQ Rankings</h1>
     <p class="header-tagline">All Gas. No Film. Non-Athletes Denied.</p>
-    <div class="header-links">
-      <a href="https://github.com/not-in-scope/nfl-sparq" target="_blank" rel="noopener">
-        ⑆ Methodology &amp; Source (GitHub)
-      </a>
-    </div>
   </div>
   <p id="subtitle">Loading...</p>
 </header>
 
+<div class="banner" id="mock-banner">
+  ⚠ Round projections are based on consensus mock draft data and will be updated with actual picks after the draft (April 24–25, 2026).
+</div>
 
 <div class="zscore-explainer">
   <div class="zscore-toggle" id="zscore-toggle"><strong>What is σ?</strong></div>
@@ -214,11 +210,8 @@
     <span class="zscore-hl hl-avg">0σ AVERAGE</span> is the historical norm.
     <span class="zscore-hl hl-below">−1σ BELOW AVG</span> and lower — not a freak.
     It's position-adjusted: a +2σ OT and a +2σ WR are equally rare for their position.
+    &nbsp;·&nbsp; <a href="https://github.com/not-in-scope/nfl-sparq" target="_blank" rel="noopener" style="color:#5ba3f5;text-decoration:none">Methodology &amp; Source ↗</a>
   </div>
-</div>
-
-<div class="banner" id="mock-banner">
-  ⚠ Round projections are based on consensus mock draft data and will be updated with actual picks after the draft (April 24–25, 2026).
 </div>
 
 <div class="filters">
