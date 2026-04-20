@@ -175,6 +175,26 @@ def test_sparq_coverage_above_threshold(prospects_2020):
     assert pct >= 0.65, f"Only {pct:.0%} scored ({scored}/{len(prospects_2020)})"
 
 
+def test_no_impossible_bench_press(prospects_2020):
+    """Bench press > 51 is physically impossible (all-time combine record). Must be nulled."""
+    bad = [
+        p for p in prospects_2020
+        if p['metrics'].get('bench', {}).get('value') is not None
+        and p['metrics']['bench']['value'] > 51
+    ]
+    assert not bad, f"Players with impossible bench press: {[(p['name'], p['metrics']['bench']['value']) for p in bad]}"
+
+
+def test_no_impossible_broad_jump(prospects_2020):
+    """Broad jump of <80 inches is a data entry error (8-10 feet entered as inches)."""
+    bad = [
+        p for p in prospects_2020
+        if p['metrics'].get('broad', {}).get('value') is not None
+        and p['metrics']['broad']['value'] < 80
+    ]
+    assert not bad, f"Players with invalid broad jump: {[(p['name'], p['metrics']['broad']['value']) for p in bad]}"
+
+
 def test_sparq_scores_are_positive(prospects_2020):
     """All SPARQ scores should be positive (formula intercept ensures this for valid inputs)."""
     bad = [p for p in prospects_2020 if p.get('sparq') is not None and p['sparq'] <= 0]

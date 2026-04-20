@@ -52,21 +52,64 @@
     }
     .filter-group select:focus { border-color: #2e5a8f; }
     select#team-select { min-width: 120px; }
-    #year-pills { flex-wrap: wrap; max-width: 600px; }
 
     /* Banner */
     .banner { background: #1c1a0a; border-bottom: 1px solid #3a3510; color: #c8b84a; font-size: 12px; padding: 8px 32px; }
+    @media (max-width: 767px) { .banner { padding: 7px 12px; } }
 
     /* ── Filters ── */
-    .filters { padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; border-bottom: 1px solid #1e2130; }
-    @media (max-width: 767px) { .filters { padding: 10px 12px; gap: 8px; } }
-    .filter-group { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
-    .filter-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; white-space: nowrap; }
-    .pill { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 11px; padding: 4px 10px; transition: all 0.1s; }
+    .filters { padding: 14px 32px; display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid #1e2130; }
+    @media (max-width: 767px) { .filters { padding: 10px 12px; gap: 6px; } }
+
+    /* Each filter row: label + scrollable pill strip */
+    .filter-row { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .filter-label { color: #7a7f94; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; flex-shrink: 0; width: 52px; }
+    .pill-strip {
+      display: flex; gap: 4px; align-items: center;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      padding-bottom: 2px; /* prevent clipping */
+      flex-wrap: nowrap;
+    }
+    .pill-strip::-webkit-scrollbar { display: none; }
+
+    /* On desktop, let position/round strips wrap */
+    @media (min-width: 768px) {
+      .filters { flex-direction: row; flex-wrap: wrap; gap: 10px; align-items: flex-start; }
+      .filter-row { align-items: flex-start; }
+      .filter-label { width: auto; margin-right: 4px; margin-top: 5px; }
+      .pill-strip { flex-wrap: wrap; overflow-x: visible; }
+      .pill-strip.pill-strip--scroll { flex-wrap: nowrap; overflow-x: auto; max-width: 500px; }
+    }
+
+    .pill { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #b0b4c8; cursor: pointer; font-size: 11px; padding: 4px 10px; transition: all 0.1s; white-space: nowrap; flex-shrink: 0; }
     .pill:hover { background: #1e2235; color: #e8eaf0; }
     .pill.active { background: #1e3a5f; border-color: #2e5a8f; color: #5ba3f5; }
+
+    /* Text inputs */
+    .filter-group { display: flex; align-items: center; gap: 4px; }
     .filter-group input { background: #1a1d2a; border: 1px solid #2a2e40; border-radius: 4px; color: #e8eaf0; font-size: 12px; outline: none; padding: 5px 10px; width: 150px; }
     .filter-group input:focus { border-color: #2e5a8f; }
+    @media (max-width: 767px) { .filter-group input { width: 100%; min-width: 0; } .filter-group { width: 100%; } }
+
+    /* σ explainer — collapsible on mobile, always open on desktop */
+    .zscore-explainer { background: #0d1020; border-top: 1px solid #1e2130; border-bottom: 1px solid #1e2130; color: #8a90a8; font-size: 13px; line-height: 1.7; }
+    .zscore-toggle { display: none; }
+    /* Desktop: body always shown, inline padding */
+    .zscore-body { padding: 14px 32px; }
+    @media (max-width: 767px) {
+      .zscore-explainer { font-size: 12px; }
+      .zscore-toggle {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 10px 12px; cursor: pointer; color: #8a90a8; font-size: 12px; font-weight: 600;
+        user-select: none; border-bottom: 1px solid transparent;
+      }
+      .zscore-toggle.open { border-bottom-color: #1e2130; }
+      .zscore-toggle::after { content: '▼'; font-size: 9px; color: #4a4e60; transition: transform 0.2s; }
+      .zscore-toggle.open::after { transform: rotate(180deg); }
+      .zscore-body { display: none; padding: 10px 12px; }
+      .zscore-body.open { display: block; }
+    }
 
     /* ── Table ── */
     .table-wrap { padding: 0 16px 32px; overflow-x: auto; }
@@ -76,18 +119,9 @@
     #sparq-table tbody tr:hover { background: #14172080; }
     #sparq-table td { padding: 8px; font-size: 13px; white-space: nowrap; vertical-align: top; }
 
-    /* Responsive column visibility — hide progressively as viewport narrows */
-    /* col-hide-sm:  hidden below 768px  (Year, Ht, Wt, 10s, Vert, Bench, Cone, Shuttle) */
-    /* col-hide-md:  hidden below 1024px (Round, Team, Broad) */
-    @media (max-width: 1023px) {
-      .col-hide-md { display: none; }
-    }
+    /* Table always shows all columns — wraps scroll on any size */
     @media (max-width: 767px) {
-      .col-hide-sm { display: none; }
-      .table-wrap { padding: 0 8px 24px; }
-      header { padding: 14px 12px 10px; }
-      .filters { padding: 10px 12px; }
-      .zscore-explainer { padding: 10px 12px; }
+      .table-wrap { padding: 0 0 24px; }
       .legend { padding: 10px 12px; }
       .dataTables_wrapper .dataTables_info,
       .dataTables_wrapper .dataTables_paginate,
@@ -171,13 +205,16 @@
 
 
 <div class="zscore-explainer">
-  <strong>What is σ?</strong> &nbsp;
-  Each player's σ (sigma) score measures how athletically freakish they are <em>relative to every NFL draftee at their position since 1999</em> — not just this class.
-  <span class="zscore-hl hl-elite">+2σ ELITE</span> means top ~2% of all-time.
-  <span class="zscore-hl hl-above">+1σ ABOVE AVG</span> is legitimately impressive.
-  <span class="zscore-hl hl-avg">0σ AVERAGE</span> is the historical norm.
-  <span class="zscore-hl hl-below">−1σ BELOW AVG</span> and lower — not a freak.
-  It's position-adjusted: a +2σ OT and a +2σ WR are equally rare for their position.
+  <div class="zscore-toggle" id="zscore-toggle"><strong>What is σ?</strong></div>
+  <div class="zscore-body" id="zscore-body">
+    <strong>What is σ?</strong> &nbsp;
+    Each player's σ (sigma) score measures how athletically freakish they are <em>relative to every NFL draftee at their position since 1999</em> — not just this class.
+    <span class="zscore-hl hl-elite">+2σ ELITE</span> means top ~2% of all-time.
+    <span class="zscore-hl hl-above">+1σ ABOVE AVG</span> is legitimately impressive.
+    <span class="zscore-hl hl-avg">0σ AVERAGE</span> is the historical norm.
+    <span class="zscore-hl hl-below">−1σ BELOW AVG</span> and lower — not a freak.
+    It's position-adjusted: a +2σ OT and a +2σ WR are equally rare for their position.
+  </div>
 </div>
 
 <div class="banner" id="mock-banner">
@@ -185,59 +222,59 @@
 </div>
 
 <div class="filters">
-  <div class="filter-group" id="year-pills">
+  <div class="filter-row">
     <span class="filter-label">Year</span>
-    <!-- populated by JS -->
+    <div class="pill-strip pill-strip--scroll" id="year-pills"><!-- populated by JS --></div>
   </div>
 
-  <div class="filter-group">
-    <span class="filter-label">Position</span>
-    <button class="pill active" data-filter="pos" data-value="all">All</button>
-    <button class="pill" data-filter="pos" data-value="QB">QB</button>
-    <button class="pill" data-filter="pos" data-value="RB">RB</button>
-    <button class="pill" data-filter="pos" data-value="WR">WR</button>
-    <button class="pill" data-filter="pos" data-value="TE">TE</button>
-    <button class="pill" data-filter="pos" data-value="OT">OT</button>
-    <button class="pill" data-filter="pos" data-value="OG,C,OL">OG/C</button>
-    <button class="pill" data-filter="pos" data-value="EDGE,DL">EDGE</button>
-    <button class="pill" data-filter="pos" data-value="DT">DT</button>
-    <button class="pill" data-filter="pos" data-value="LB">LB</button>
-    <button class="pill" data-filter="pos" data-value="CB">CB</button>
-    <button class="pill" data-filter="pos" data-value="S,FS,SS,DB">S/DB</button>
-    <button class="pill" data-filter="pos" data-value="K/P">K/P</button>
+  <div class="filter-row">
+    <span class="filter-label">Pos</span>
+    <div class="pill-strip">
+      <button class="pill active" data-filter="pos" data-value="all">All</button>
+      <button class="pill" data-filter="pos" data-value="QB">QB</button>
+      <button class="pill" data-filter="pos" data-value="RB">RB</button>
+      <button class="pill" data-filter="pos" data-value="WR">WR</button>
+      <button class="pill" data-filter="pos" data-value="TE">TE</button>
+      <button class="pill" data-filter="pos" data-value="OT">OT</button>
+      <button class="pill" data-filter="pos" data-value="OG,C,OL">OG/C</button>
+      <button class="pill" data-filter="pos" data-value="EDGE,DL">EDGE</button>
+      <button class="pill" data-filter="pos" data-value="DT">DT</button>
+      <button class="pill" data-filter="pos" data-value="LB">LB</button>
+      <button class="pill" data-filter="pos" data-value="CB">CB</button>
+      <button class="pill" data-filter="pos" data-value="S,FS,SS,DB">S/DB</button>
+      <button class="pill" data-filter="pos" data-value="K/P">K/P</button>
+    </div>
   </div>
 
-  <div class="filter-group">
+  <div class="filter-row">
     <span class="filter-label">Round</span>
-    <button class="pill active" data-filter="round" data-value="all">All</button>
-    <button class="pill" data-filter="round" data-value="1">Day 1 (R1)</button>
-    <button class="pill" data-filter="round" data-value="2-3">Day 2 (R2–3)</button>
-    <button class="pill" data-filter="round" data-value="4-7">Day 3 (R4–7)</button>
-    <button class="pill" data-filter="round" data-value="undrafted">UDFA</button>
+    <div class="pill-strip">
+      <button class="pill active" data-filter="round" data-value="all">All</button>
+      <button class="pill" data-filter="round" data-value="1">Day 1 (R1)</button>
+      <button class="pill" data-filter="round" data-value="2-3">Day 2 (R2–3)</button>
+      <button class="pill" data-filter="round" data-value="4-7">Day 3 (R4–7)</button>
+      <button class="pill" data-filter="round" data-value="undrafted">UDFA</button>
+    </div>
   </div>
 
-  <div class="filter-group">
+  <div class="filter-row">
     <span class="filter-label">Data</span>
-    <button class="pill active" data-filter="data" data-value="all">All</button>
-    <button class="pill" data-filter="data" data-value="real">All Measured</button>
-    <button class="pill" data-filter="data" data-value="estimated">Some Estimated</button>
-    <button class="pill" data-filter="data" data-value="none">No SPARQ</button>
+    <div class="pill-strip">
+      <button class="pill active" data-filter="data" data-value="all">All</button>
+      <button class="pill" data-filter="data" data-value="real">All Measured</button>
+      <button class="pill" data-filter="data" data-value="estimated">Some Estimated</button>
+      <button class="pill" data-filter="data" data-value="none">No SPARQ</button>
+    </div>
   </div>
 
-  <div class="filter-group">
+  <div class="filter-row">
     <span class="filter-label">Team</span>
-    <select id="team-select">
-      <option value="">All teams</option>
-    </select>
-  </div>
-
-  <div class="filter-group">
-    <span class="filter-label">School</span>
+    <select id="team-select"><option value="">All teams</option></select>
+    &nbsp;
+    <span class="filter-label" style="margin-left:8px">School</span>
     <input type="text" id="school-filter" placeholder="Filter school...">
-  </div>
-
-  <div class="filter-group">
-    <span class="filter-label">Player</span>
+    &nbsp;
+    <span class="filter-label" style="margin-left:8px">Player</span>
     <input type="text" id="player-search" placeholder="Search player...">
   </div>
 </div>
@@ -247,21 +284,15 @@
     <thead>
       <tr>
         <th>#</th>
-        <th class="col-hide-sm">Year</th>
+        <th>Year</th>
         <th>Player</th>
         <th>Pos</th>
-        <th class="col-hide-md">Round</th>
-        <th class="col-hide-md">Team</th>
+        <th>Round</th>
+        <th>Team</th>
         <th>σ / NFL%</th>
-        <th class="col-hide-sm">Ht</th>
-        <th class="col-hide-sm">Wt</th>
-        <th>40yd</th>
-        <th class="col-hide-sm">10s</th>
-        <th class="col-hide-sm">Vert</th>
-        <th class="col-hide-md">Broad</th>
-        <th class="col-hide-sm">Bench</th>
-        <th class="col-hide-sm">3-Cone</th>
-        <th class="col-hide-sm">Shuttle</th>
+        <th>Ht</th><th>Wt</th><th>40yd</th><th>10s</th>
+        <th>Vert</th><th>Broad</th><th>Bench</th>
+        <th>3-Cone</th><th>Shuttle</th>
       </tr>
     </thead>
     <tbody id="table-body"></tbody>
@@ -291,6 +322,12 @@
   // Years with available data
   const AVAILABLE_YEARS = new Set(['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']);
   const ALL_YEARS = Array.from({ length: 17 }, (_, i) => String(2026 - i)); // 2026→2010
+
+  // σ explainer toggle (mobile only — CSS shows the toggle button only on small screens)
+  document.getElementById('zscore-toggle').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('zscore-body').classList.toggle('open');
+  });
 
   // Build year toggle pills (multi-select — click to toggle, any combo allowed)
   const selectedYears = new Set(['2026']);
@@ -454,21 +491,21 @@
                data-school="${(p.school || '').toLowerCase()}"
                data-team="${(p.team  || '').toLowerCase()}">
       <td class="td-rank">${p.rank}</td>
-      <td class="td-year col-hide-sm">${p.year || ''}</td>
+      <td class="td-year">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
-      <td class="col-hide-md" data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
-      <td class="col-hide-md">${renderTeam(p)}</td>
+      <td data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
+      <td>${renderTeam(p)}</td>
       <td data-order="${p.z_score ?? -99}">${renderSigma(p)}</td>
-      <td class="col-hide-sm" data-order="${p.height ?? -1}">${renderHeight(p.height)}</td>
-      <td class="col-hide-sm" data-order="${m.weight?.value ?? -1}">${fmtMetric(m.weight, 0)}</td>
+      <td data-order="${p.height ?? -1}">${renderHeight(p.height)}</td>
+      <td data-order="${m.weight?.value ?? -1}">${fmtMetric(m.weight, 0)}</td>
       <td data-order="${m.forty?.value ?? 99}">${fmtMetric(m.forty, 2)}</td>
-      <td class="col-hide-sm" data-order="${m.ten_split?.value ?? 99}">${fmtMetric(m.ten_split, 2)}</td>
-      <td class="col-hide-sm" data-order="${m.vertical?.value ?? -1}">${fmtMetric(m.vertical, 1)}</td>
-      <td class="col-hide-md" data-order="${m.broad?.value ?? -1}">${fmtBroad(m.broad)}</td>
-      <td class="col-hide-sm" data-order="${m.bench?.value ?? -1}">${fmtMetric(m.bench, 0)}</td>
-      <td class="col-hide-sm" data-order="${m.cone?.value ?? 99}">${fmtMetric(m.cone, 2)}</td>
-      <td class="col-hide-sm" data-order="${m.shuttle?.value ?? 99}">${fmtMetric(m.shuttle, 2)}</td>
+      <td data-order="${m.ten_split?.value ?? 99}">${fmtMetric(m.ten_split, 2)}</td>
+      <td data-order="${m.vertical?.value ?? -1}">${fmtMetric(m.vertical, 1)}</td>
+      <td data-order="${m.broad?.value ?? -1}">${fmtBroad(m.broad)}</td>
+      <td data-order="${m.bench?.value ?? -1}">${fmtMetric(m.bench, 0)}</td>
+      <td data-order="${m.cone?.value ?? 99}">${fmtMetric(m.cone, 2)}</td>
+      <td data-order="${m.shuttle?.value ?? 99}">${fmtMetric(m.shuttle, 2)}</td>
     </tr>`;
   }
 
