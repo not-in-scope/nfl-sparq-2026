@@ -535,7 +535,7 @@
     }
 
     if (schoolFilter && !school.includes(schoolFilter)) return false;
-    if (teamFilter   && team !== teamFilter)             return false;
+    if (teamFilter   && team !== teamFilter.toLowerCase()) return false;
 
     return true;
   });
