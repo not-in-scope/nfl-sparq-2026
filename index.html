@@ -494,7 +494,7 @@
       <td class="td-year">${p.year || ''}</td>
       <td><div class="player-name">${p.name}</div><div class="player-school">${p.school}</div></td>
       <td><span class="pos-badge">${p.pos}</span></td>
-      <td data-order="${p.draft_pick ?? 9999}">${renderRound(p)}</td>
+      <td data-order="${p.draft_round != null ? p.draft_round * 1000 + (p.draft_pick ?? 999) : 9999999}">${renderRound(p)}</td>
       <td>${renderTeam(p)}</td>
       <td data-order="${p.z_score ?? -99}">${renderSigma(p)}</td>
       <td data-order="${p.height ?? -1}">${renderHeight(p.height)}</td>
