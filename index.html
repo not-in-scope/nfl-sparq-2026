@@ -372,7 +372,7 @@
         `${allProspects.length} prospects · ${years.sort().join(', ')}`;
       rebuildTeamSelect();
       dt = initDT();
-      wireFilters();
+      dt.draw();
     });
   }
 
@@ -564,7 +564,7 @@
   }
 
   function wireFilters() {
-    document.querySelectorAll('.pill').forEach(pill => {
+    document.querySelectorAll('.pill[data-filter]').forEach(pill => {
       pill.addEventListener('click', () => {
         const type = pill.dataset.filter;
         document.querySelectorAll(`.pill[data-filter="${type}"]`)
@@ -591,8 +591,10 @@
   }
 
   // ── Bootstrap ─────────────────────────────────────────────────────────────
-  // Initial load via reloadData() using default year selection (2026).
+  // Wire static filters once; year pills manage their own listeners.
+  wireFilters();
 
+  // Initial load via reloadData() using default year selection (2026).
   reloadData();
   fetch('data/prospects_2026.json').then(r => r.json()).then(data => {
       const hasMock = allProspects.some(p => p.round_source === 'mock') ||
