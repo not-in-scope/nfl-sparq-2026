@@ -5,17 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NFL Draft SPARQ Rankings</title>
 
-  <!-- Google Analytics — create a GA4 property at analytics.google.com,
-       then replace G-XXXXXXXXXX with your Measurement ID and uncomment -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMQ28Q30NG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-WMQ28Q30NG');
   </script>
-  -->
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
   <style>
@@ -216,7 +212,8 @@
 
 <p id="subtitle" style="color:#7a7f94;font-size:12px;padding:8px 32px 0;margin:0">Loading...</p>
 
-<div class="filters">
+<div class="filters" id="filters">
+  <button id="reset-filters" style="display:none">✕ Reset filters</button>
   <div class="filter-row">
     <span class="filter-label">Year</span>
     <div class="pill-strip pill-strip--scroll" id="year-pills"><!-- populated by JS --></div>
