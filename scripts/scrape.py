@@ -23,6 +23,7 @@ from sources.mockdraftable import enrich_players
 from sources.pff import fetch_pff_proday
 from sources.espn_draft import fetch_espn_draft_board
 from sources.espn_weight import fetch_weight
+from sources.udfa_signings import fetch_udfa_signings
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 OUTPUT_PATH = os.path.join(DATA_DIR, 'prospects.json')   # legacy alias (2026)
@@ -288,6 +289,29 @@ def merge_pff(players: list[dict], pff_data: dict) -> list[dict]:
     return players
 
 
+def apply_udfa_teams(players: list[dict], year: int) -> list[dict]:
+    """Fill in signing team for undrafted players using nflverse week-1 roster data."""
+    udfa_map = fetch_udfa_signings(year)
+    if not udfa_map:
+        return players
+
+    matched = 0
+    for player in players:
+        if player.get('draft_round') is not None or player.get('team'):
+            continue
+        norm = _norm_name(player['name'])
+        # Try exact name first, then normalized
+        entry = udfa_map.get(player['name']) or next(
+            (v for k, v in udfa_map.items() if _norm_name(k) == norm), None
+        )
+        if entry:
+            player['team'] = entry['team']
+            matched += 1
+
+    print(f"  UDFA teams matched: {matched} / {sum(1 for p in players if not p.get('draft_round'))} undrafted")
+    return players
+
+
 def rank_players(players: list[dict]) -> list[dict]:
     players.sort(key=lambda p: (p['z_score'] is None, -(p['z_score'] or 0)))
     for i, player in enumerate(players, 1):
@@ -322,6 +346,9 @@ def scrape_2026() -> list[dict]:
     with_round = sum(1 for p in players if p['draft_round'] is not None)
     print(f"  {with_round} players with mock round data.")
 
+    print("Fetching UDFA signing teams from nflverse (2025 rosters as proxy)...")
+    players = apply_udfa_teams(players, 2025)
+
     print("Pass 4: Fetching missing weights from ESPN college rosters...")
     players = fetch_missing_weights(players)
 
@@ -355,6 +382,9 @@ def scrape_historical(year: int) -> list[dict]:
     players = apply_espn_data(players, board)
     with_round = sum(1 for p in players if p['draft_round'] is not None)
     print(f"  {with_round} players with actual draft round data.")
+
+    print(f"Fetching UDFA signing teams from nflverse ({year} rosters)...")
+    players = apply_udfa_teams(players, year)
 
     print("Sanitizing out-of-range metric values...")
     players = sanitize_metrics(players)
