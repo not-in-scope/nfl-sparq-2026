@@ -180,14 +180,13 @@ def build_tweet(player: dict, pick_info: dict, comp: Optional[dict]) -> str:
 
     comp_line = ''
     if comp:
-        delta = abs(z - comp['z_score'])
-        comp_line = f"\nClosest comp: {comp['name']} ({comp['year']}) — {delta:.1f}σ apart"
+        comp_line = f"\nAthletically, think {comp['name']} ({comp['year']})"
 
     tweet = (
         f"🚨 Pick {overall} is in. {tier} athlete.\n"
         f"\n"
         f"{player['name']}, {pos} — {pick_info['team']} select him R{pick_info['round']}.{pick_info['pick']}\n"
-        f"pSPARQ: {sparq:.1f} · {pct_str}"
+        f"More athletic than {min(pct, 99):.0f}% of {pos}s in NFL history"
         f"{comp_line}\n"
         f"See where he ranks all-time → {SITE_URL}"
     )
