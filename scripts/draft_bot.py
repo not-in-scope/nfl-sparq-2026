@@ -20,6 +20,9 @@ import time
 from typing import Optional
 
 import requests
+from dotenv import load_dotenv
+
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 sys.path.insert(0, os.path.dirname(__file__))
 from scrape import _norm_name
@@ -193,16 +196,16 @@ def build_tweet(player: dict, pick_info: dict, comp: Optional[dict]) -> str:
     return tweet
 
 
-# ── Twitter client ────────────────────────────────────────────────────────────
+# ── Bluesky client ────────────────────────────────────────────────────────────
 
-def get_twitter_client():
-    import tweepy
-    return tweepy.Client(
-        consumer_key=os.environ['TWITTER_API_KEY'],
-        consumer_secret=os.environ['TWITTER_API_SECRET'],
-        access_token=os.environ['TWITTER_ACCESS_TOKEN'],
-        access_token_secret=os.environ['TWITTER_ACCESS_SECRET'],
+def get_bluesky_client():
+    from atproto import Client
+    client = Client()
+    client.login(
+        os.environ['BLUESKY_HANDLE'].strip(),
+        os.environ['BLUESKY_APP_PASSWORD'].strip(),
     )
+    return client
 
 
 # ── Main loop ─────────────────────────────────────────────────────────────────
@@ -210,7 +213,7 @@ def get_twitter_client():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--dry-run', action='store_true',
-                        help='Print tweets to console instead of posting')
+                        help='Print posts to console instead of posting')
     parser.add_argument('--year', type=int, default=2026,
                         help='Draft year to monitor (default: 2026)')
     args = parser.parse_args()
@@ -226,10 +229,10 @@ def main():
     seen = load_state()
     print(f"  {len(seen)} picks already seen from previous run.")
 
-    twitter = None
+    bsky = None
     if not args.dry_run:
-        twitter = get_twitter_client()
-        print("Twitter client ready.")
+        bsky = get_bluesky_client()
+        print("Bluesky client ready.")
 
     print(f"\nPolling ESPN for {args.year} draft picks every {POLL_INTERVAL}s... (Ctrl+C to stop)\n")
 
@@ -257,8 +260,8 @@ def main():
 
             if not args.dry_run:
                 try:
-                    twitter.create_tweet(text=tweet)
-                    print("  ✓ Tweeted.")
+                    bsky.send_post(text=tweet)
+                    print("  ✓ Posted to Bluesky.")
                 except Exception as e:
                     print(f"  ✗ Tweet failed: {e}")
 
