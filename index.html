@@ -547,8 +547,8 @@
   function initDT() {
     return $('#sparq-table').DataTable({
       paging:     true,
-      pageLength: 100,
-      lengthMenu: [[50, 100, 250, -1], ['50', '100', '250', 'All']],
+      pageLength: 50,
+      lengthMenu: [[25, 50, 100, 250, -1], ['25', '50', '100', '250', 'All']],
       searching:  true,
       ordering:   true,
       order:      [[6, 'desc']],   // default: sort by σ descending (column index 6)
