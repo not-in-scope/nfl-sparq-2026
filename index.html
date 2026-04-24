@@ -52,8 +52,12 @@
     @media (max-width: 767px) { .banner { padding: 7px 12px; } }
 
     /* ── Filters ── */
-    .filters { padding: 14px 32px; display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid #1e2130; }
+    .filters { padding: 14px 32px; display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid #1e2130; position: relative; }
     @media (max-width: 767px) { .filters { padding: 10px 12px; gap: 6px; } }
+
+    #reset-filters { position: absolute; top: 10px; right: 32px; background: none; border: 1px solid #3a3e50; border-radius: 4px; color: #7a7f94; cursor: pointer; font-size: 11px; padding: 3px 8px; }
+    #reset-filters:hover { border-color: #f87171; color: #f87171; }
+    @media (max-width: 767px) { #reset-filters { right: 12px; } }
 
     /* Each filter row: label + scrollable pill strip */
     .filter-row { display: flex; align-items: center; gap: 8px; min-width: 0; }
@@ -340,6 +344,7 @@
         btn.classList.add('active');
       }
       reloadData();
+      updateResetVisibility();
     });
     yearPillsEl.appendChild(btn);
   });
@@ -565,23 +570,63 @@
         pill.classList.add('active');
         activeFilters[type] = pill.dataset.value;
         dt.draw();
+        updateResetVisibility();
       });
     });
 
     document.getElementById('team-select').addEventListener('change', e => {
       teamFilter = e.target.value;
       dt.draw();
+      updateResetVisibility();
     });
 
     document.getElementById('school-filter').addEventListener('input', e => {
       schoolFilter = e.target.value.toLowerCase().trim();
       dt.draw();
+      updateResetVisibility();
     });
 
     document.getElementById('player-search').addEventListener('input', e => {
       dt.search(e.target.value).draw();
+      updateResetVisibility();
     });
   }
+
+  // ── Reset button ──────────────────────────────────────────────────────────
+  const resetBtn = document.getElementById('reset-filters');
+
+  function isFiltered() {
+    return activeFilters.pos !== 'all' || activeFilters.round !== 'all' ||
+           activeFilters.data !== 'all' || teamFilter || schoolFilter ||
+           dt?.search() || selectedYears.size > 1 || !selectedYears.has('2026');
+  }
+
+  function updateResetVisibility() {
+    resetBtn.style.display = isFiltered() ? 'block' : 'none';
+  }
+
+  resetBtn.addEventListener('click', () => {
+    // Reset pill filters
+    ['pos', 'round', 'data'].forEach(type => {
+      document.querySelectorAll(`.pill[data-filter="${type}"]`).forEach(p => p.classList.remove('active'));
+      document.querySelector(`.pill[data-filter="${type}"][data-value="all"]`).classList.add('active');
+      activeFilters[type] = 'all';
+    });
+    // Reset text inputs
+    document.getElementById('team-select').value = '';
+    document.getElementById('school-filter').value = '';
+    document.getElementById('player-search').value = '';
+    teamFilter = ''; schoolFilter = '';
+    // Reset year pills to just 2026
+    selectedYears.clear();
+    selectedYears.add('2026');
+    document.querySelectorAll('.year-pill').forEach(p => {
+      p.classList.toggle('active', p.dataset.year === '2026');
+    });
+    dt.search('');
+    reloadData();
+    updateResetVisibility();
+  });
 
   // ── Bootstrap ─────────────────────────────────────────────────────────────
   // Wire static filters once; year pills manage their own listeners.
