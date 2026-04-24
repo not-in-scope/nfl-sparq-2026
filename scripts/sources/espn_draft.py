@@ -135,27 +135,26 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
         college_ref = (athlete.get("college") or {}).get("$ref", "")
         espn_college = _fetch_college_name(college_ref) if college_ref else None
 
-        if is_historical:
-            pick_ref_url = (athlete.get("pick") or {}).get("$ref", "")
-            m = _PICK_REF_RE.search(pick_ref_url)
-            team_abbrev = None
-            if m:
-                rnd  = int(m.group(1))
-                pick = int(m.group(2))   # within-round pick from ESPN URL (accurate for any round size)
-                round_source = 'actual'
-                # Fetch pick JSON to get the drafting NFL team
-                try:
-                    pick_data = requests.get(
-                        pick_ref_url.split('?')[0], headers=_HEADERS, timeout=10
-                    ).json()
-                    team_ref = (pick_data.get("team") or {}).get("$ref", "")
-                    if team_ref:
-                        team_abbrev = _fetch_team_abbrev(team_ref)
-                except Exception:
-                    pass
-            else:
-                rnd, pick, round_source = None, None, None
-        else:
+        pick_ref_url = (athlete.get("pick") or {}).get("$ref", "")
+        m = _PICK_REF_RE.search(pick_ref_url)
+        team_abbrev = None
+
+        if m:
+            # Actual pick — works for historical years and 2026 once picks are made
+            rnd  = int(m.group(1))
+            pick = int(m.group(2))
+            round_source = 'actual'
+            try:
+                pick_data = requests.get(
+                    pick_ref_url.split('?')[0], headers=_HEADERS, timeout=10
+                ).json()
+                team_ref = (pick_data.get("team") or {}).get("$ref", "")
+                if team_ref:
+                    team_abbrev = _fetch_team_abbrev(team_ref)
+            except Exception:
+                pass
+        elif not is_historical:
+            # 2026 prospect not yet drafted — fall back to overall rank for mock projection
             overall = next(
                 (int(a["value"]) for a in athlete.get("attributes", [])
                  if a.get("name") == "overall"),
@@ -163,7 +162,8 @@ def fetch_espn_draft_board(year: int = 2026) -> dict:
             )
             rnd, pick = _round_from_rank(overall) if overall is not None else (None, None)
             round_source = 'mock' if rnd is not None else None
-            team_abbrev = None
+        else:
+            rnd, pick, round_source = None, None, None
 
         entry = {
             "draft_round":  rnd,

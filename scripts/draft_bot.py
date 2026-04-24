@@ -37,6 +37,41 @@ STATE_PATH = os.path.join(DATA_DIR, 'draft_bot_state.json')
 SITE_URL = "not-in-scope.github.io/nfl-sparq/"
 POLL_INTERVAL = 60  # seconds
 
+TEAM_HASHTAGS = {
+    'ARI': '#AZCardinals #Cardinals #BirdGang',
+    'ATL': '#DirtyBirds #Falcons #RiseUp',
+    'BAL': '#Ravens #RavensFlock #FlockOn',
+    'BUF': '#BillsMafia #Bills #GoBills',
+    'CAR': '#Panthers #KeepPounding',
+    'CHI': '#Bears #DaBears #BearsDown',
+    'CIN': '#WhoDey #Bengals #RuleTheJungle',
+    'CLE': '#Browns #DawgPound',
+    'DAL': '#Cowboys #DallasCowboys #CowboysNation',
+    'DEN': '#Broncos #MileHighMagic',
+    'DET': '#Lions #OnePride',
+    'GB':  '#Packers #GoPackGo #TitleTown',
+    'HOU': '#Texans #WeAreTexans',
+    'IND': '#Colts #ForTheShoe',
+    'JAX': '#DUUUVAL #Jaguars #JaxJaguars',
+    'KC':  '#Chiefs #ChiefsKingdom #RunItBack',
+    'LAC': '#Chargers #BoltUp #BoltFam',
+    'LAR': '#Rams #RamsHouse #BleedBlue',
+    'LV':  '#Raiders #RaiderNation #JustWinBaby',
+    'MIA': '#FinsUp #Dolphins #MiamiDolphins',
+    'MIN': '#Skol #Vikings #SKOL',
+    'NE':  '#Patriots #GoPats #PatriotsNation',
+    'NO':  '#Saints #WhoDat #GeauxSaints',
+    'NYG': '#Giants #TogetherBlue #NYGiants',
+    'NYJ': '#Jets #TakeFlight #NYJets',
+    'PHI': '#FlyEaglesFly #Eagles #EaglesFans',
+    'PIT': '#HereWeGo #Steelers #SteelerNation',
+    'SEA': '#Seahawks #GoHawks #12s',
+    'SF':  '#FTTB #49ers #GoNiners',
+    'TB':  '#GoBucs #Buccaneers #TampaBay',
+    'TEN': '#Titans #TitanUp #TennesseeTitans',
+    'WSH': '#HTTC #Commanders #WashingtonCommanders',
+}
+
 
 # ── Sigma tier ────────────────────────────────────────────────────────────────
 
@@ -191,7 +226,8 @@ def build_tweet(player: dict, pick_info: dict, comp: Optional[dict]) -> str:
         f"{player['name']}, {pos} — {pick_info['team']} select him R{pick_info['round']}.{pick_info['pick']}\n"
         f"More athletic than {min(pct, 99):.0f}% of {pos}s in NFL history"
         f"{comp_line}\n"
-        f"See where he ranks all-time → {SITE_URL}"
+        f"See where he ranks all-time → {SITE_URL}\n"
+        f"#NFLDraft #NFLDraft2026 {TEAM_HASHTAGS.get(pick_info['team'], '')}"
     )
     return tweet
 
@@ -260,7 +296,15 @@ def main():
 
             if not args.dry_run:
                 try:
-                    bsky.send_post(text=tweet)
+                    from atproto import client_utils
+                    tb = client_utils.TextBuilder()
+                    url = f"https://{SITE_URL}"
+                    before, _, after = tweet.partition(SITE_URL)
+                    tb.text(before)
+                    tb.link(SITE_URL, url)
+                    if after:
+                        tb.text(after)
+                    bsky.send_post(text=tb.build_text(), facets=tb.build_facets())
                     print("  ✓ Posted to Bluesky.")
                 except Exception as e:
                     print(f"  ✗ Tweet failed: {e}")
