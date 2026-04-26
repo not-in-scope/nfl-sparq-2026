@@ -47,10 +47,6 @@
     .filter-group select:focus { border-color: #2e5a8f; }
     select#team-select { min-width: 120px; }
 
-    /* Banner */
-    .banner { background: #1c1a0a; border-bottom: 1px solid #3a3510; color: #c8b84a; font-size: 12px; padding: 8px 32px; }
-    @media (max-width: 767px) { .banner { padding: 7px 12px; } }
-
     /* ── Filters ── */
     .filters { padding: 14px 32px; display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid #1e2130; position: relative; }
     @media (max-width: 767px) { .filters { padding: 10px 12px; gap: 6px; } }
@@ -195,9 +191,6 @@
   </div>
 </header>
 
-<div class="banner" id="mock-banner">
-  ⚠ Round projections are based on consensus mock draft data and will be updated with actual picks after the draft (April 24–25, 2026).
-</div>
 
 <div class="zscore-explainer">
   <div class="zscore-toggle" id="zscore-toggle"><strong>How it works</strong></div>
@@ -299,7 +292,6 @@
   C = combine &nbsp;·&nbsp;
   <sup class="src-badge p" style="position:static">P</sup> = pro day &nbsp;·&nbsp;
   <sup class="src-badge tilde" style="position:static">~</sup> = estimated &nbsp;·&nbsp;
-  <span class="round-proj-badge" style="position:static">PROJ</span> = projected round (pre-draft) &nbsp;·&nbsp;
   σ = std deviations vs historical NFL positional average &nbsp;·&nbsp;
   "All Measured" = all 8 inputs from combine/pro day
 </div>
@@ -634,15 +626,6 @@
 
   // Initial load via reloadData() using default year selection (2026).
   reloadData();
-  fetch('data/prospects_2026.json').then(r => r.json()).then(data => {
-      const hasMock = allProspects.some(p => p.round_source === 'mock') ||
-                      (data.prospects || []).some(p => p.round_source === 'mock');
-      if (!hasMock) document.getElementById('mock-banner').style.display = 'none';
-    })
-    .catch(err => {
-      document.getElementById('subtitle').textContent = 'Error loading data.';
-      console.error(err);
-    });
 }());
 </script>
 </body>
