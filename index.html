@@ -348,7 +348,7 @@
   function reloadData() {
     const years = getSelectedYears();
     const loads = years.map(yr =>
-      fetch(`data/prospects_${yr}.json`).then(r => r.json()).then(d =>
+      fetch(`data/prospects_${yr}.json?v=20260425`).then(r => r.json()).then(d =>
         d.prospects.map(p => ({ ...p, year: yr }))
       ).catch(() => [])
     );
