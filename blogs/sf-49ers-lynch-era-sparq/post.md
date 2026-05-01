@@ -250,17 +250,17 @@ The 2024 class is early-stage. But eight picks with eight data points, three of 
 
 ---
 
-## The Pattern
+## The Conclusion
 
-Ten years in, a few things are clear.
+Here's what ten years of data actually says: John Lynch has built San Francisco's best players by finding elite athletes at positions that require elite athleticism, and he's done it with enough consistency that it's a system, not luck.
 
-Lynch has consistently found high-SPARQ players who fit the Shanahan scheme at positions that reward athleticism: tight end, linebacker, pass rusher, safety. Kittle (+0.93), Warner (+1.00), Bosa (+1.01), Mitchell (+0.92 when healthy), Martin (+1.48). The athletic profile Lynch targets at these positions is real and repeatable.
+Kittle (+0.93) is the best tight end the 49ers have ever had, and tight end is a position where athleticism is the primary differentiator. Warner (+1.00) is the best linebacker, at a position that punishes average movers. Bosa (+1.01) is the best pass rusher, at a position that lives or dies by first-step quickness. Jones (+0.32) was a six-round find who played above his draft slot for four years. Mitchell (+0.92) delivered exactly what his SPARQ predicted when healthy. Every single foundational piece of the Lynch-era 49ers was an athlete first.
 
-He has also had high-SPARQ picks that didn't work out — Thomas (+2.32) because of position fit, Sermon (+0.59) because of opportunity, various others who didn't develop. SPARQ identifies athleticism. It doesn't guarantee outcomes. What Lynch has done is make athleticism a consistent entry requirement, not a guarantee of selection.
+The busts were not random either. Thomas (+2.32) was a correct bet on athleticism that failed because of positional misuse — he was a 3-tech body deployed like an edge rusher. Lance had no combine data and was a bet on film that collapsed. The 2023 class was athletic on paper but produced nothing. The failures trace to scheme fit, health, and opportunity — not to picking the wrong type of players.
 
-The genuine counterexamples — Hufanga (-0.35), Lenoir (-0.39), Jennings (-1.16) — are real. The Lynch era is not a pure athleticism story. Late-round picks are always developmental and often selected on film rather than testing. What the SPARQ data shows is that the top of Lynch's boards, the picks that are supposed to become starters, have tested well with high consistency.
+The counterexamples (Hufanga, Lenoir) are real, but they're concentrated in the fifth round and later, where SPARQ's predictive power is weakest and film takes over. Look at where Lynch's first and second-round picks have tested. Look at his top-ten picks (Thomas, Bosa, Lance). Two of three were legitimate elite athletes by SPARQ — and the one who wasn't is the cautionary tale of the Lynch era. Position fit matters too. But the underlying philosophy — find athletes — has been right.
 
-The 2024-2026 classes represent something new: an attempt to combine high SPARQ averages with complete data coverage. Zero missing picks in 2026 is a statement. Lynch has drafted full classes before (2023 was also complete), but never at this athleticism level. Whether those classes follow the Kittle/Warner/Bosa pattern or the Thomas/Lance pattern is what the next three years will answer.
+The 2026 class is the most aggressive expression of that philosophy in ten years: +0.82 average, eight picks, zero missing data. After a 6-11 season stripped the roster's depth and exposed how dependent this team is on its stars staying healthy, Lynch responded by drafting the most thoroughly tested, most athletically-profiled class of his tenure. That's not a coincidence. He knows what builds this team. He's done it before. He's doing it again.
 
 ---
 
