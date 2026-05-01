@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Every Team's 2026 Draft Class, Ranked by Athleticism</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d0f1a; color: #b8c4e0; font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 40px 24px 120px; }
+
+  /* ── Tab nav ── */
+  .tab-nav { display: flex; border-bottom: 1px solid #1a1e30; padding: 0 32px; background: #0d0f1a; }
+  .tab-nav a { color: #445566; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.03em; padding: 12px 18px; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s; }
+  .tab-nav a:hover { color: #8899bb; }
+  .tab-nav a.active { color: #5ba3f5; border-bottom-color: #5ba3f5; }
+  @media (max-width: 767px) { .tab-nav { padding: 0 12px; } .tab-nav a { padding: 10px 14px; font-size: 12px; } }
+
+  h1 { font-size: 1.95rem; line-height: 1.25; color: #dde4f8; margin-bottom: 10px; }
+  h2 { font-size: 1.2rem; color: #dde4f8; margin: 52px 0 18px; font-weight: 700; letter-spacing: 0.01em; }
+  p  { margin-bottom: 22px; }
+  em { color: #7a8aaa; font-style: italic; }
+  strong { color: #ccd4f0; }
+  hr { border: none; border-top: 1px solid #181d30; margin: 44px 0; }
+
+  .byline { color: #556688; font-size: 13px; font-style: italic; margin-bottom: 44px; font-family: 'SF Mono', monospace; }
+
+  .chart { margin: 36px 0 8px; }
+  .chart img { width: 100%; border-radius: 4px; display: block; }
+  .cap { font-size: 12.5px; color: #445566; font-style: italic; margin-top: 8px; font-family: 'SF Mono', monospace; }
+
+  .tier-block { border-left: 3px solid; padding: 0 0 0 20px; margin: 32px 0; }
+  .tier-built  { border-color: #4a7fd4; }
+  .tier-trend  { border-color: #3a9e6e; }
+  .tier-film   { border-color: #c8a040; }
+  .tier-gamble { border-color: #c04a4a; }
+  .tier-label  { font-family: 'SF Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+  .tier-built  .tier-label { color: #4a7fd4; }
+  .tier-trend  .tier-label { color: #3a9e6e; }
+  .tier-film   .tier-label { color: #c8a040; }
+  .tier-gamble .tier-label { color: #c04a4a; }
+
+  .footer { margin-top: 52px; padding-top: 28px; border-top: 1px solid #181d30; }
+  .footer a { color: #4a7fd4; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer p { font-size: 16px; }
+  .small { font-size: 12.5px; color: #3a4a60; margin-top: 36px; line-height: 1.7; }
+
+  .hero { margin: -40px -24px 52px; }
+  .hero img { width: 100%; max-height: 340px; object-fit: cover; object-position: center; display: block; }
+</style>
+</head>
+<body>
+
+<nav class="tab-nav">
+  <a href="../../index.html">Data</a>
+  <a href="../../blog/" class="active">Blog</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <img src="hero.jpg" alt="NFL stadium aerial">
+  </div>
+
+  <p class="byline">NFL Draft Analytics &nbsp;·&nbsp; May 1, 2026</p>
+
+  <h1>Every Team's 2026 Draft Class, Ranked by Athleticism</h1>
+
+  <p><em>We ran the SPARQ numbers on all 257 picks. Here's where every team stands.</em></p>
+
+  <hr>
+
+  <p>The tape evaluation is done. The war rooms are empty. Now comes the part where everyone argues about who won the draft — usually based on vibes, positional needs, and whatever the local beat reporter thinks.</p>
+
+  <p>Here's a different cut: which teams actually drafted athletes?</p>
+
+  <p>We pulled SPARQ z-scores for every player in the 2026 draft class and averaged them by team. SPARQ combines seven combine metrics — speed, explosion, strength, agility — into a single number adjusted by position. A z-score of zero is exactly average for the position. Positive means above average. Negative means below.</p>
+
+  <p>One caveat up front: 36% of drafted players don't have SPARQ data, either because they skipped the combine, didn't test in every drill, or came from programs with limited pro day tracking. Teams with mostly null-SPARQ classes are harder to evaluate — we note sample sizes throughout. The full methodology is in our <a href="../low-sparq-nfl-success/" style="color:#5ba3f5;text-decoration:none">first post</a>.</p>
+
+  <hr>
+
+  <h2>The Full Rankings</h2>
+
+  <div class="chart">
+    <img src="team-sparq-grades.png" alt="2026 Team SPARQ Draft Grades">
+    <p class="cap">Average SPARQ z-score of drafted players with combine data, 2026 NFL Draft. Minimum 2 scored picks. LAR excluded (1 scored pick).</p>
+  </div>
+
+  <hr>
+
+  <div class="tier-block tier-built">
+    <p class="tier-label">Built Different &nbsp;·&nbsp; z &gt; 1.0</p>
+
+    <p>These eight teams drafted players who test in the top third of NFL athletes at their positions.</p>
+
+    <p><strong>Philadelphia Eagles — +1.60 (n=4 scored picks)</strong><br>
+    The Eagles lead the board, though with four scored picks out of seven total, read this number carefully. Philadelphia's front office has a long track record of prioritizing athletic ceilings — this draft continues that pattern.</p>
+
+    <p><strong>New York Jets — +1.60 (n=3 scored picks)</strong><br>
+    Essentially tied with Philly, driven heavily by Kenyon Sadiq (z=+2.95, 99.8th percentile) — the highest SPARQ score of anyone taken in the 2026 draft. Three scored picks out of eight means the Jets' number is volatile. What's not volatile: Sadiq is a genuinely rare athlete.</p>
+
+    <p><strong>Cleveland Browns — +1.17 (n=8 scored picks)</strong><br>
+    Cleveland is the team you should actually trust at the top of this list. Eight scored picks with only two nulls is the best data quality of any team in the top ten. The Browns didn't just get lucky with one elite tester — they built an athletically consistent class across multiple rounds.</p>
+
+    <p><strong>Indianapolis Colts — +1.28 (n=3) &nbsp;|&nbsp; Washington Commanders — +1.19 (n=2)</strong><br>
+    Both strong numbers, both small samples. Washington's two scored picks include Sonny Styles at z=+2.34. Treat these as directionally interesting rather than conclusive.</p>
+
+    <p><strong>Chicago Bears — +1.10 (n=6 scored picks)</strong><br>
+    Chicago rounds out this tier with the second-best data quality in the group. Six scored picks, one null. The Bears drafted athletes up and down the board.</p>
+
+    <p><strong>Detroit Lions — +1.03 (n=3) &nbsp;|&nbsp; Green Bay Packers — +1.03 (n=4)</strong><br>
+    Both NFC North teams clear the threshold. Detroit, Green Bay, and Chicago all land in the top eight — the NFC North quietly built itself into the most athletically-drafted division in 2026.</p>
+  </div>
+
+  <div class="tier-block tier-trend">
+    <p class="tier-label">On Trend &nbsp;·&nbsp; z 0.70 to 1.0</p>
+
+    <p>Eight teams drafted above-average athletes. This is where most well-run front offices land in any given year.</p>
+
+    <p><strong>Dallas Cowboys — +0.96 &nbsp;|&nbsp; Cincinnati Bengals — +0.88 &nbsp;|&nbsp; Buffalo Bills — +0.83</strong><br>
+    All three have enough scored picks to trust. Buffalo's eight scored picks (one null) give them the most reliable number in this tier.</p>
+
+    <p><strong>San Francisco 49ers — +0.82 (n=8, zero nulls)</strong><br>
+    SF is the only team in the entire draft with a fully measured class — eight scored picks, zero missing data. Their number is exactly what it says: a clean, above-average athletic class across the board.</p>
+
+    <p><strong>Miami Dolphins — +0.82 (n=11 scored picks)</strong><br>
+    Miami made 13 picks and 11 have data. Large, well-measured class that consistently tested above average.</p>
+
+    <p><strong>Tennessee Titans — +0.79 &nbsp;|&nbsp; Jacksonville Jaguars — +0.78 &nbsp;|&nbsp; Arizona Cardinals — +0.73</strong><br>
+    All solidly above average. Tennessee's number is clouded by four nulls in an eight-pick class.</p>
+  </div>
+
+  <div class="tier-block tier-film">
+    <p class="tier-label">Film-First &nbsp;·&nbsp; z 0.40 to 0.70</p>
+
+    <p>Ten teams landed here. These front offices drafted players whose film justified the pick regardless of testing. Some of this is philosophy; some is position — quarterbacks and offensive linemen test more variably.</p>
+
+    <p><strong>Minnesota Vikings — +0.62 &nbsp;|&nbsp; New England Patriots — +0.60 &nbsp;|&nbsp; Baltimore Ravens — +0.59</strong><br>
+    Measured, competent classes without standout athletes. Baltimore's four nulls in an eleven-pick class mean part of their class is untested.</p>
+
+    <p><strong>Las Vegas Raiders — +0.58 &nbsp;|&nbsp; Denver Broncos — +0.58</strong><br>
+    Denver's number comes from just two scored picks in a six-pick class — treat with caution.</p>
+
+    <p><strong>Los Angeles Chargers — +0.46 &nbsp;|&nbsp; Houston Texans — +0.44 &nbsp;|&nbsp; Pittsburgh Steelers — +0.44 &nbsp;|&nbsp; Atlanta Falcons — +0.43</strong><br>
+    Pittsburgh's eight scored picks and one null give them the most reliable Film-First number. The Steelers drafted solid athletes — just not elite ones.</p>
+  </div>
+
+  <div class="tier-block tier-gamble">
+    <p class="tier-label">Gambling on Skill &nbsp;·&nbsp; z below 0.40</p>
+
+    <p>Five teams drafted classes that tested below the league average once you account for position. Whether that's a problem depends entirely on what they saw on film.</p>
+
+    <p><strong>Kansas City Chiefs — +0.35 (n=2, five nulls)</strong><br>
+    The Chiefs' number is the least reliable in the bottom tier — two scored picks out of seven total. What we can say: the picks we can measure averaged below-average testing.</p>
+
+    <p><strong>New York Giants — +0.28 (n=4) &nbsp;|&nbsp; Seattle Seahawks — +0.27 (n=5)</strong><br>
+    Seattle is one of only two teams with zero nulls — five scored picks, all measured, all below average. This isn't a data problem. The Seahawks drafted a below-average athletic class and we can say that with confidence.</p>
+
+    <p><strong>Carolina Panthers — +0.13 (n=5)</strong><br>
+    Lowest of the reasonably-measured teams. Monroe Freeling (OT, z=+1.60) is the bright spot. The rest of the class tested poorly.</p>
+
+    <p><strong>New Orleans Saints — -0.27 (n=3, five nulls)</strong><br>
+    The only team with a negative average. Three scored picks in an eight-pick class. New Orleans is the outlier.</p>
+
+    <p><strong>Los Angeles Rams — not ranked</strong><br>
+    One scored pick out of four total. Insufficient data.</p>
+  </div>
+
+  <hr>
+
+  <h2>What This Does and Doesn't Tell You</h2>
+
+  <p>A high team SPARQ average doesn't mean a good draft. It means the players selected tested well. Whether they can play is a different question, and one our database will take three to five seasons to answer properly.</p>
+
+  <p>What the historical data does show — from 2,340 picks across 2010 to 2020 — is that SPARQ predicts impact starter rates. High-SPARQ players become three-year starters at a 74% rate in the first two rounds, versus 61% for low-SPARQ players at the same draft positions. That gap holds in the middle rounds too.</p>
+
+  <p>Teams near the top of this list drafted more players who, historically, test like impact starters. Teams near the bottom drafted more players who, historically, test like developmental projects or backups. Film and coaching can move any individual player's outcome. The aggregate numbers don't lie.</p>
+
+  <p>Check back in 2029.</p>
+
+  <div class="footer">
+    <p>See every prospect's SPARQ score, draft slot, and percentile rank at <a href="https://not-in-scope.github.io/nfl-sparq/">not-in-scope.github.io/nfl-sparq/</a></p>
+  </div>
+
+  <p class="small">Data: 2026 NFL Draft, 257 total picks. SPARQ z-scores available for 173 players (64%). Scores sourced from BigBoardLab, MockDraftable, and PFF pro day tracking. Teams ranked by average z-score among players with data; minimum 2 scored picks to appear. LAR excluded (1 scored pick). Data quality varies by team — sample sizes noted throughout.</p>
+
+</div>
+</body>
+</html>
