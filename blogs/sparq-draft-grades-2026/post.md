@@ -22,6 +22,36 @@ One caveat up front: 36% of drafted players don't have SPARQ data, either becaus
 
 ---
 
+## What the Scouts Said
+
+We compared our SPARQ rankings to letter grades from four major outlets: ESPN, NFL.com, PFF, and CBS Sports. Each outlet grades on a slightly different curve, so we converted their letter grades to a 0-4.3 GPA scale and averaged across sources.
+
+The scatter plot below puts every team in one of four quadrants: high-SPARQ/high-consensus (blue), high-SPARQ/low-consensus (amber), low-SPARQ/high-consensus (red), and both low (gray).
+
+![SPARQ athleticism vs. consensus draft grade](sparq-vs-consensus.png)
+
+The most common outcome is agreement. Most teams that drafted athletic classes got good reviews, and most teams that didn't, didn't. But the outliers are where it gets interesting.
+
+**Where SPARQ and scouts agreed:**
+
+Cleveland and the Jets both scored high on athleticism and earned strong consensus grades. Dallas and Cincinnati are in the same boat — above-average testing, above-average reviews. These teams don't require any leap of faith: the combine data and the scouts are telling the same story.
+
+**Where the scouts liked it but the SPARQ numbers didn't:**
+
+New York Giants drew A grades across all four outlets. Their SPARQ average is +0.28 — 28th in the league. The Giants drafted players that scouts evaluated highly based on tape and scheme fit, but whose combine testing was below the league average for their positions. That's not automatically a problem. But it's a bet on film winning out over physical projection.
+
+Las Vegas and Kansas City are the same story. The Raiders got unanimous A-minus grades; their SPARQ average is +0.58, which lands in the Film-First tier. Kansas City got an A+ from CBS and A-range grades elsewhere; SPARQ puts them at +0.35. The Chiefs have won multiple Super Bowls doing exactly this — drafting for fit over athleticism — but the data says their class tested below average.
+
+**Where SPARQ liked it but scouts didn't:**
+
+San Francisco's SPARQ average is +0.82 across all eight scored picks, and they're the only team in the entire draft with zero missing data points. Their athletic profile is clean and above average. PFF graded them a D — the only outlet with enough 49ers coverage to issue a grade. That gap is worth watching. Either PFF saw something in the tape the testing missed, or San Francisco is going to prove a lot of scouts wrong.
+
+Jacksonville is similar: SPARQ says +0.78 (On Trend territory), PFF gave them a D+ and CBS a C+. Jacksonville had fewer data points, so read both numbers with some skepticism.
+
+One caveat: consensus grades are not SPARQ grades. Scouts are evaluating scheme fit, position need, value relative to draft position, and yes, some athleticism — but not exclusively. A team that reaches on an athletic player in round one might get a lower consensus grade even if their SPARQ number looks great. The two measures ask slightly different questions.
+
+---
+
 ## Built Different (z > 1.0)
 
 These eight teams drafted players who test in the top third of NFL athletes at their positions.
@@ -103,11 +133,29 @@ One scored pick out of four total. Insufficient data.
 
 ---
 
+## A Look Back: Did It Work for 2021 and 2022?
+
+Before you take our 2026 rankings at face value, here's the obvious question: does team-level SPARQ actually predict draft success?
+
+We ran the same analysis on the 2021 and 2022 draft classes. For each team's class, we computed the average SPARQ z-score at draft time, then checked nflverse snap share data through the 2024 season to see how many of those picks became NFL starters. "Starter" here means at least one full season where a player averaged 50% or more of their team's offensive or defensive snaps.
+
+![Did SPARQ predict draft success? 2021-2022 classes](sparq-historical-validation.png)
+
+The correlation between team SPARQ average and team starter rate was r=0.42 across 59 team-draft-class combinations. That's a real, meaningful relationship — not noise.
+
+The pattern holds in both directions. Indianapolis's 2021 class (avg SPARQ +0.98) saw 75% of its tracked picks become starters. Green Bay's 2021 class (+0.87) hit the same rate. Miami's 2021 class (+0.88) had every tracked player start at some point. At the other end, Cincinnati's 2022 class (avg SPARQ -0.41) had zero tracked picks reach starter snaps. Cleveland's lowest-SPARQ class (-0.44) converted at 25%.
+
+Individual team numbers are noisy — each team has only five to nine tracked picks, so one player's fate moves the needle significantly. The correlation is the story, not any single team's rate. Taken as a whole, the 59-team sample says the same thing the individual-player data says: athletic upside, measured at the combine, predicts whether a pick contributes.
+
+Three years from now, we'll run this same chart for 2026. The high-SPARQ teams at the top of today's list are positioned to look good. The Film-First and Gambling-on-Skill teams are betting that their scouting identified something the combine missed. History says that bet doesn't pay off at the team level — even if it does for individual players.
+
+---
+
 ## What This Does and Doesn't Tell You
 
 A high team SPARQ average doesn't mean a good draft. It means the players selected tested well. Whether they can play is a different question entirely, and one our database will take three to five seasons to answer properly.
 
-What the historical data does show — from 2,340 picks across 2010 to 2020 — is that SPARQ predicts impact starter rates. High-SPARQ players become three-year starters at a 74% rate in the first two rounds, versus 61% for low-SPARQ players at the same draft positions. That gap holds in the middle rounds too.
+What the historical data does show — from 2,340 picks across 2010 to 2020, and validated on the 2021 and 2022 classes — is that SPARQ predicts impact starter rates. High-SPARQ players become three-year starters at a 74% rate in the first two rounds, versus 61% for low-SPARQ players at the same draft positions. That gap holds in the middle rounds too.
 
 Teams near the top of this list drafted more players who, historically, test like impact starters. Teams near the bottom drafted more players who, historically, test like developmental projects or backups. Film and coaching can move any individual player's outcome. The aggregate numbers don't lie.
 
