@@ -252,15 +252,15 @@ The 2024 class is early-stage. But eight picks with eight data points, three of 
 
 ## The Conclusion
 
-Here's what ten years of data actually says: John Lynch has built San Francisco's best players by finding elite athletes at positions that require elite athleticism, and he's done it with enough consistency that it's a system, not luck.
+Ten years of data supports one specific claim: Lynch's highest-impact picks at non-quarterback positions have almost all landed in the top 20-30% of their position athletically, and he's maintained a positive SPARQ average across every class except one.
 
-Kittle (+0.93) is the best tight end the 49ers have ever had, and tight end is a position where athleticism is the primary differentiator. Warner (+1.00) is the best linebacker, at a position that punishes average movers. Bosa (+1.01) is the best pass rusher, at a position that lives or dies by first-step quickness. Jones (+0.32) was a six-round find who played above his draft slot for four years. Mitchell (+0.92) delivered exactly what his SPARQ predicted when healthy. Every single foundational piece of the Lynch-era 49ers was an athlete first.
+That's not the same as saying athleticism guarantees anything. Thomas tested at +2.32 and was a bust. Hufanga tested at -0.35 and made a Pro Bowl. Samuel and Aiyuk — two of the most important offensive players in the Lynch era — tested at +0.36 and +0.23, above average but not elite. The data doesn't give you a clean rule.
 
-The busts were not random either. Thomas (+2.32) was a correct bet on athleticism that failed because of positional misuse — he was a 3-tech body deployed like an edge rusher. Lance had no combine data and was a bet on film that collapsed. The 2023 class was athletic on paper but produced nothing. The failures trace to scheme fit, health, and opportunity — not to picking the wrong type of players.
+What it gives you is a pattern at the top. Kittle, Warner, and Bosa — the three players who most define what the Lynch/Shanahan 49ers are — all tested in the top 15-20% of their positions. That's not luck three times in a row. And the failures that look like athletic busts are mostly something else on closer inspection: Thomas was a positional mismatch, Lance had no combine data and was a film gamble, Kinlaw had no combine either. The picks that tested well and were deployed correctly have produced at a high rate. The picks that failed had other explanations.
 
-The counterexamples (Hufanga, Lenoir) are real, but they're concentrated in the fifth round and later, where SPARQ's predictive power is weakest and film takes over. Look at where Lynch's first and second-round picks have tested. Look at his top-ten picks (Thomas, Bosa, Lance). Two of three were legitimate elite athletes by SPARQ — and the one who wasn't is the cautionary tale of the Lynch era. Position fit matters too. But the underlying philosophy — find athletes — has been right.
+So the more precise version of the thesis is this: Lynch uses athleticism as a filter, not a guarantee. It screens out players who can't survive in Shanahan's scheme, which demands movement, range, and quickness at nearly every non-QB position. What's left after that filter still needs to fit, stay healthy, and develop. Some don't. But the filter is real, it's been applied consistently for nine years, and the team's best players have cleared it.
 
-The 2026 class is the most aggressive expression of that philosophy in ten years: +0.82 average, eight picks, zero missing data. After a 6-11 season stripped the roster's depth and exposed how dependent this team is on its stars staying healthy, Lynch responded by drafting the most thoroughly tested, most athletically-profiled class of his tenure. That's not a coincidence. He knows what builds this team. He's done it before. He's doing it again.
+The 2026 class — +0.82 average, eight picks, zero missing data — is Lynch running that filter harder than he ever has. Whether it produces the next Kittle or the next Thomas depends on everything the combine can't measure. What the testing tells you is that Lynch gave himself the right pool to work from.
 
 ---
 
