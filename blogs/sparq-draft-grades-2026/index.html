@@ -27,6 +27,8 @@
 
   .chart { margin: 36px 0 8px; }
   .chart img { width: 100%; border-radius: 4px; display: block; }
+  .chart a { display: block; }
+  .chart a img { cursor: zoom-in; }
   .cap { font-size: 12.5px; color: #445566; font-style: italic; margin-top: 8px; font-family: 'SF Mono', monospace; }
 
   .tier-block { border-left: 3px solid; padding: 0 0 0 20px; margin: 32px 0; }
@@ -84,7 +86,7 @@
   <h2>The Full Rankings</h2>
 
   <div class="chart">
-    <img src="team-sparq-grades.png" alt="2026 Team SPARQ Draft Grades">
+    <a href="team-sparq-grades.png" target="_blank" title="Open full size"><img src="team-sparq-grades.png" alt="2026 Team SPARQ Draft Grades"></a>
     <p class="cap">Average SPARQ z-score of drafted players with combine data, 2026 NFL Draft. Minimum 2 scored picks. LAR excluded (1 scored pick).</p>
   </div>
 
@@ -97,7 +99,7 @@
   <p>The scatter plot below puts every team in one of four quadrants: high-SPARQ/high-consensus (blue), high-SPARQ/low-consensus (amber), low-SPARQ/high-consensus (red), and both low (gray).</p>
 
   <div class="chart">
-    <img src="sparq-vs-consensus.png" alt="SPARQ athleticism vs consensus draft grade scatter plot">
+    <a href="sparq-vs-consensus.png" target="_blank" title="Open full size"><img src="sparq-vs-consensus.png" alt="SPARQ athleticism vs consensus draft grade scatter plot"></a>
     <p class="cap">Each dot is one team. Quadrant lines are median splits. Grades sourced from ESPN, NFL.com, PFF, and CBS Sports; teams with fewer than 2 grading sources excluded.</p>
   </div>
 
@@ -200,7 +202,7 @@
   <p>We ran the same analysis on the 2021 and 2022 draft classes. For each team, we computed the average SPARQ z-score at draft time, then checked nflverse snap share data through the 2024 season to see how many of those picks became NFL starters — defined as at least one full season averaging 50% or more of their team's offensive or defensive snaps.</p>
 
   <div class="chart">
-    <img src="sparq-historical-validation.png" alt="SPARQ vs actual starter rate — 2021 and 2022 draft classes">
+    <a href="sparq-historical-validation.png" target="_blank" title="Open full size"><img src="sparq-historical-validation.png" alt="SPARQ vs actual starter rate — 2021 and 2022 draft classes"></a>
     <p class="cap">Each dot = one team's draft class (blue=2021, green=2022). r=0.42 across 59 team-class combinations. Tracked picks only; minimum 3 tracked picks per class to appear.</p>
   </div>
 
