@@ -38,14 +38,29 @@ The other first-round pick. Foster had off-field issues that ended his career be
 Kittle is the most important pick of the Lynch era. 145 teams passed on him. His SPARQ score is +0.93, driven by agility and explosion numbers that were exceptional for a tight end — exactly the athletic profile required to run routes like a wide receiver and block like a fullback in Shanahan's wide zone system. He went on to become arguably the best tight end in football, with three All-Pro selections through 2025. Lynch and Shanahan found a player whose testing profile matched the exact demands of what they needed. That's the job.
 
 **CJ Beathard — R3 — z=+0.98**
-Good athlete, never developed as an NFL starter. Career backup.
+Good athlete, never developed as an NFL starter. Career backup. The SPARQ said he could move; the NFL said he couldn't read a defense.
 
 **Ahkello Witherspoon — R3 — z=+0.51**
-Three solid seasons as a starter in San Francisco, then found a longer career with the Steelers and other teams. A serviceable corner, not a star.
+Three solid seasons as a starter in San Francisco, then a longer career with Pittsburgh and others. Serviceable, not a star. The testing was roughly right.
+
+**Joe Williams — R4 — z=+0.36**
+A running back from Utah who never played a regular-season snap. Cut before the season opened. The SPARQ was fine; the player wasn't ready.
+
+**DJ Jones — R6 — z=+0.32**
+The quiet hit of the 2017 class outside of Kittle. Jones was a 3-technique defensive tackle who tested above average and developed into a productive interior lineman. He was disruptive against the run and showed enough pass rush to earn a significant free agent contract with the Raiders in 2021. Lynch found a contributing NFL starter in the sixth round. That's exactly what the late rounds are supposed to do.
+
+**Pita Taumoepenu — R6 — z=+0.22**
+An edge rusher who spent time on the practice squad and had a limited professional career.
+
+**Trent Taylor — R5 — z=-0.72**
+A slot receiver who tested below average but contributed as a chain-mover for the 49ers for several seasons before injuries caught up with him. Another data point for SPARQ having a floor, not a ceiling.
+
+**Adrian Colbert — R7 — z=-0.60**
+A safety who appeared in games for San Francisco and had a journeyman career thereafter.
 
 **Fred Warner — not in this class** (2018)
 
-The 2017 class is Kittle. Everything else is footnotes. That one fifth-round pick — a player with the right SPARQ profile for the right scheme, found after 145 teams passed — is the kind of discovery that defines a front office.
+The 2017 class is Kittle and, to a lesser extent, Jones. Kittle is the superstar find; Jones is the reminder that Lynch has been finding contributing starters in the late rounds from the very first year. Everything else in this class is footnotes.
 
 ---
 
@@ -189,7 +204,7 @@ A receiver who has been on the practice squad and contributed on special teams.
 **Jalen Graham — R7 — z=-0.34**
 A linebacker with below-average testing who has spent time on the practice squad.
 
-The 2023 class is too recent for definitive evaluation — most of these players are in their second and third years. What stands out: every single pick has combine data (7 of 7), which is rare. Lynch drafted players with full profiles. The averages are modest, but the commitment to measurable athletes is evident even in a depth-building class.
+Entering year three, this class has not produced a contributor. Cameron Latu, the highest-round pick, has not broken through as a tight end — year three is typically when TEs either establish themselves or get replaced. None of the other picks have claimed a meaningful role on the active roster. The one thing that stands out in the data: 7 of 7 picks scored, full combine coverage in a depth-building year. Lynch drafted measurable athletes. The development hasn't followed.
 
 ---
 
