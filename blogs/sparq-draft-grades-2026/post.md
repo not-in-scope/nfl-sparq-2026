@@ -159,8 +159,6 @@ What the historical data does show — from 2,340 picks across 2010 to 2020, and
 
 Teams near the top of this list drafted more players who, historically, test like impact starters. Teams near the bottom drafted more players who, historically, test like developmental projects or backups. Film and coaching can move any individual player's outcome. The aggregate numbers don't lie.
 
-Check back in 2029.
-
 ---
 
 **See every prospect's SPARQ score, draft slot, and percentile rank at [not-in-scope.github.io/nfl-sparq/](https://not-in-scope.github.io/nfl-sparq/)**
