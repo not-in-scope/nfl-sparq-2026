@@ -9,7 +9,6 @@
   body { background: #0d0f1a; color: #b8c4e0; font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8; }
   .wrap { max-width: 680px; margin: 0 auto; padding: 40px 24px 120px; }
 
-  /* ── Tab nav ── */
   .tab-nav { display: flex; border-bottom: 1px solid #1a1e30; padding: 0 32px; background: #0d0f1a; }
   .tab-nav a { color: #445566; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.03em; padding: 12px 18px; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s; }
   .tab-nav a:hover { color: #8899bb; }
@@ -29,6 +28,17 @@
   .chart img { width: 100%; border-radius: 4px; display: block; }
   .cap { font-size: 12.5px; color: #445566; font-style: italic; margin-top: 8px; font-family: 'SF Mono', monospace; }
 
+  /* Per-player pick rows */
+  .pick { margin: 18px 0 18px 0; padding-left: 16px; border-left: 2px solid #1e2a40; }
+  .pick-header { font-family: 'SF Mono', monospace; font-size: 12px; color: #445566; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .pick-header .name { color: #c8d4f0; font-weight: 700; font-size: 13px; }
+  .pick-header .z-pos { color: #4a7fd4; }
+  .pick-header .z-neg { color: #c04a4a; }
+  .pick-header .z-mid { color: #c8a040; }
+  .pick p { margin-bottom: 0; font-size: 16px; color: #8899bb; line-height: 1.7; }
+
+  .class-meta { font-family: 'SF Mono', monospace; font-size: 11px; color: #334455; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px; }
+
   .footer { margin-top: 52px; padding-top: 28px; border-top: 1px solid #181d30; }
   .footer a { color: #4a7fd4; text-decoration: none; }
   .footer a:hover { text-decoration: underline; }
@@ -37,11 +47,6 @@
 
   .hero { margin: -40px -24px 52px; }
   .hero img { width: 100%; max-height: 340px; object-fit: cover; object-position: center; display: block; }
-
-  .stat-row { display: flex; gap: 32px; margin: 32px 0; flex-wrap: wrap; }
-  .stat { text-align: center; }
-  .stat-num { font-size: 2rem; font-weight: 900; color: #B3995D; font-family: 'SF Mono', monospace; line-height: 1; }
-  .stat-label { font-size: 11px; color: #445566; font-family: 'SF Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -61,94 +66,324 @@
 
   <h1>Nine Drafts, One Standard: The John Lynch Era by the Numbers</h1>
 
-  <p><em>John Lynch took over as 49ers GM with zero front-office experience. Nine years later, two Super Bowl appearances. Here's what the combine data says about how he built it.</em></p>
+  <p><em>John Lynch took over as 49ers GM with zero front-office experience. Nine years and ten draft classes later, here's what the combine data says about how he built it — and how it held up.</em></p>
 
   <hr>
 
-  <p>John Lynch had never worked in an NFL front office when Kyle Shanahan called him in January 2017. He'd just retired from the Fox Sports broadcast booth. The 49ers had gone 2-14 the previous year. The roster was bare.</p>
+  <p>John Lynch had never worked in an NFL front office when Kyle Shanahan called him in January 2017. He'd just retired from the Fox Sports broadcast booth. The 49ers had gone 2-14 the year before. The roster was essentially bare.</p>
 
-  <p>What happened next — two Super Bowl appearances, three NFC Championship games, and a consistent identity built around athletic football players — is one of the more interesting front-office stories of the modern NFL. We have SPARQ z-scores for every Lynch draft class. Here's what they say.</p>
+  <p>What followed was one of the more interesting roster-building exercises of the modern NFL era. We have SPARQ z-scores for every Lynch draft class from 2017 through 2026. Here's what the data shows, class by class, player by player.</p>
+
+  <p>One framing note: draft classes are lagging indicators. The players selected in 2017 didn't determine what happened in 2017 — they determined what happened in 2020 and 2021, once they'd developed. We're evaluating each class by the players it produced, not by what the team did that season.</p>
 
   <hr>
 
-  <h2>The Year-by-Year Record</h2>
+  <h2>The Picture from Above</h2>
 
   <div class="chart">
     <img src="sf-lynch-era-sparq.png" alt="SF 49ers SPARQ draft grades, Lynch/Shanahan era 2017-2026">
-    <p class="cap">Average SPARQ z-score per draft class, scored picks only. Season record and playoff result shown below each bar. SB = Super Bowl appearance; NFCCG = NFC Championship Game.</p>
+    <p class="cap">Average SPARQ z-score per Lynch-era draft class, scored picks only. Zero = league average at position. Lynch-era average across all ten classes: +0.27.</p>
   </div>
 
-  <p>Eight of ten Lynch-era draft classes have averaged a positive SPARQ z-score. The only exception is 2020 at -0.46, a COVID year with no combine and only five picks — Javon Kinlaw's first-round slot had no data at all. The trend runs clearly upward: the three most recent classes (2024, 2025, 2026) are the most athletically tested of Lynch's tenure.</p>
+  <p>Eight of ten Lynch-era classes averaged a positive SPARQ z-score. The Lynch-era average across all ten classes: <strong>+0.27</strong>. That's a quarter standard deviation above the league mean, sustained over a decade. The trend has moved upward in the last three years: 2024 (+0.64), 2025 (+0.60), and 2026 (+0.82) are the most athletically tested classes Lynch has assembled.</p>
 
-  <p>The overall Lynch-era SPARQ average, weighted equally across all classes: <strong>+0.27</strong>. A full quarter of a standard deviation above the league mean, sustained across a decade of drafts.</p>
-
-  <hr>
-
-  <h2>The Foundation Years: 2017-2018</h2>
-
-  <p>Lynch's first two classes — +0.48 and +0.39 — were the quiet bricklaying of what the 49ers would become.</p>
-
-  <p><strong>2017</strong> produced George Kittle in the fifth round. Kittle's SPARQ z-score is +0.93, driven by explosion and agility numbers that were exceptional for a tight end. Lynch and Shanahan saw a player whose testing profile matched what their wide zone scheme needed. Most teams passed on him 145 times. The 49ers also took Solomon Thomas third overall — z=+2.32, an elite tester who didn't produce as an NFL pass rusher. That tension runs through this entire analysis: athleticism is necessary but not sufficient. Thomas had the profile. He didn't have the right position or the right usage.</p>
-
-  <p><strong>2018</strong> was short on volume — Jimmy Garoppolo tore his ACL in week three and the season collapsed to 4-12 — but the draft produced Fred Warner in the third round. Warner's z-score is +1.00. Four Pro Bowls. One of the two or three best linebackers in the league. You don't find Warner without testing well. His athleticism is what made him viable as a three-down linebacker in a complex scheme.</p>
-
-  <p>The 2017 and 2018 classes are the foundation of every good 49ers team since. Kittle and Warner are still on the roster.</p>
+  <p>The one negative class, 2020 at -0.46, had only five picks and no combine due to COVID. Read that number carefully.</p>
 
   <hr>
 
-  <h2>The Anomaly Years: 2019-2023</h2>
+  <h2>2017 — Building the Foundation</h2>
+  <p class="class-meta">Class avg: +0.48 &nbsp;·&nbsp; 9 of 10 picks scored</p>
 
-  <p>This is where the data gets more complicated — and more interesting.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">Solomon Thomas</span> &nbsp;·&nbsp; R1 #3 overall &nbsp;·&nbsp; DT &nbsp;·&nbsp; <span class="z-pos">z=+2.32</span></p>
+    <p>The second-highest SPARQ score of any Lynch-era pick, and a cautionary tale about what athleticism alone can't tell you. Thomas tested like a freak athlete — elite explosion, elite quickness — but played defensive tackle in a scheme that needed edge-setting 3-techniques, not interior pass rushers. He produced 13 sacks across six professional seasons before retiring. The number was right; the position was wrong.</p>
+  </div>
 
-  <p><strong>2019's class averaged +0.09.</strong> Nick Bosa went second overall with a z-score of +1.01 — the class's standout tester, a generational pass rusher. Deebo Samuel went 36th overall at +0.36. Dre Greenlaw fell to the fifth round at +0.23. On its face, this looks like a mediocre SPARQ class. It produced a 13-3 season and a Super Bowl appearance. The lesson: the average was pulled down by late-round picks, but the top of the class was elite. Bosa and Samuel are both in the top 20% of athletic profiles at their positions. The team's identity was built on those two players for five years.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">Reuben Foster</span> &nbsp;·&nbsp; R1 #31 overall &nbsp;·&nbsp; LB &nbsp;·&nbsp; no combine data</p>
+    <p>Off-field issues ended his career before it started. No SPARQ score. The story ends there.</p>
+  </div>
 
-  <p><strong>2020 is the one negative data point</strong> at -0.46. Brandon Aiyuk came out at +0.23. Javon Kinlaw had no combine due to COVID. The season was 6-10, gutted by injuries. Whether the testing profiles caused this or the injuries did is impossible to separate.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">George Kittle</span> &nbsp;·&nbsp; R5 #146 overall &nbsp;·&nbsp; TE &nbsp;·&nbsp; <span class="z-pos">z=+0.93</span></p>
+    <p>The most important pick of the Lynch era. 145 teams passed on him. His SPARQ is +0.93 — exceptional for a tight end, driven by agility and explosion numbers that reflect the exact profile required to run routes like a wide receiver and block like a fullback in Shanahan's wide zone system. Three All-Pro selections. Arguably the best tight end in football at his peak. Lynch and Shanahan found a player whose testing matched the exact demands of what they needed. That's the job.</p>
+  </div>
 
-  <p><strong>2021, 2022, and 2023</strong> averaged +0.18, +0.08, and +0.13 respectively — three quiet years in which SF went to the NFC Championship twice and the Super Bowl once. How? By 2021, the foundation players from 2017-2019 were in their prime: Kittle, Warner, Bosa, Samuel, Aiyuk. A team doesn't need elite athletes in every class when it's already built. And then Brock Purdy happened.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">CJ Beathard</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; QB &nbsp;·&nbsp; z=+0.98</p>
+    <p>Good athlete, never developed as an NFL starter. Career backup. SPARQ doesn't predict quarterback outcomes.</p>
+  </div>
 
-  <hr>
+  <div class="pick">
+    <p class="pick-header"><span class="name">Ahkello Witherspoon</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; CB &nbsp;·&nbsp; <span class="z-mid">z=+0.51</span></p>
+    <p>Three solid seasons as a starter in San Francisco, then a longer career with Pittsburgh and others. Serviceable starter, not a star. The testing was roughly right.</p>
+  </div>
 
-  <h2>The Purdy Exception</h2>
-
-  <p>Brock Purdy was the 262nd pick of the 2022 draft. Mr. Irrelevant. His SPARQ z-score is -0.05. By our primary metric, he tests as below average among quarterbacks who make it to the combine.</p>
-
-  <p>He has been the best quarterback in the NFL for stretches of the last three seasons.</p>
-
-  <p>This is not a contradiction of the SPARQ thesis — it's a limitation of it. SPARQ measures physical attributes that predict NFL success across most positions: speed, explosion, agility, strength. For quarterbacks, what matters most is processing speed, pocket management, and accuracy under pressure. None of those are captured by the combine. The historical SPARQ correlation with QB success is dramatically lower than for skill positions and defensive line.</p>
-
-  <p>Lynch found an outlier. The data can't explain it. The argument isn't that SPARQ explains everything — it's that it explains more than people think, and it's particularly useful for every position that isn't quarterback.</p>
-
-  <hr>
-
-  <h2>The Reset: 2024-2026</h2>
-
-  <p>The 49ers went 6-11 in 2024. Injuries to Samuel, Aiyuk, and Bosa, plus a difficult year from Purdy, collapsed a team that was a point from winning Super Bowl LVIII.</p>
-
-  <p>The response in the draft room has been unmistakable.</p>
-
-  <p><strong>2024</strong> averaged +0.64 — the best Lynch class in seven years. Ricky Pearsall (R1, +0.97), Isaac Guerendo (R4, +1.58), and Malik Mustapha (R4, +1.37) give that class three players in the top quartile of athletic profiles at their positions. All eight scored picks have data.</p>
-
-  <p><strong>2025</strong> came in at +0.60, led by Nick Martin (R3, +1.48) and CJ West (R4, +1.30). Mykel Williams, the R1 edge rusher, had no combine data — if his pro-day numbers hold, the class average climbs further.</p>
-
-  <p><strong>2026 is the highest-SPARQ class Lynch has ever assembled: +0.82.</strong> Eight picks, eight with data — zero missing. Romello Height at +1.20, Kaelon Black at +1.41, Gracen Halton at +1.18. The 49ers drafted as if they're done rebuilding and ready to load up.</p>
+  <p>The 2017 class is Kittle. Everything else is footnotes. One fifth-round pick, found after 145 teams passed, built around the right testing profile for the right scheme — that's what defines this front office.</p>
 
   <hr>
 
-  <h2>What the Pattern Tells You</h2>
+  <h2>2018 — The Quiet Class</h2>
+  <p class="class-meta">Class avg: +0.39 &nbsp;·&nbsp; 6 of 9 picks scored</p>
 
-  <p>The Lynch era doesn't tell a simple story of SPARQ = wins. It's more nuanced than that.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">Mike McGlinchey</span> &nbsp;·&nbsp; R1 #9 overall &nbsp;·&nbsp; OT &nbsp;·&nbsp; <span class="z-mid">z=+0.44</span></p>
+    <p>A solid, reliable NFL starting tackle for six seasons. Durable, consistent, not elite. Hit free agency and signed a large deal in Denver. Above average by SPARQ; above average by outcome.</p>
+  </div>
 
-  <p>What it shows: Lynch has been consistently willing to draft athletic players at every position except quarterback, where the metric doesn't apply. The foundation players — Kittle, Warner, Bosa — are all legitimate athletic standouts who tested in the top 20-30% at their positions. The draft busts — Thomas, Lance — were either poor fits for the scheme or undone by injury, not lack of athleticism. The one great outlier (Purdy) is at the one position where SPARQ doesn't predict outcomes.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">Dante Pettis</span> &nbsp;·&nbsp; R2 &nbsp;·&nbsp; WR &nbsp;·&nbsp; no combine data</p>
+    <p>Taken 44th overall, out of the league in three years. A bust at a premium pick with no data to evaluate athletically.</p>
+  </div>
 
-  <p>The 2024-2026 run of +0.64, +0.60, and +0.82 classes suggests Lynch is building again the way he built the 2019-era team: athletically, with depth, without cutting corners. The 2017 and 2018 classes turned into a Super Bowl run by year three. The historical validation we ran on the 2021-2022 classes showed an r=0.42 correlation between team SPARQ average at draft time and starter rate three years later.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">Fred Warner</span> &nbsp;·&nbsp; R3 #70 overall &nbsp;·&nbsp; LB &nbsp;·&nbsp; <span class="z-pos">z=+1.00</span></p>
+    <p>Warner's SPARQ of +1.00 reflects elite athleticism for a linebacker: the speed to run sideline-to-sideline, the explosiveness to blitz, the agility to cover running backs in space. Shanahan's scheme demands every one of those things from every down linebacker. Warner became one of the best at the position in the NFL — four Pro Bowls, consistent All-Pro consideration. Lynch found him in the third round because almost everyone else underestimated what his athleticism could do in the right system.</p>
+  </div>
 
-  <p>San Francisco, built on this standard for nine years, is the clearest long-form case study in why that number matters.</p>
+  <div class="pick">
+    <p class="pick-header"><span class="name">Tarvarius Moore</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; S &nbsp;·&nbsp; <span class="z-mid">z=+0.55</span></p>
+    <p>Above-average tester at safety. Spent most of his career on special teams. The athleticism was there; the position development wasn't.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">DJ Reed</span> &nbsp;·&nbsp; R5 &nbsp;·&nbsp; CB &nbsp;·&nbsp; <span class="z-neg">z=-0.23</span></p>
+    <p>Below average by SPARQ, released by San Francisco, developed into a Pro Bowl-caliber corner with Seattle and the Jets. The testing suggested limited upside; the outcome proved otherwise. Reed is the legitimate counterexample in this class — and a miss by the 49ers in that they didn't develop him.</p>
+  </div>
+
+  <p>The 2018 class is Warner. He and Kittle are the connective tissue of the Lynch era — both third-round picks, both high SPARQ for their position, both franchise cornerstones.</p>
+
+  <hr>
+
+  <h2>2019 — Stars at the Top, Noise at the Bottom</h2>
+  <p class="class-meta">Class avg: +0.09 &nbsp;·&nbsp; 7 of 8 picks scored</p>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Nick Bosa</span> &nbsp;·&nbsp; R1 #2 overall &nbsp;·&nbsp; EDGE &nbsp;·&nbsp; <span class="z-pos">z=+1.01</span></p>
+    <p>The best defensive player Lynch has drafted. Bosa's SPARQ of +1.01 reflects genuine elite athleticism for an edge rusher — the explosion and quickness to win with a first step, the strength to convert speed to power. He came out after one college season at Ohio State due to a core muscle injury. Defensive Player of the Year in 2022. One of the best pass rushers in the league in every healthy season he's played.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Deebo Samuel</span> &nbsp;·&nbsp; R2 #36 overall &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-mid">z=+0.36</span></p>
+    <p>Above average but not exceptional by SPARQ — roughly the 60th percentile for wide receivers. What the combine doesn't capture is his physicality after contact and his ability to function as a running back in the open field. An All-Pro in 2021. The testing identified an above-average athlete; the scheme unlocked a weapon.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Dre Greenlaw</span> &nbsp;·&nbsp; R5 &nbsp;·&nbsp; LB &nbsp;·&nbsp; <span class="z-mid">z=+0.23</span></p>
+    <p>Fell to the fifth round out of Arkansas. Slightly above average athletically. Became a starting ILB who graded well in coverage for several seasons before a torn Achilles in 2024. A fifth-round find who gave SF real starter value for four years.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Jalen Hurd</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-mid">z=+0.25</span></p>
+    <p>Taken as a converted receiver from Tennessee. Never played a regular-season snap due to injuries. Zero return on a third-round pick.</p>
+  </div>
+
+  <p>The +0.09 average is misleading. Two elite testers in the top 40 picks (Bosa and Samuel), both franchise cornerstones. The rest of the class is late-round noise pulling the average down. The shape of the 2019 class — not its average — is what Lynch was actually doing.</p>
+
+  <hr>
+
+  <h2>2020 — The Outlier Year</h2>
+  <p class="class-meta">Class avg: -0.46 &nbsp;·&nbsp; 4 of 5 picks scored &nbsp;·&nbsp; No combine (COVID)</p>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Brandon Aiyuk</span> &nbsp;·&nbsp; R1 #25 overall &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-mid">z=+0.23</span></p>
+    <p>Above average athletically for a wide receiver. He developed slowly in his first two seasons, then broke out into All-Pro-caliber production by 2022-2023. A contract dispute and trade request clouded 2024, but his on-field talent is not in question. A legitimate hit on the pick — a player whose athleticism translated to elite route running and yards-after-catch production.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Javon Kinlaw</span> &nbsp;·&nbsp; R1 #14 overall &nbsp;·&nbsp; DT &nbsp;·&nbsp; no combine data</p>
+    <p>No combine due to COVID. Multiple knee surgeries ended his career before it began. He never became an NFL factor. The 2020 class lost both first-round picks in terms of real-world value.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Jauan Jennings</span> &nbsp;·&nbsp; R7 &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-neg">z=-1.16</span></p>
+    <p>Significantly below average by SPARQ. He became a low-key contributor who started games for the 49ers in 2023-2024. Low athleticism, high football IQ. He's the exception that proves the rule — and proof that SPARQ has a floor, not a ceiling, as a predictor.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Colton McKivitz</span> &nbsp;·&nbsp; R5 &nbsp;·&nbsp; OT &nbsp;·&nbsp; <span class="z-neg">z=-1.32</span></p>
+    <p>Below average for an offensive tackle. Has been a backup and spot starter for SF across four seasons. The testing was right.</p>
+  </div>
+
+  <p>The 2020 class produced Aiyuk, who is a legitimate impact player. Kinlaw was a first-round miss. The class's negative SPARQ average is a COVID artifact as much as anything else — no combine, limited data, a compressed evaluation window.</p>
+
+  <hr>
+
+  <h2>2021 — The Lance Class</h2>
+  <p class="class-meta">Class avg: +0.18 &nbsp;·&nbsp; 6 of 7 picks scored</p>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Trey Lance</span> &nbsp;·&nbsp; R1 #3 overall &nbsp;·&nbsp; QB &nbsp;·&nbsp; no combine data</p>
+    <p>The defining pick of this class — a quarterback taken third overall via trade-up, for whom we have no combine data. Lance played three games as a starter before a broken ankle in 2022, was traded to Dallas in 2024, and released. The Lance pick was a bet on arm talent and mobility that didn't pan out. SPARQ doesn't apply to quarterbacks; the outcome was a failure on every other dimension too.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Elijah Mitchell</span> &nbsp;·&nbsp; R6 &nbsp;·&nbsp; RB &nbsp;·&nbsp; <span class="z-pos">z=+0.92</span></p>
+    <p>The hidden gem of the 2021 class. Mitchell fell to the sixth round despite testing in the 87th percentile of running backs by SPARQ. He became the 49ers' lead back in 2021 and rushed for 963 yards. Injuries — shoulder, knee, finger — have derailed his availability since, but when healthy the athleticism has shown up exactly as the testing predicted. This is the Kittle pattern: an athlete with the right profile, available late because of a positional discount or other circumstance.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Talanoa Hufanga</span> &nbsp;·&nbsp; R5 &nbsp;·&nbsp; S &nbsp;·&nbsp; <span class="z-neg">z=-0.35</span></p>
+    <p>The most interesting data point in the Lynch era. Hufanga tested below average at safety, which explains why he was available in the fifth round. He was a Pro Bowl selection in 2022. He's an instinctive, physical safety whose football IQ and scheme understanding made him an impact player that the combine couldn't measure. A torn ACL in 2023 interrupted his arc. Hufanga is the legitimate counterexample to lead with when arguing SPARQ has limits — which it does.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Deommodore Lenoir</span> &nbsp;·&nbsp; R5 &nbsp;·&nbsp; CB &nbsp;·&nbsp; <span class="z-neg">z=-0.39</span></p>
+    <p>Another below-average SPARQ score, another fifth-round pick, another player who became a reliable starting cornerback. Lenoir has developed into a technically sound, football-smart corner who has started consistently for San Francisco. Same story as Hufanga: the combine didn't capture what he brought.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Trey Sermon</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; RB &nbsp;·&nbsp; <span class="z-mid">z=+0.59</span></p>
+    <p>Good SPARQ. Gone in a year. Never got consistent opportunity and was cut. Running back depth in the NFL is volatile.</p>
+  </div>
+
+  <p>The 2021 class is a split story. The big-ticket pick (Lance) was a disaster. The back half — Mitchell, Hufanga, Lenoir — produced real contributors. Two of those three tested below average by SPARQ and became starters. A single class can contain both the thesis and the counterexample.</p>
+
+  <hr>
+
+  <h2>2022 — Thin by Design</h2>
+  <p class="class-meta">Class avg: +0.08 &nbsp;·&nbsp; 5 of 8 picks scored</p>
+
+  <p>San Francisco traded away significant future capital to move up for Lance in 2021, which limited what they could do in 2022. Five scored picks out of eight, none of them particularly high-upside athletes outside of one position SPARQ doesn't predict.</p>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Drake Jackson</span> &nbsp;·&nbsp; R2 &nbsp;·&nbsp; EDGE &nbsp;·&nbsp; no combine data</p>
+    <p>An edge rusher with no data in our system. Limited pass rush production across his first three professional seasons.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Tyrion Davis-Price</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; RB &nbsp;·&nbsp; <span class="z-mid">z=+0.03</span></p>
+    <p>Average by SPARQ. Released after two seasons and hasn't found an NFL home since.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Danny Gray</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-neg">z=-0.06</span></p>
+    <p>A speed receiver who tested below average. Limited opportunity and production.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Nick Zakelj</span> &nbsp;·&nbsp; R6 &nbsp;·&nbsp; OT &nbsp;·&nbsp; <span class="z-mid">z=+0.56</span></p>
+    <p>A backup offensive tackle with above-average athleticism who has held a roster spot and occasionally started. The floor pick doing what it's supposed to do.</p>
+  </div>
+
+  <p>The 2022 class is the thinnest of the Lynch era by data and by production. It's the direct cost of the Lance trade — fewer picks, less flexibility. The one significant player from this class plays a position SPARQ doesn't predict.</p>
+
+  <hr>
+
+  <h2>2023 — Rebuilding the Depth Chart</h2>
+  <p class="class-meta">Class avg: +0.13 &nbsp;·&nbsp; 7 of 7 picks scored</p>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Cameron Latu</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; TE &nbsp;·&nbsp; <span class="z-neg">z=-0.39</span></p>
+    <p>A tight end from Alabama with below-average SPARQ. Limited role in the 49ers offense through his first two seasons. The testing suggested developmental upside over immediate production; the on-field results have matched.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Darrell Luter</span> &nbsp;·&nbsp; R5 &nbsp;·&nbsp; CB &nbsp;·&nbsp; <span class="z-mid">z=+0.17</span></p>
+    <p>Tested above average and has spent most of his time on injured reserve. The athleticism is there; the availability hasn't been.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Robert Beal</span> &nbsp;·&nbsp; R5 &nbsp;·&nbsp; EDGE &nbsp;·&nbsp; <span class="z-mid">z=+0.14</span></p>
+    <p>An edge rusher with above-average testing and limited NFL production through two seasons.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Brayden Willis</span> &nbsp;·&nbsp; R7 &nbsp;·&nbsp; TE &nbsp;·&nbsp; <span class="z-mid">z=+0.78</span></p>
+    <p>Tested well for a tight end at the bottom of the draft. Has appeared as a blocking TE in the 49ers' offense. A developmental piece with a real athletic profile.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Dee Winters</span> &nbsp;·&nbsp; R6 &nbsp;·&nbsp; LB &nbsp;·&nbsp; <span class="z-mid">z=+0.42</span></p>
+    <p>Above-average athleticism at linebacker. Has contributed on special teams.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Ronnie Bell</span> &nbsp;·&nbsp; R7 &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-mid">z=+0.10</span></p>
+    <p>Average athleticism, practice squad and special teams role.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Jalen Graham</span> &nbsp;·&nbsp; R7 &nbsp;·&nbsp; LB &nbsp;·&nbsp; <span class="z-neg">z=-0.34</span></p>
+    <p>Below-average testing, developmental linebacker.</p>
+  </div>
+
+  <p>The 2023 class is too recent for definitive evaluation. What stands out in the data: 7 of 7 picks scored — full combine coverage across every selection. Lynch drafted players with complete athletic profiles even in a depth-building year. The averages are modest; the commitment to measurable athletes is not.</p>
+
+  <hr>
+
+  <h2>2024 — The High-Water Mark</h2>
+  <p class="class-meta">Class avg: +0.64 &nbsp;·&nbsp; 8 of 8 picks scored</p>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Ricky Pearsall</span> &nbsp;·&nbsp; R1 #31 overall &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-pos">z=+0.97</span></p>
+    <p>A wide receiver in the top 20% of the position athletically. His rookie season was derailed by a preseason shooting incident and subsequent recovery, limiting him to nine games. The athleticism is genuine; the career arc is unwritten.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Isaac Guerendo</span> &nbsp;·&nbsp; R4 &nbsp;·&nbsp; RB &nbsp;·&nbsp; <span class="z-pos">z=+1.58</span></p>
+    <p>91st percentile athletically at running back. Showed real burst as a rookie and is positioned to compete for carries. High-SPARQ backs who fall to the fourth round usually do so because of injury history or limited college usage. Worth tracking closely — this is the Mitchell pattern potentially repeating.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Malik Mustapha</span> &nbsp;·&nbsp; R4 &nbsp;·&nbsp; S &nbsp;·&nbsp; <span class="z-pos">z=+1.37</span></p>
+    <p>A safety from Wake Forest testing in the 88th percentile at the position. Rangy, explosive — exactly the athletic profile Lynch has targeted at safety and linebacker throughout the era.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Dominick Puni</span> &nbsp;·&nbsp; R3 &nbsp;·&nbsp; OG &nbsp;·&nbsp; <span class="z-mid">z=+0.60</span></p>
+    <p>Above-average athleticism for an interior lineman. Started games as a rookie and is showing early promise.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Jarrett Kingston</span> &nbsp;·&nbsp; R6 &nbsp;·&nbsp; OG &nbsp;·&nbsp; <span class="z-pos">z=+1.58</span></p>
+    <p>Tied with Guerendo for the highest SPARQ in the class, in the sixth round. An offensive lineman who tested explosively and is developing on the practice squad. High athleticism at OL in the late rounds is an underrated development asset.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Renardo Green</span> &nbsp;·&nbsp; R2 &nbsp;·&nbsp; CB &nbsp;·&nbsp; <span class="z-mid">z=-0.01</span></p>
+    <p>Tested at almost exactly average. Limited rookie-year snaps. Too early to evaluate.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Jacob Cowing</span> &nbsp;·&nbsp; R4 &nbsp;·&nbsp; WR &nbsp;·&nbsp; <span class="z-neg">z=-0.40</span></p>
+    <p>A slot receiver who tested below average. Limited opportunity so far.</p>
+  </div>
+
+  <div class="pick">
+    <p class="pick-header"><span class="name">Tatum Bethune</span> &nbsp;·&nbsp; R7 &nbsp;·&nbsp; LB &nbsp;·&nbsp; <span class="z-neg">z=-0.59</span></p>
+    <p>Below-average testing, developmental linebacker role.</p>
+  </div>
+
+  <p>Eight picks, eight data points, three of them in the top 10-15% of their positions athletically. This is what deliberate drafting looks like.</p>
+
+  <hr>
+
+  <h2>2025 and 2026 — The Reload</h2>
+
+  <p><strong>2025</strong> averaged +0.60 across seven scored picks out of ten total. Mykel Williams, the first-round edge rusher, had no combine data due to injury — if his pro-day numbers hold, the average climbs. Nick Martin (R3, z=+1.48) and CJ West (R4, z=+1.30) are the class's standout testers.</p>
+
+  <p><strong>2026</strong> is the highest-SPARQ class Lynch has ever assembled: <strong>+0.82</strong> across all eight picks, with zero missing data. Romello Height (R3, +1.20), Kaelon Black (R3, +1.41), Gracen Halton (R4, +1.18), and Enrique Cruz Jr. (R5, +1.76) are all in the top 20-30% of their positions athletically. The 49ers drafted a complete class with every combine metric in hand, and they picked athletes up and down the board. That is deliberate.</p>
+
+  <hr>
+
+  <h2>The Pattern</h2>
+
+  <p>Ten years in, a few things are clear.</p>
+
+  <p>Lynch has consistently found high-SPARQ players who fit the Shanahan scheme at positions that reward athleticism: tight end, linebacker, pass rusher, safety. Kittle (+0.93), Warner (+1.00), Bosa (+1.01), Mitchell (+0.92 when healthy), Martin (+1.48). The athletic profile Lynch targets at these positions is real and repeatable.</p>
+
+  <p>He has also had high-SPARQ picks that didn't work — Thomas (+2.32) because of position fit, Sermon (+0.59) because of opportunity. SPARQ identifies athleticism; it doesn't guarantee outcomes. What Lynch has done is make athleticism a consistent entry requirement, not a guarantee of selection.</p>
+
+  <p>The genuine counterexamples — Hufanga (-0.35), Lenoir (-0.39), Jennings (-1.16) — are real. The Lynch era is not a pure athleticism story. Late-round picks are always developmental and often selected on film rather than testing. What the SPARQ data shows is that the top of Lynch's boards — the picks expected to become starters — have tested well with high consistency. The late rounds are where the exceptions live, and that's true across the entire NFL.</p>
+
+  <p>The 2024-2026 classes represent something new: an attempt to combine high SPARQ averages with complete data coverage. Zero missing picks in 2026 is a statement. Lynch has drafted complete classes before, but never at this athleticism level. Whether those classes follow the Kittle/Warner/Bosa pattern or the Thomas/Lance pattern is what the next three years will answer.</p>
 
   <div class="footer">
     <p>See every prospect's SPARQ score, draft slot, and percentile rank at <a href="https://not-in-scope.github.io/nfl-sparq/">not-in-scope.github.io/nfl-sparq/</a></p>
   </div>
 
-  <p class="small">Data: SPARQ z-scores from BigBoardLab, MockDraftable, and PFF pro day tracking. All 2017-2026 SF draft classes. Lynch-era average (+0.27) weighted equally across all ten classes. SPARQ is not predictive for quarterbacks; Purdy's score is included for completeness only. Season records reflect regular season only.</p>
+  <p class="small">Data: SPARQ z-scores from BigBoardLab, MockDraftable, and PFF pro day tracking. All 2017-2026 SF draft classes. Lynch-era average (+0.27) weighted equally across all ten classes. Player career summaries reflect performance through the 2024 NFL season. SPARQ is not predictive for quarterbacks.</p>
 
 </div>
 </body>

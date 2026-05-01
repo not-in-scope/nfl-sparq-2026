@@ -24,34 +24,22 @@ SF_GOLD = '#B3995D'
 # ── SPARQ data (precomputed) ───────────────────────────────────────────────────
 classes = [
     # year, avg_z, n_scored, n_total, key_picks, season_record, playoff_result
-    (2017, +0.48, 9, 10, ['G. Kittle R5', 'S. Thomas R1 (+2.32)', 'C.J. Beathard R3'],
-     '6-10', None),
-    (2018, +0.39, 6,  9, ['F. Warner R3 (+1.00)', 'M. McGlinchey R1', 'D. Pettis R2'],
-     '4-12', None),
-    (2019, +0.09, 7,  8, ['N. Bosa R1 (+1.01)', 'D. Samuel R2', 'D. Greenlaw R5'],
-     '13-3', 'Super Bowl'),
-    (2020, -0.46, 4,  5, ['B. Aiyuk R1 (+0.23)', 'J. Kinlaw R1', 'J. Jennings R7'],
-     '6-10', None),
-    (2021, +0.18, 6,  7, ['T. Lance R1', 'T. Hufanga R5', 'E. Mitchell R6 (+0.92)'],
-     '10-7', 'NFC Champ'),
-    (2022, +0.08, 5,  8, ['B. Purdy R7 (-0.05)', 'D. Jackson R2', 'D. Davis-Price R3'],
-     '13-4', 'NFC Champ'),
-    (2023, +0.13, 7,  7, ['C. Latu R3', 'D. Luter R5', 'B. Willis R7 (+0.78)'],
-     '12-5', 'Super Bowl'),
-    (2024, +0.64, 8,  8, ['R. Pearsall R1 (+0.97)', 'I. Guerendo R4 (+1.58)', 'M. Mustapha R4 (+1.37)'],
-     '6-11', None),
-    (2025, +0.60, 7, 10, ['M. Williams R1', 'N. Martin R3 (+1.48)', 'C.J. West R4 (+1.30)'],
-     'TBD', None),
-    (2026, +0.82, 8,  8, ['R. Height R3 (+1.20)', 'K. Black R3 (+1.41)', 'G. Halton R4 (+1.18)'],
-     'TBD', None),
+    (2017, +0.48, 9, 10, 'Kittle R5 / S. Thomas R1'),
+    (2018, +0.39, 6,  9, 'F. Warner R3 / McGlinchey R1'),
+    (2019, +0.09, 7,  8, 'Bosa R1 / D. Samuel R2'),
+    (2020, -0.46, 4,  5, 'Aiyuk R1 / Kinlaw R1'),
+    (2021, +0.18, 6,  7, 'T. Lance R1 / Hufanga R5'),
+    (2022, +0.08, 5,  8, 'D. Jackson R2 / Purdy R7'),
+    (2023, +0.13, 7,  7, 'Cam Latu R3 / R. Beal R5'),
+    (2024, +0.64, 8,  8, 'Pearsall R1 / Guerendo R4'),
+    (2025, +0.60, 7, 10, 'M. Williams R1 / N. Martin R3'),
+    (2026, +0.82, 8,  8, 'Height R3 / K. Black R3'),
 ]
 
 years    = [c[0] for c in classes]
 avgs     = [c[1] for c in classes]
 n_scored = [c[2] for c in classes]
 n_total  = [c[3] for c in classes]
-records  = [c[5] for c in classes]
-playoffs = [c[6] for c in classes]
 
 # ── Bar colors: good (>= 0.40) = SF red; decent (0.10-0.39) = muted; low = dim
 def bar_color(z):
@@ -100,29 +88,10 @@ for i, (avg, n_s, n_t, bar) in enumerate(zip(avgs, n_scored, n_total, bars)):
             ha='center', va='center', fontsize=7, color='white', alpha=0.5,
             fontfamily='monospace', zorder=5)
 
-# Season record + playoff badges
-for i, (rec, po) in enumerate(zip(records, playoffs)):
-    y_badge = -0.62
-    ax.text(x[i], y_badge, rec,
-            ha='center', va='top', fontsize=8, color=TEXT_C,
-            fontfamily='monospace', zorder=5)
-    if po == 'Super Bowl':
-        ax.text(x[i], -0.78, 'SB', ha='center', va='top',
-                fontsize=7.5, color=SF_GOLD, fontweight='900',
-                fontfamily='monospace', zorder=5)
-    elif po == 'NFC Champ':
-        ax.text(x[i], -0.78, 'NFCCG', ha='center', va='top',
-                fontsize=7, color='#7abf9e', fontweight='700',
-                fontfamily='monospace', zorder=5)
-
-# Key pick annotations (one notable name per year)
-key_picks_display = [
-    'Kittle R5', 'F. Warner R3', 'Bosa / Samuel', 'Aiyuk / Kinlaw',
-    'Trey Lance R1', 'Brock Purdy R7', 'Cam Latu R3', 'Pearsall / Guerendo',
-    'Mykel Williams R1', 'Height / K. Black R3'
-]
-for i, label in enumerate(key_picks_display):
-    ypos = avgs[i] + 0.16 if avgs[i] >= 0 else avgs[i] - 0.18
+# Key pick annotations above/below bars
+key_labels = [c[4] for c in classes]
+for i, label in enumerate(key_labels):
+    ypos = avgs[i] + 0.14 if avgs[i] >= 0 else avgs[i] - 0.16
     va = 'bottom' if avgs[i] >= 0 else 'top'
     ax.text(x[i], ypos, label, ha='center', va=va,
             fontsize=7.5, color=TEXT_C, alpha=0.75,
@@ -133,14 +102,14 @@ ax.set_xticklabels([str(y) for y in years], color=LABEL_C, fontsize=10.5,
                    fontfamily='monospace', fontweight='700')
 ax.set_ylabel('Avg SPARQ z-score (scored picks only)',
               color=TEXT_C, fontsize=10, labelpad=10)
-ax.set_ylim(-0.95, 1.45)
+ax.set_ylim(-0.75, 1.35)
 ax.set_title(
     'SF 49ers SPARQ draft grades, Lynch/Shanahan era   (2017-2026)',
     color=LABEL_C, fontsize=12, pad=14, loc='left')
 
 # Legend note
 ax.text(0.99, 0.98,
-        'SB = Super Bowl appearance   NFCCG = NFC Championship',
+        'n=scored/total picks   zero line = league average',
         transform=ax.transAxes, ha='right', va='top',
         fontsize=8, color=TEXT_C, alpha=0.55, style='italic')
 
